@@ -30,7 +30,7 @@ endif()
 
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
 add_executable(ProjGeomTests ${sources})
-target_link_libraries(ProjGeomTests doctest::doctest ProjGeom::ProjGeom)
+target_link_libraries(ProjGeomTests doctest::doctest ProjGeom::ProjGeom Boost::boost)
 set_target_properties(ProjGeomTests PROPERTIES CXX_STANDARD 20)
 
 # enable compiler warnings

@@ -46,8 +46,8 @@ auto main(int argc, char** argv) -> int {
         return 1;
     }
 
-    projgeom::ProjGeom projgeom(name);
-    std::cout << projgeom.greet(langIt->second) << std::endl;
+    // projgeom::ProjGeom projgeom(name);
+    // std::cout << projgeom.greet(langIt->second) << std::endl;
 
     return 0;
 }

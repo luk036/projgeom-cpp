@@ -4,8 +4,7 @@
 
 class LA;
 
-class PA
-{
+class PA {
   public:
     using dual = LA;
     using value_type = long;
@@ -22,18 +21,11 @@ class PA
 
     friend auto operator==(PA const&, PA const&) -> bool = default;
     [[nodiscard]] static auto aux() -> LA;
-    [[nodiscard]] static auto dot(LA const& /*unused*/) -> value_type
-    {
-        return {};
-    }
-    auto operator[](size_t /*unused*/) const -> value_type
-    {
-        return {};
-    }
+    [[nodiscard]] static auto dot(LA const& /*unused*/) -> value_type { return {}; }
+    auto operator[](size_t /*unused*/) const -> value_type { return {}; }
 };
 
-class LA
-{
+class LA {
   public:
     using dual = PA;
     using value_type = long;
@@ -49,14 +41,8 @@ class LA
     friend void operator,(LA const&, LA const&) = delete;
     friend auto operator==(LA const&, LA const&) -> bool = default;
     [[nodiscard]] static auto aux() -> PA;
-    [[nodiscard]] static auto dot(PA const& /*unused*/) -> value_type
-    {
-        return {};
-    }
-    auto operator[](size_t /*unused*/) const -> value_type
-    {
-        return {};
-    }
+    [[nodiscard]] static auto dot(PA const& /*unused*/) -> value_type { return {}; }
+    auto operator[](size_t /*unused*/) const -> value_type { return {}; }
 };
 
 // struct RsltP
@@ -77,7 +63,6 @@ class LA
 //     friend void operator,(RsltP, RsltP) = delete;
 // };
 
-
 // struct RsltL
 // {
 //     operator LA() const
@@ -96,40 +81,20 @@ class LA
 //     friend void operator,(RsltL, RsltL) = delete;
 // };
 
-inline auto operator*(PA const& /*unused*/, PA const& /*unused*/) -> LA
-{
-    return LA {};
+inline auto operator*(PA const& /*unused*/, PA const& /*unused*/) -> LA { return LA{}; }
+inline auto operator*(LA const& /*unused*/, LA const& /*unused*/) -> PA { return PA{}; }
+inline auto PA::aux() -> LA { return LA{}; }
+inline auto LA::aux() -> PA { return PA{}; }
+inline auto plucker(const int& /*unused*/, const PA& /*unused*/, const int& /*unused*/,
+                    const PA& /*unused*/) -> PA {
+    return PA{};
 }
-inline auto operator*(LA const& /*unused*/, LA const& /*unused*/) -> PA
-{
-    return PA {};
+inline auto plucker(const int& /*unused*/, const LA& /*unused*/, const int& /*unused*/,
+                    const LA& /*unused*/) -> LA {
+    return LA{};
 }
-inline auto PA::aux() -> LA
-{
-    return LA {};
-}
-inline auto LA::aux() -> PA
-{
-    return PA {};
-}
-inline auto plucker(const int& /*unused*/, const PA& /*unused*/,
-    const int& /*unused*/, const PA& /*unused*/) -> PA
-{
-    return PA {};
-}
-inline auto plucker(const int& /*unused*/, const LA& /*unused*/,
-    const int& /*unused*/, const LA& /*unused*/) -> LA
-{
-    return LA {};
-}
-inline auto incident(const PA& /*unused*/, const LA& /*unused*/) -> bool
-{
-    return true;
-}
-inline auto incident(const LA& /*unused*/, const PA& /*unused*/) -> bool
-{
-    return true;
-}
+inline auto incident(const PA& /*unused*/, const LA& /*unused*/) -> bool { return true; }
+inline auto incident(const LA& /*unused*/, const PA& /*unused*/) -> bool { return true; }
 
 using namespace fun;
 using PArchetype = PA;
@@ -137,8 +102,7 @@ using LArchetype = LA;
 static_assert(Projective_plane_coord<PArchetype, LArchetype>);
 static_assert(Projective_plane_coord<LArchetype, PArchetype>);
 
-inline void test_concept_usage(PArchetype p, LArchetype l)
-{
+inline void test_concept_usage(PArchetype p, LArchetype l) {
     coincident(p * p, p);
     coincident(l * l, l);
     harm_conj(p, p, p);

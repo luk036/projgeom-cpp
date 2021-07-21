@@ -1,21 +1,22 @@
 /*
  *  Distributed under the MIT License (See accompanying file /LICENSE )
  */
+#include <doctest/doctest.h>
+
+#include <complex>
+
 #include "projgeom/pg_line.hpp"
 #include "projgeom/pg_point.hpp"
 #include "projgeom/proj_plane.hpp"
-#include <complex>
-#include <doctest/doctest.h>
 // #include <iostream>
 
 using namespace fun;
 
-TEST_CASE("Projective Point")
-{
+TEST_CASE("Projective Point") {
     using namespace std::literals;
 
-    auto p = pg_point {1. - 2i, 3. - 1i, 2. + 1i}; // complex number
-    auto q = pg_point {-2. + 1i, 1. - 3i, -1. - 1i};
+    auto p = pg_point{1. - 2i, 3. - 1i, 2. + 1i};  // complex number
+    auto q = pg_point{-2. + 1i, 1. - 3i, -1. - 1i};
     auto l = p * q;
 
     // std::cout << l << '\n';
@@ -39,12 +40,11 @@ TEST_CASE("Projective Point")
     // check_desargue(std::tuple{p, q, r}, std::tuple{s, t, u});
 }
 
-TEST_CASE("Projective Line")
-{
+TEST_CASE("Projective Line") {
     using namespace std::complex_literals;
 
-    auto l = pg_line {1. - 2i, 3. - 1i, 2. + 1i}; // complex number
-    auto m = pg_line {-2. + 1i, 1. - 3i, -1. - 1i};
+    auto l = pg_line{1. - 2i, 3. - 1i, 2. + 1i};  // complex number
+    auto m = pg_line{-2. + 1i, 1. - 3i, -1. - 1i};
     auto A = l * m;
     auto lm = plucker(2. + 3i, l, 3. - 4i, m);
 
@@ -66,18 +66,17 @@ TEST_CASE("Projective Line")
     // check_desargue(std::tuple{l, m, r}, std::tuple{s, t, u});
 }
 
-TEST_CASE("Projective Point (Special case)")
-{
-    auto p = pg_point {1, 3, 2};
-    auto l = pg_line {-2, 3, 1};
+TEST_CASE("Projective Point (Special case)") {
+    auto p = pg_point{1, 3, 2};
+    auto l = pg_line{-2, 3, 1};
     // auto l_inf = pg_line{0, 0, 1};
-    auto l_nan = pg_line {0, 0, 0};
-    auto p_nan = pg_point {0, 0, 0};
+    auto l_nan = pg_line{0, 0, 0};
+    auto p_nan = pg_point{0, 0, 0};
 
     CHECK(l_nan.is_NaN());
 
     CHECK(l_nan == l_nan);
-    CHECK(l_nan == p * p); // join two equal points
+    CHECK(l_nan == p * p);  // join two equal points
     CHECK(p_nan == l * l);
     CHECK(l_nan == p_nan * p);
     CHECK(p_nan == l_nan * l);

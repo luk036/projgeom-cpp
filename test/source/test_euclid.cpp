@@ -1,13 +1,15 @@
 /*
  *  Distributed under the MIT License (See accompanying file /LICENSE )
  */
+#include <doctest/doctest.h>
+
+#include <boost/multiprecision/cpp_int.hpp>
+
 #include "projgeom/ck_plane.hpp"
 #include "projgeom/euclid_plane.hpp"
 #include "projgeom/euclid_plane_measure.hpp"
 #include "projgeom/pg_line.hpp"
 #include "projgeom/pg_point.hpp"
-#include <boost/multiprecision/cpp_int.hpp>
-#include <doctest/doctest.h>
 // #include <iostream>
 
 using namespace fun;
@@ -21,9 +23,7 @@ static const auto Zero = doctest::Approx(0).epsilon(0.01);
  * @return true
  * @return false
  */
-template <typename T>
-inline auto ApproxZero(const T& a) -> bool
-{
+template <typename T> inline auto ApproxZero(const T& a) -> bool {
     return a[0] == Zero && a[1] == Zero && a[2] == Zero;
 }
 
@@ -33,9 +33,7 @@ inline auto ApproxZero(const T& a) -> bool
  * @tparam T
  * @param[in] triangle
  */
-template <Projective_plane_prim2 P>
-void chk_euclid(const Triple<P>& triangle)
-{
+template <Projective_plane_prim2 P> void chk_euclid(const Triple<P>& triangle) {
     auto trilateral = tri_dual(triangle);
 
     const auto& [a1, a2, a3] = triangle;
@@ -67,18 +65,16 @@ void chk_euclid(const Triple<P>& triangle)
     const auto& [s1, s2, s3] = S;
 
     auto tqf = sq(q1 + q2 + q3) - 2 * (q1 * q1 + q2 * q2 + q3 * q3);
-    auto tsf =
-        sq(s1 + s2 + s3) - 2 * (s1 * s1 + s2 * s2 + s3 * s3) - 4 * s1 * s2 * s3;
+    auto tsf = sq(s1 + s2 + s3) - 2 * (s1 * s1 + s2 * s2 + s3 * s3) - 4 * s1 * s2 * s3;
     auto c3 = sq(q1 + q2 - q3) / (4 * q1 * q2);
 
     auto a3p = plucker(3, a1, 4, a2);
     auto q1p = quadrance(a2, a3p);
     auto q2p = quadrance(a1, a3p);
     auto q3p = quadrance(a1, a2);
-    auto tqf2 = Ar(q1p, q2p, q3p); // get 0
+    auto tqf2 = Ar(q1p, q2p, q3p);  // get 0
 
-    if constexpr (Integral<K>)
-    {
+    if constexpr (Integral<K>) {
         CHECK(!is_parallel(l1, l2));
         CHECK(!is_parallel(l2, l3));
         CHECK(is_perpendicular(t1, l1));
@@ -102,9 +98,7 @@ void chk_euclid(const Triple<P>& triangle)
         //               std::tuple {std::move(o), std::move(a2),
         //               std::move(a3)});
         // CHECK(a1 == o2);
-    }
-    else
-    {
+    } else {
         CHECK(cross2(l1, l2) != Zero);
         CHECK(cross2(l2, l3) != Zero);
         CHECK(dot1(t1, l1) == Zero);
@@ -129,9 +123,7 @@ void chk_euclid(const Triple<P>& triangle)
     }
 }
 
-template <typename T>
-void chk_cyclic(const T& quadangle)
-{
+template <typename T> void chk_cyclic(const T& quadangle) {
     auto& [u1, u2, u3, u4] = quadangle;
 
     auto q12 = quadrance(u1, u2);
@@ -144,43 +136,37 @@ void chk_cyclic(const T& quadangle)
     using P = decltype(u1);
     using K = Value_type<P>;
 
-    if constexpr (Integral<K>)
-    {
-        auto okay = Ptolemy(std::tuple {std::move(q12), std::move(q23),
-            std::move(q34), std::move(q14), std::move(q24), std::move(q13)});
+    if constexpr (Integral<K>) {
+        auto okay = Ptolemy(std::tuple{std::move(q12), std::move(q23), std::move(q34),
+                                       std::move(q14), std::move(q24), std::move(q13)});
         CHECK(okay);
-    }
-    else
-    {
+    } else {
         auto t = Ar(q12 * q34, q23 * q14, q13 * q24);
         CHECK(t == Zero);
     }
 }
 
-TEST_CASE("Euclid plane (cpp_int)")
-{
+TEST_CASE("Euclid plane (cpp_int)") {
     using boost::multiprecision::cpp_int;
 
-    auto a1 = pg_point<cpp_int> {1, 3, 1};
-    auto a2 = pg_point<cpp_int> {4, 2, 1};
-    auto a3 = pg_point<cpp_int> {4, -3, 1};
+    auto a1 = pg_point<cpp_int>{1, 3, 1};
+    auto a2 = pg_point<cpp_int>{4, 2, 1};
+    auto a3 = pg_point<cpp_int>{4, -3, 1};
 
-    auto triangle = std::tuple {std::move(a1), std::move(a2), std::move(a3)};
+    auto triangle = std::tuple{std::move(a1), std::move(a2), std::move(a3)};
     chk_euclid(triangle);
 }
 
-TEST_CASE("Euclid plane (floating point)")
-{
-    auto a1 = pg_point {1., 3., 1.};
-    auto a2 = pg_point {4., 2., 1.};
-    auto a3 = pg_point {4., -3., 1.};
+TEST_CASE("Euclid plane (floating point)") {
+    auto a1 = pg_point{1., 3., 1.};
+    auto a2 = pg_point{4., 2., 1.};
+    auto a3 = pg_point{4., -3., 1.};
 
-    auto triangle = std::tuple {std::move(a1), std::move(a2), std::move(a3)};
+    auto triangle = std::tuple{std::move(a1), std::move(a2), std::move(a3)};
     chk_euclid(triangle);
 }
 
-TEST_CASE("Euclid Cyclic Points (cpp_int)")
-{
+TEST_CASE("Euclid Cyclic Points (cpp_int)") {
     using boost::multiprecision::cpp_int;
     using P = pg_point<cpp_int>;
 
@@ -189,13 +175,11 @@ TEST_CASE("Euclid Cyclic Points (cpp_int)")
     auto u3 = uc_point<P>(-1, 2);
     auto u4 = uc_point<P>(0, 1);
 
-    auto quadangle =
-        std::tuple {std::move(u1), std::move(u2), std::move(u3), std::move(u4)};
+    auto quadangle = std::tuple{std::move(u1), std::move(u2), std::move(u3), std::move(u4)};
     chk_cyclic(quadangle);
 }
 
-TEST_CASE("Euclid Cyclic Points (double)")
-{
+TEST_CASE("Euclid Cyclic Points (double)") {
     using P = pg_point<double>;
 
     auto u1 = uc_point<P>(1, 0);
@@ -203,7 +187,6 @@ TEST_CASE("Euclid Cyclic Points (double)")
     auto u3 = uc_point<P>(-1, 2);
     auto u4 = uc_point<P>(0, 1);
 
-    auto quadangle =
-        std::tuple {std::move(u1), std::move(u2), std::move(u3), std::move(u4)};
+    auto quadangle = std::tuple{std::move(u1), std::move(u2), std::move(u3), std::move(u4)};
     chk_cyclic(quadangle);
 }
