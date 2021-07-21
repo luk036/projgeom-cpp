@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-project(GreeterStandalone LANGUAGES CXX)
+project(ProjGeomStandalone LANGUAGES CXX)
 
 # --- Import tools ----
 
@@ -16,14 +16,14 @@ CPMAddPackage(
   OPTIONS "CXXOPTS_BUILD_EXAMPLES NO" "CXXOPTS_BUILD_TESTS NO" "CXXOPTS_ENABLE_INSTALL YES"
 )
 
-CPMAddPackage(NAME Greeter SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
+CPMAddPackage(NAME ProjGeom SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 
 # ---- Create standalone executable ----
 
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
 
-add_executable(GreeterStandalone ${sources})
+add_executable(ProjGeomStandalone ${sources})
 
-set_target_properties(GreeterStandalone PROPERTIES CXX_STANDARD 17 OUTPUT_NAME "Greeter")
+set_target_properties(ProjGeomStandalone PROPERTIES CXX_STANDARD 20 OUTPUT_NAME "ProjGeom")
 
-target_link_libraries(GreeterStandalone Greeter::Greeter cxxopts)
+target_link_libraries(ProjGeomStandalone ProjGeom::ProjGeom cxxopts)

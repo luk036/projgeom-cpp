@@ -1,21 +1,21 @@
 #include <doctest/doctest.h>
-#include <greeter/greeter.h>
-#include <greeter/version.h>
+#include <projgeom/greeter.h>
+#include <projgeom/version.h>
 
 #include <string>
 
-TEST_CASE("Greeter") {
-  using namespace greeter;
+// TEST_CASE("ProjGeom") {
+//   using namespace projgeom;
 
-  Greeter greeter("Tests");
+//   ProjGeom projgeom("Tests");
 
-  CHECK(greeter.greet(LanguageCode::EN) == "Hello, Tests!");
-  CHECK(greeter.greet(LanguageCode::DE) == "Hallo Tests!");
-  CHECK(greeter.greet(LanguageCode::ES) == "¡Hola Tests!");
-  CHECK(greeter.greet(LanguageCode::FR) == "Bonjour Tests!");
-}
+//   CHECK(projgeom.greet(LanguageCode::EN) == "Hello, Tests!");
+//   CHECK(projgeom.greet(LanguageCode::DE) == "Hallo Tests!");
+//   CHECK(projgeom.greet(LanguageCode::ES) == "¡Hola Tests!");
+//   CHECK(projgeom.greet(LanguageCode::FR) == "Bonjour Tests!");
+// }
 
-TEST_CASE("Greeter version") {
-  static_assert(std::string_view(GREETER_VERSION) == std::string_view("1.0"));
-  CHECK(std::string(GREETER_VERSION) == std::string("1.0"));
+TEST_CASE("ProjGeom version") {
+    static_assert(std::string_view(PROJGEOM_VERSION) == std::string_view("1.0"));
+    CHECK(std::string(PROJGEOM_VERSION) == std::string("1.0"));
 }
