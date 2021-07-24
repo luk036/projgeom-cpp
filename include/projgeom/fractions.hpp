@@ -376,8 +376,20 @@ namespace fun {
             return this->_num * rhs._den == this->_den * rhs._num;
         }
 
-        constexpr auto operator==(const Z& rhs) const -> bool {
-            return this->_num == this->_den * rhs;
+        /**
+         * @brief
+         *
+         * @tparam U
+         * @param rhs
+         * @return true
+         * @return false
+         */
+        template <typename U>  //
+        constexpr auto operator<(const Fraction<U>& rhs) const -> bool {
+            if (this->_den == rhs._den) {
+                return this->_num < rhs._num;
+            }
+            return this->_num * rhs._den < this->_den * rhs._num;
         }
 
         /**
@@ -389,16 +401,44 @@ namespace fun {
          * @return false
          */
         template <typename U>  //
-        constexpr auto operator<=>(const Fraction<U>& rhs) const -> std::strong_ordering {
-            if (this->_den == rhs._den) {
-                return this->_num <=> rhs._num;
-            }
-            return this->_num * rhs._den <=> this->_den * rhs._num;
+        constexpr auto operator!=(const Fraction<U>& rhs) const -> bool {
+            return !(*this == rhs);
         }
 
-        constexpr auto operator<=>(const Z& rhs) const -> std::strong_ordering {
-            return this->_num <=> this->_den * rhs;
+        /**
+         * @brief
+         *
+         * @tparam U
+         * @param rhs
+         * @return true
+         * @return false
+         */
+        template <typename U>  //
+        constexpr auto operator>=(const Fraction<U>& rhs) const -> bool {
+            return !(*this < rhs);
         }
+
+        /**
+         * @brief
+         *
+         * @tparam U
+         * @param rhs
+         * @return true
+         * @return false
+         */
+        template <typename U>  //
+        constexpr auto operator>(const Fraction<U>& rhs) const -> bool {
+            return !(rhs < *this);
+        }
+
+        constexpr auto operator==(const Z& rhs) const -> bool {
+            return this->_num == this->_den * rhs;
+        }
+
+        constexpr auto operator<(const Z& rhs) const -> bool {
+            return this->_num < this->_den * rhs;
+        }
+
 
         // /*!
         //  * @brief

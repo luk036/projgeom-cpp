@@ -1,4 +1,3 @@
-[![Actions Status](https://github.com/luk036/projgeom-cpp/workflows/MacOS/badge.svg)](https://github.com/luk036/projgeom-cpp/actions)
 [![Actions Status](https://github.com/luk036/projgeom-cpp/workflows/Windows/badge.svg)](https://github.com/luk036/projgeom-cpp/actions)
 [![Actions Status](https://github.com/luk036/projgeom-cpp/workflows/Ubuntu/badge.svg)](https://github.com/luk036/projgeom-cpp/actions)
 [![Actions Status](https://github.com/luk036/projgeom-cpp/workflows/Style/badge.svg)](https://github.com/luk036/projgeom-cpp/actions)
@@ -28,22 +27,6 @@ Projective geometric for modern C++.
 - Support for [sanitizer tools, and more](#additional-tools)
 
 ## Usage
-
-### Code example
-
-```cpp
-#include <projgeom/perm.hpp>
-// ...
-constexpr auto N = 5;
-auto lst = std::vector{'A', 'E', 'I', 'O', 'U'};
-int cnt = 0;
-for (auto i : projgeom::SJT_gen(N)) {
-    // process lst
-    ++cnt;
-    std::swap(lst[i], lst[i + 1]);
-}
-CHECK(cnt == projgeom::Factorial<N>());
-```
 
 ### Adjust the template to your needs
 
