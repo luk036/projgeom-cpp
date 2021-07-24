@@ -82,11 +82,7 @@ namespace fun {
     }
 
     template <Integral Z> struct Fraction
-        : boost::totally_ordered<
-              Fraction<Z>,
-              boost::totally_ordered2<
-                  Fraction<Z>, Z,
-                  boost::multipliable2<Fraction<Z>, Z, boost::dividable2<Fraction<Z>, Z>>>> {
+        : boost::multipliable2<Fraction<Z>, Z, boost::dividable2<Fraction<Z>, Z>> {
         Z _num;
         Z _den;
 
@@ -364,57 +360,44 @@ namespace fun {
             return *this;
         }
 
-        /*!
-         * @brief Three way comparison
+        /**
+         * @brief
          *
-         * @param[in] frac
-         * @return auto
+         * @tparam U
+         * @param rhs
+         * @return true
+         * @return false
          */
-        template <typename U> constexpr auto cmp(const Fraction<U>& frac) const -> Fraction& {
-            if (this->_den == frac._den) {
-                return (this->_num - frac._num) * this->_den;
-            }
-            return this->_num * frac._den - this->_den * frac._num;
-        }
-
-        template <typename U> constexpr auto operator==(const Fraction<U>& rhs) const -> bool {
+        template <typename U>  //
+        constexpr auto operator==(const Fraction<U>& rhs) const -> bool {
             if (this->_den == rhs._den) {
                 return this->_num == rhs._num;
             }
-
             return this->_num * rhs._den == this->_den * rhs._num;
         }
 
-        template <typename U> constexpr auto operator<(const Fraction<U>& rhs) const -> bool {
-            if (this->_den == rhs._den) {
-                return this->_num < rhs._num;
-            }
-
-            return this->_num * rhs._den < this->_den * rhs._num;
-        }
-
-        /**
-         * @brief
-         *
-         */
         constexpr auto operator==(const Z& rhs) const -> bool {
-            return this->_den == Z(1) && this->_num == rhs;
+            return this->_num == this->_den * rhs;
         }
 
         /**
          * @brief
          *
+         * @tparam U
+         * @param rhs
+         * @return true
+         * @return false
          */
-        constexpr auto operator<(const Z& rhs) const -> bool {
-            return this->_num < this->_den * rhs;
+        template <typename U>  //
+        constexpr auto operator<=>(const Fraction<U>& rhs) const -> std::strong_ordering {
+            if (this->_den == rhs._den) {
+                return this->_num <=> rhs._num;
+            }
+            return this->_num * rhs._den <=> this->_den * rhs._num;
         }
 
-        /**
-         * @brief
-         *
-         */
-        constexpr auto operator>(const Z& rhs) const -> bool {
-            return this->_num > this->_den * rhs;
+        constexpr auto operator<=>(const Z& rhs) const -> std::strong_ordering {
+            return this->_num <=> this->_den * rhs;
         }
 
         // /*!
