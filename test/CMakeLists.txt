@@ -21,11 +21,13 @@ target_link_libraries(
 set_target_properties(${PROJECT_NAME}Tests PROPERTIES CXX_STANDARD 20)
 
 # enable compiler warnings
-if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-  target_compile_options(${PROJECT_NAME} PUBLIC -Wall -Wpedantic -Wextra -Werror)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+  target_compile_options(${PROJECT_NAME} INTERFACE -fconcepts -Wall -Wpedantic -Wextra -Werror)
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  target_compile_options(${PROJECT_NAME} INTERFACE -std=c++20 -fconcepts -stdlib=libc++ -Wall -Wpedantic -Wextra -Werror)
 elseif(MSVC)
-  target_compile_options(${PROJECT_NAME} PUBLIC /W4 /WX)
-  target_compile_definitions(${PROJECT_NAME}Tests PUBLIC DOCTEST_CONFIG_USE_STD_HEADERS)
+  target_compile_options(${PROJECT_NAME} INTERFACE /W4 /WX)
+  target_compile_definitions(${PROJECT_NAME}Tests INTERFACE DOCTEST_CONFIG_USE_STD_HEADERS)
 endif()
 
 # ---- Add ${PROJECT_NAME}Tests ----
@@ -42,6 +44,6 @@ add_test(NAME ${PROJECT_FILE_NAME}Tests COMMAND ${PROJECT_NAME}Tests)
 # ---- code coverage ----
 
 if(ENABLE_TEST_COVERAGE)
-  target_compile_options(${PROJECT_NAME} PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
-  target_link_options(${PROJECT_NAME} PUBLIC -fprofile-arcs -ftest-coverage)
+  target_compile_options(${PROJECT_NAME} INTERFACE -O0 -g -fprofile-arcs -ftest-coverage)
+  target_link_options(${PROJECT_NAME} INTERFACE -fprofile-arcs -ftest-coverage)
 endif()

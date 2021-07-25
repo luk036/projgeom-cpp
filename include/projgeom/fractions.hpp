@@ -5,12 +5,11 @@
  *  This is a C++ Library header.
  */
 
-#include <boost/operators.hpp>
+// #include <boost/operators.hpp>
 // #include <cmath>
 #include <numeric>
 #include <type_traits>
 #include <utility>
-
 #include "common_concepts.h"
 
 namespace fun {
@@ -81,8 +80,7 @@ namespace fun {
         return (abs(__m) / gcd(__m, __n)) * abs(__n);
     }
 
-    template <Integral Z> struct Fraction
-        : boost::multipliable2<Fraction<Z>, Z, boost::dividable2<Fraction<Z>, Z>> {
+    template <Integral Z> struct Fraction {
         Z _num;
         Z _den;
 
@@ -143,6 +141,153 @@ namespace fun {
          */
         [[nodiscard]] constexpr auto den() const noexcept -> const Z& { return _den; }
 
+
+        /** @name Comparison operators
+         *  ==, !=, <, >, <=, >= etc.
+         */
+        ///@{
+
+        /**
+         * @brief
+         *
+         * @tparam U
+         * @param rhs
+         * @return true
+         * @return false
+         */
+        template <typename U>  //
+        constexpr auto operator==(const Fraction<U>& rhs) const -> bool {
+            if (this->_den == rhs._den) {
+                return this->_num == rhs._num;
+            }
+            return this->_num * rhs._den == this->_den * rhs._num;
+        }
+
+        /**
+         * @brief
+         *
+         * @tparam U
+         * @param rhs
+         * @return true
+         * @return false
+         */
+        template <typename U>  //
+        constexpr auto operator<(const Fraction<U>& rhs) const -> bool {
+            if (this->_den == rhs._den) {
+                return this->_num < rhs._num;
+            }
+            return this->_num * rhs._den < this->_den * rhs._num;
+        }
+
+        /**
+         * @brief
+         *
+         * @tparam U
+         * @param rhs
+         * @return true
+         * @return false
+         */
+        template <typename U>  //
+        constexpr auto operator!=(const Fraction<U>& rhs) const -> bool {
+            return !(*this == rhs);
+        }
+
+        /**
+         * @brief Greater than
+         *
+         * @tparam U
+         * @param rhs
+         * @return true
+         * @return false
+         */
+        template <typename U>  //
+        constexpr auto operator>(const Fraction<U>& rhs) const -> bool {
+            return !(rhs < *this);
+        }
+
+        /**
+         * @brief
+         *
+         * @tparam U
+         * @param rhs
+         * @return true
+         * @return false
+         */
+        template <typename U>  //
+        constexpr auto operator>=(const Fraction<U>& rhs) const -> bool {
+            return !(*this < rhs);
+        }
+
+        /**
+         * @brief
+         *
+         * @tparam U
+         * @param rhs
+         * @return true
+         * @return false
+         */
+        template <typename U>  //
+        constexpr auto operator<=(const Fraction<U>& rhs) const -> bool {
+            return !(rhs > *this);
+        }
+
+        /**
+         * @brief 
+         * 
+         * @param rhs 
+         * @return true 
+         * @return false 
+         */
+        constexpr auto operator==(const Z& rhs) const -> bool {
+            return this->_num == this->_den * rhs;
+        }
+
+        /**
+         * @brief Less than
+         * 
+         * @param rhs 
+         * @return true 
+         * @return false 
+         */
+        constexpr auto operator<(const Z& rhs) const -> bool {
+            return this->_num < this->_den * rhs;
+        }
+
+        /**
+         * @brief 
+         * 
+         * @param rhs 
+         * @return true 
+         * @return false 
+         */
+        constexpr auto operator>(const Z& rhs) const -> bool {
+            return !(*this < rhs);
+        }
+
+        /**
+         * @brief 
+         * 
+         * @param rhs 
+         * @return true 
+         * @return false 
+         */
+        constexpr auto operator<=(const Z& rhs) const -> bool {
+            return !(rhs < *this);
+        }
+
+        /**
+         * @brief 
+         * 
+         * @param rhs 
+         * @return true 
+         * @return false 
+         */
+        constexpr auto operator>=(const Z& rhs) const -> bool {
+            return !(*this < rhs);
+        }
+
+        ///@}
+
         /*!
          * @brief
          *
@@ -183,7 +328,7 @@ namespace fun {
             }
             auto d = this->_den * frac._den;
             auto n = frac._den * this->_num + this->_den * frac._num;
-            return Fraction(n, d);
+            return Fraction(std::move(n), std::move(d));
         }
 
         /*!
@@ -199,6 +344,7 @@ namespace fun {
          *
          * @param[in] frac
          * @return Fraction
+         * @todo gcd first
          */
         constexpr auto operator*(const Fraction& frac) const -> Fraction {
             auto n = this->_num * frac._num;
@@ -341,6 +487,16 @@ namespace fun {
         /*!
          * @brief
          *
+         * @param[in] frac
+         * @return Fraction
+         */
+        friend constexpr auto operator*(Fraction f, const Z& i) -> Fraction {
+            return f *= i;
+        }
+
+        /*!
+         * @brief
+         *
          * @param[in] i
          * @return Fraction
          */
@@ -360,84 +516,6 @@ namespace fun {
             return *this;
         }
 
-        /**
-         * @brief
-         *
-         * @tparam U
-         * @param rhs
-         * @return true
-         * @return false
-         */
-        template <typename U>  //
-        constexpr auto operator==(const Fraction<U>& rhs) const -> bool {
-            if (this->_den == rhs._den) {
-                return this->_num == rhs._num;
-            }
-            return this->_num * rhs._den == this->_den * rhs._num;
-        }
-
-        /**
-         * @brief
-         *
-         * @tparam U
-         * @param rhs
-         * @return true
-         * @return false
-         */
-        template <typename U>  //
-        constexpr auto operator<(const Fraction<U>& rhs) const -> bool {
-            if (this->_den == rhs._den) {
-                return this->_num < rhs._num;
-            }
-            return this->_num * rhs._den < this->_den * rhs._num;
-        }
-
-        /**
-         * @brief
-         *
-         * @tparam U
-         * @param rhs
-         * @return true
-         * @return false
-         */
-        template <typename U>  //
-        constexpr auto operator!=(const Fraction<U>& rhs) const -> bool {
-            return !(*this == rhs);
-        }
-
-        /**
-         * @brief
-         *
-         * @tparam U
-         * @param rhs
-         * @return true
-         * @return false
-         */
-        template <typename U>  //
-        constexpr auto operator>=(const Fraction<U>& rhs) const -> bool {
-            return !(*this < rhs);
-        }
-
-        /**
-         * @brief
-         *
-         * @tparam U
-         * @param rhs
-         * @return true
-         * @return false
-         */
-        template <typename U>  //
-        constexpr auto operator>(const Fraction<U>& rhs) const -> bool {
-            return !(rhs < *this);
-        }
-
-        constexpr auto operator==(const Z& rhs) const -> bool {
-            return this->_num == this->_den * rhs;
-        }
-
-        constexpr auto operator<(const Z& rhs) const -> bool {
-            return this->_num < this->_den * rhs;
-        }
 
 
         // /*!
@@ -448,15 +526,6 @@ namespace fun {
         // constexpr explicit operator double())
         // {
         //     return double(_num) / _den;
-        // }
-
-        // /**
-        //  * @brief
-        //  *
-        //  */
-        // friend constexpr bool operator<(const Z& lhs, const Fraction<Z>& rhs))
-        // {
-        //     return lhs * rhs.den() < rhs.num();
         // }
     };
 
@@ -506,7 +575,7 @@ namespace fun {
      */
     template <typename Z> constexpr auto operator+(int&& c, const Fraction<Z>& frac)
         -> Fraction<Z> {
-        return frac + c;
+        return frac + Z(c);
     }
 
     /*!
@@ -518,7 +587,7 @@ namespace fun {
      */
     template <typename Z> constexpr auto operator-(int&& c, const Fraction<Z>& frac)
         -> Fraction<Z> {
-        return (-frac) + c;
+        return (-frac) + Z(c);
     }
 
     /*!
@@ -530,7 +599,7 @@ namespace fun {
      */
     template <typename Z> constexpr auto operator*(int&& c, const Fraction<Z>& frac)
         -> Fraction<Z> {
-        return frac * c;
+        return frac * Z(c);
     }
 
     /*!
@@ -542,11 +611,11 @@ namespace fun {
      * @param[in] frac
      * @return _Stream&
      */
-    template <typename _Stream, typename Z> auto operator<<(_Stream& os, const Fraction<Z>& frac)
-        -> _Stream& {
-        os << frac.num() << "/" << frac.den();
-        return os;
-    }
+    // template <typename _Stream, typename Z> auto operator<<(_Stream& os, const Fraction<Z>& frac)
+    //     -> _Stream& {
+    //     os << frac.num() << "/" << frac.den();
+    //     return os;
+    // }
 
     // For template deduction
     // Integral{Z} Fraction(const Z &, const Z &) noexcept -> Fraction<Z>;
