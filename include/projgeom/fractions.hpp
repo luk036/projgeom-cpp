@@ -10,6 +10,7 @@
 #include <numeric>
 #include <type_traits>
 #include <utility>
+
 #include "common_concepts.h"
 
 namespace fun {
@@ -141,7 +142,6 @@ namespace fun {
          */
         [[nodiscard]] constexpr auto den() const noexcept -> const Z& { return _den; }
 
-
         /** @name Comparison operators
          *  ==, !=, <, >, <=, >= etc.
          */
@@ -232,11 +232,11 @@ namespace fun {
         }
 
         /**
-         * @brief 
-         * 
-         * @param rhs 
-         * @return true 
-         * @return false 
+         * @brief
+         *
+         * @param rhs
+         * @return true
+         * @return false
          */
         constexpr auto operator==(const Z& rhs) const -> bool {
             return this->_num == this->_den * rhs;
@@ -244,47 +244,41 @@ namespace fun {
 
         /**
          * @brief Less than
-         * 
-         * @param rhs 
-         * @return true 
-         * @return false 
+         *
+         * @param rhs
+         * @return true
+         * @return false
          */
         constexpr auto operator<(const Z& rhs) const -> bool {
             return this->_num < this->_den * rhs;
         }
 
         /**
-         * @brief 
-         * 
-         * @param rhs 
-         * @return true 
-         * @return false 
+         * @brief
+         *
+         * @param rhs
+         * @return true
+         * @return false
          */
-        constexpr auto operator>(const Z& rhs) const -> bool {
-            return !(*this < rhs);
-        }
+        constexpr auto operator>(const Z& rhs) const -> bool { return !(*this < rhs); }
 
         /**
-         * @brief 
-         * 
-         * @param rhs 
-         * @return true 
-         * @return false 
+         * @brief
+         *
+         * @param rhs
+         * @return true
+         * @return false
          */
-        constexpr auto operator<=(const Z& rhs) const -> bool {
-            return !(rhs < *this);
-        }
+        constexpr auto operator<=(const Z& rhs) const -> bool { return !(rhs < *this); }
 
         /**
-         * @brief 
-         * 
-         * @param rhs 
-         * @return true 
-         * @return false 
+         * @brief
+         *
+         * @param rhs
+         * @return true
+         * @return false
          */
-        constexpr auto operator>=(const Z& rhs) const -> bool {
-            return !(*this < rhs);
-        }
+        constexpr auto operator>=(const Z& rhs) const -> bool { return !(*this < rhs); }
 
         ///@}
 
@@ -490,9 +484,7 @@ namespace fun {
          * @param[in] frac
          * @return Fraction
          */
-        friend constexpr auto operator*(Fraction f, const Z& i) -> Fraction {
-            return f *= i;
-        }
+        friend constexpr auto operator*(Fraction f, const Z& i) -> Fraction { return f *= i; }
 
         /*!
          * @brief
@@ -515,8 +507,6 @@ namespace fun {
             }
             return *this;
         }
-
-
 
         // /*!
         //  * @brief

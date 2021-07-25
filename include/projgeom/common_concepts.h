@@ -24,7 +24,7 @@ namespace fun {
         { t.size() } -> std::convertible_to<std::size_t>;
         { t.empty() } -> std::convertible_to<bool>;
         { t.back() } -> std::same_as<Element_type<T> >;
-        {t.push_back(x)};
+        { t.push_back(x) };
     };
 
     template <typename K>
