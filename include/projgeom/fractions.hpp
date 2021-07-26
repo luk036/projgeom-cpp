@@ -19,7 +19,7 @@ namespace fun {
      * @brief absolute (for unsigned)
      *
      * @tparam T
-     * @param a
+     * @param[in] a
      * @return T
      */
     template <typename T>
@@ -96,12 +96,13 @@ namespace fun {
         }
 
         constexpr void normalize() {
-            Z common = gcd(this->_num, this->_den);
+            if (this->_den < Z(0)) {
+                this->_num = -this->_num;
+                this->_den = -this->_den;
+            }
+            const Z common = gcd(this->_num, this->_den);
             if (common == Z(1) || common == Z(0)) {
                 return;
-            }
-            if (this->_den < Z(0)) {
-                common = -common;
             }
             this->_num /= common;
             this->_den /= common;
@@ -150,8 +151,32 @@ namespace fun {
         /**
          * @brief
          *
+         * @param[in] rhs
+         * @return true
+         * @return false
+         */
+        constexpr auto operator==(const Z& rhs) const -> bool {
+            const auto f1 = Fraction{this->_num, rhs};
+            return f1._num == this->_den * f1._den;
+        }
+
+        /**
+         * @brief
+         *
+         * @param[in] rhs
+         * @return true
+         * @return false
+         */
+        friend constexpr auto operator==(const Z& lhs, const Fraction& rhs) -> bool {
+            const auto f1 = Fraction{rhs._num, lhs};
+            return f1._num == rhs._den * f1._den;
+        }
+
+        /**
+         * @brief
+         *
          * @tparam U
-         * @param rhs
+         * @param[in] rhs
          * @return true
          * @return false
          */
@@ -167,7 +192,7 @@ namespace fun {
          * @brief
          *
          * @tparam U
-         * @param rhs
+         * @param[in] rhs
          * @return true
          * @return false
          */
@@ -183,7 +208,7 @@ namespace fun {
          * @brief
          *
          * @tparam U
-         * @param rhs
+         * @param[in] rhs
          * @return true
          * @return false
          */
@@ -196,20 +221,20 @@ namespace fun {
          * @brief Greater than
          *
          * @tparam U
-         * @param rhs
+         * @param[in] rhs
          * @return true
          * @return false
          */
         template <typename U>  //
         constexpr auto operator>(const Fraction<U>& rhs) const -> bool {
-            return !(rhs < *this);
+            return rhs < *this;
         }
 
         /**
          * @brief
          *
          * @tparam U
-         * @param rhs
+         * @param[in] rhs
          * @return true
          * @return false
          */
@@ -222,30 +247,19 @@ namespace fun {
          * @brief
          *
          * @tparam U
-         * @param rhs
+         * @param[in] rhs
          * @return true
          * @return false
          */
         template <typename U>  //
         constexpr auto operator<=(const Fraction<U>& rhs) const -> bool {
-            return !(rhs > *this);
-        }
-
-        /**
-         * @brief
-         *
-         * @param rhs
-         * @return true
-         * @return false
-         */
-        constexpr auto operator==(const Z& rhs) const -> bool {
-            return this->_num == this->_den * rhs;
+            return !(rhs < *this);
         }
 
         /**
          * @brief Less than
          *
-         * @param rhs
+         * @param[in] rhs
          * @return true
          * @return false
          */
@@ -256,16 +270,28 @@ namespace fun {
         /**
          * @brief
          *
+         * @param lhs
          * @param rhs
          * @return true
          * @return false
          */
-        constexpr auto operator>(const Z& rhs) const -> bool { return !(*this < rhs); }
+        friend constexpr auto operator<(const Z& lhs, const Fraction& rhs) -> bool {
+            return rhs._den * lhs < rhs._num;
+        }
 
         /**
          * @brief
          *
-         * @param rhs
+         * @param[in] rhs
+         * @return true
+         * @return false
+         */
+        constexpr auto operator>(const Z& rhs) const -> bool { return rhs < *this; }
+
+        /**
+         * @brief
+         *
+         * @param[in] rhs
          * @return true
          * @return false
          */
@@ -274,11 +300,47 @@ namespace fun {
         /**
          * @brief
          *
-         * @param rhs
+         * @param[in] rhs
          * @return true
          * @return false
          */
         constexpr auto operator>=(const Z& rhs) const -> bool { return !(*this < rhs); }
+
+        /**
+         * @brief
+         *
+         * @param lhs
+         * @param rhs
+         * @return true
+         * @return false
+         */
+        friend constexpr auto operator>(const Z& lhs, const Fraction& rhs) -> bool {
+            return rhs < lhs;
+        }
+
+        /**
+         * @brief
+         *
+         * @param lhs
+         * @param rhs
+         * @return true
+         * @return false
+         */
+        friend constexpr auto operator<=(const Z& lhs, const Fraction& rhs) -> bool {
+            return !(rhs < lhs);
+        }
+
+        /**
+         * @brief
+         *
+         * @param lhs
+         * @param rhs
+         * @return true
+         * @return false
+         */
+        friend constexpr auto operator>=(const Z& lhs, const Fraction& rhs) -> bool {
+            return !(lhs < rhs);
+        }
 
         ///@}
 
@@ -297,6 +359,10 @@ namespace fun {
          */
         constexpr void reciprocal() noexcept(std::is_nothrow_swappable_v<Z>) {
             std::swap(this->_num, this->_den);
+            if (this->_den < Z(0)) {
+                this->_num = -this->_num;
+                this->_den = -this->_den;
+            }
         }
 
         /*!

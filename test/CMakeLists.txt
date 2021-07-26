@@ -5,7 +5,7 @@ option(ENABLE_TEST_COVERAGE "Enable test coverage" OFF)
 
 # ---- Dependencies ----
 
-CPMAddPackage("gh:onqtam/doctest#2.4.5")
+CPMAddPackage("gh:onqtam/doctest#2.3.6")
 CPMAddPackage("gh:TheLartians/Format.cmake@1.7.0")
 
 # if(TEST_INSTALLED_VERSION) find_package(${PROJECT_NAME} REQUIRED) else() CPMAddPackage(NAME
@@ -24,7 +24,9 @@ set_target_properties(${PROJECT_NAME}Tests PROPERTIES CXX_STANDARD 20)
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
   target_compile_options(${PROJECT_NAME} INTERFACE -fconcepts -Wall -Wpedantic -Wextra -Werror)
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  target_compile_options(${PROJECT_NAME} INTERFACE -std=c++20 -fconcepts -stdlib=libc++ -Wall -Wpedantic -Wextra -Werror)
+  target_compile_options(
+    ${PROJECT_NAME} INTERFACE -fconcept-ts -stdlib=libc++ -Wall -Wpedantic -Wextra -Werror
+  )
 elseif(MSVC)
   target_compile_options(${PROJECT_NAME} INTERFACE /W4 /WX)
   target_compile_definitions(${PROJECT_NAME}Tests INTERFACE DOCTEST_CONFIG_USE_STD_HEADERS)

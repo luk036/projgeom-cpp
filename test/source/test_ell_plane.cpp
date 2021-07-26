@@ -88,7 +88,6 @@ template <typename PG> void chk_tri2(const PG& myck) {
     }
 }
 
-
 TEST_CASE("Elliptic/Hyperbolic plane") {
     using boost::multiprecision::cpp_int;
 
