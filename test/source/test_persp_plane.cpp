@@ -15,7 +15,7 @@ using namespace fun;
 
 static const auto Zero = doctest::Approx(0).epsilon(0.01);
 
-/*!
+/**
  * @brief
  *
  * @tparam PG
@@ -64,7 +64,7 @@ template <typename PG> void chk_degenerate(const PG& myck) {
     }
 }
 
-/*!
+/**
  * @brief
  *
  * @tparam PG

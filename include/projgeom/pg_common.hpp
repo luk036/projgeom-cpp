@@ -1,4 +1,4 @@
-/*! @file include/pg_common.hpp
+/** @file include/pg_common.hpp
  *  This is a C++ Library header.
  */
 
@@ -11,7 +11,7 @@
 
 namespace fun {
 
-    /*!
+    /**
      * @brief 1st term of Cross product
      *
      * @tparam _K
@@ -23,7 +23,7 @@ namespace fun {
         return v[1] * w[2] - w[1] * v[2];
     }
 
-    /*!
+    /**
      * @brief 2nd term of Cross product
      *
      * @tparam _K
@@ -35,7 +35,7 @@ namespace fun {
         return v[0] * w[2] - w[0] * v[2];
     }
 
-    /*!
+    /**
      * @brief 3rd term of Cross product
      *
      * @tparam _K
@@ -47,7 +47,7 @@ namespace fun {
         return v[0] * w[1] - w[0] * v[1];
     }
 
-    /*!
+    /**
      * @brief Cross product
      *
      * @tparam _K
@@ -61,7 +61,7 @@ namespace fun {
         return {cross0(v, w), -cross1(v, w), cross2(v, w)};
     }
 
-    /*!
+    /**
      * @brief Dot product
      *
      * @tparam _K
@@ -75,7 +75,7 @@ namespace fun {
         return x1 * x2 + y1 * y2 + z1 * z2;
     }
 
-    /*!
+    /**
      * @brief generic Plucker function
      *
      * @tparam _K data type
@@ -93,7 +93,7 @@ namespace fun {
         return {ld * x1 + mu * x2, ld * y1 + mu * y2, ld * z1 + mu * z2};
     }
 
-    /*!
+    /**
      * @brief dot product of the (0,1)-component of two vectors
      *
      * @tparam _K
@@ -105,7 +105,7 @@ namespace fun {
         return v[0] * w[0] + v[1] * w[1];
     }
 
-    /*!
+    /**
      * @brief dot product of the (0,2)-component of two vectors
      *
      * @tparam _K
@@ -117,7 +117,7 @@ namespace fun {
         return v[0] * w[0] + v[2] * w[2];
     }
 
-    /*!
+    /**
      * @brief Square function
      *
      * @tparam T data type

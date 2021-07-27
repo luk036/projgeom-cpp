@@ -5,17 +5,17 @@
 
 #include "proj_plane_concepts.h"
 
-/*! @file include/proj_plane.hpp
+/** @file include/proj_plane.hpp
  *  This is a C++ Library header.
  */
 
-/*!
+/**
  @todo: projectivity >=
 **/
 
 namespace fun {
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] p
@@ -44,7 +44,7 @@ namespace fun {
 
     template <typename P> using Triple = std::tuple<P, P, P>;
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] tri
@@ -58,7 +58,7 @@ namespace fun {
         return std::tuple{a2 * a3, a1 * a3, a1 * a2};
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] func
@@ -73,7 +73,7 @@ namespace fun {
         return std::tuple{func(a2, a3), func(a1, a3), func(a1, a2)};
     }
 
-    /*!
+    /**
      * @brief return whether two triangles are perspective
      *
      * @param[in] tri1
@@ -89,7 +89,7 @@ namespace fun {
         return incident(O, C * F);
     }
 
-    /*!
+    /**
      * @brief
      *
      * @tparam P
@@ -105,7 +105,7 @@ namespace fun {
         return plucker(B.dot(lC), A, A.dot(lC), B);
     }
 
-    /*!
+    /**
      * @brief
      *
      * @tparam P
@@ -125,7 +125,7 @@ namespace fun {
         return (Q * S) * AB;
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] A
@@ -157,7 +157,7 @@ namespace fun {
         K _c;
 
       public:
-        /*!
+        /**
          * @brief Construct a new involution object
          *
          * @param[in] m
@@ -166,7 +166,7 @@ namespace fun {
         constexpr involution(L m, P o)  // input mirror and center
             : _m{std::move(m)}, _o{std::move(o)}, _c{_m.dot(_o)} {}
 
-        /*!
+        /**
          * @brief
          *
          * @param[in] p
@@ -176,7 +176,7 @@ namespace fun {
             return plucker(this->_c, p, K(-2 * p.dot(this->_m)), this->_o);
         }
 
-        /*!
+        /**
          * @brief
          *
          * @param[in] p
@@ -201,7 +201,7 @@ namespace fun {
         P _o;
 
       public:
-        /*!
+        /**
          * @brief Construct a new involution object
          *
          * @param[in] m
@@ -210,7 +210,7 @@ namespace fun {
         constexpr involution_generic(L m, P o)  // input mirror and center
             : _m{std::move(m)}, _o{std::move(o)} {}
 
-        /*!
+        /**
          * @brief
          *
          * @param[in] p
@@ -223,7 +223,7 @@ namespace fun {
         }
     };
 
-    /*!
+    /**
      * @brief Check Pappus Theorem
      *
      * @tparam P
@@ -244,7 +244,7 @@ namespace fun {
         assert(coincident(G, H, I));
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] tri1

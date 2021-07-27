@@ -7,7 +7,7 @@
 
 namespace fun {
 
-    /*!
+    /**
      * @brief
      *
      * @tparam P
@@ -24,7 +24,7 @@ namespace fun {
         L _l_infty;
 
       public:
-        /*!
+        /**
          * @brief Construct a new persp euclid plane object
          *
          * @param[in] Ire
@@ -34,7 +34,7 @@ namespace fun {
         constexpr persp_euclid_plane(P Ire, P Iim, L l_infty)
             : _Ire{std::move(Ire)}, _Iim{std::move(Iim)}, _l_infty{std::move(l_infty)} {}
 
-        // /*!
+        // /**
         //  * @brief Construct a new persp euclid plane object
         //  *
         //  * @param[in] Ire
@@ -45,7 +45,7 @@ namespace fun {
         // &l_infty)
         //     : _Ire{Ire}, _Iim{Iim}, _l_infty{l_infty} {}
 
-        // /*!
+        // /**
         //  * @brief
         //  *
         //  * @param[in] x
@@ -53,14 +53,14 @@ namespace fun {
         //  */
         // constexpr const L &perp(const P &x) const { return _l_infty; }
 
-        /*!
+        /**
          * @brief
          *
          * @return const L&
          */
         [[nodiscard]] constexpr auto l_infty() const -> const L& { return this->_l_infty; }
 
-        /*!
+        /**
          * @brief
          *
          * @param[in] x
@@ -72,7 +72,7 @@ namespace fun {
             return plucker(alpha, this->_Ire, beta, this->_Iim);
         }
 
-        /*!
+        /**
          * @brief
          *
          * @param[in] l
@@ -84,7 +84,7 @@ namespace fun {
             return incident(this->_l_infty, l * m);
         }
 
-        /*!
+        /**
          * @brief
          *
          * @param[in] a
@@ -97,7 +97,7 @@ namespace fun {
             return plucker(alpha, a, beta, b);
         }
 
-        /*!
+        /**
          * @brief
          *
          * @param[in] tri
@@ -110,7 +110,7 @@ namespace fun {
                              this->midpoint(a1, a3)};
         }
 
-        /*!
+        /**
          * @brief
          *
          * @param[in] x
@@ -120,7 +120,7 @@ namespace fun {
             return sq(x.dot(this->_l_infty));
         }
 
-        /*!
+        /**
          * @brief
          *
          * @param[in] x
@@ -130,7 +130,7 @@ namespace fun {
             return sq(x.dot(this->_Ire)) + sq(x.dot(this->_Iim));
         }
 
-        /*!
+        /**
          * @brief
          *
          * @param[in] a1
@@ -148,7 +148,7 @@ namespace fun {
             }
         }
 
-        // /*!
+        // /**
         //  * @brief
         //  *
         //  * @param[in] l1

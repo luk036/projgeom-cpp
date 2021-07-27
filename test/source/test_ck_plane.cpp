@@ -16,7 +16,7 @@ using namespace fun;
 
 static const auto Zero = doctest::Approx(0).epsilon(0.01);
 
-/*!
+/**
  * @brief
  *
  * @param[in] a

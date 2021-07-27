@@ -9,7 +9,7 @@
 
 namespace fun {
 
-    /*!
+    /**
      * @brief
      *
      * @tparam _P
@@ -33,7 +33,7 @@ namespace fun {
             static_assert(std::is_base_of_v<ck<_P, _L, Derived>, Derived<_P, _L>>);
         }
 
-        /*!
+        /**
          * @brief is perpendicular
          *
          * @tparam L
@@ -46,7 +46,7 @@ namespace fun {
             return incident(m, self.perp(l));
         }
 
-        /*!
+        /**
          * @brief altitude
          *
          * @param[in] p
@@ -57,7 +57,7 @@ namespace fun {
         requires Projective_plane_prim<P, L>  // c++20 concept
         constexpr auto altitude(const P& p, const L& l) const -> L { return p * self.perp(l); }
 
-        /*!
+        /**
          * @brief altitudes of triangle
          *
          * @param[in] tri
@@ -72,7 +72,7 @@ namespace fun {
                               this->altitude(a3, l3)};
         }
 
-        /*!
+        /**
          * @brief ortho-center
          *
          * @param[in] tri
@@ -148,7 +148,7 @@ namespace fun {
         }
     };
 
-    /*!
+    /**
      * @brief check sine law
      *
      * @tparam Q_t
@@ -165,7 +165,7 @@ namespace fun {
         return (s1 * q2 == s2 * q1) && (s2 * q3 == s3 * q2);
     }
 
-    /*!
+    /**
      * @brief Elliptic Plane
      *
      * @tparam P
@@ -203,7 +203,7 @@ namespace fun {
         }
     };
 
-    /*!
+    /**
      * @brief Hyperbolic Plane
      *
      * @tparam P
@@ -241,7 +241,7 @@ namespace fun {
         }
     };
 
-    /*!
+    /**
      * @brief
      *
      * @tparam K
@@ -253,7 +253,7 @@ namespace fun {
         return sq(q1 + q2 + q3) - 2 * (q1 * q1 + q2 * q2 + q3 * q3) - 4 * q1 * q2 * q3;
     }
 
-    /*!
+    /**
      * @brief
      *
      * @tparam K

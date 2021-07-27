@@ -8,7 +8,7 @@
 
 namespace fun {
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] l
@@ -19,7 +19,7 @@ namespace fun {
         return {l[0], l[1], 0};
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] l
@@ -32,7 +32,7 @@ namespace fun {
         return dot1(l, m) == 0;
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] l
@@ -45,7 +45,7 @@ namespace fun {
         return cross2(l, m) == 0;
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] a
@@ -56,7 +56,7 @@ namespace fun {
     requires Projective_plane_coord<P, L>
     constexpr auto altitude(const P& a, const L& l) -> L { return a * fB(l); }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] tri
@@ -67,7 +67,7 @@ namespace fun {
         return std::tuple{altitude(a1, a2 * a3), altitude(a2, a3 * a1), altitude(a3, a1 * a2)};
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] tri
@@ -80,7 +80,7 @@ namespace fun {
         return t1 * t2;
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] m
@@ -90,7 +90,7 @@ namespace fun {
         return involution{m, fB(m)};
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] a
@@ -101,7 +101,7 @@ namespace fun {
         return plucker(b[2], a, a[2], b);
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] tri
@@ -113,7 +113,7 @@ namespace fun {
         return {midpoint(a1, a2), midpoint(a2, a3), midpoint(a1, a3)};
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] lda1
@@ -127,7 +127,7 @@ namespace fun {
         return P{lda2 - mu2, 2 * lda1 * mu1, lda2 + mu2};
     }
 
-    /*!
+    /**
      * @brief Archimedes's function
      *
      * @tparam _Q
@@ -140,7 +140,7 @@ namespace fun {
         return 4 * a * b - sq(a + b - c);
     }
 
-    /*!
+    /**
      * @brief Cyclic quadrilateral quadrea theorem
      *
      * @tparam _Q
@@ -158,7 +158,7 @@ namespace fun {
         return std::tuple{std::move(m), std::move(p)};
     }
 
-    /*!
+    /**
      * @brief
      *
      * @tparam _Q

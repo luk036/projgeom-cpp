@@ -3,17 +3,17 @@
 #include "fractions.hpp"
 #include "proj_plane.hpp"
 
-/*! @file include/proj_plane.hpp
+/** @file include/proj_plane.hpp
  *  This is a C++ Library header.
  */
 
-/*!
+/**
  @todo: projectivity >=
 **/
 
 namespace fun {
 
-    /*!
+    /**
      * @brief
      *
      * @tparam K
@@ -31,7 +31,7 @@ namespace fun {
         }
     }
 
-    /*!
+    /**
      * @brief Cross Ratio
      *
      * @tparam P
@@ -50,7 +50,7 @@ namespace fun {
         return ratio_ratio(A.dot(l), A.dot(m), B.dot(l), B.dot(m));
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] A
@@ -71,7 +71,7 @@ namespace fun {
         return R1(A, B, C, D);
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] A
@@ -86,7 +86,7 @@ namespace fun {
         return x_ratio(A, B, O * C, O * D);
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] A
@@ -100,7 +100,7 @@ namespace fun {
         return ratio_ratio(cross0(A, C), cross0(A, D), cross0(B, C), cross0(B, D));
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] A

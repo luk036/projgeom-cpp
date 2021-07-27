@@ -2,7 +2,7 @@
 // Initially implemented by Wai-Shing Luk <luk036@gmail.com>
 //
 
-/*! @file include/pg_line.hpp
+/** @file include/pg_line.hpp
  *  This is a C++ Library header.
  */
 
@@ -17,7 +17,7 @@ namespace fun {
 
     template <ring _K> struct pg_point;
 
-    /*!
+    /**
      * @brief Projective line: two dimensional subspace of K^3
      *
      * @tparam  _K  Type of line elements
@@ -27,14 +27,14 @@ namespace fun {
         using _Base = pg_object<_K, pg_point<_K>>;
         using _Base2 = std::array<_K, 3>;
 
-        /*!
+        /**
          * @brief Construct a new pg object object
          *
          * @param[in] a array of coordinates
          */
         constexpr explicit pg_line(const _Base2& a) : _Base{a} {}
 
-        /*!
+        /**
          * @brief Construct a new pg_object object
          *
          * @param[in] x

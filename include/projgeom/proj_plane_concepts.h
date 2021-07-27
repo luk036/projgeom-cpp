@@ -1,4 +1,4 @@
-/*! @file include/proj_plane_concepts.h
+/** @file include/proj_plane_concepts.h
  *  This is a C++ Library header.
  */
 
@@ -6,13 +6,13 @@
 
 #include "common_concepts.h"
 
-/*!
+/**
  * @todo: projectivity >=
  */
 
 namespace fun {
 
-    /*!
+    /**
      * @brief Projective plane Concept (half)
      *
      * @tparam P Point
@@ -27,7 +27,7 @@ namespace fun {
         // { p.aux2(q) } -> std::convertible_to<P>; // point r on p * q, r != p and r != q
     };
 
-    /*!
+    /**
      * @brief Projective plane Concept (full)
      *
      * @tparam P Point
@@ -36,7 +36,7 @@ namespace fun {
     template <class P, class L = typename P::dual>
     concept Projective_plane_prim = Projective_plane_prim_h<P, L> && Projective_plane_prim_h<L, P>;
 
-    /*!
+    /**
      * @brief Shorthand Notation of Projective_plane
      *
      * @tparam P Point
@@ -46,7 +46,7 @@ namespace fun {
         = Projective_plane_prim<std::remove_reference_t<P>>;  // Make the compiler
                                                               // happy
 
-    /*!
+    /**
      * @brief Projective plane Concept (full)
      *
      * @tparam P Point
@@ -59,7 +59,7 @@ namespace fun {
         { p.aux2(q) } -> std::convertible_to<P>;  // point r on p * q, r != p and r != q
     };
 
-    /*!
+    /**
      * @brief Projective plane Concept (full)
      *
      * @tparam P Point
@@ -69,7 +69,7 @@ namespace fun {
     concept Projective_plane_generic
         = Projective_plane_generic_h<P, L> && Projective_plane_generic_h<L, P>;
 
-    /*!
+    /**
      * @brief Shorthand Notation of Projective_plane
      *
      * @tparam P Point
@@ -79,7 +79,7 @@ namespace fun {
         = Projective_plane_generic<std::remove_reference_t<P>>;  // Make the compiler
                                                                  // happy
 
-    /*!
+    /**
      * @brief Projective plane Concept (half)
      *
      * @tparam P Point
@@ -98,7 +98,7 @@ namespace fun {
         { plucker(a, p, a, q) } -> std::convertible_to<P>;   // module computation
     };
 
-    /*!
+    /**
      * @brief Projective plane Concept (full)
      *
      * @tparam P Point
@@ -113,7 +113,7 @@ namespace fun {
     }
     */
 
-    /*!
+    /**
      * @brief Shorthand Notation of Projective_plane
      *
      * @tparam P Point
@@ -122,7 +122,7 @@ namespace fun {
     concept Projective_plane2
         = Projective_plane<std::remove_reference_t<P>>;  // Make the compiler happy
 
-    /*!
+    /**
      * @brief Projective plane Concept (half)
      *
      * @tparam P Point
@@ -136,7 +136,7 @@ namespace fun {
         { p[idx] } -> std::convertible_to<Value_type<P>>;  // for coordinate acess
     };
 
-    /*!
+    /**
      * @brief Projective plane Concept (full)
      *
      * @tparam P Point
@@ -146,7 +146,7 @@ namespace fun {
     concept Projective_plane_coord
         = Projective_plane_coord_h<P, L> && Projective_plane_coord_h<L, P>;
 
-    /*!
+    /**
      * @brief Shorthand Notation of Projective_plane
      *
      * @tparam P Point

@@ -85,12 +85,12 @@ inline auto operator*(PA const& /*unused*/, PA const& /*unused*/) -> LA { return
 inline auto operator*(LA const& /*unused*/, LA const& /*unused*/) -> PA { return PA{}; }
 inline auto PA::aux() -> LA { return LA{}; }
 inline auto LA::aux() -> PA { return PA{}; }
-inline auto plucker(const PA::value_type& /*unused*/, const PA& /*unused*/, const PA::value_type& /*unused*/,
-                    const PA& /*unused*/) -> PA {
+inline auto plucker(const PA::value_type& /*unused*/, const PA& /*unused*/,
+                    const PA::value_type& /*unused*/, const PA& /*unused*/) -> PA {
     return PA{};
 }
-inline auto plucker(const LA::value_type& /*unused*/, const LA& /*unused*/, const LA::value_type& /*unused*/,
-                    const LA& /*unused*/) -> LA {
+inline auto plucker(const LA::value_type& /*unused*/, const LA& /*unused*/,
+                    const LA::value_type& /*unused*/, const LA& /*unused*/) -> LA {
     return LA{};
 }
 inline auto incident(const PA& /*unused*/, const LA& /*unused*/) -> bool { return true; }

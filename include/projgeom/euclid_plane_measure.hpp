@@ -5,7 +5,7 @@
 
 namespace fun {
 
-    /*!
+    /**
      * @brief
      *
      * @tparam K
@@ -21,7 +21,7 @@ namespace fun {
         return sq(Fraction<K>(x1, z1) - Fraction<K>(x2, z2));
     }
 
-    /*!
+    /**
      * @brief
      *
      * @tparam K
@@ -37,7 +37,7 @@ namespace fun {
         return sq(x1 / z1 - x2 / z2);
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] a1
@@ -57,7 +57,7 @@ namespace fun {
     //     return Fraction(d, omgB(l1, l1)) * Fraction(d, omgB(l2, l2));
     // }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] l1
@@ -75,7 +75,7 @@ namespace fun {
         }
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] l1
@@ -86,7 +86,7 @@ namespace fun {
         return sbase(l1, l2, cross2(l1, l2));
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] triangle
@@ -98,7 +98,7 @@ namespace fun {
         return std::tuple{quadrance(a2, a3), quadrance(a1, a3), quadrance(a1, a2)};
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] trilateral
@@ -110,7 +110,7 @@ namespace fun {
         return std::tuple{spread(a2, a3), spread(a1, a3), spread(a1, a2)};
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] l1
@@ -123,7 +123,7 @@ namespace fun {
 
 #include <cmath>
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] a
@@ -134,7 +134,7 @@ namespace fun {
         return std::sqrt(double(quadrance(a, b)));
     }
 
-    /*!
+    /**
      * @brief
      *
      * @param[in] l

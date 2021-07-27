@@ -2,7 +2,7 @@
 // Initially implemented by Wai-Shing Luk <luk036@gmail.com>
 //
 
-/*! @file include/pg_object.hpp
+/** @file include/pg_object.hpp
  *  This is a C++ Library header.
  */
 
@@ -12,7 +12,7 @@
 
 namespace fun {
 
-    /*!
+    /**
      * @brief Projective object
      *
      * @tparam _K Type of object elements
@@ -29,33 +29,33 @@ namespace fun {
 
         // pg_object(_Self &&) = default;
 
-        /*!
+        /**
          * @brief Construct a new pg object object
          *
          * @param[in] a array of coordinates
          */
         constexpr explicit pg_object(const _Base& a) : _Base{a} {}
 
-        /*!
+        /**
          * @brief Construct a new pg object
          *
          */
         explicit pg_object(const _Self&) = default;
 
-        /*!
+        /**
          * @brief
          *
          * @return _Self&
          */
         auto operator=(const _Self&) -> _Self& = delete;
 
-        /*!
+        /**
          * @brief Construct a new pg object
          *
          */
         pg_object(_Self&&) noexcept = default;
 
-        /*!
+        /**
          * @brief
          *
          * @return _Self&
@@ -64,7 +64,7 @@ namespace fun {
 
         // Operators:
 
-        /*!
+        /**
          * @brief Equal to
          *
          * @param[in] rhs
@@ -78,7 +78,7 @@ namespace fun {
             return cross(lhs, rhs) == _Base{_K(0), _K(0), _K(0)};
         }
 
-        /*!
+        /**
          * @brief Not equal to
          *
          * @param[in] rhs
@@ -89,7 +89,7 @@ namespace fun {
             return !(lhs == rhs);
         }
 
-        /*!
+        /**
          * @brief Equal to
          *
          * @param[in] rhs
@@ -101,7 +101,7 @@ namespace fun {
             return base == _Base{_K(0), _K(0), _K(0)};
         }
 
-        /*!
+        /**
          * @brief the dot product
          *
          * @param[in] l
@@ -109,14 +109,14 @@ namespace fun {
          */
         [[nodiscard]] constexpr auto dot(const dual& l) const -> _K { return fun::dot_c(*this, l); }
 
-        /*!
+        /**
          * @brief Generate a new line not incident with p
          *
          * @return dual
          */
         [[nodiscard]] constexpr auto aux() const -> dual { return dual(*this); }
 
-        /*!
+        /**
          * @brief Join or meet
          *
          * @param[in] rhs
@@ -128,7 +128,7 @@ namespace fun {
         }
     };
 
-    /*!
+    /**
      * @brief
      *
      * @tparam P
@@ -144,7 +144,7 @@ namespace fun {
         return P{plucker_c(ld1, p, mu1, q)};
     }
 
-    /*!
+    /**
      * @brief
      *
      * @tparam _K

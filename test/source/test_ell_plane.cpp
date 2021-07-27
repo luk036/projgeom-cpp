@@ -14,7 +14,7 @@ using namespace fun;
 
 static const auto Zero = doctest::Approx(0).epsilon(0.01);
 
-/*!
+/**
  * @brief
  *
  * @param[in] a
@@ -25,7 +25,7 @@ template <typename T> inline auto ApproxZero(const T& a) -> bool {
     return a[0] == Zero && a[1] == Zero && a[2] == Zero;
 }
 
-/*!
+/**
  * @brief
  *
  * @tparam PG
@@ -64,7 +64,7 @@ template <typename PG> void chk_tri(const PG& myck) {
     }
 }
 
-/*!
+/**
  * @brief
  *
  * @tparam PG

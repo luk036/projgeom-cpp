@@ -4,10 +4,10 @@
 #include <doctest/doctest.h>
 
 #include <boost/multiprecision/cpp_int.hpp>
+#include <ostream>
 
 #include "projgeom/common_concepts.h"
 #include "projgeom/fractions.hpp"
-// #include <iostream>
 
 using namespace fun;
 
