@@ -35,9 +35,9 @@ TEST_CASE("Fraction") {
     // std::cout << p << '\n';
     const auto q = Fraction{c, d};
 
-    CHECK(p == Fraction(30, 40));
-    CHECK(p + q == Fraction(19, 12));
-    CHECK(p - q == Fraction(-1, 12));
+    CHECK(p == Fraction<cpp_int>(30, 40));
+    CHECK(p + q == Fraction<cpp_int>(19, 12));
+    CHECK(p - q == Fraction<cpp_int>(-1, 12));
     CHECK(p != 0);
 }
 
