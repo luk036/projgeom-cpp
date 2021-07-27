@@ -233,12 +233,13 @@ namespace fun {
             if (this->_den == rhs._den) {
                 return this->_num < rhs._num;
             }
-            const auto f1 = Fraction{this->_num, rhs._num};  // perform gcd()
-            const auto f2 = Fraction{this->_den, rhs._den};  // perform gcd()
-            if (rhs._num > Z(0)) {
-                return f1._num * f2._den < f1._den * f2._num;
+            const auto common = gcd(this->_den, rhs._den);
+            if (common == Z(0)) {
+                return rhs._den * this->_num < this->_den * rhs._num;
             }
-            return f1.cross(f2) < Z(0);
+            const auto l = this->_den / common;
+            const auto r = rhs._den / common;
+            return r * this->_num < l * rhs._num;
         }
 
         /**
@@ -417,18 +418,18 @@ namespace fun {
             return res;
         }
 
-        /*!
-         * @brief
-         *
-         * @param[in] frac
-         * @return Fraction
-         */
-        constexpr auto operator+(const Fraction& frac) const -> Fraction {
-            if (this->_den == frac._den) {
-                return Fraction(this->_num + frac._num, this->_den);
+        constexpr auto operator+(const Fraction& rhs) const -> Fraction {
+            if (this->_den == rhs._den) {
+                return Fraction(this->_num + rhs._num, this->_den);
             }
-            auto d = this->_den * frac._den;
-            auto n = frac._den * this->_num + this->_den * frac._num;
+            const auto common = gcd(this->_den, rhs._den);
+            if (common == Z(0)) {
+                return Fraction(rhs._den * this->_num + this->_den * rhs._num, Z(0));
+            }
+            const auto l = this->_den / common;
+            const auto r = rhs._den / common;
+            auto d = this->_den * r;
+            auto n = r * this->_num + l * rhs._num;
             return Fraction(std::move(n), std::move(d));
         }
 

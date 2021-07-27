@@ -25,7 +25,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
   target_compile_options(${PROJECT_NAME} INTERFACE -fconcepts -Wall -Wpedantic -Wextra -Werror)
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   target_compile_options(
-    ${PROJECT_NAME} INTERFACE -fconcept-ts -stdlib=libc++ -Wall -Wpedantic -Wextra -Werror
+    ${PROJECT_NAME} INTERFACE -Wall -Wpedantic -Wextra -Werror
   )
 elseif(MSVC)
   target_compile_options(${PROJECT_NAME} INTERFACE /W4 /WX)
