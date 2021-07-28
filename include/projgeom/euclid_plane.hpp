@@ -167,7 +167,8 @@ namespace fun {
      */
     template <typename T> constexpr auto Ptolemy(const T& quad) -> bool {
         const auto& [Q12, Q23, Q34, Q14, Q13, Q24] = quad;
-        return Ar(Q12 * Q34, Q23 * Q14, Q13 * Q24) == 0;
+        using _K = decltype(Q12);
+        return Ar(Q12 * Q34, Q23 * Q14, Q13 * Q24) == _K(0);
     }
 
 }  // namespace fun

@@ -54,7 +54,7 @@ template <typename PG> void chk_degenerate(const PG& myck) {
         CHECK(!myck.is_parallel(l2, l3));
         CHECK(coincident(t1 * t2, t3));
         CHECK(tqf == Ar(q1, q2, q3));
-        CHECK(tsf == 0);
+        CHECK(tsf == K(0));
     } else {
         CHECK(myck.l_infty().dot(l1 * l2) != Zero);
         CHECK(myck.l_infty().dot(l2 * l3) != Zero);

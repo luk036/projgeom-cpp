@@ -38,7 +38,7 @@ TEST_CASE("Fraction") {
     CHECK(p == Fraction<cpp_int>(30, 40));
     CHECK(p + q == Fraction<cpp_int>(19, 12));
     CHECK(p - q == Fraction<cpp_int>(-1, 12));
-    CHECK(p != 0);
+    CHECK(p != cpp_int(0));
 }
 
 TEST_CASE("Fraction Special Cases") {
