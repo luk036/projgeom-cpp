@@ -2,10 +2,6 @@
 // Initially implemented by Wai-Shing Luk <luk036@gmail.com>
 //
 
-/** @file include/pg_point.hpp
- *  This is a C++ Library header.
- */
-
 #pragma once
 
 #include "pg_common.hpp"

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cmath>
+
 #include "euclid_plane.hpp"
 #include "fractions.hpp"
 
@@ -120,8 +122,6 @@ namespace fun {
     template <Projective_plane_coord2 L> inline constexpr auto cross_s(const L& l1, const L& l2) {
         return sbase(l1, l2, dot1(l1, l2));
     }
-
-#include <cmath>
 
     /**
      * @brief

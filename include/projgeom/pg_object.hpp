@@ -2,10 +2,6 @@
 // Initially implemented by Wai-Shing Luk <luk036@gmail.com>
 //
 
-/** @file include/pg_object.hpp
- *  This is a C++ Library header.
- */
-
 #pragma once
 
 #include "pg_common.hpp"
@@ -68,6 +64,7 @@ namespace fun {
          * @brief Equal to
          *
          * @param[in] rhs
+         * @param[in] lhs
          * @return true if this object is equivalent to the rhs
          * @return false otherwise
          */
@@ -82,6 +79,7 @@ namespace fun {
          * @brief Not equal to
          *
          * @param[in] rhs
+         * @param[in] lhs
          * @return true if this object is not equivalent to the rhs
          * @return false otherwise
          */
@@ -120,8 +118,8 @@ namespace fun {
          * @brief Join or meet
          *
          * @param[in] rhs
-         * @return true if this point is equivalent to the rhs
-         * @return false otherwise
+         * @param[in] lhs
+         * @return dual
          */
         friend constexpr auto operator*(const _Self& lhs, const _Self& rhs) -> dual {
             return dual(cross(lhs, rhs));
@@ -132,8 +130,8 @@ namespace fun {
      * @brief
      *
      * @tparam P
-     * @tparam Value_type<P>
-     * @param[in] lda1
+     * @tparam _K
+     * @param[in] ld1
      * @param[in] p
      * @param[in] mu1
      * @param[in] q

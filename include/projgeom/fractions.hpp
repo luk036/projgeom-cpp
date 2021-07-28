@@ -1,12 +1,6 @@
 // -*- coding: utf-16 -*-
 #pragma once
 
-/** @file include/fractions.hpp
- *  This is a C++ Library header.
- */
-
-// #include <boost/operators.hpp>
-// #include <cmath>
 #include <numeric>
 #include <type_traits>
 #include <utility>
@@ -169,7 +163,7 @@ namespace fun {
         /**
          * @brief cross product
          *
-         * @param rhs
+         * @param[in] rhs
          * @return Z
          */
         constexpr auto cross(const Fraction& rhs) const -> Z {
@@ -247,16 +241,8 @@ namespace fun {
         /**
          * @brief Equal to
          *
+         * @param[in] lhs
          * @param[in] rhs
-         * @return true
-         * @return false
-         */
-
-        /**
-         * @brief Equal to
-         *
-         * @param lhs
-         * @param rhs
          * @return true
          * @return false
          */
@@ -273,8 +259,8 @@ namespace fun {
         /**
          * @brief Less than
          *
-         * @param lhs
-         * @param rhs
+         * @param[in] lhs
+         * @param[in] rhs
          * @return true
          * @return false
          */
@@ -401,7 +387,7 @@ namespace fun {
         /**
          * @brief multiply and assign
          *
-         * @param rhs
+         * @param[in] rhs
          * @return Fraction&
          */
         constexpr auto operator*=(Fraction rhs) -> Fraction& {
@@ -416,8 +402,8 @@ namespace fun {
         /**
          * @brief multiply
          *
-         * @param lhs
-         * @param rhs
+         * @param[in] lhs
+         * @param[in] rhs
          * @return Fraction
          */
         friend constexpr auto operator*(Fraction lhs, const Fraction& rhs) -> Fraction {
@@ -427,7 +413,7 @@ namespace fun {
         /**
          * @brief multiply and assign
          *
-         * @param rhs
+         * @param[in] rhs
          * @return Fraction&
          */
         constexpr auto operator*=(Z rhs) -> Fraction& {
@@ -440,8 +426,8 @@ namespace fun {
         /**
          * @brief multiply
          *
-         * @param lhs
-         * @param rhs
+         * @param[in] lhs
+         * @param[in] rhs
          * @return Fraction
          */
         friend constexpr auto operator*(Fraction lhs, const Z& rhs) -> Fraction {
@@ -451,8 +437,8 @@ namespace fun {
         /**
          * @brief multiply
          *
-         * @param lhs
-         * @param rhs
+         * @param[in] lhs
+         * @param[in] rhs
          * @return Fraction
          */
         friend constexpr auto operator*(const Z& lhs, Fraction rhs) -> Fraction {
@@ -462,7 +448,7 @@ namespace fun {
         /**
          * @brief divide and assign
          *
-         * @param rhs
+         * @param[in] rhs
          * @return Fraction&
          */
         constexpr auto operator/=(Fraction rhs) -> Fraction& {
@@ -477,8 +463,8 @@ namespace fun {
         /**
          * @brief divide
          *
-         * @param lhs
-         * @param rhs
+         * @param[in] lhs
+         * @param[in] rhs
          * @return Fraction
          */
         friend constexpr auto operator/(Fraction lhs, const Fraction& rhs) -> Fraction {
@@ -488,7 +474,7 @@ namespace fun {
         /**
          * @brief divide and assign
          *
-         * @param rhs
+         * @param[in] rhs
          * @return Fraction&
          */
         constexpr auto operator/=(const Z& rhs) -> Fraction& {
@@ -501,8 +487,8 @@ namespace fun {
         /**
          * @brief divide
          *
-         * @param lhs
-         * @param rhs
+         * @param[in] lhs
+         * @param[in] rhs
          * @return Fraction
          */
         friend constexpr auto operator/(Fraction lhs, const Z& rhs) -> Fraction {
@@ -512,8 +498,8 @@ namespace fun {
         /**
          * @brief divide
          *
-         * @param lhs
-         * @param rhs
+         * @param[in] lhs
+         * @param[in] rhs
          * @return Fraction
          */
         friend constexpr auto operator/(const Z& lhs, Fraction rhs) -> Fraction {
@@ -535,7 +521,7 @@ namespace fun {
         /**
          * @brief Add
          *
-         * @param rhs
+         * @param[in] rhs
          * @return Fraction
          */
         constexpr auto operator+(const Fraction& rhs) const -> Fraction {

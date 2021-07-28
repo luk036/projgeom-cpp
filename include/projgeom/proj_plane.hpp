@@ -5,10 +5,6 @@
 
 #include "proj_plane_concepts.h"
 
-/** @file include/proj_plane.hpp
- *  This is a C++ Library header.
- */
-
 /**
  @todo: projectivity >=
 **/
@@ -30,8 +26,8 @@ namespace fun {
     /**
      * @brief Coincident
      *
-     * @tparam[in] L Line
-     * @tparam[in] Args points
+     * @tparam L Line
+     * @tparam Args points
      * @return true if points are conincident (on a line l)
      * @return false otherwise
      */
@@ -179,8 +175,8 @@ namespace fun {
         /**
          * @brief
          *
-         * @param[in] p
-         * @return P
+         * @param[in] l
+         * @return L
          */
         constexpr auto operator()(const L& l) const -> L {
             return plucker(this->_c, l, K(-2 * l.dot(this->_o)), this->_m);
