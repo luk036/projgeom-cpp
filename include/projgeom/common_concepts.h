@@ -4,8 +4,14 @@
 #include <numeric>
 #include <type_traits>
 #include <utility>
-// #include <concepts>
-// #include <ranges>
+
+#if __has_include(<concepts>)
+#    include <concepts>
+namespace std_alt = std;
+#elif __has_include(<concepts/concepts.hpp>)
+#    include <concepts/concepts.hpp>
+namespace std_alt = concepts;
+#endif
 
 namespace fun {
 
@@ -21,34 +27,34 @@ namespace fun {
      */
     template <typename T>
     concept Sequence = requires(T t, Element_type<T> x) {
-        { t.size() } -> std::convertible_to<std::size_t>;
-        { t.empty() } -> std::convertible_to<bool>;
-        { t.back() } -> std::same_as<Element_type<T> >;
+        { t.size() } -> std_alt::convertible_to<size_t>;
+        { t.empty() } -> std_alt::convertible_to<bool>;
+        { t.back() } -> std_alt::same_as<Element_type<T> >;
         {t.push_back(x)};
     };
 
     template <typename K>
-    concept ring = std::equality_comparable<K> && requires(K a, K b) {
-        { a + b } -> std::convertible_to<K>;
-        { a - b } -> std::convertible_to<K>;
-        { a* b } -> std::convertible_to<K>;
-        { a += b } -> std::same_as<K&>;
-        { a -= b } -> std::same_as<K&>;
-        { a *= b } -> std::same_as<K&>;
-        { -a } -> std::convertible_to<K>;
-        { K(a) } -> std::convertible_to<K>;
-        { K(0) } -> std::convertible_to<K>;
+    concept ring = std_alt::equality_comparable<K> && requires(K a, K b) {
+        { a + b } -> std_alt::convertible_to<K>;
+        { a - b } -> std_alt::convertible_to<K>;
+        { a* b } -> std_alt::convertible_to<K>;
+        { a += b } -> std_alt::same_as<K&>;
+        { a -= b } -> std_alt::same_as<K&>;
+        { a *= b } -> std_alt::same_as<K&>;
+        { -a } -> std_alt::convertible_to<K>;
+        { K(a) } -> std_alt::convertible_to<K>;
+        { K(0) } -> std_alt::convertible_to<K>;
     };
 
     template <typename K>
-    concept ordered_ring = ring<K> && std::totally_ordered<K>;
+    concept ordered_ring = ring<K> && std_alt::totally_ordered<K>;
 
     template <typename Z>
     concept Integral = ordered_ring<Z> && requires(Z a, Z b) {
-        { a % b } -> std::convertible_to<Z>;
-        { a / b } -> std::convertible_to<Z>;
-        { a %= b } -> std::same_as<Z&>;
-        { a /= b } -> std::same_as<Z&>;
+        { a % b } -> std_alt::convertible_to<Z>;
+        { a / b } -> std_alt::convertible_to<Z>;
+        { a %= b } -> std_alt::same_as<Z&>;
+        { a /= b } -> std_alt::same_as<Z&>;
     };
 
 }  // namespace fun

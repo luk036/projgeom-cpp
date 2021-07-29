@@ -477,7 +477,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction&
          */
-        constexpr auto operator/=(const Z& rhs) -> Fraction& {
+        constexpr auto operator/=(Z rhs) -> Fraction& {
             std::swap(this->_den, rhs);
             this->normalize();
             this->_den *= rhs;
