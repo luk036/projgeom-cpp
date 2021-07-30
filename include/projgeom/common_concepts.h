@@ -21,18 +21,18 @@ namespace fun {
     template <typename T> using Element_type =
         typename std::decay<decltype(back(std::declval<T>()))>::type;
 
-    /**
-     * @brief Sequence
-     *
-     * @tparam T
-     */
-    template <typename T>
-    concept Sequence = requires(T t, Element_type<T> x) {
-        { t.size() } -> std_alt::convertible_to<size_t>;
-        { t.empty() } -> std_alt::convertible_to<bool>;
-        { t.back() } -> std_alt::same_as<Element_type<T> >;
-        {t.push_back(x)};
-    };
+    // /**
+    //  * @brief Sequence
+    //  *
+    //  * @tparam T
+    //  */
+    // template <typename T>
+    // concept Sequence = requires(T t, Element_type<T> x) {
+    //     { t.size() } -> std_alt::convertible_to<size_t>;
+    //     { t.empty() } -> std_alt::convertible_to<bool>;
+    //     { t.back() } -> std_alt::same_as<Element_type<T> >;
+    //     {t.push_back(x)};
+    // };
 
     template <typename K>
     concept ring = std_alt::equality_comparable<K> && requires(K a, K b) {
