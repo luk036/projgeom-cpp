@@ -202,7 +202,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        constexpr auto operator<(const Z& other) -> bool {
+        constexpr auto operator<(const Z& other) const -> bool {
             if (this->_den == Z(1) || other == Z(0)) {
                 return this->_num < other;
             }
@@ -252,10 +252,12 @@ namespace fun {
          * @return true
          * @return false
          */
-        constexpr friend auto operator==(Fraction lhs, Fraction rhs) -> bool {
-            if (lhs._den == rhs._den) {
-                return lhs._num == rhs._num;
+        constexpr auto operator==(const Fraction& other) const -> bool {
+            if (this->_den == other._den) {
+                return this->_num == other._num;
             }
+            auto lhs{*this};
+            auto rhs{other};
             std::swap(lhs._den, rhs._num);
             lhs.normalize2();
             rhs.normalize2();
@@ -270,10 +272,12 @@ namespace fun {
          * @return true
          * @return false
          */
-        constexpr friend auto operator<(Fraction lhs, Fraction rhs) -> bool {
-            if (lhs._den == rhs._den) {
-                return lhs._num < rhs._num;
+        constexpr auto operator<(const Fraction& other) const -> bool {
+            if (this->_den == other._den) {
+                return this->_num < other._num;
             }
+            auto lhs{*this};
+            auto rhs{other};
             std::swap(lhs._den, rhs._num);
             lhs.normalize2();
             rhs.normalize2();
@@ -531,18 +535,7 @@ namespace fun {
          * @return Fraction
          */
         constexpr auto operator+(const Fraction& other) const -> Fraction {
-            if (this->_den == other._den) {
-                return Fraction(this->_num + other._num, this->_den);
-            }
-            const auto common = gcd(this->_den, other._den);
-            if (common == Z(0)) {
-                return Fraction(other._den * this->_num + this->_den * other._num, Z(0));
-            }
-            const auto l = this->_den / common;
-            const auto r = other._den / common;
-            auto d = this->_den * r;
-            auto n = r * this->_num + l * other._num;
-            return Fraction(std::move(n), std::move(d));
+            return *this - (-other);
         }
 
         /**

@@ -16,4 +16,4 @@ if(Boost_FOUND)
   target_compile_definitions(Boost::boost INTERFACE BOOST_ALL_NO_LIB=1)
 endif()
 
-set(SPECIFIC_LIBS fmt::fmt Boost::boost)
+set(SPECIFIC_LIBS fmt::fmt Boost::boost range-v3)
