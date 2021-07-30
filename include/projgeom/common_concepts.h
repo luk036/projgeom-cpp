@@ -11,7 +11,7 @@
 #elif __has_include(<concepts/concepts.hpp>)
 #    include <concepts/concepts.hpp>
 #    include <range/v3/utility/concepts.hpp>
-#    define STD_ALT = concepts;
+#    define STD_ALT concepts;
 #endif
 
 namespace fun {
