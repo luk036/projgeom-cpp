@@ -10,6 +10,7 @@
 namespace std_alt = std;
 #elif __has_include(<concepts/concepts.hpp>)
 #    include <concepts/concepts.hpp>
+#    include <range/v3/utility/concepts.hpp>
 namespace std_alt = concepts;
 #endif
 
