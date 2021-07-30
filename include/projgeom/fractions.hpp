@@ -184,7 +184,7 @@ namespace fun {
          * @return false
          */
         constexpr auto operator==(const Z& other) -> bool {
-            if (this->_den == Z(1) || rhs == Z(0)) {
+            if (this->_den == Z(1) || other == Z(0)) {
                 return this->_num == other;
             }
             auto lhs(*this);
