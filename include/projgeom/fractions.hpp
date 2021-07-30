@@ -183,10 +183,12 @@ namespace fun {
          * @return true
          * @return false
          */
-        friend constexpr auto operator==(Fraction lhs, Z rhs) -> bool {
-            if (lhs._den == Z(1) || rhs == Z(0)) {
-                return lhs._num == rhs;
+        constexpr auto operator==(const Z& other) -> bool {
+            if (this->_den == Z(1) || rhs == Z(0)) {
+                return this->_num == other;
             }
+            auto lhs(*this);
+            auto rhs(other);
             std::swap(lhs._den, rhs);
             lhs.normalize2();
             return lhs._num == lhs._den * rhs;
