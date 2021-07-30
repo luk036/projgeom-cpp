@@ -5,13 +5,12 @@
 #include <type_traits>
 #include <utility>
 
-// Workaround: for those does not have <concepts> library, use range-v3's 
+// Workaround: for those does not have <concepts> library, use range-v3's
 #if __has_include(<concepts>)
 #    include <concepts>
 #    define STD_ALT std
 #elif __has_include(<concepts/concepts.hpp>)
 #    include <concepts/concepts.hpp>
-#    include <range/v3/utility/concepts.hpp>
 #    define STD_ALT concepts
 #endif
 

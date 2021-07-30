@@ -544,7 +544,9 @@ namespace fun {
          * @param[in] frac
          * @return Fraction
          */
-        constexpr auto operator-(const Fraction& frac) const -> Fraction { return *this + (-frac); }
+        friend constexpr auto operator-(Fraction lhs, const Fraction& rhs) -> Fraction {
+            return lhs -= rhs;
+        }
 
         /**
          * @brief Add
@@ -570,7 +572,7 @@ namespace fun {
          * @param[in] i
          * @return Fraction
          */
-        constexpr auto operator-(const Z& i) const -> Fraction { return *this + (-i); }
+        friend constexpr auto operator-(Fraction lhs, const Z& i) -> Fraction { return lhs -= i; }
 
         /**
          * @brief
@@ -643,17 +645,6 @@ namespace fun {
          * @param[in] frac
          * @return Fraction
          */
-        friend constexpr auto operator-(const Z& c, const Fraction& frac) -> Fraction {
-            return c + (-frac);
-        }
-
-        /**
-         * @brief
-         *
-         * @param[in] c
-         * @param[in] frac
-         * @return Fraction
-         */
         friend constexpr auto operator+(int&& c, const Fraction& frac) -> Fraction {
             return frac + Z(c);
         }
@@ -666,7 +657,7 @@ namespace fun {
          * @return Fraction
          */
         friend constexpr auto operator-(int&& c, const Fraction& frac) -> Fraction {
-            return (-frac) + Z(c);
+            return -(frac - Z(c));
         }
 
         /**
