@@ -5,6 +5,8 @@ CPMAddPackage(
   OPTIONS "FMT_INSTALL YES" # create an installable target
 )
 
+CPMAddPackage("gh:ericniebler/range-v3#0.10.0")
+
 find_package(Boost REQUIRED)
 if(Boost_FOUND)
   message(STATUS "Found boost: ${Boost_INCLUDE_DIRS}")
@@ -14,4 +16,4 @@ if(Boost_FOUND)
   target_compile_definitions(Boost::boost INTERFACE BOOST_ALL_NO_LIB=1)
 endif()
 
-set(SPECIFIC_LIBS fmt::fmt Boost::boost)
+set(SPECIFIC_LIBS fmt::fmt Boost::boost range-v3)
