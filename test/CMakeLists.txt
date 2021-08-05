@@ -26,7 +26,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
 elseif(MSVC)
   target_compile_options(${PROJECT_NAME} INTERFACE /W4 /WX)
   target_compile_definitions(${PROJECT_NAME}Tests INTERFACE DOCTEST_CONFIG_USE_STD_HEADERS)
-elseif()
+else()
   target_compile_options(${PROJECT_NAME} INTERFACE -fconcepts-ts -Wall -Wpedantic -Wextra -Werror)
 endif()
 

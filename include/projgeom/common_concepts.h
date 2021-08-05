@@ -1,13 +1,13 @@
 #pragma once
 
 #include <cmath>
+#include <concepts/concepts.hpp>
 #include <numeric>
 #include <type_traits>
 #include <utility>
-#include <concepts/concepts.hpp>
 // #include <ranges>
 namespace STD_ALT = concepts;
- 
+
 namespace fun {
 
     template <typename T> using Value_type = typename T::value_type;
@@ -25,7 +25,7 @@ namespace fun {
         { t.size() } -> STD_ALT::convertible_to<std::size_t>;
         { t.empty() } -> STD_ALT::convertible_to<bool>;
         { t.back() } -> STD_ALT::same_as<Element_type<T> >;
-        {t.push_back(x)};
+        { t.push_back(x) };
     };
 
     template <typename K>

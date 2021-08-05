@@ -88,7 +88,7 @@ namespace fun {
     template <class P, class L>
     concept Projective_plane_h
         = STD_ALT::equality_comparable<P> && requires(const P& p, const P& q, const L& l,
-                                                  const Value_type<P>& a) {
+                                                      const Value_type<P>& a) {
         typename Value_type<P>;
         // { P(p) } -> P; // copyable
         // { incident(p, l) } -> bool; // incidence
