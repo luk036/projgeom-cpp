@@ -601,23 +601,15 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction
          */
-<<<<<<< HEAD
         constexpr auto operator-=(const Fraction& rhs) -> Fraction& {
-=======
-        constexpr auto operator-=(Fraction rhs) -> Fraction& {
->>>>>>> a1d20ab2328311054b035fd91d25747083d1db79
             if (this->_den == rhs._den) {
                 this->_num -= rhs._num;
                 this->normalize2();
                 return *this;
             }
 
-<<<<<<< HEAD
             auto other{rhs};
             std::swap(this->_den, other._num);
-=======
-            std::swap(this->_den, rhs._num);
->>>>>>> a1d20ab2328311054b035fd91d25747083d1db79
             auto common_n = this->normalize2();
             auto common_d = rhs.normalize2();
             std::swap(this->_den, rhs._num);
