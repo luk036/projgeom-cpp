@@ -611,10 +611,10 @@ namespace fun {
             auto other{rhs};
             std::swap(this->_den, other._num);
             auto common_n = this->normalize2();
-            auto common_d = rhs.normalize2();
-            std::swap(this->_den, rhs._num);
-            this->_num = this->cross(rhs);
-            this->_den *= rhs._den;
+            auto common_d = other.normalize2();
+            std::swap(this->_den, other._num);
+            this->_num = this->cross(other);
+            this->_den *= other._den;
             std::swap(this->_den, common_d);
             this->normalize2();
             this->_num *= common_n;
@@ -637,25 +637,17 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction
          */
-<<<<<<< HEAD
         constexpr auto operator-=(const Z& rhs) -> Fraction& {
-=======
-        constexpr auto operator-=(Z rhs) -> Fraction& {
->>>>>>> a1d20ab2328311054b035fd91d25747083d1db79
             if (this->_den == Z(1)) {
                 this->_num -= rhs;
                 return *this;
             }
 
-<<<<<<< HEAD
             auto other{rhs};
             std::swap(this->_den, other);
-=======
-            std::swap(this->_den, rhs);
->>>>>>> a1d20ab2328311054b035fd91d25747083d1db79
             auto common_n = this->normalize2();
-            std::swap(this->_den, rhs);
-            this->_num -= rhs * this->_den;
+            std::swap(this->_den, other);
+            this->_num -= other * this->_den;
             this->_num *= common_n;
             this->normalize2();
             return *this;
