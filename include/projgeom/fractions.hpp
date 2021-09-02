@@ -32,7 +32,7 @@ namespace fun {
      * @param[in] __n
      * @return _Mn
      */
-    template <Integral _Mn> inline constexpr auto gcd_recur(_Mn __m, _Mn __n) -> _Mn {
+    template <Integral _Mn> inline constexpr auto gcd_recur(const _Mn& __m, const _Mn& __n) -> _Mn {
         if (__n == 0) {
             return abs(__m);
         }
@@ -47,7 +47,7 @@ namespace fun {
      * @param[in] __n
      * @return _Mn
      */
-    template <Integral _Mn> inline constexpr auto gcd(_Mn __m, _Mn __n) -> _Mn {
+    template <Integral _Mn> inline constexpr auto gcd(const _Mn& __m, const _Mn& __n) -> _Mn {
         if (__m == 0) {
             return abs(__n);
         }
@@ -62,7 +62,7 @@ namespace fun {
      * @param[in] __n
      * @return _Mn
      */
-    template <Integral _Mn> inline constexpr auto lcm(_Mn __m, _Mn __n) -> _Mn {
+    template <Integral _Mn> inline constexpr auto lcm(const _Mn& __m, const _Mn& __n) -> _Mn {
         if (__m == 0 || __n == 0) {
             return 0;
         }
@@ -588,13 +588,14 @@ namespace fun {
          * @param[in] other
          * @return Fraction
          */
-        constexpr auto operator-=(Fraction other) -> Fraction& {
-            if (this->_den == other._den) {
-                this->_num -= other._num;
+        constexpr auto operator-=(const Fraction& rhs) -> Fraction& {
+            if (this->_den == rhs._den) {
+                this->_num -= rhs._num;
                 this->normalize2();
                 return *this;
             }
 
+            auto other{rhs};
             std::swap(this->_den, other._num);
             auto common_n = this->normalize2();
             auto common_d = other.normalize2();
@@ -623,12 +624,13 @@ namespace fun {
          * @param[in] other
          * @return Fraction
          */
-        constexpr auto operator-=(Z other) -> Fraction& {
+        constexpr auto operator-=(const Z& rhs) -> Fraction& {
             if (this->_den == Z(1)) {
-                this->_num -= other;
+                this->_num -= rhs;
                 return *this;
             }
 
+            auto other{rhs};
             std::swap(this->_den, other);
             auto common_n = this->normalize2();
             std::swap(this->_den, other);
