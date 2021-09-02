@@ -5,6 +5,10 @@
 
 #include "proj_plane_concepts.h"
 
+/** @file include/proj_plane.hpp
+ *  This is a C++ Library header.
+ */
+
 /**
  @todo: projectivity >=
 **/
@@ -26,8 +30,8 @@ namespace fun {
     /**
      * @brief Coincident
      *
-     * @tparam L Line
-     * @tparam Args points
+     * @tparam[in] L Line
+     * @tparam[in] Args points
      * @return true if points are conincident (on a line l)
      * @return false otherwise
      */
@@ -46,7 +50,9 @@ namespace fun {
      * @param[in] tri
      * @return auto
      */
-    template <Projective_plane_prim2 P> constexpr auto tri_dual(const Triple<P>& tri) {
+    template <Projective_plane_prim2 P> constexpr auto tri_dual(const Triple<P>& tri)
+
+    {
         const auto& [a1, a2, a3] = tri;
         assert(!coincident(a2 * a3, a1));
         return std::tuple{a2 * a3, a1 * a3, a1 * a2};
@@ -60,7 +66,9 @@ namespace fun {
      * @return auto
      */
     template <Projective_plane_prim2 P, typename Fn>
-    constexpr auto tri_func(Fn&& func, const Triple<P>& tri) {
+    constexpr auto tri_func(Fn&& func, const Triple<P>& tri)
+
+    {
         const auto& [a1, a2, a3] = tri;
         return std::tuple{func(a2, a3), func(a1, a3), func(a1, a2)};
     }
@@ -171,8 +179,8 @@ namespace fun {
         /**
          * @brief
          *
-         * @param[in] l
-         * @return L
+         * @param[in] p
+         * @return P
          */
         constexpr auto operator()(const L& l) const -> L {
             return plucker(this->_c, l, K(-2 * l.dot(this->_o)), this->_m);

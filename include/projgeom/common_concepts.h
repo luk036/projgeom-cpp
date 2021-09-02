@@ -1,18 +1,12 @@
 #pragma once
 
 #include <cmath>
+#include <concepts/concepts.hpp>
 #include <numeric>
 #include <type_traits>
 #include <utility>
-
-// Workaround: for those does not have <concepts> library, use range-v3's
-#if __has_include(<concepts>)
-#    include <concepts>
-#    define STD_ALT std
-#elif __has_include(<concepts/concepts.hpp>)
-#    include <concepts/concepts.hpp>
-#    define STD_ALT concepts
-#endif
+// #include <ranges>
+namespace STD_ALT = concepts;
 
 namespace fun {
 
@@ -21,18 +15,18 @@ namespace fun {
     template <typename T> using Element_type =
         typename std::decay<decltype(back(std::declval<T>()))>::type;
 
-    // /**
-    //  * @brief Sequence
-    //  *
-    //  * @tparam T
-    //  */
-    // template <typename T>
-    // concept Sequence = requires(T t, Element_type<T> x) {
-    //     { t.size() } -> STD_ALT::convertible_to<size_t>;
-    //     { t.empty() } -> STD_ALT::convertible_to<bool>;
-    //     { t.back() } -> STD_ALT::same_as<Element_type<T> >;
-    //     {t.push_back(x)};
-    // };
+    /**
+     * @brief Sequence
+     *
+     * @tparam T
+     */
+    template <typename T>
+    concept Sequence = requires(T t, Element_type<T> x) {
+        { t.size() } -> STD_ALT::convertible_to<std::size_t>;
+        { t.empty() } -> STD_ALT::convertible_to<bool>;
+        { t.back() } -> STD_ALT::same_as<Element_type<T> >;
+        { t.push_back(x) };
+    };
 
     template <typename K>
     concept ring = STD_ALT::equality_comparable<K> && requires(K a, K b) {

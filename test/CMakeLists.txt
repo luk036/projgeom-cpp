@@ -23,11 +23,11 @@ set_target_properties(${PROJECT_NAME}Tests PROPERTIES CXX_STANDARD 20)
 # enable compiler warnings
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
   target_compile_options(${PROJECT_NAME} INTERFACE -fconcepts -Wall -Wpedantic -Wextra -Werror)
-elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  target_compile_options(${PROJECT_NAME} INTERFACE -Wall -Wpedantic -Wextra -Werror)
 elseif(MSVC)
   target_compile_options(${PROJECT_NAME} INTERFACE /W4 /WX)
   target_compile_definitions(${PROJECT_NAME}Tests INTERFACE DOCTEST_CONFIG_USE_STD_HEADERS)
+else()
+  target_compile_options(${PROJECT_NAME} INTERFACE -fconcepts-ts -Wall -Wpedantic -Wextra -Werror)
 endif()
 
 # ---- Add ${PROJECT_NAME}Tests ----

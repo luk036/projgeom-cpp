@@ -3,6 +3,10 @@
 #include "fractions.hpp"
 #include "proj_plane.hpp"
 
+/** @file include/proj_plane.hpp
+ *  This is a C++ Library header.
+ */
+
 /**
  @todo: projectivity >=
 **/
@@ -32,10 +36,10 @@ namespace fun {
      *
      * @tparam P
      * @tparam L
-     * @param[in] A point in P
-     * @param[in] B point in P
-     * @param[in] l line in P
-     * @param[in] m line in P
+     * @param[in] A point \in P
+     * @param[in] B point \in P
+     * @param[in] l line \in P
+     * @param[in] m line \in P
      * @return cross ratio R(A,B;l,m)
      *
      * @todo rewrite by projecting to the y-axis first [:2]

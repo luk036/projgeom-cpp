@@ -63,7 +63,7 @@ namespace fun {
         /**
          * @brief
          *
-         * @param[in] v
+         * @param[in] x
          * @return P
          */
         [[nodiscard]] constexpr auto perp(const L& v) const -> P {
