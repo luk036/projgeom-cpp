@@ -1,0 +1,307 @@
+Consolidate compiler generated dependencies of target ProjGeomTests
+[  8%] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/greeter.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/greeter.cpp should add these lines:
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/greeter.cpp should remove these lines:
+- #include <doctest/doctest.h>  // lines 1-1
+- #include <projgeom/greeter.h>  // lines 2-2
+- #include <projgeom/version.h>  // lines 3-3
+- #include <string>  // lines 5-5
+
+The full include-list for /data/data/com.termux/files/home/github/projgeom-cpp/test/source/greeter.cpp:
+---
+
+[ 16%] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/main.cpp.o
+[ 25%] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_ck_plane.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_ck_plane.cpp should add these lines:
+#include <array>                                           // for operator==
+#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
+#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
+#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
+#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
+#include <boost/multiprecision/detail/number_base.hpp>     // for unsigned_abs
+#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
+#include <boost/multiprecision/number.hpp>                 // for operator<<
+#include <ostream>                                         // for operator<<
+#include <tuple>                                           // for tuple
+#include <type_traits>                                     // for move
+#include "projgeom/common_concepts.h"                      // for Value_type
+#include "projgeom/fractions.hpp"                          // for operator*
+#include "projgeom/pg_object.hpp"                          // for operator*
+#include "projgeom/proj_plane.hpp"                         // for coincident
+#include "projgeom/proj_plane_measure.hpp"                 // for x_ratio
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_ck_plane.cpp should remove these lines:
+
+The full include-list for /data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_ck_plane.cpp:
+#include <doctest/doctest.h>                               // for ResultBuilder
+#include <array>                                           // for operator==
+#include <boost/multiprecision/cpp_int.hpp>                // for cpp_int
+#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
+#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
+#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
+#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
+#include <boost/multiprecision/detail/number_base.hpp>     // for unsigned_abs
+#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
+#include <boost/multiprecision/number.hpp>                 // for operator<<
+#include <ostream>                                         // for operator<<
+#include <tuple>                                           // for tuple
+#include <type_traits>                                     // for move
+#include "projgeom/ck_plane.hpp"                           // for ellck, hyck
+#include "projgeom/common_concepts.h"                      // for Value_type
+#include "projgeom/fractions.hpp"                          // for operator*
+#include "projgeom/persp_plane.hpp"                        // for persp_eucl...
+#include "projgeom/pg_common.hpp"                          // for cross
+#include "projgeom/pg_line.hpp"                            // for pg_line
+#include "projgeom/pg_object.hpp"                          // for operator*
+#include "projgeom/pg_point.hpp"                           // for pg_point
+#include "projgeom/proj_plane.hpp"                         // for coincident
+#include "projgeom/proj_plane_measure.hpp"                 // for x_ratio
+---
+
+[ 33%] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_concepts.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_concepts.cpp should add these lines:
+#include <stddef.h>                    // for size_t
+#include "projgeom/common_concepts.h"  // for fun
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_concepts.cpp should remove these lines:
+- #include <cassert>  // lines 1-1
+
+The full include-list for /data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_concepts.cpp:
+#include <stddef.h>                    // for size_t
+#include <projgeom/proj_plane.hpp>     // for coincident, harm_conj
+#include "projgeom/common_concepts.h"  // for fun
+class LA;  // lines 5-5
+---
+
+[ 41%] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_ell_plane.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_ell_plane.cpp should add these lines:
+#include <array>                                           // for operator==
+#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
+#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
+#include <boost/multiprecision/cpp_int/divide.hpp>         // for eval_divide
+#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
+#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
+#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
+#include <boost/multiprecision/number.hpp>                 // for operator<<
+#include <ostream>                                         // for operator<<
+#include <tuple>                                           // for get, tuple
+#include <type_traits>                                     // for move
+#include "projgeom/common_concepts.h"                      // for Value_type
+#include "projgeom/fractions.hpp"                          // for operator*
+#include "projgeom/pg_common.hpp"                          // for cross
+#include "projgeom/pg_object.hpp"                          // for operator*
+#include "projgeom/proj_plane.hpp"                         // for tri_dual
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_ell_plane.cpp should remove these lines:
+
+The full include-list for /data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_ell_plane.cpp:
+#include <doctest/doctest.h>                               // for ResultBuilder
+#include <array>                                           // for operator==
+#include <boost/multiprecision/cpp_int.hpp>                // for cpp_int
+#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
+#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
+#include <boost/multiprecision/cpp_int/divide.hpp>         // for eval_divide
+#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
+#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
+#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
+#include <boost/multiprecision/number.hpp>                 // for operator<<
+#include <ostream>                                         // for operator<<
+#include <tuple>                                           // for get, tuple
+#include <type_traits>                                     // for move
+#include "projgeom/ck_plane.hpp"                           // for ellck, hyck
+#include "projgeom/common_concepts.h"                      // for Value_type
+#include "projgeom/fractions.hpp"                          // for operator*
+#include "projgeom/pg_common.hpp"                          // for cross
+#include "projgeom/pg_line.hpp"                            // for pg_line
+#include "projgeom/pg_object.hpp"                          // for operator*
+#include "projgeom/pg_point.hpp"                           // for pg_point
+#include "projgeom/proj_plane.hpp"                         // for tri_dual
+---
+
+[ 50%] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_euclid.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_euclid.cpp should add these lines:
+#include <array>                                           // for operator==
+#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
+#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
+#include <boost/multiprecision/cpp_int/divide.hpp>         // for eval_divide
+#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
+#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
+#include <boost/multiprecision/detail/number_base.hpp>     // for unsigned_abs
+#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
+#include <boost/multiprecision/number.hpp>                 // for operator<<
+#include <ostream>                                         // for operator<<
+#include <tuple>                                           // for tuple
+#include <type_traits>                                     // for move
+#include "projgeom/common_concepts.h"                      // for Value_type
+#include "projgeom/fractions.hpp"                          // for operator*
+#include "projgeom/pg_common.hpp"                          // for sq, cross
+#include "projgeom/pg_object.hpp"                          // for operator*
+#include "projgeom/proj_plane.hpp"                         // for coincident
+#include "projgeom/proj_plane_measure.hpp"                 // for R
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_euclid.cpp should remove these lines:
+
+The full include-list for /data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_euclid.cpp:
+#include <doctest/doctest.h>                               // for ResultBuilder
+#include <array>                                           // for operator==
+#include <boost/multiprecision/cpp_int.hpp>                // for cpp_int
+#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
+#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
+#include <boost/multiprecision/cpp_int/divide.hpp>         // for eval_divide
+#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
+#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
+#include <boost/multiprecision/detail/number_base.hpp>     // for unsigned_abs
+#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
+#include <boost/multiprecision/number.hpp>                 // for operator<<
+#include <ostream>                                         // for operator<<
+#include <tuple>                                           // for tuple
+#include <type_traits>                                     // for move
+#include "projgeom/ck_plane.hpp"                           // for check_sine...
+#include "projgeom/common_concepts.h"                      // for Value_type
+#include "projgeom/euclid_plane.hpp"                       // for uc_point, Ar
+#include "projgeom/euclid_plane_measure.hpp"               // for quadrance
+#include "projgeom/fractions.hpp"                          // for operator*
+#include "projgeom/pg_common.hpp"                          // for sq, cross
+#include "projgeom/pg_line.hpp"                            // for meet
+#include "projgeom/pg_object.hpp"                          // for operator*
+#include "projgeom/pg_point.hpp"                           // for pg_point
+#include "projgeom/proj_plane.hpp"                         // for coincident
+#include "projgeom/proj_plane_measure.hpp"                 // for R
+---
+
+[ 58%] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_frac.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_frac.cpp should add these lines:
+#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
+#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
+#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
+#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
+#include <boost/multiprecision/detail/number_base.hpp>     // for unsigned_abs
+#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
+#include <boost/multiprecision/number.hpp>                 // for operator<<
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_frac.cpp should remove these lines:
+
+The full include-list for /data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_frac.cpp:
+#include <doctest/doctest.h>                               // for ResultBuilder
+#include <boost/multiprecision/cpp_int.hpp>                // for cpp_int
+#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
+#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
+#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
+#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
+#include <boost/multiprecision/detail/number_base.hpp>     // for unsigned_abs
+#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
+#include <boost/multiprecision/number.hpp>                 // for operator<<
+#include <ostream>                                         // for operator<<
+#include "projgeom/common_concepts.h"                      // for fun
+#include "projgeom/fractions.hpp"                          // for Fraction
+---
+
+[ 66%] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_persp_plane.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_persp_plane.cpp should add these lines:
+#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
+#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
+#include <boost/multiprecision/cpp_int/divide.hpp>         // for eval_divide
+#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
+#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
+#include <boost/multiprecision/detail/number_base.hpp>     // for unsigned_abs
+#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
+#include <boost/multiprecision/number.hpp>                 // for operator<<
+#include <ostream>                                         // for operator<<
+#include <tuple>                                           // for tuple
+#include <type_traits>                                     // for move
+#include "projgeom/common_concepts.h"                      // for Value_type
+#include "projgeom/fractions.hpp"                          // for operator*
+#include "projgeom/pg_common.hpp"                          // for sq
+#include "projgeom/pg_object.hpp"                          // for operator*
+#include "projgeom/proj_plane.hpp"                         // for coincident
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_persp_plane.cpp should remove these lines:
+
+The full include-list for /data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_persp_plane.cpp:
+#include <doctest/doctest.h>                               // for ResultBuilder
+#include <boost/multiprecision/cpp_int.hpp>                // for cpp_int
+#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
+#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
+#include <boost/multiprecision/cpp_int/divide.hpp>         // for eval_divide
+#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
+#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
+#include <boost/multiprecision/detail/number_base.hpp>     // for unsigned_abs
+#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
+#include <boost/multiprecision/number.hpp>                 // for operator<<
+#include <ostream>                                         // for operator<<
+#include <tuple>                                           // for tuple
+#include <type_traits>                                     // for move
+#include "projgeom/common_concepts.h"                      // for Value_type
+#include "projgeom/euclid_plane.hpp"                       // for Ar
+#include "projgeom/fractions.hpp"                          // for operator*
+#include "projgeom/persp_plane.hpp"                        // for persp_eucl...
+#include "projgeom/pg_common.hpp"                          // for sq
+#include "projgeom/pg_line.hpp"                            // for pg_line
+#include "projgeom/pg_object.hpp"                          // for operator*
+#include "projgeom/pg_point.hpp"                           // for pg_point
+#include "projgeom/proj_plane.hpp"                         // for coincident
+---
+
+[ 75%] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_proj_plane.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_proj_plane.cpp should add these lines:
+#include <array>                       // for operator==, array
+#include <chrono>                      // for literals
+#include <sstream>                     // for operator<<, basic_stringbuf<>:...
+#include "projgeom/common_concepts.h"  // for fun
+#include "projgeom/pg_object.hpp"      // for operator*, operator==, operator<<
+
+/data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_proj_plane.cpp should remove these lines:
+
+The full include-list for /data/data/com.termux/files/home/github/projgeom-cpp/test/source/test_proj_plane.cpp:
+#include <doctest/doctest.h>           // for ResultBuilder, CHECK, Expressi...
+#include <array>                       // for operator==, array
+#include <chrono>                      // for literals
+#include <complex>                     // for operator*, operator-, operator+
+#include <sstream>                     // for operator<<, basic_stringbuf<>:...
+#include "projgeom/common_concepts.h"  // for fun
+#include "projgeom/pg_line.hpp"        // for pg_line
+#include "projgeom/pg_object.hpp"      // for operator*, operator==, operator<<
+#include "projgeom/pg_point.hpp"       // for pg_point
+#include "projgeom/proj_plane.hpp"     // for incident, harm_conj, is_harmonic
+---
+
+[ 83%] Linking CXX executable ProjGeomTests
+[ 83%] Built target ProjGeomTests
+Consolidate compiler generated dependencies of target ProjGeomStandalone
+[ 91%] Building CXX object standalone/CMakeFiles/ProjGeomStandalone.dir/source/main.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+/data/data/com.termux/files/home/github/projgeom-cpp/standalone/source/main.cpp should add these lines:
+#include <memory>              // for shared_ptr
+
+/data/data/com.termux/files/home/github/projgeom-cpp/standalone/source/main.cpp should remove these lines:
+
+The full include-list for /data/data/com.termux/files/home/github/projgeom-cpp/standalone/source/main.cpp:
+#include <projgeom/greeter.h>  // for LanguageCode, LanguageCode::DE, Langua...
+#include <projgeom/version.h>  // for PROJGEOM_VERSION
+#include <cxxopts.hpp>         // for value, OptionAdder, Options, OptionValue
+#include <iostream>            // for string, operator<<, endl, basic_ostream
+#include <memory>              // for shared_ptr
+#include <string>              // for char_traits, hash, operator==
+#include <unordered_map>       // for operator==, unordered_map, __hash_map_...
+---
+
+[100%] Linking CXX executable ProjGeom
+[100%] Built target ProjGeomStandalone
