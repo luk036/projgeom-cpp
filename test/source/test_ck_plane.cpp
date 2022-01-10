@@ -3,18 +3,11 @@
  */
 #include <doctest/doctest.h>  // for ResultBuilder
 
-#include <array>                                           // for operator==
-#include <boost/multiprecision/cpp_int.hpp>                // for cpp_int
-#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
-#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
-#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
-#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
-#include <boost/multiprecision/detail/number_base.hpp>     // for unsigned_abs
-#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
-#include <boost/multiprecision/number.hpp>                 // for operator<<
-#include <ostream>                                         // for operator<<
-#include <tuple>                                           // for tuple
-#include <type_traits>                                     // for move
+#include <array>                             // for operator==
+#include <boost/multiprecision/cpp_int.hpp>  // for cpp_int
+#include <ostream>                           // for operator<<
+#include <tuple>                             // for tuple
+#include <type_traits>                       // for move
 
 #include "projgeom/ck_plane.hpp"            // for ellck, hyck
 #include "projgeom/common_concepts.h"       // for Value_type
