@@ -1,6 +1,9 @@
-#include <cassert>
 // #include <concepts>
-#include <projgeom/proj_plane.hpp>
+#include <stddef.h>  // for size_t
+
+#include <projgeom/proj_plane.hpp>  // for coincident, harm_conj
+
+#include "projgeom/common_concepts.h"  // for fun
 
 class LA;
 

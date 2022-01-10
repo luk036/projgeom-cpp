@@ -1,13 +1,18 @@
 /*
  *  Distributed under the MIT License (See accompanying file /LICENSE )
  */
-#include <doctest/doctest.h>
+#include <doctest/doctest.h>  // for ResultBuilder, CHECK, Expressi...
 
-#include <complex>
+#include <array>    // for operator==, array
+#include <chrono>   // for literals
+#include <complex>  // for operator*, operator-, operator+
+#include <sstream>  // for operator<<, basic_stringbuf<>:...
 
-#include "projgeom/pg_line.hpp"
-#include "projgeom/pg_point.hpp"
-#include "projgeom/proj_plane.hpp"
+#include "projgeom/common_concepts.h"  // for fun
+#include "projgeom/pg_line.hpp"        // for pg_line
+#include "projgeom/pg_object.hpp"      // for operator*, operator==, operator<<
+#include "projgeom/pg_point.hpp"       // for pg_point
+#include "projgeom/proj_plane.hpp"     // for incident, harm_conj, is_harmonic
 // #include <iostream>
 
 using namespace fun;

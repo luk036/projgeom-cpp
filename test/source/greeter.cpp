@@ -1,8 +1,4 @@
-#include <doctest/doctest.h>
-#include <projgeom/greeter.h>
-#include <projgeom/version.h>
 
-#include <string>
 
 // TEST_CASE("ProjGeom") {
 //   using namespace projgeom;

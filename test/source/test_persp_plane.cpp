@@ -1,14 +1,30 @@
 /*
  *  Distributed under the MIT License (See accompanying file /LICENSE )
  */
-#include <doctest/doctest.h>
+#include <doctest/doctest.h>  // for ResultBuilder
 
-#include <boost/multiprecision/cpp_int.hpp>
+#include <boost/multiprecision/cpp_int.hpp>                // for cpp_int
+#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
+#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
+#include <boost/multiprecision/cpp_int/divide.hpp>         // for eval_divide
+#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
+#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
+#include <boost/multiprecision/detail/number_base.hpp>     // for unsigned_abs
+#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
+#include <boost/multiprecision/number.hpp>                 // for operator<<
+#include <ostream>                                         // for operator<<
+#include <tuple>                                           // for tuple
+#include <type_traits>                                     // for move
 
-#include "projgeom/euclid_plane.hpp"  // import Ar
-#include "projgeom/persp_plane.hpp"
-#include "projgeom/pg_line.hpp"
-#include "projgeom/pg_point.hpp"
+#include "projgeom/common_concepts.h"  // for Value_type
+#include "projgeom/euclid_plane.hpp"   // for Ar
+#include "projgeom/fractions.hpp"      // for operator*
+#include "projgeom/persp_plane.hpp"    // for persp_eucl...
+#include "projgeom/pg_common.hpp"      // for sq
+#include "projgeom/pg_line.hpp"        // for pg_line
+#include "projgeom/pg_object.hpp"      // for operator*
+#include "projgeom/pg_point.hpp"       // for pg_point
+#include "projgeom/proj_plane.hpp"     // for coincident
 // #include <iostream>
 
 using namespace fun;

@@ -1,13 +1,20 @@
 /*
  *  Distributed under the MIT License (See accompanying file /LICENSE )
  */
-#include <doctest/doctest.h>
+#include <doctest/doctest.h>  // for ResultBuilder
 
-#include <boost/multiprecision/cpp_int.hpp>
-#include <ostream>
+#include <boost/multiprecision/cpp_int.hpp>                // for cpp_int
+#include <boost/multiprecision/cpp_int/add.hpp>            // for eval_subtract
+#include <boost/multiprecision/cpp_int/add_unsigned.hpp>   // for add_unsigned
+#include <boost/multiprecision/cpp_int/multiply.hpp>       // for eval_multiply
+#include <boost/multiprecision/detail/et_ops.hpp>          // for operator*
+#include <boost/multiprecision/detail/number_base.hpp>     // for unsigned_abs
+#include <boost/multiprecision/detail/number_compare.hpp>  // for operator==
+#include <boost/multiprecision/number.hpp>                 // for operator<<
+#include <ostream>                                         // for operator<<
 
-#include "projgeom/common_concepts.h"
-#include "projgeom/fractions.hpp"
+#include "projgeom/common_concepts.h"  // for fun
+#include "projgeom/fractions.hpp"      // for Fraction
 
 using namespace fun;
 
