@@ -1,0 +1,5 @@
+name: projgeom-cpp
+channels:
+  - conda-forge
+dependencies:
+  - doxygen
