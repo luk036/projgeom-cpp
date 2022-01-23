@@ -80,30 +80,25 @@
             </dt>
             <dd>Elliptic Plane.</dd>
             <dt>
+              <div class="m-doc-template">template&lt;typename P, typename L = typename P::dual&gt;</div>
+              struct <a href="structfun_1_1hyck.html" class="m-doc">hyck</a>
+            </dt>
+            <dd>Hyperbolic Plane.</dd>
+            <dt>
               <div class="m-doc-template">template&lt;<a href="namespacefun.html#a308ad967cdc571f57771b0e978415aa3" class="m-doc">Integral</a> Z&gt;</div>
               struct <a href="structfun_1_1Fraction.html" class="m-doc">Fraction</a>
             </dt>
             <dd><a href="structfun_1_1Fraction.html" class="m-doc">Fraction</a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename P, typename L = typename P::dual&gt;</div>
-              struct <a href="structfun_1_1hyck.html" class="m-doc">hyck</a>
-            </dt>
-            <dd>Hyperbolic Plane.</dd>
-            <dt>
-              <div class="m-doc-template">template&lt;typename P, typename L&gt;</div>
-              class <a href="classfun_1_1involution.html" class="m-doc">involution</a>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template&lt;typename P, typename L&gt;</div>
-              class <a href="classfun_1_1involution__generic.html" class="m-doc">involution_generic</a>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template&lt;typename P, typename L = typename P::dual&gt;</div>
               class <a href="classfun_1_1persp__euclid__plane.html" class="m-doc">persp_euclid_plane</a>
             </dt>
             <dd></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;<a href="namespacefun.html#a707c54e15c17ce0229d2102fb93d81ed" class="m-doc">ring</a> _K&gt;</div>
+              struct <a href="structfun_1_1pg__point.html" class="m-doc">pg_point</a>
+            </dt>
+            <dd><span></span></dd>
             <dt>
               <div class="m-doc-template">template&lt;<a href="namespacefun.html#a707c54e15c17ce0229d2102fb93d81ed" class="m-doc">ring</a> _K&gt;</div>
               struct <a href="structfun_1_1pg__line.html" class="m-doc">pg_line</a>
@@ -115,10 +110,15 @@
             </dt>
             <dd>Projective object.</dd>
             <dt>
-              <div class="m-doc-template">template&lt;<a href="namespacefun.html#a707c54e15c17ce0229d2102fb93d81ed" class="m-doc">ring</a> _K&gt;</div>
-              struct <a href="structfun_1_1pg__point.html" class="m-doc">pg_point</a>
+              <div class="m-doc-template">template&lt;typename P, typename L&gt;</div>
+              class <a href="classfun_1_1involution.html" class="m-doc">involution</a>
             </dt>
-            <dd><span></span></dd>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename P, typename L&gt;</div>
+              class <a href="classfun_1_1involution__generic.html" class="m-doc">involution_generic</a>
+            </dt>
+            <dd></dd>
           </dl>
         </section>
         <section id="typedef-members">
@@ -311,20 +311,20 @@
             <dd>absolute</dd>
             <dt>
               <div class="m-doc-template">template&lt;Integral _Mn&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#a1b675f52c0c55bf2e91e21a15b4459cc" class="m-doc">gcd_recur</a>(</span><span class="m-doc-wrap">_Mn __m,
-              _Mn __n) -&gt; _Mn -&gt; auto <span class="m-label m-flat m-primary">constexpr</span></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#a107688672073c113d7702938ed879e63" class="m-doc">gcd_recur</a>(</span><span class="m-doc-wrap">const _Mn&amp; __m,
+              const _Mn&amp; __n) -&gt; _Mn -&gt; auto <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Greatest common divider.</dd>
             <dt>
               <div class="m-doc-template">template&lt;Integral _Mn&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#af4ce59450570239023ba0caefee8738a" class="m-doc">gcd</a>(</span><span class="m-doc-wrap">_Mn __m,
-              _Mn __n) -&gt; _Mn -&gt; auto <span class="m-label m-flat m-primary">constexpr</span></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#a19104da7f7a9f01fc5cf12254f2dde9e" class="m-doc">gcd</a>(</span><span class="m-doc-wrap">const _Mn&amp; __m,
+              const _Mn&amp; __n) -&gt; _Mn -&gt; auto <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Greatest common divider.</dd>
             <dt>
               <div class="m-doc-template">template&lt;Integral _Mn&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#ab06eb42b697bdc073aa91b89df614199" class="m-doc">lcm</a>(</span><span class="m-doc-wrap">_Mn __m,
-              _Mn __n) -&gt; _Mn -&gt; auto <span class="m-label m-flat m-primary">constexpr</span></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#aa7cd3f2561d21a7a53e922ff821d3d5f" class="m-doc">lcm</a>(</span><span class="m-doc-wrap">const _Mn&amp; __m,
+              const _Mn&amp; __n) -&gt; _Mn -&gt; auto <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Least common multiple.</dd>
             <dt>
@@ -1549,14 +1549,14 @@
               </tfoot>
             </table>
           </div></section>
-          <section class="m-doc-details" id="a1b675f52c0c55bf2e91e21a15b4459cc"><div>
+          <section class="m-doc-details" id="a107688672073c113d7702938ed879e63"><div>
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="fractions_8hpp.html">&lt;projgeom/fractions.hpp&gt;</a></div>
               <div class="m-doc-template">
                 template&lt;Integral _Mn&gt;
               </div>
-              <span class="m-doc-wrap-bumper">auto fun::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a1b675f52c0c55bf2e91e21a15b4459cc" class="m-doc-self">gcd_recur</a>(</span><span class="m-doc-wrap">_Mn __m,
-              _Mn __n) -&gt; _Mn <span class="m-label m-primary">constexpr</span></span></span>
+              <span class="m-doc-wrap-bumper">auto fun::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a107688672073c113d7702938ed879e63" class="m-doc-self">gcd_recur</a>(</span><span class="m-doc-wrap">const _Mn&amp; __m,
+              const _Mn&amp; __n) -&gt; _Mn <span class="m-label m-primary">constexpr</span></span></span>
             </h3>
             <p>Greatest common divider.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -1590,14 +1590,14 @@
               </tfoot>
             </table>
           </div></section>
-          <section class="m-doc-details" id="af4ce59450570239023ba0caefee8738a"><div>
+          <section class="m-doc-details" id="a19104da7f7a9f01fc5cf12254f2dde9e"><div>
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="fractions_8hpp.html">&lt;projgeom/fractions.hpp&gt;</a></div>
               <div class="m-doc-template">
                 template&lt;Integral _Mn&gt;
               </div>
-              <span class="m-doc-wrap-bumper">auto fun::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af4ce59450570239023ba0caefee8738a" class="m-doc-self">gcd</a>(</span><span class="m-doc-wrap">_Mn __m,
-              _Mn __n) -&gt; _Mn <span class="m-label m-primary">constexpr</span></span></span>
+              <span class="m-doc-wrap-bumper">auto fun::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a19104da7f7a9f01fc5cf12254f2dde9e" class="m-doc-self">gcd</a>(</span><span class="m-doc-wrap">const _Mn&amp; __m,
+              const _Mn&amp; __n) -&gt; _Mn <span class="m-label m-primary">constexpr</span></span></span>
             </h3>
             <p>Greatest common divider.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -1631,14 +1631,14 @@
               </tfoot>
             </table>
           </div></section>
-          <section class="m-doc-details" id="ab06eb42b697bdc073aa91b89df614199"><div>
+          <section class="m-doc-details" id="aa7cd3f2561d21a7a53e922ff821d3d5f"><div>
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="fractions_8hpp.html">&lt;projgeom/fractions.hpp&gt;</a></div>
               <div class="m-doc-template">
                 template&lt;Integral _Mn&gt;
               </div>
-              <span class="m-doc-wrap-bumper">auto fun::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ab06eb42b697bdc073aa91b89df614199" class="m-doc-self">lcm</a>(</span><span class="m-doc-wrap">_Mn __m,
-              _Mn __n) -&gt; _Mn <span class="m-label m-primary">constexpr</span></span></span>
+              <span class="m-doc-wrap-bumper">auto fun::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa7cd3f2561d21a7a53e922ff821d3d5f" class="m-doc-self">lcm</a>(</span><span class="m-doc-wrap">const _Mn&amp; __m,
+              const _Mn&amp; __n) -&gt; _Mn <span class="m-label m-primary">constexpr</span></span></span>
             </h3>
             <p>Least common multiple.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -1891,7 +1891,7 @@
                 </tr>
                 <tr>
                   <td>_K</td>
-                  <td></td>
+                  <td>data type</td>
                 </tr>
               </tbody>
               <thead>
@@ -1900,10 +1900,10 @@
               <tbody>
                 <tr>
                   <td>ld&nbsp;<span class="m-label m-flat m-info">in</span></td>
-                  <td></td>
+                  <td>lamda</td>
                 </tr>
                 <tr>
-                  <td>v1&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>v1</td>
                   <td></td>
                 </tr>
                 <tr>
@@ -1911,14 +1911,14 @@
                   <td></td>
                 </tr>
                 <tr>
-                  <td>v2&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>v2</td>
                   <td></td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
                   <th>Returns</th>
-                  <td>std::array&lt;_K, 3&gt;</td>
+                  <td>lamda*v + mu*w</td>
                 </tr>
               </tfoot>
             </table>
@@ -2082,7 +2082,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>ld1&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>ld1</td>
                   <td></td>
                 </tr>
                 <tr>
@@ -2226,27 +2226,6 @@
               <span class="m-doc-wrap-bumper"> fun::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae52c83b0ea0137c9bf1bc47d1738ec6b" class="m-doc-self">requires</a>(</span><span class="m-doc-wrap"><a href="namespacefun.html#a96bd614c34810eb7a3c416c4b28ccd4f" class="m-doc">Projective_<wbr />plane_<wbr />prim</a>&lt;L, Args&gt;&amp;&amp; ...) const expr auto coincident(const L &amp;l</span></span>
             </h3>
             <p>Coincident.</p>
-            <table class="m-table m-fullwidth m-flat">
-              <thead>
-                <tr><th colspan="2">Template parameters</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="width: 1%">L</td>
-                  <td>Line</td>
-                </tr>
-                <tr>
-                  <td>Args</td>
-                  <td>points</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th>Returns</th>
-                  <td>true if points are conincident (on a line l)</td>
-                </tr>
-              </tfoot>
-            </table>
           </div></section>
           <section class="m-doc-details" id="a11c87ed22b30fac8a53a4a7705cad75d"><div>
             <h3>
@@ -2601,19 +2580,19 @@
               <tbody>
                 <tr>
                   <td>A&nbsp;<span class="m-label m-flat m-info">in</span></td>
-                  <td>point in P</td>
+                  <td>point \in P</td>
                 </tr>
                 <tr>
                   <td>B&nbsp;<span class="m-label m-flat m-info">in</span></td>
-                  <td>point in P</td>
+                  <td>point \in P</td>
                 </tr>
                 <tr>
                   <td>l&nbsp;<span class="m-label m-flat m-info">in</span></td>
-                  <td>line in P</td>
+                  <td>line \in P</td>
                 </tr>
                 <tr>
                   <td>m&nbsp;<span class="m-label m-flat m-info">in</span></td>
-                  <td>line in P</td>
+                  <td>line \in P</td>
                 </tr>
               </tbody>
               <tfoot>
@@ -3138,7 +3117,7 @@
   <div class="m-container">
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
-        <p>ProjGeom. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.17 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+        <p>ProjGeom. Created with <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
       </div>
     </div>
   </div>
