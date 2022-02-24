@@ -150,7 +150,8 @@ namespace fun {
      * @param[in] d
      * @return auto
      */
-    template <typename _Q> constexpr auto cqq(const _Q& a, const _Q& b, const _Q& c, const _Q& d) -> std::array<_Q, 2> {
+    template <typename _Q> constexpr auto cqq(const _Q& a, const _Q& b, const _Q& c, const _Q& d)
+        -> std::array<_Q, 2> {
         const auto t1 = 4 * a * b;
         const auto t2 = 4 * c * d;
         auto m = (t1 + t2) - sq(a + b - c - d);

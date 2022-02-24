@@ -1,8 +1,8 @@
 #pragma once
 
+#include <array>
 #include <cassert>
 #include <tuple>
-#include <array>
 
 #include "proj_plane_concepts.h"
 
