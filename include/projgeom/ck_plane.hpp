@@ -68,7 +68,7 @@ namespace fun {
             const auto [l1, l2, l3] = tri_dual(tri);
             const auto& [a1, a2, a3] = tri;
 
-            return std::tuple{this->altitude(a1, l1), this->altitude(a2, l2),
+            return std::array{this->altitude(a1, l1), this->altitude(a2, l2),
                               this->altitude(a3, l3)};
         }
 
@@ -106,7 +106,7 @@ namespace fun {
         template <Projective_plane P> constexpr auto tri_measure(const Triple<P>& tri) const {
             const auto& [a1, a2, a3] = tri;
 
-            return std::tuple{self.measure(a2, a3), self.measure(a1, a3), self.measure(a1, a2)};
+            return std::array{self.measure(a2, a3), self.measure(a1, a3), self.measure(a1, a2)};
         }
 
         /**

@@ -45,7 +45,7 @@ template <typename PG> void chk_degenerate(const PG& myck) {
     const auto t2 = a2 * m13;
     const auto t3 = a3 * m12;
 
-    auto triangle = std::tuple{std::move(a1), std::move(a2), std::move(a3)};
+    auto triangle = std::array{std::move(a1), std::move(a2), std::move(a3)};
     const auto trilateral = tri_dual(triangle);
 
     // const auto& [a1, a2, a3] = triangle;
@@ -87,7 +87,7 @@ template <typename PG> void chk_degenerate2(const PG& myck) {
     auto a2 = Point{4, -2, 1};
     auto a4 = plucker(3, a1, 4, a2);
 
-    const auto tri2 = std::tuple{std::move(a1), std::move(a2), std::move(a4)};
+    const auto tri2 = std::array{std::move(a1), std::move(a2), std::move(a4)};
     const auto [qq1, qq2, qq3] = myck.tri_quadrance(tri2);
     const auto tqf2 = Ar(qq1, qq2, qq3);  // get 0
 

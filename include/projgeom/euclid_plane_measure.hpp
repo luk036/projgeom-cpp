@@ -95,7 +95,7 @@ namespace fun {
     template <Projective_plane_coord2 P>
     inline constexpr auto tri_quadrance(const Triple<P>& triangle) {
         const auto& [a1, a2, a3] = triangle;
-        return std::tuple{quadrance(a2, a3), quadrance(a1, a3), quadrance(a1, a2)};
+        return std::array{quadrance(a2, a3), quadrance(a1, a3), quadrance(a1, a2)};
     }
 
     /**
@@ -107,7 +107,7 @@ namespace fun {
     template <Projective_plane_coord2 L>
     inline constexpr auto tri_spread(const Triple<L>& trilateral) {
         const auto& [a1, a2, a3] = trilateral;
-        return std::tuple{spread(a2, a3), spread(a1, a3), spread(a1, a2)};
+        return std::array{spread(a2, a3), spread(a1, a3), spread(a1, a2)};
     }
 
     /**

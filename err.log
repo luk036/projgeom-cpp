@@ -1,0 +1,35 @@
+[0/2] Re-checking globbed directories...
+[1/7] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_concepts.cpp.o
+[2/7] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_proj_plane.cpp.o
+[3/7] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_euclid.cpp.o
+FAILED: test/CMakeFiles/ProjGeomTests.dir/source/test_euclid.cpp.o 
+/bin/x86_64-linux-gnu-g++-11 -DBOOST_ALL_NO_LIB -DBOOST_ALL_NO_LIB=1 -DFMT_LOCALE -DFMT_SHARED -I../include -IPackageProjectInclude -isystem /media/lubuntu/USBDISK/miniconda3/include -g -fconcepts -Wall -Wpedantic -Wextra -Werror -std=gnu++2a -MD -MT test/CMakeFiles/ProjGeomTests.dir/source/test_euclid.cpp.o -MF test/CMakeFiles/ProjGeomTests.dir/source/test_euclid.cpp.o.d -o test/CMakeFiles/ProjGeomTests.dir/source/test_euclid.cpp.o -c ../test/source/test_euclid.cpp
+In file included from ../test/source/test_euclid.cpp:15:
+../include/projgeom/euclid_plane_measure.hpp: In instantiation of ‘constexpr auto fun::tri_quadrance(fun::Triple<P>&) [with P = fun::pg_point<boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<> > >; fun::Triple<P> = std::array<fun::pg_point<boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<> > >, 3>]’:
+../test/source/test_euclid.cpp:65:27:   required from ‘void chk_euclid(fun::Triple<P>&) [with P = fun::pg_point<boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<> > >; fun::Triple<P> = std::array<fun::pg_point<boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<> > >, 3>]’
+../test/source/test_euclid.cpp:167:15:   required from here
+../include/projgeom/euclid_plane_measure.hpp:98:72: error: returning initializer list
+   98 |         return {quadrance(a2, a3), quadrance(a1, a3), quadrance(a1, a2)};
+      |                                                                        ^
+../include/projgeom/euclid_plane_measure.hpp: In instantiation of ‘constexpr auto fun::tri_spread(fun::Triple<P>&) [with L = fun::pg_line<boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<> > >; fun::Triple<P> = std::array<fun::pg_line<boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<> > >, 3>]’:
+../test/source/test_euclid.cpp:66:24:   required from ‘void chk_euclid(fun::Triple<P>&) [with P = fun::pg_point<boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<> > >; fun::Triple<P> = std::array<fun::pg_point<boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<> > >, 3>]’
+../test/source/test_euclid.cpp:167:15:   required from here
+../include/projgeom/euclid_plane_measure.hpp:110:63: error: returning initializer list
+  110 |         return {spread(a2, a3), spread(a1, a3), spread(a1, a2)};
+      |                                                               ^
+../include/projgeom/euclid_plane_measure.hpp: In instantiation of ‘constexpr auto fun::tri_quadrance(fun::Triple<P>&) [with P = fun::pg_point<double>; fun::Triple<P> = std::array<fun::pg_point<double>, 3>]’:
+../test/source/test_euclid.cpp:65:27:   required from ‘void chk_euclid(fun::Triple<P>&) [with P = fun::pg_point<double>; fun::Triple<P> = std::array<fun::pg_point<double>, 3>]’
+../test/source/test_euclid.cpp:176:15:   required from here
+../include/projgeom/euclid_plane_measure.hpp:98:72: error: returning initializer list
+   98 |         return {quadrance(a2, a3), quadrance(a1, a3), quadrance(a1, a2)};
+      |                                                                        ^
+../include/projgeom/euclid_plane_measure.hpp: In instantiation of ‘constexpr auto fun::tri_spread(fun::Triple<P>&) [with L = fun::pg_line<double>; fun::Triple<P> = std::array<fun::pg_line<double>, 3>]’:
+../test/source/test_euclid.cpp:66:24:   required from ‘void chk_euclid(fun::Triple<P>&) [with P = fun::pg_point<double>; fun::Triple<P> = std::array<fun::pg_point<double>, 3>]’
+../test/source/test_euclid.cpp:176:15:   required from here
+../include/projgeom/euclid_plane_measure.hpp:110:63: error: returning initializer list
+  110 |         return {spread(a2, a3), spread(a1, a3), spread(a1, a2)};
+      |                                                               ^
+[4/7] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_persp_plane.cpp.o
+[5/7] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_ell_plane.cpp.o
+[6/7] Building CXX object test/CMakeFiles/ProjGeomTests.dir/source/test_ck_plane.cpp.o
+ninja: build stopped: subcommand failed.

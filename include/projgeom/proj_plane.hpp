@@ -2,6 +2,7 @@
 
 #include <cassert>
 #include <tuple>
+#include <array>
 
 #include "proj_plane_concepts.h"
 
@@ -42,7 +43,7 @@ namespace fun {
         return (incident(r, l) && ...);
     }
 
-    template <typename P> using Triple = std::tuple<P, P, P>;
+    template <typename P> using Triple = std::array<P, 3>;
 
     /**
      * @brief
@@ -55,7 +56,7 @@ namespace fun {
     {
         const auto& [a1, a2, a3] = tri;
         assert(!coincident(a2 * a3, a1));
-        return std::tuple{a2 * a3, a1 * a3, a1 * a2};
+        return std::array{a2 * a3, a1 * a3, a1 * a2};
     }
 
     /**
@@ -70,7 +71,7 @@ namespace fun {
 
     {
         const auto& [a1, a2, a3] = tri;
-        return std::tuple{func(a2, a3), func(a1, a3), func(a1, a2)};
+        return std::array{func(a2, a3), func(a1, a3), func(a1, a2)};
     }
 
     /**

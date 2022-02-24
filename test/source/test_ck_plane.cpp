@@ -43,15 +43,15 @@ template <typename PG> void chk_ck(const PG& myck) {
     auto a1 = P{1, -2, 3};
     auto a2 = P{4, 0, 6};
     auto a3 = P{-7, 1, 2};
-    const auto triangle = std::tuple{std::move(a1), std::move(a2), std::move(a3)};
+    const auto triangle = std::array{std::move(a1), std::move(a2), std::move(a3)};
     const auto trilateral = tri_dual(triangle);
     const auto& [l1, l2, l3] = trilateral;
     const auto [t1, t2, t3] = myck.tri_altitude(triangle);
 
     auto o = myck.orthocenter(triangle);
     const auto tau = myck.reflect(l1);
-    const auto Q = std::tuple{myck.tri_quadrance(triangle)};
-    const auto S = std::tuple{myck.tri_spread(trilateral)};
+    const auto Q = myck.tri_quadrance(triangle);
+    const auto S = myck.tri_spread(trilateral);
 
     const auto a4 = P{3, 0, 2};
 
@@ -60,7 +60,7 @@ template <typename PG> void chk_ck(const PG& myck) {
         CHECK(myck.is_perpendicular(t1, l1));
         CHECK(coincident(t1 * t2, t3));
         CHECK(o == t2 * t3);
-        CHECK(a1 == myck.orthocenter(std::tuple{std::move(o), std::move(a2), std::move(a3)}));
+        CHECK(a1 == myck.orthocenter(std::array{std::move(o), std::move(a2), std::move(a3)}));
         CHECK(tau(tau(a4)) == a4);
         // CHECK(myck.spread(l2, l2) == K(0));
         // CHECK(myck.spread(l3, l3) == K(0));
@@ -72,7 +72,7 @@ template <typename PG> void chk_ck(const PG& myck) {
         CHECK(l1.dot(myck.perp(t1)) == Zero);
         CHECK(t1.dot(t2 * t3) == Zero);
         CHECK(ApproxZero(cross(o, t2 * t3)));
-        const auto o2 = myck.orthocenter(std::tuple{std::move(o), std::move(a2), std::move(a3)});
+        const auto o2 = myck.orthocenter(std::array{std::move(o), std::move(a2), std::move(a3)});
         CHECK(ApproxZero(cross(a1, o2)));
         CHECK(ApproxZero(cross(tau(tau(a4)), a4)));
         CHECK(myck.measure(l2, l2) == Zero);

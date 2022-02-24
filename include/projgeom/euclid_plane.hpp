@@ -64,7 +64,7 @@ namespace fun {
      */
     template <Projective_plane_coord2 P> constexpr auto tri_altitude(const Triple<P>& tri) {
         const auto& [a1, a2, a3] = tri;
-        return std::tuple{altitude(a1, a2 * a3), altitude(a2, a3 * a1), altitude(a3, a1 * a2)};
+        return std::array{altitude(a1, a2 * a3), altitude(a2, a3 * a1), altitude(a3, a1 * a2)};
     }
 
     /**
@@ -150,12 +150,12 @@ namespace fun {
      * @param[in] d
      * @return auto
      */
-    template <typename _Q> constexpr auto cqq(const _Q& a, const _Q& b, const _Q& c, const _Q& d) {
+    template <typename _Q> constexpr auto cqq(const _Q& a, const _Q& b, const _Q& c, const _Q& d) -> std::array<_Q, 2> {
         const auto t1 = 4 * a * b;
         const auto t2 = 4 * c * d;
         auto m = (t1 + t2) - sq(a + b - c - d);
         auto p = m * m - 4 * t1 * t2;
-        return std::tuple{std::move(m), std::move(p)};
+        return {std::move(m), std::move(p)};
     }
 
     /**

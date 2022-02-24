@@ -127,7 +127,7 @@ template <Projective_plane_prim2 P> void chk_euclid(const Triple<P>& triangle) {
         CHECK(tqf - Ar(q1, q2, q3) == Zero);
         CHECK(tsf == Zero);
         CHECK(tqf2 == Zero);
-        // CHECK(ApproxEqual(a1, orthocenter(std::tuple{std::move(o), // not
+        // CHECK(ApproxEqual(a1, orthocenter(std::array{std::move(o), // not
         // quite accurate
         //                     std::move(a2), std::move(a3)})));
     }
@@ -147,7 +147,7 @@ template <typename T> void chk_cyclic(const T& quadangle) {
     using K = Value_type<P>;
 
     if constexpr (Integral<K>) {
-        auto okay = Ptolemy(std::tuple{std::move(q12), std::move(q23), std::move(q34),
+        auto okay = Ptolemy(std::array{std::move(q12), std::move(q23), std::move(q34),
                                        std::move(q14), std::move(q24), std::move(q13)});
         CHECK(okay);
     } else {
@@ -163,7 +163,7 @@ TEST_CASE("Euclid plane (cpp_int)") {
     auto a2 = pg_point<cpp_int>{4, 2, 1};
     auto a3 = pg_point<cpp_int>{4, -3, 1};
 
-    auto triangle = std::tuple{std::move(a1), std::move(a2), std::move(a3)};
+    auto triangle = std::array{std::move(a1), std::move(a2), std::move(a3)};
     chk_euclid(triangle);
 }
 
@@ -172,7 +172,7 @@ TEST_CASE("Euclid plane (floating point)") {
     auto a2 = pg_point{4., 2., 1.};
     auto a3 = pg_point{4., -3., 1.};
 
-    auto triangle = std::tuple{std::move(a1), std::move(a2), std::move(a3)};
+    auto triangle = std::array{std::move(a1), std::move(a2), std::move(a3)};
     chk_euclid(triangle);
 }
 
@@ -185,7 +185,7 @@ TEST_CASE("Euclid Cyclic Points (cpp_int)") {
     auto u3 = uc_point<P>(-1, 2);
     auto u4 = uc_point<P>(0, 1);
 
-    auto quadangle = std::tuple{std::move(u1), std::move(u2), std::move(u3), std::move(u4)};
+    auto quadangle = std::array{std::move(u1), std::move(u2), std::move(u3), std::move(u4)};
     chk_cyclic(quadangle);
 }
 
@@ -197,6 +197,6 @@ TEST_CASE("Euclid Cyclic Points (double)") {
     auto u3 = uc_point<P>(-1, 2);
     auto u4 = uc_point<P>(0, 1);
 
-    auto quadangle = std::tuple{std::move(u1), std::move(u2), std::move(u3), std::move(u4)};
+    auto quadangle = std::array{std::move(u1), std::move(u2), std::move(u3), std::move(u4)};
     chk_cyclic(quadangle);
 }
