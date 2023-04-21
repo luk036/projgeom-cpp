@@ -1,51 +1,55 @@
 // #include <concepts>
-#include <stddef.h>  // for size_t
+#include <stddef.h> // for size_t
 
-#include <projgeom/proj_plane.hpp>  // for coincident, harm_conj
+#include <projgeom/proj_plane.hpp> // for coincident, harm_conj
 
-#include "projgeom/common_concepts.h"  // for fun
+#include "projgeom/common_concepts.h" // for fun
 
 class LA;
 
 class PA {
-  public:
-    using dual = LA;
-    using value_type = long;
+public:
+  using Dual = LA;
+  using value_type = long;
 
-    PA() = default;
-    PA(PA&&) = default;
-    PA(PA const&) = delete;
-    auto operator=(PA&&) -> PA& = default;
-    auto operator=(PA const&) -> PA& = delete;
-    ~PA() = default;
+  PA() = default;
+  PA(PA &&) = default;
+  PA(PA const &) = delete;
+  auto operator=(PA &&) -> PA & = default;
+  auto operator=(PA const &) -> PA & = delete;
+  ~PA() = default;
 
-    void operator&() const = delete;
-    friend void operator,(PA const&, PA const&) = delete;
+  void operator&() const = delete;
+  friend void operator,(PA const &, PA const &) = delete;
 
-    friend auto operator==(PA const&, PA const&) -> bool = default;
-    [[nodiscard]] static auto aux() -> LA;
-    [[nodiscard]] static auto dot(LA const& /*unused*/) -> value_type { return {}; }
-    auto operator[](size_t /*unused*/) const -> value_type { return {}; }
+  friend auto operator==(PA const &, PA const &) -> bool = default;
+  [[nodiscard]] static auto aux() -> LA;
+  [[nodiscard]] static auto dot(LA const & /*unused*/) -> value_type {
+    return {};
+  }
+  auto operator[](size_t /*unused*/) const -> value_type { return {}; }
 };
 
 class LA {
-  public:
-    using dual = PA;
-    using value_type = long;
+public:
+  using Dual = PA;
+  using value_type = long;
 
-    LA() = default;
-    LA(LA&&) = default;
-    LA(LA const&) = delete;
-    auto operator=(LA&&) -> LA& = default;
-    auto operator=(LA const&) -> LA& = delete;
-    ~LA() = default;
+  LA() = default;
+  LA(LA &&) = default;
+  LA(LA const &) = delete;
+  auto operator=(LA &&) -> LA & = default;
+  auto operator=(LA const &) -> LA & = delete;
+  ~LA() = default;
 
-    void operator&() const = delete;
-    friend void operator,(LA const&, LA const&) = delete;
-    friend auto operator==(LA const&, LA const&) -> bool = default;
-    [[nodiscard]] static auto aux() -> PA;
-    [[nodiscard]] static auto dot(PA const& /*unused*/) -> value_type { return {}; }
-    auto operator[](size_t /*unused*/) const -> value_type { return {}; }
+  void operator&() const = delete;
+  friend void operator,(LA const &, LA const &) = delete;
+  friend auto operator==(LA const &, LA const &) -> bool = default;
+  [[nodiscard]] static auto aux() -> PA;
+  [[nodiscard]] static auto dot(PA const & /*unused*/) -> value_type {
+    return {};
+  }
+  auto operator[](size_t /*unused*/) const -> value_type { return {}; }
 };
 
 // struct RsltP
@@ -84,30 +88,40 @@ class LA {
 //     friend void operator,(RsltL, RsltL) = delete;
 // };
 
-inline auto operator*(PA const& /*unused*/, PA const& /*unused*/) -> LA { return LA{}; }
-inline auto operator*(LA const& /*unused*/, LA const& /*unused*/) -> PA { return PA{}; }
+inline auto operator*(PA const & /*unused*/, PA const & /*unused*/) -> LA {
+  return LA{};
+}
+inline auto operator*(LA const & /*unused*/, LA const & /*unused*/) -> PA {
+  return PA{};
+}
 inline auto PA::aux() -> LA { return LA{}; }
 inline auto LA::aux() -> PA { return PA{}; }
-inline auto plucker(const PA::value_type& /*unused*/, const PA& /*unused*/,
-                    const PA::value_type& /*unused*/, const PA& /*unused*/) -> PA {
-    return PA{};
+inline auto plucker(const PA::value_type & /*unused*/, const PA & /*unused*/,
+                    const PA::value_type & /*unused*/, const PA & /*unused*/)
+    -> PA {
+  return PA{};
 }
-inline auto plucker(const LA::value_type& /*unused*/, const LA& /*unused*/,
-                    const LA::value_type& /*unused*/, const LA& /*unused*/) -> LA {
-    return LA{};
+inline auto plucker(const LA::value_type & /*unused*/, const LA & /*unused*/,
+                    const LA::value_type & /*unused*/, const LA & /*unused*/)
+    -> LA {
+  return LA{};
 }
-inline auto incident(const PA& /*unused*/, const LA& /*unused*/) -> bool { return true; }
-inline auto incident(const LA& /*unused*/, const PA& /*unused*/) -> bool { return true; }
+inline auto incident(const PA & /*unused*/, const LA & /*unused*/) -> bool {
+  return true;
+}
+inline auto incident(const LA & /*unused*/, const PA & /*unused*/) -> bool {
+  return true;
+}
 
 using namespace fun;
 using PArchetype = PA;
 using LArchetype = LA;
-static_assert(Projective_plane_coord<PArchetype, LArchetype>);
-static_assert(Projective_plane_coord<LArchetype, PArchetype>);
+static_assert(ProjectivePlaneCoord<PArchetype, LArchetype>);
+static_assert(ProjectivePlaneCoord<LArchetype, PArchetype>);
 
-inline void test_concept_usage(PArchetype p, LArchetype l) {
-    coincident(p * p, p);
-    coincident(l * l, l);
-    harm_conj(p, p, p);
-    harm_conj(l, l, l);
+inline void test_concept_usage(PArchetype point_p, LArchetype line_l) {
+  coincident(point_p * point_p, point_p);
+  coincident(line_l * line_l, line_l);
+  harm_conj(point_p, point_p, point_p);
+  harm_conj(line_l, line_l, line_l);
 }
