@@ -1,166 +1,187 @@
-// The template and inlines for the -*- C++ -*- pg object classes.
-// Initially implemented by Wai-Shing Luk <luk036@gmail.com>
-//
-
-/** @file include/pg_object.hpp
- *  This is a C++ Library header.
- */
-
 #pragma once
 
-#include "pg_common.hpp"
+#include <array>
+#include <cstdint>
 
-namespace fun {
+// #include "common_concepts.h"
+#include "pg_plane.hpp"
 
 /**
- * @brief Projective object
+ * @brief Dot product
  *
- * @tparam _K Type of object elements
- * @tparam _dual
+ * @param[in] a
+ * @param[in] b
+ * @return int64_t
  */
-template <Ring _K, typename _dual> class pg_object : public std::array<_K, 3> {
-  /// Value typedef.
-  using _Base = std::array<_K, 3>;
-  using _Self = pg_object<_K, _dual>;
+constexpr auto dot(const std::array<int64_t, 3> &a,
+                   const std::array<int64_t, 3> &b) -> int64_t {
+  return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+}
 
-public:
-  using value_type = _K;
-  using Dual = _dual;
+/**
+ * @brief Cross product
+ *
+ * @param[in] a
+ * @param[in] b
+ * @return std::array<int64_t, 3>
+ */
+constexpr auto cross(const std::array<int64_t, 3> &a,
+                     const std::array<int64_t, 3> &b)
+    -> std::array<int64_t, 3> {
+  return {
+      a[1] * b[2] - a[2] * b[1],
+      a[2] * b[0] - a[0] * b[2],
+      a[0] * b[1] - a[1] * b[0],
+  };
+}
 
-  // pg_object(_Self &&) = default;
+/**
+ * @brief Plucker operation
+ *
+ * @param[in] ld
+ * @param[in] p
+ * @param[in] mu
+ * @param[in] q
+ * @return std::array<int64_t, 3>
+ */
+constexpr auto plckr(const int64_t &ld, const std::array<int64_t, 3> &p,
+                     const int64_t &mu, const std::array<int64_t, 3> &q)
+    -> std::array<int64_t, 3> {
+  return {
+      ld * p[0] + mu * q[0],
+      ld * p[1] + mu * q[1],
+      ld * p[2] + mu * q[2],
+  };
+}
+
+/**
+ * @brief Projective Point/Line
+ *
+ * @tparam P
+ * @tparam L
+ */
+template <typename P, typename L> struct PgObject {
+  using Dual = L;
+
+  std::array<int64_t, 3> coord;
 
   /**
-   * @brief Construct a new pg object object
+   * @brief Construct a new Pg Object object
    *
-   * @param[in] a array of coordinates
+   * @param[in] coord
    */
-  constexpr explicit pg_object(const _Base &a) : _Base{a} {}
-
-  /**
-   * @brief Construct a new pg object
-   *
-   */
-  explicit pg_object(const _Self &) = default;
-
-  /**
-   * @brief
-   *
-   * @return _Self&
-   */
-  auto operator=(const _Self &) -> _Self & = delete;
-
-  /**
-   * @brief Construct a new pg object
-   *
-   */
-  pg_object(_Self &&) noexcept = default;
-
-  /**
-   * @brief
-   *
-   * @return _Self&
-   */
-  auto operator=(_Self &&) noexcept -> _Self & = default;
-
-  // Operators:
+  constexpr explicit PgObject(std::array<int64_t, 3> coord)
+      : coord{std::move(coord)} {}
 
   /**
    * @brief Equal to
    *
-   * @param[in] rhs
-   * @return true if this object is equivalent to the rhs
-   * @return false otherwise
+   * @param[in] other
+   * @return true
+   * @return false
    */
-  friend constexpr auto operator==(const _Self &lhs, const _Self &rhs) -> bool {
-    if (&lhs == &rhs) {
-      return true;
-    }
-    return cross(lhs, rhs) == _Base{_K(0), _K(0), _K(0)};
+  friend constexpr auto operator==(const P &lhs, const P &rhs) -> bool {
+    return &lhs == &rhs
+               ? true
+               : lhs.coord[1] * rhs.coord[2] == lhs.coord[2] * rhs.coord[1] &&
+                     lhs.coord[2] * rhs.coord[0] ==
+                         lhs.coord[0] * rhs.coord[2] &&
+                     lhs.coord[0] * rhs.coord[1] == lhs.coord[1] * rhs.coord[0];
   }
 
   /**
-   * @brief Not equal to
+   * @brief Equal to
    *
-   * @param[in] rhs
-   * @return true if this object is not equivalent to the rhs
-   * @return false otherwise
+   * @param[in] other
+   * @return true
+   * @return false
    */
-  friend constexpr auto operator!=(const _Self &lhs, const _Self &rhs) -> bool {
+  friend constexpr auto operator!=(const P &lhs, const P &rhs) -> bool {
     return !(lhs == rhs);
   }
 
   /**
-   * @brief Equal to
+   * @brief
    *
-   * @param[in] rhs
-   * @return true if this object is equivalent to the rhs
-   * @return false otherwise
+   * @return L
    */
-  [[nodiscard]] constexpr auto is_NaN() const -> bool {
-    const _Base &base = *this;
-    return base == _Base{_K(0), _K(0), _K(0)};
+  constexpr auto aux() const -> L { return L{this->coord}; }
+
+  /**
+   * @brief
+   *
+   * @param[in] other
+   * @return int64_t
+   */
+  constexpr auto dot(const L &other) const -> int64_t {
+    return ::dot(this->coord, other.coord);
   }
 
   /**
-   * @brief the dot product
+   * @brief
    *
-   * @param[in] line_l
-   * @return _K
+   * @param[in] ld
+   * @param[in] p
+   * @param[in] mu
+   * @param[in] q
+   * @return P
    */
-  [[nodiscard]] constexpr auto dot(const Dual &line_l) const -> _K {
-    return fun::dot_c(*this, line_l);
+  static constexpr auto plucker(const int64_t &ld, const P &p,
+                                const int64_t &mu, const P &q) -> P {
+    return P{::plckr(ld, p.coord, mu, q.coord)};
   }
 
   /**
-   * @brief Generate a new line not incident with point_p
+   * @brief
    *
-   * @return Dual
+   * @param[in] other
+   * @return true
+   * @return false
    */
-  [[nodiscard]] constexpr auto aux() const -> Dual { return Dual(*this); }
+  constexpr auto incident(const L &other) const -> bool {
+    return this->dot(other) == 0;
+  }
 
   /**
-   * @brief Join or meet
+   * @brief
    *
    * @param[in] rhs
-   * @return true if this point_p is equivalent to the rhs
-   * @return false otherwise
+   * @return L
    */
-  friend constexpr auto operator*(const _Self &lhs, const _Self &rhs) -> Dual {
-    return Dual(cross(lhs, rhs));
+  constexpr auto circ(const P &rhs) const -> L {
+    return L{::cross(this->coord, rhs.coord)};
   }
 };
 
-/**
- * @brief
- *
- * @tparam Point
- * @tparam Value_type<Point>
- * @param[in] lda1
- * @param[in] point_p
- * @param[in] mu1
- * @param[in] point_q
- * @return Point
- */
-template <typename Point, Ring _K = Value_type<Point>>
-inline constexpr auto plucker(const _K &ld1, const Point &point_p,
-                              const _K &mu1, const Point &point_q) -> Point {
-  return Point{plucker_c(ld1, point_p, mu1, point_q)};
-}
+class PgPoint;
+class PgLine;
 
 /**
- * @brief
+ * @brief PG Point
  *
- * @tparam _K
- * @tparam _dual
- * @tparam _Stream
- * @param[in] os
- * @param[in] point_p
- * @return _Stream&
  */
-template <Ring _K, typename _dual, class _Stream>
-auto operator<<(_Stream &os, const pg_object<_K, _dual> &point_p) -> _Stream & {
-  os << '(' << point_p[0] << ':' << point_p[1] << ':' << point_p[2] << ')';
-  return os;
-}
+class PgPoint : public PgObject<PgPoint, PgLine> {
+public:
+  /**
+   * @brief Construct a new Pg Point object
+   *
+   * @param[in] coord Homogeneous coordinate
+   */
+  constexpr explicit PgPoint(std::array<int64_t, 3> coord)
+      : PgObject<PgPoint, PgLine>{std::move(coord)} {}
+};
 
-} // namespace fun
+/**
+ * @brief PG Line
+ *
+ */
+class PgLine : public PgObject<PgLine, PgPoint> {
+public:
+  /**
+   * @brief Construct a new Pg Line object
+   *
+   * @param[in] coord Homogeneous coordinate
+   */
+  constexpr explicit PgLine(std::array<int64_t, 3> coord)
+      : PgObject<PgLine, PgPoint>{std::move(coord)} {}
+};

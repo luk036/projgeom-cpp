@@ -177,7 +177,7 @@ template <Integral Z> struct Fraction {
   /**
    * @brief cross product
    *
-   * @param rhs
+   * @param[in] rhs
    * @return Z
    */
   constexpr auto cross(const Fraction &rhs) const -> Z {
@@ -216,7 +216,7 @@ template <Integral Z> struct Fraction {
    */
   friend constexpr auto operator<(Fraction lhs, Z rhs) -> bool {
     if (lhs._den == Z(1) || rhs == Z(0)) {
-      return lhs._num == rhs;
+      return lhs._num < rhs;
     }
     std::swap(lhs._den, rhs._num);
     lhs.normalize2();
@@ -263,8 +263,8 @@ template <Integral Z> struct Fraction {
   /**
    * @brief Equal to
    *
-   * @param lhs
-   * @param rhs
+   * @param[in] lhs
+   * @param[in] rhs
    * @return true
    * @return false
    */
@@ -281,8 +281,8 @@ template <Integral Z> struct Fraction {
   /**
    * @brief Less than
    *
-   * @param lhs
-   * @param rhs
+   * @param[in] lhs
+   * @param[in] rhs
    * @return true
    * @return false
    */
@@ -421,7 +421,7 @@ template <Integral Z> struct Fraction {
   /**
    * @brief multiply and assign
    *
-   * @param rhs
+   * @param[in] rhs
    * @return Fraction&
    */
   constexpr auto operator*=(Fraction rhs) -> Fraction & {
@@ -436,8 +436,8 @@ template <Integral Z> struct Fraction {
   /**
    * @brief multiply
    *
-   * @param lhs
-   * @param rhs
+   * @param[in] lhs
+   * @param[in] rhs
    * @return Fraction
    */
   friend constexpr auto operator*(Fraction lhs, const Fraction &rhs)
@@ -448,7 +448,7 @@ template <Integral Z> struct Fraction {
   /**
    * @brief multiply and assign
    *
-   * @param rhs
+   * @param[in] rhs
    * @return Fraction&
    */
   constexpr auto operator*=(Z rhs) -> Fraction & {
@@ -461,8 +461,8 @@ template <Integral Z> struct Fraction {
   /**
    * @brief multiply
    *
-   * @param lhs
-   * @param rhs
+   * @param[in] lhs
+   * @param[in] rhs
    * @return Fraction
    */
   friend constexpr auto operator*(Fraction lhs, const Z &rhs) -> Fraction {
@@ -472,8 +472,8 @@ template <Integral Z> struct Fraction {
   /**
    * @brief multiply
    *
-   * @param lhs
-   * @param rhs
+   * @param[in] lhs
+   * @param[in] rhs
    * @return Fraction
    */
   friend constexpr auto operator*(const Z &lhs, Fraction rhs) -> Fraction {
@@ -483,7 +483,7 @@ template <Integral Z> struct Fraction {
   /**
    * @brief divide and assign
    *
-   * @param rhs
+   * @param[in] rhs
    * @return Fraction&
    */
   constexpr auto operator/=(Fraction rhs) -> Fraction & {
@@ -498,8 +498,8 @@ template <Integral Z> struct Fraction {
   /**
    * @brief divide
    *
-   * @param lhs
-   * @param rhs
+   * @param[in] lhs
+   * @param[in] rhs
    * @return Fraction
    */
   friend constexpr auto operator/(Fraction lhs, const Fraction &rhs)
@@ -510,10 +510,10 @@ template <Integral Z> struct Fraction {
   /**
    * @brief divide and assign
    *
-   * @param rhs
+   * @param[in] rhs
    * @return Fraction&
    */
-  constexpr auto operator/=(Z rhs) -> Fraction & {
+  constexpr auto operator/=(const Z &rhs) -> Fraction & {
     std::swap(this->_den, rhs);
     this->normalize();
     this->_den *= rhs;
@@ -523,8 +523,8 @@ template <Integral Z> struct Fraction {
   /**
    * @brief divide
    *
-   * @param lhs
-   * @param rhs
+   * @param[in] lhs
+   * @param[in] rhs
    * @return Fraction
    */
   friend constexpr auto operator/(Fraction lhs, const Z &rhs) -> Fraction {
@@ -534,8 +534,8 @@ template <Integral Z> struct Fraction {
   /**
    * @brief divide
    *
-   * @param lhs
-   * @param rhs
+   * @param[in] lhs
+   * @param[in] rhs
    * @return Fraction
    */
   friend constexpr auto operator/(const Z &lhs, Fraction rhs) -> Fraction {
@@ -557,7 +557,7 @@ template <Integral Z> struct Fraction {
   /**
    * @brief Add
    *
-   * @param rhs
+   * @param[in] rhs
    * @return Fraction
    */
   constexpr auto operator+(const Fraction &rhs) const -> Fraction {
