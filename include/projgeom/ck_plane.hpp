@@ -15,7 +15,7 @@ namespace fun {
  */
 template <class L, class P = typename L::Dual>
 #if __cpp_concepts >= 201907L
-  requires CKPlanePrimDual<L, P>
+requires CKPlanePrimDual<L, P>
 #endif
 constexpr auto is_perpendicular(const L &m1, const L &m2) -> bool {
   return m1.perp().incident(m2);
@@ -29,7 +29,7 @@ constexpr auto is_perpendicular(const L &m1, const L &m2) -> bool {
  */
 template <class P, class L>
 #if __cpp_concepts >= 201907L
-  requires CKPlanePrimDual<P, L>
+requires CKPlanePrimDual<P, L>
 #endif
 constexpr auto altitude(const P &p, const L &m) -> L {
   return m.perp().circ(p);
@@ -43,7 +43,7 @@ constexpr auto altitude(const P &p, const L &m) -> L {
  */
 template <class P, class L = typename P::Dual>
 #if __cpp_concepts >= 201907L
-  requires CKPlanePrimDual<P, L>
+requires CKPlanePrimDual<P, L>
 #endif
 constexpr auto orthocenter(const std::array<P, 3> &tri) -> P {
   const auto &[a1, a2, a3] = tri;
@@ -62,7 +62,7 @@ constexpr auto orthocenter(const std::array<P, 3> &tri) -> P {
  */
 template <class P, class L>
 #if __cpp_concepts >= 201907L
-  requires CKPlanePrimDual<P, L>
+requires CKPlanePrimDual<P, L>
 #endif
 constexpr auto tri_altitude(const std::array<P, 3> &tri) -> std::array<L, 3> {
   const auto [l1, l2, l3] = tri_dual(tri);
@@ -76,7 +76,7 @@ constexpr auto tri_altitude(const std::array<P, 3> &tri) -> std::array<L, 3> {
 
 template <typename V, class P, class L = typename P::Dual>
 #if __cpp_concepts >= 201907L
-  requires CKPlaneDual<V, P, L>
+requires CKPlaneDual<V, P, L>
 #endif
 constexpr auto reflect(const P &origin, const L &mirror, const P &p) -> P {
   return involution(mirror.perp(), mirror, p);

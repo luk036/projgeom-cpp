@@ -19,7 +19,7 @@ namespace fun {
  */
 template <class P, class L>
 #if __cpp_concepts >= 201907L
-  requires ProjPlanePrimDual<P, L>
+requires ProjPlanePrimDual<P, L>
 #endif
 inline auto check_axiom(const P &p, const P &q, const L &l) -> bool {
   if (p != p)
@@ -46,7 +46,7 @@ inline auto check_axiom(const P &p, const P &q, const L &l) -> bool {
  */
 template <class P, class L = typename P::Dual>
 #if __cpp_concepts >= 201907L
-  requires ProjPlanePrimDual<P, L>
+requires ProjPlanePrimDual<P, L>
 #endif
 inline constexpr auto coincident(const P &p, const P &q, const P &r) -> bool {
   return p.circ(q).incident(r);
@@ -63,7 +63,7 @@ inline constexpr auto coincident(const P &p, const P &q, const P &r) -> bool {
  */
 template <class P, class L = typename P::Dual>
 #if __cpp_concepts >= 201907L
-  requires ProjPlanePrimDual<P, L>
+requires ProjPlanePrimDual<P, L>
 #endif
 inline constexpr auto check_pappus(const std::array<P, 3> &co1,
                                    const std::array<P, 3> &co2) -> bool {
@@ -85,7 +85,7 @@ inline constexpr auto check_pappus(const std::array<P, 3> &co1,
  */
 template <class P, class L = typename P::Dual>
 #if __cpp_concepts >= 201907L
-  requires ProjPlanePrimDual<P, L>
+requires ProjPlanePrimDual<P, L>
 #endif
 inline constexpr auto tri_dual(const std::array<P, 3> &tri)
     -> std::array<L, 3> {
@@ -105,7 +105,7 @@ inline constexpr auto tri_dual(const std::array<P, 3> &tri)
  */
 template <class P, class L = typename P::Dual>
 #if __cpp_concepts >= 201907L
-  requires ProjPlanePrimDual<P, L>
+requires ProjPlanePrimDual<P, L>
 #endif
 inline constexpr auto persp(const std::array<P, 3> &tri1,
                             const std::array<P, 3> &tri2) -> bool {
@@ -126,7 +126,7 @@ inline constexpr auto persp(const std::array<P, 3> &tri1,
  */
 template <class P, class L = typename P::Dual>
 #if __cpp_concepts >= 201907L
-  requires ProjPlanePrimDual<P, L>
+requires ProjPlanePrimDual<P, L>
 #endif
 inline constexpr auto check_desargue(const std::array<P, 3> &tri1,
                                      const std::array<P, 3> &tri2) -> bool {
@@ -158,7 +158,7 @@ inline constexpr auto check_desargue(const std::array<P, 3> &tri1,
  */
 template <typename V, class P, class L>
 #if __cpp_concepts >= 201907L
-  requires ProjPlaneDual<V, P, L>
+requires ProjPlaneDual<V, P, L>
 #endif
 inline auto check_axiom2(const P &p, const P &q, const L &l, const V &a,
                          const V &b) -> bool {
@@ -184,7 +184,7 @@ inline auto check_axiom2(const P &p, const P &q, const L &l, const V &a,
  */
 template <typename V, class P, class L = typename P::Dual>
 #if __cpp_concepts >= 201907L
-  requires ProjPlaneDual<V, P, L>
+requires ProjPlaneDual<V, P, L>
 #endif
 inline constexpr auto harm_conj(const P &a, const P &b, const P &c) -> P {
   assert(coincident(a, b, c));
@@ -206,7 +206,7 @@ inline constexpr auto harm_conj(const P &a, const P &b, const P &c) -> P {
  */
 template <typename V, class P, class L>
 #if __cpp_concepts >= 201907L
-  requires ProjPlaneDual<V, P, L>
+requires ProjPlaneDual<V, P, L>
 #endif
 inline constexpr auto involution(const P &origin, const L &mirror, const P &p)
     -> P {

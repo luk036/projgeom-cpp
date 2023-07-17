@@ -26,7 +26,7 @@ concept Sequence = requires(T t, Element_type<T> x) {
   { t.size() } -> STD_ALT::convertible_to<std::size_t>;
   { t.empty() } -> STD_ALT::convertible_to<bool>;
   { t.back() } -> STD_ALT::same_as<Element_type<T>>;
-  {t.push_back(x)};
+  { t.push_back(x) };
 };
 
 template <typename K>
