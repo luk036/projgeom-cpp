@@ -5,7 +5,7 @@ CPMAddPackage(
   OPTIONS "FMT_INSTALL YES" # create an installable target
 )
 
-CPMAddPackage("gh:ericniebler/range-v3#0.10.0")
+CPMAddPackage("gh:ericniebler/range-v3#0.12.0")
 
 find_package(Boost REQUIRED)
 if(Boost_FOUND)
