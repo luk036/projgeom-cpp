@@ -11,23 +11,23 @@ class PerspLine;
  *
  */
 class PerspPoint : public PgObject<PerspPoint, PerspLine> {
-public:
-  // constexpr static PerspLine L_INF{ {0, -1, 1}};
+  public:
+    // constexpr static PerspLine L_INF{ {0, -1, 1}};
 
-  /**
-   * @brief Construct a new Persp Point object
-   *
-   * @param[in] coord Homogeneous coordinate
-   */
-  constexpr explicit PerspPoint(std::array<int64_t, 3> coord)
-      : PgObject<PerspPoint, PerspLine>{coord} {}
+    /**
+     * @brief Construct a new Persp Point object
+     *
+     * @param[in] coord Homogeneous coordinate
+     */
+    constexpr explicit PerspPoint(std::array<int64_t, 3> coord)
+        : PgObject<PerspPoint, PerspLine>{coord} {}
 
-  /**
-   * @brief
-   *
-   * @return const PerspLine&
-   */
-  constexpr auto perp() const -> const PerspLine &;
+    /**
+     * @brief
+     *
+     * @return const PerspLine&
+     */
+    constexpr auto perp() const -> const PerspLine &;
 };
 
 /**
@@ -35,24 +35,24 @@ public:
  *
  */
 class PerspLine : public PgObject<PerspLine, PerspPoint> {
-public:
-  // constexpr static PerspPoint I_RE{ {0, 1, 1}};
-  // constexpr static PerspPoint I_IM{ {1, 0, 0}};
+  public:
+    // constexpr static PerspPoint I_RE{ {0, 1, 1}};
+    // constexpr static PerspPoint I_IM{ {1, 0, 0}};
 
-  /**
-   * @brief Construct a new Persp Line object
-   *
-   * @param[in] coord Homogeneous coordinate
-   */
-  constexpr explicit PerspLine(std::array<int64_t, 3> coord)
-      : PgObject<PerspLine, PerspPoint>{coord} {}
+    /**
+     * @brief Construct a new Persp Line object
+     *
+     * @param[in] coord Homogeneous coordinate
+     */
+    constexpr explicit PerspLine(std::array<int64_t, 3> coord)
+        : PgObject<PerspLine, PerspPoint>{coord} {}
 
-  /**
-   * @brief
-   *
-   * @return PerspPoint
-   */
-  constexpr auto perp() const -> PerspPoint;
+    /**
+     * @brief
+     *
+     * @return PerspPoint
+     */
+    constexpr auto perp() const -> PerspPoint;
 };
 
 static constexpr PerspLine L_INF({0, -1, 1});
@@ -72,5 +72,5 @@ constexpr auto PerspPoint::perp() const -> const PerspLine & { return L_INF; }
  * @return PerspPoint
  */
 constexpr auto PerspLine::perp() const -> PerspPoint {
-  return PerspPoint::plucker(this->dot(I_RE), I_RE, this->dot(I_IM), I_IM);
+    return PerspPoint::plucker(this->dot(I_RE), I_RE, this->dot(I_IM), I_IM);
 }

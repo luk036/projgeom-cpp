@@ -16,7 +16,7 @@ namespace fun {
  */
 template <ProjectivePlaneCoord2 Line> // // and requires point_p[i]
 constexpr auto fB(const Line &line_l) -> typename Line::Dual {
-  return {line_l[0], line_l[1], 0};
+    return {line_l[0], line_l[1], 0};
 }
 
 /**
@@ -30,7 +30,7 @@ constexpr auto fB(const Line &line_l) -> typename Line::Dual {
 template <ProjectivePlaneCoord2 Line>
 constexpr auto is_perpendicular(const Line &line_l, const Line &line_m)
     -> bool {
-  return dot1(line_l, line_m) == 0;
+    return dot1(line_l, line_m) == 0;
 }
 
 /**
@@ -43,7 +43,7 @@ constexpr auto is_perpendicular(const Line &line_l, const Line &line_m)
  */
 template <ProjectivePlaneCoord2 Line>
 constexpr auto is_parallel(const Line &line_l, const Line &line_m) -> bool {
-  return cross2(line_l, line_m) == 0;
+    return cross2(line_l, line_m) == 0;
 }
 
 /**
@@ -56,7 +56,7 @@ constexpr auto is_parallel(const Line &line_l, const Line &line_m) -> bool {
 template <typename Point, typename Line>
 requires ProjectivePlaneCoord<Point, Line>
 constexpr auto altitude(const Point &a, const Line &line_l) -> Line {
-  return a * fB(line_l);
+    return a * fB(line_l);
 }
 
 /**
@@ -67,9 +67,9 @@ constexpr auto altitude(const Point &a, const Line &line_l) -> Line {
  */
 template <ProjectivePlaneCoord2 Point>
 constexpr auto tri_altitude(const Triple<Point> &tri) {
-  const auto &[a1, a2, a3] = tri;
-  return std::array{altitude(a1, a2 * a3), altitude(a2, a3 * a1),
-                    altitude(a3, a1 * a2)};
+    const auto &[a1, a2, a3] = tri;
+    return std::array{altitude(a1, a2 * a3), altitude(a2, a3 * a1),
+                      altitude(a3, a1 * a2)};
 }
 
 /**
@@ -80,10 +80,10 @@ constexpr auto tri_altitude(const Triple<Point> &tri) {
  */
 template <ProjectivePlaneCoord2 Point>
 constexpr auto orthocenter(const Triple<Point> &tri) -> Point {
-  const auto &[a1, a2, a3] = tri;
-  const auto t1 = altitude(a1, a2 * a3);
-  const auto t2 = altitude(a2, a1 * a3);
-  return t1 * t2;
+    const auto &[a1, a2, a3] = tri;
+    const auto t1 = altitude(a1, a2 * a3);
+    const auto t2 = altitude(a2, a1 * a3);
+    return t1 * t2;
 }
 
 /**
@@ -94,7 +94,7 @@ constexpr auto orthocenter(const Triple<Point> &tri) -> Point {
  */
 template <ProjectivePlaneCoord2 Line>
 constexpr auto reflect(const Line &line_m) {
-  return Involution{line_m, fB(line_m)};
+    return Involution{line_m, fB(line_m)};
 }
 
 /**
@@ -106,7 +106,7 @@ constexpr auto reflect(const Line &line_m) {
  */
 template <ProjectivePlaneCoord2 Point>
 constexpr auto midpoint(const Point &a, const Point &b) -> Point {
-  return plucker(b[2], a, a[2], b);
+    return plucker(b[2], a, a[2], b);
 }
 
 /**
@@ -117,8 +117,8 @@ constexpr auto midpoint(const Point &a, const Point &b) -> Point {
  */
 template <ProjectivePlaneCoord2 Point>
 constexpr auto tri_midpoint(const Triple<Point> &tri) -> Triple<Point> {
-  const auto &[a1, a2, a3] = tri;
-  return {midpoint(a1, a2), midpoint(a2, a3), midpoint(a1, a3)};
+    const auto &[a1, a2, a3] = tri;
+    return {midpoint(a1, a2), midpoint(a2, a3), midpoint(a1, a3)};
 }
 
 /**
@@ -131,9 +131,9 @@ constexpr auto tri_midpoint(const Triple<Point> &tri) -> Triple<Point> {
 template <ProjectivePlaneCoord2 Point>
 constexpr auto uc_point(const Value_type<Point> &lda1,
                         const Value_type<Point> &mu1) {
-  const auto lda2 = lda1 * lda1;
-  const auto mu2 = mu1 * mu1;
-  return Point{lda2 - mu2, 2 * lda1 * mu1, lda2 + mu2};
+    const auto lda2 = lda1 * lda1;
+    const auto mu2 = mu1 * mu1;
+    return Point{lda2 - mu2, 2 * lda1 * mu1, lda2 + mu2};
 }
 
 /**
@@ -147,7 +147,7 @@ constexpr auto uc_point(const Value_type<Point> &lda1,
  */
 template <OrderedRing _Q>
 constexpr auto Ar(const _Q &a, const _Q &b, const _Q &c) {
-  return 4 * a * b - sq(a + b - c);
+    return 4 * a * b - sq(a + b - c);
 }
 
 /**
@@ -163,11 +163,11 @@ constexpr auto Ar(const _Q &a, const _Q &b, const _Q &c) {
 template <typename _Q>
 constexpr auto cqq(const _Q &a, const _Q &b, const _Q &c, const _Q &d)
     -> std::array<_Q, 2> {
-  const auto t1 = 4 * a * b;
-  const auto t2 = 4 * c * d;
-  auto line_m = (t1 + t2) - sq(a + b - c - d);
-  auto point_p = line_m * line_m - 4 * t1 * t2;
-  return {std::move(line_m), std::move(point_p)};
+    const auto t1 = 4 * a * b;
+    const auto t2 = 4 * c * d;
+    auto line_m = (t1 + t2) - sq(a + b - c - d);
+    auto point_p = line_m * line_m - 4 * t1 * t2;
+    return {std::move(line_m), std::move(point_p)};
 }
 
 /**
@@ -178,9 +178,9 @@ constexpr auto cqq(const _Q &a, const _Q &b, const _Q &c, const _Q &d)
  * @return auto
  */
 template <typename T> constexpr auto Ptolemy(const T &quad) -> bool {
-  const auto &[Q12, Q23, Q34, Q14, Q13, Q24] = quad;
-  using _K = decltype(Q12);
-  return Ar(Q12 * Q34, Q23 * Q14, Q13 * Q24) == _K(0);
+    const auto &[Q12, Q23, Q34, Q14, Q13, Q24] = quad;
+    using _K = decltype(Q12);
+    return Ar(Q12 * Q34, Q23 * Q14, Q13 * Q24) == _K(0);
 }
 
 } // namespace fun
