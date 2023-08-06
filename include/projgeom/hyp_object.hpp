@@ -39,8 +39,7 @@ class HypLine : public PgObject<HypLine, HypPoint> {
      *
      * @param[in] coord Homogeneous coordinate
      */
-    constexpr explicit HypLine(std::array<int64_t, 3> coord)
-        : PgObject<HypLine, HypPoint>{coord} {}
+    constexpr explicit HypLine(std::array<int64_t, 3> coord) : PgObject<HypLine, HypPoint>{coord} {}
 
     /**
      * @brief

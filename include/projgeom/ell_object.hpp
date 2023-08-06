@@ -39,8 +39,7 @@ class EllLine : public PgObject<EllLine, EllPoint> {
      *
      * @param[in] coord Homogeneous coordinate
      */
-    constexpr explicit EllLine(std::array<int64_t, 3> coord)
-        : PgObject<EllLine, EllPoint>{coord} {}
+    constexpr explicit EllLine(std::array<int64_t, 3> coord) : PgObject<EllLine, EllPoint>{coord} {}
 
     /**
      * @brief
@@ -55,15 +54,11 @@ class EllLine : public PgObject<EllLine, EllPoint> {
  *
  * @return EllLine
  */
-inline constexpr auto EllPoint::perp() const -> EllLine {
-    return EllLine{this->coord};
-}
+inline constexpr auto EllPoint::perp() const -> EllLine { return EllLine{this->coord}; }
 
 /**
  * @brief
  *
  * @return EllPoint
  */
-inline constexpr auto EllLine::perp() const -> EllPoint {
-    return EllPoint{this->coord};
-}
+inline constexpr auto EllLine::perp() const -> EllPoint { return EllPoint{this->coord}; }
