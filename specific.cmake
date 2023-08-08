@@ -7,13 +7,4 @@ CPMAddPackage(
 
 CPMAddPackage("gh:ericniebler/range-v3#0.12.0")
 
-find_package(Boost REQUIRED)
-if(Boost_FOUND)
-  message(STATUS "Found boost: ${Boost_INCLUDE_DIRS}")
-  # add_library(Boost::boost INTERFACE IMPORTED GLOBAL)
-  target_include_directories(Boost::boost SYSTEM INTERFACE ${Boost_INCLUDE_DIRS})
-  # Disable autolink
-  target_compile_definitions(Boost::boost INTERFACE BOOST_ALL_NO_LIB=1)
-endif()
-
-set(SPECIFIC_LIBS fmt::fmt Boost::boost range-v3)
+set(SPECIFIC_LIBS fmt::fmt range-v3)
