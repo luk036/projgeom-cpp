@@ -6,48 +6,48 @@
 
 namespace fun {
     /**
-     * @brief C-K plane Concept
+     * @brief Cayley-Klein plane Concept
      *
      * @tparam Point Point
-     * @tparam L Line
+     * @tparam Line Line
      */
-    template <class Point, class L = typename Point::Dual>
+    template <class Point, class Line = typename Point::Dual>
     concept CayleyKleinPlanePrimitive =     //
-        ProjectivePlanePrimitive<Point, L>  //
-        && requires(const Point &p, const L &l) {
-               { p.perp() } -> concepts::convertible_to<L>;
+        ProjectivePlanePrimitive<Point, Line>  //
+        && requires(const Point &p, const Line &l) {
+               { p.perp() } -> concepts::convertible_to<Line>;
            };
 
     /**
-     * @brief C-K plane Concept (full)
+     * @brief Cayley-Klein plane Concept (full)
      *
      * @tparam Point Point
-     * @tparam L Line
+     * @tparam Line Line
      */
-    template <class Point, class L = typename Point::Dual>
-    concept CKPlanePrimDual
-        = CayleyKleinPlanePrimitive<Point, L> && CayleyKleinPlanePrimitive<L, Point>;
+    template <class Point, class Line = typename Point::Dual>
+    concept CayleyKleinPlanePrimitiveDual
+        = CayleyKleinPlanePrimitive<Point, Line> && CayleyKleinPlanePrimitive<Line, Point>;
 
     /**
-     * @brief C-K plane Concept
+     * @brief Cayley-Klein plane Concept
      *
      * @tparam Point Point
-     * @tparam L Line
+     * @tparam Line Line
      */
-    template <class V, class Point, class L = typename Point::Dual>
+    template <class Value, class Point, class Line = typename Point::Dual>
     concept CayleyKleinPlane =        //
-        ProjectivePlane<V, Point, L>  //
-        && requires(const Point &p, const L &l) {
-               { p.perp() } -> concepts::convertible_to<L>;
+        ProjectivePlane<Value, Point, Line>  //
+        && requires(const Point &p, const Line &l) {
+               { p.perp() } -> concepts::convertible_to<Line>;
            };
 
     /**
-     * @brief C-K plane Concept (full)
+     * @brief Cayley-Klein plane Concept (full)
      *
      * @tparam Point Point
-     * @tparam L Line
+     * @tparam Line Line
      */
-    template <class V, class Point, class L = typename Point::Dual>
-    concept CKPlaneDual = CayleyKleinPlane<V, Point, L> && CayleyKleinPlane<V, L, Point>;
+    template <class Value, class Point, class Line = typename Point::Dual>
+    concept CayleyKleinPlaneDual = CayleyKleinPlane<Value, Point, Line> && CayleyKleinPlane<Value, Line, Point>;
 
 }  // namespace fun

@@ -11,13 +11,13 @@ namespace fun {
      * @brief
      *
      * @tparam Point Point
-     * @tparam L Line
+     * @tparam Line Line
      */
-    template <class L, class Point = typename L::Dual>
+    template <class Line, class Point = typename Line::Dual>
 #if __cpp_concepts >= 201907L
-        requires CKPlanePrimDual<L, Point>
+        requires CayleyKleinPlanePrimitiveDual<Line, Point>
 #endif
-    constexpr auto is_perpendicular(const L &m1, const L &m2) -> bool {
+    constexpr auto is_perpendicular(const Line &m1, const Line &m2) -> bool {
         return m1.perp().incident(m2);
     }
 
@@ -25,13 +25,13 @@ namespace fun {
      * @brief
      *
      * @tparam Point Point
-     * @tparam L Line
+     * @tparam Line Line
      */
-    template <class Point, class L>
+    template <class Point, class Line>
 #if __cpp_concepts >= 201907L
-        requires CKPlanePrimDual<Point, L>
+        requires CayleyKleinPlanePrimitiveDual<Point, Line>
 #endif
-    constexpr auto altitude(const Point &p, const L &m) -> L {
+    constexpr auto altitude(const Point &p, const Line &m) -> Line {
         return m.perp().meet(p);
     }
 
@@ -39,11 +39,11 @@ namespace fun {
      * @brief
      *
      * @param[in] tri
-     * @return std::arrary<L, 3>
+     * @return std::arrary<Line, 3>
      */
-    template <class Point, class L = typename Point::Dual>
+    template <class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
-        requires CKPlanePrimDual<Point, L>
+        requires CayleyKleinPlanePrimitiveDual<Point, Line>
 #endif
     constexpr auto orthocenter(const std::array<Point, 3> &tri) -> Point {
         const auto &[a1, a2, a3] = tri;
@@ -58,13 +58,13 @@ namespace fun {
      * @brief
      *
      * @param[in] tri
-     * @return std::arrary<L, 3>
+     * @return std::arrary<Line, 3>
      */
-    template <class Point, class L>
+    template <class Point, class Line>
 #if __cpp_concepts >= 201907L
-        requires CKPlanePrimDual<Point, L>
+        requires CayleyKleinPlanePrimitiveDual<Point, Line>
 #endif
-    constexpr auto tri_altitude(const std::array<Point, 3> &tri) -> std::array<L, 3> {
+    constexpr auto tri_altitude(const std::array<Point, 3> &tri) -> std::array<Line, 3> {
         const auto [l1, l2, l3] = tri_dual(tri);
         const auto &[a1, a2, a3] = tri;
         assert(!coincident(a1, a2, a3));
@@ -74,17 +74,17 @@ namespace fun {
         return {t1, t2, t3};
     }
 
-    template <typename V, class Point, class L = typename Point::Dual>
+    template <typename Value, class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
-        requires CKPlaneDual<V, Point, L>
+        requires CayleyKleinPlaneDual<Value, Point, Line>
 #endif
-    constexpr auto reflect(const L &mirror, const Point &p) -> Point {
+    constexpr auto reflect(const Line &mirror, const Point &p) -> Point {
         return involution(mirror.perp(), mirror, p);
     }
 
     /*
-    axiom(Point p, Point q, Point r, L l) {
-      l == L{p, q} => I(p, l) and I(q, l);
+    axiom(Point p, Point q, Point r, Line l) {
+      l == Line{p, q} => I(p, l) and I(q, l);
     }
     */
 

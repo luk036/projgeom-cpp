@@ -7,7 +7,7 @@ class MyCKPoint;
 class MyCKLine;
 
 /**
- * @brief Some C-K Point
+ * @brief Some Cayley-Klein Point
  *
  */
 class MyCKPoint : public PgObject<MyCKPoint, MyCKLine> {
@@ -29,7 +29,7 @@ class MyCKPoint : public PgObject<MyCKPoint, MyCKLine> {
 };
 
 /**
- * @brief Some C-K Line
+ * @brief Some Cayley-Klein Line
  *
  */
 class MyCKLine : public PgObject<MyCKLine, MyCKPoint> {

@@ -3,66 +3,66 @@
 #include "ck_plane.hpp"
 #include "pg_object.hpp"
 
-class HypPoint;
-class HypLine;
+class HyperbolicPoint;
+class HyperbolicLine;
 
 /**
  * @brief Hyperbolic Point
  *
  */
-class HypPoint : public PgObject<HypPoint, HypLine> {
+class HyperbolicPoint : public PgObject<HyperbolicPoint, HyperbolicLine> {
   public:
     /**
-     * @brief Construct a new Hyp Point object
+     * @brief Construct a new Hyperbolic Point object
      *
      * @param[in] coord Homogeneous coordinate
      */
-    constexpr explicit HypPoint(std::array<int64_t, 3> coord)
-        : PgObject<HypPoint, HypLine>{coord} {}
+    constexpr explicit HyperbolicPoint(std::array<int64_t, 3> coord)
+        : PgObject<HyperbolicPoint, HyperbolicLine>{coord} {}
 
     /**
      * @brief
      *
-     * @return HypLine
+     * @return HyperbolicLine
      */
-    constexpr auto perp() const -> HypLine;
+    constexpr auto perp() const -> HyperbolicLine;
 };
 
 /**
  * @brief Hyperbolic Line
  *
  */
-class HypLine : public PgObject<HypLine, HypPoint> {
+class HyperbolicLine : public PgObject<HyperbolicLine, HyperbolicPoint> {
   public:
     /**
-     * @brief Construct a new Hyp Line object
+     * @brief Construct a new Hyperbolic Line object
      *
      * @param[in] coord Homogeneous coordinate
      */
-    constexpr explicit HypLine(std::array<int64_t, 3> coord) : PgObject<HypLine, HypPoint>{coord} {}
+    constexpr explicit HyperbolicLine(std::array<int64_t, 3> coord) : PgObject<HyperbolicLine, HyperbolicPoint>{coord} {}
 
     /**
      * @brief
      *
-     * @return HypPoint
+     * @return HyperbolicPoint
      */
-    constexpr auto perp() const -> HypPoint;
+    constexpr auto perp() const -> HyperbolicPoint;
 };
 
 /**
  * @brief
  *
- * @return HypLine
+ * @return HyperbolicLine
  */
-inline constexpr auto HypPoint::perp() const -> HypLine {
-    return HypLine({this->coord[0], this->coord[1], -this->coord[2]});
+inline constexpr auto HyperbolicPoint::perp() const -> HyperbolicLine {
+    return HyperbolicLine({this->coord[0], this->coord[1], -this->coord[2]});
 }
 
 /**
  * @brief
  *
- * @return HypPoint
+ * @return HyperbolicPoint
  */
-inline constexpr auto HypLine::perp() const -> HypPoint {
-    return HypPoint({this->coord[0], this->coord[1], -this->coord[2]});
+inline constexpr auto HyperbolicLine::perp() const -> HyperbolicPoint {
+    return HyperbolicPoint({this->coord[0], this->coord[1], -this->coord[2]});
 }

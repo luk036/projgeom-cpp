@@ -3,62 +3,62 @@
 #include "ck_plane.hpp"
 #include "pg_object.hpp"
 
-class EllPoint;
-class EllLine;
+class EllipticPoint;
+class EllipticLine;
 
 /**
  * @brief Elliptic Point
  *
  */
-class EllPoint : public PgObject<EllPoint, EllLine> {
+class EllipticPoint : public PgObject<EllipticPoint, EllipticLine> {
   public:
     /**
-     * @brief Construct a new Ell Point object
+     * @brief Construct a new Elliptic Point object
      *
      * @param[in] coord Homogeneous coordinate
      */
-    constexpr explicit EllPoint(std::array<int64_t, 3> coord)
-        : PgObject<EllPoint, EllLine>{coord} {}
+    constexpr explicit EllipticPoint(std::array<int64_t, 3> coord)
+        : PgObject<EllipticPoint, EllipticLine>{coord} {}
 
     /**
      * @brief
      *
-     * @return EllLine
+     * @return EllipticLine
      */
-    constexpr auto perp() const -> EllLine;
+    constexpr auto perp() const -> EllipticLine;
 };
 
 /**
  * @brief Elliptic Line
  *
  */
-class EllLine : public PgObject<EllLine, EllPoint> {
+class EllipticLine : public PgObject<EllipticLine, EllipticPoint> {
   public:
     /**
-     * @brief Construct a new Ell Line object
+     * @brief Construct a new Elliptic Line object
      *
      * @param[in] coord Homogeneous coordinate
      */
-    constexpr explicit EllLine(std::array<int64_t, 3> coord) : PgObject<EllLine, EllPoint>{coord} {}
+    constexpr explicit EllipticLine(std::array<int64_t, 3> coord) : PgObject<EllipticLine, EllipticPoint>{coord} {}
 
     /**
      * @brief
      *
-     * @return EllPoint
+     * @return EllipticPoint
      */
-    constexpr auto perp() const -> EllPoint;
+    constexpr auto perp() const -> EllipticPoint;
 };
 
 /**
  * @brief
  *
- * @return EllLine
+ * @return EllipticLine
  */
-inline constexpr auto EllPoint::perp() const -> EllLine { return EllLine{this->coord}; }
+inline constexpr auto EllipticPoint::perp() const -> EllipticLine { return EllipticLine{this->coord}; }
 
 /**
  * @brief
  *
- * @return EllPoint
+ * @return EllipticPoint
  */
-inline constexpr auto EllLine::perp() const -> EllPoint { return EllPoint{this->coord}; }
+inline constexpr auto EllipticLine::perp() const -> EllipticPoint { return EllipticPoint{this->coord}; }

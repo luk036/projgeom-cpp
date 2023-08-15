@@ -12,16 +12,16 @@ namespace fun {
      * @brief Check Projective plane Axiom
      *
      * @tparam Point Point
-     * @tparam L Line
+     * @tparam Line Line
      * @param[in] p
      * @param[in] q
      * @param[in] l
      */
-    template <class Point, class L>
+    template <class Point, class Line>
 #if __cpp_concepts >= 201907L
-        requires ProjPlanePrimDual<Point, L>
+        requires ProjPlanePrimDual<Point, Line>
 #endif
-    inline auto check_axiom(const Point &p, const Point &q, const L &l) -> bool {
+    inline auto check_axiom(const Point &p, const Point &q, const Line &l) -> bool {
         if (p != p) return false;
         if (p.incident(l) != l.incident(p)) return false;
         if (p.meet(q) != q.meet(p)) return false;
@@ -40,9 +40,9 @@ namespace fun {
      * @return true
      * @return false
      */
-    template <class Point, class L = typename Point::Dual>
+    template <class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
-        requires ProjPlanePrimDual<Point, L>
+        requires ProjPlanePrimDual<Point, Line>
 #endif
     inline constexpr auto coincident(const Point &p, const Point &q, const Point &r) -> bool {
         return p.meet(q).incident(r);
@@ -57,9 +57,9 @@ namespace fun {
      * @return true
      * @return false
      */
-    template <class Point, class L = typename Point::Dual>
+    template <class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
-        requires ProjPlanePrimDual<Point, L>
+        requires ProjPlanePrimDual<Point, Line>
 #endif
     inline constexpr auto check_pappus(const std::array<Point, 3> &co1,
                                        const std::array<Point, 3> &co2) -> bool {
@@ -75,15 +75,15 @@ namespace fun {
      * @brief Dual of triangle
      *
      * @tparam Point Point
-     * @tparam L Line
+     * @tparam Line Line
      * @param[in] tri
-     * @return std::array<L, 3>
+     * @return std::array<Line, 3>
      */
-    template <class Point, class L = typename Point::Dual>
+    template <class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
-        requires ProjPlanePrimDual<Point, L>
+        requires ProjPlanePrimDual<Point, Line>
 #endif
-    inline constexpr auto tri_dual(const std::array<Point, 3> &tri) -> std::array<L, 3> {
+    inline constexpr auto tri_dual(const std::array<Point, 3> &tri) -> std::array<Line, 3> {
         const auto &[a1, a2, a3] = tri;
         assert(!coincident(a1, a2, a3));
         return {a2.meet(a3), a1.meet(a3), a1.meet(a2)};
@@ -98,9 +98,9 @@ namespace fun {
      * @return true
      * @return false
      */
-    template <class Point, class L = typename Point::Dual>
+    template <class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
-        requires ProjPlanePrimDual<Point, L>
+        requires ProjPlanePrimDual<Point, Line>
 #endif
     inline constexpr auto persp(const std::array<Point, 3> &tri1, const std::array<Point, 3> &tri2)
         -> bool {
@@ -119,9 +119,9 @@ namespace fun {
      * @return true
      * @return false
      */
-    template <class Point, class L = typename Point::Dual>
+    template <class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
-        requires ProjPlanePrimDual<Point, L>
+        requires ProjPlanePrimDual<Point, Line>
 #endif
     inline constexpr auto check_desargue(const std::array<Point, 3> &tri1,
                                          const std::array<Point, 3> &tri2) -> bool {
@@ -136,13 +136,13 @@ namespace fun {
      * @brief Check Projective plane Axiom 2
      *
      * @tparam Point Point
-     * @tparam L Line
+     * @tparam Line Line
      */
 
     /**
      * @brief Check Axiom
      *
-     * @tparam V
+     * @tparam Value
      * @tparam Point
      * @tparam Point::Dual
      * @param[in] p
@@ -151,11 +151,11 @@ namespace fun {
      * @param[in] a
      * @param[in] b
      */
-    template <typename V, class Point, class L>
+    template <typename Value, class Point, class Line>
 #if __cpp_concepts >= 201907L
-        requires ProjPlaneDual<V, Point, L>
+        requires ProjectivePlaneDual<Value, Point, Line>
 #endif
-    inline auto check_axiom2(const Point &p, const Point &q, const L &l, const V &a, const V &b)
+    inline auto check_axiom2(const Point &p, const Point &q, const Line &l, const Value &a, const Value &b)
         -> bool {
         if (p.dot(l) != l.dot(p)) return false;
         if (p.aux().incident(p)) return false;
@@ -167,16 +167,16 @@ namespace fun {
     /**
      * @brief harmonic conjugate
      *
-     * @tparam V
+     * @tparam Value
      * @tparam Point
      * @param[in] a
      * @param[in] b
      * @param[in] c
      * @return Point
      */
-    template <typename V, class Point, class L = typename Point::Dual>
+    template <typename Value, class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
-        requires ProjPlaneDual<V, Point, L>
+        requires ProjectivePlaneDual<Value, Point, Line>
 #endif
     inline constexpr auto harm_conj(const Point &a, const Point &b, const Point &c) -> Point {
         assert(coincident(a, b, c));
@@ -188,7 +188,7 @@ namespace fun {
     /**
      * @brief Involution
      *
-     * @tparam V
+     * @tparam Value
      * @tparam Point
      * @tparam Point::Dual
      * @param[in] origin
@@ -196,11 +196,11 @@ namespace fun {
      * @param[in] p
      * @return Point
      */
-    template <typename V, class Point, class L>
+    template <typename Value, class Point, class Line>
 #if __cpp_concepts >= 201907L
-        requires ProjPlaneDual<V, Point, L>
+        requires ProjectivePlaneDual<Value, Point, Line>
 #endif
-    inline constexpr auto involution(const Point &origin, const L &mirror, const Point &p)
+    inline constexpr auto involution(const Point &origin, const Line &mirror, const Point &p)
         -> Point {
         const auto po = p.meet(origin);
         const auto b = po.meet(mirror);
@@ -208,8 +208,8 @@ namespace fun {
     }
 
     /*
-    axiom(Point p, Point q, Point r, L l) {
-      l == L{p, q} => I(p, l) and I(q, l);
+    axiom(Point p, Point q, Point r, Line l) {
+      l == Line{p, q} => I(p, l) and I(q, l);
     }
     */
 

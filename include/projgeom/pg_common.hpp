@@ -79,18 +79,18 @@ namespace fun {
      * @brief generic Plucker function
      *
      * @tparam _K data type
-     * @param[in] ld lamda
+     * @param[in] lambda lamda
      * @param[in] v
      * @param[in] mu
      * @param[in] w
      * @return lamda*v + mu*w
      */
-    template <Ring _T, Ring _K> auto plucker_c(const _T &ld, const std::array<_K, 3> &v1,
+    template <Ring _T, Ring _K> auto plucker_c(const _T &lambda, const std::array<_K, 3> &v1,
                                                const _T &mu, const std::array<_K, 3> &v2)
         -> std::array<_K, 3> {
         const auto &[x1, y1, z1] = v1;
         const auto &[x2, y2, z2] = v2;
-        return {ld * x1 + mu * x2, ld * y1 + mu * y2, ld * z1 + mu * z2};
+        return {lambda * x1 + mu * x2, lambda * y1 + mu * y2, lambda * z1 + mu * z2};
     }
 
     /**

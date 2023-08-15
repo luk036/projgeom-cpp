@@ -36,18 +36,18 @@ constexpr auto cross(const std::array<int64_t, 3> &a, const std::array<int64_t, 
 /**
  * @brief Plucker operation
  *
- * @param[in] ld
+ * @param[in] lambda
  * @param[in] p
  * @param[in] mu
  * @param[in] q
  * @return std::array<int64_t, 3>
  */
-constexpr auto plckr(const int64_t &ld, const std::array<int64_t, 3> &p, const int64_t &mu,
+constexpr auto plckr(const int64_t &lambda, const std::array<int64_t, 3> &p, const int64_t &mu,
                      const std::array<int64_t, 3> &q) -> std::array<int64_t, 3> {
     return {
-        ld * p[0] + mu * q[0],
-        ld * p[1] + mu * q[1],
-        ld * p[2] + mu * q[2],
+        lambda * p[0] + mu * q[0],
+        lambda * p[1] + mu * q[1],
+        lambda * p[2] + mu * q[2],
     };
 }
 
@@ -55,10 +55,10 @@ constexpr auto plckr(const int64_t &ld, const std::array<int64_t, 3> &p, const i
  * @brief Projective Point/Line
  *
  * @tparam Point
- * @tparam L
+ * @tparam Line
  */
-template <typename Point, typename L> struct PgObject {
-    using Dual = L;
+template <typename Point, typename Line> struct PgObject {
+    using Dual = Line;
 
     std::array<int64_t, 3> coord;
 
@@ -97,9 +97,9 @@ template <typename Point, typename L> struct PgObject {
     /**
      * @brief
      *
-     * @return L
+     * @return Line
      */
-    constexpr auto aux() const -> L { return L{this->coord}; }
+    constexpr auto aux() const -> Line { return Line{this->coord}; }
 
     /**
      * @brief
@@ -107,20 +107,20 @@ template <typename Point, typename L> struct PgObject {
      * @param[in] other
      * @return int64_t
      */
-    constexpr auto dot(const L &other) const -> int64_t { return ::dot(this->coord, other.coord); }
+    constexpr auto dot(const Line &other) const -> int64_t { return ::dot(this->coord, other.coord); }
 
     /**
      * @brief
      *
-     * @param[in] ld
+     * @param[in] lambda
      * @param[in] p
      * @param[in] mu
      * @param[in] q
      * @return Point
      */
-    static constexpr auto plucker(const int64_t &ld, const Point &p, const int64_t &mu,
+    static constexpr auto plucker(const int64_t &lambda, const Point &p, const int64_t &mu,
                                   const Point &q) -> Point {
-        return Point{::plckr(ld, p.coord, mu, q.coord)};
+        return Point{::plckr(lambda, p.coord, mu, q.coord)};
     }
 
     /**
@@ -130,15 +130,15 @@ template <typename Point, typename L> struct PgObject {
      * @return true
      * @return false
      */
-    constexpr auto incident(const L &other) const -> bool { return this->dot(other) == 0; }
+    constexpr auto incident(const Line &other) const -> bool { return this->dot(other) == 0; }
 
     /**
      * @brief
      *
      * @param[in] rhs
-     * @return L
+     * @return Line
      */
-    constexpr auto meet(const Point &rhs) const -> L { return L{::cross(this->coord, rhs.coord)}; }
+    constexpr auto meet(const Point &rhs) const -> Line { return Line{::cross(this->coord, rhs.coord)}; }
 };
 
 class PgPoint;

@@ -20,9 +20,9 @@ TEST_CASE("Perspective") {
 }
 
 TEST_CASE("Elliptic") {
-    auto p = EllPoint({3, 4, 5});
-    auto q = EllPoint({0, 4, 1});
-    auto m = EllLine({1, 0, 4});
+    auto p = EllipticPoint({3, 4, 5});
+    auto q = EllipticPoint({0, 4, 1});
+    auto m = EllipticLine({1, 0, 4});
     bool is_ok = fun::check_axiom(p, q, m);
     CHECK(is_ok);
     auto t = fun::altitude(p, m);
