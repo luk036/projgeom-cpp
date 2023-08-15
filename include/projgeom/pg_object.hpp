@@ -90,7 +90,9 @@ template <typename Point, typename L> struct PgObject {
      * @return true
      * @return false
      */
-    friend constexpr auto operator!=(const Point &lhs, const Point &rhs) -> bool { return !(lhs == rhs); }
+    friend constexpr auto operator!=(const Point &lhs, const Point &rhs) -> bool {
+        return !(lhs == rhs);
+    }
 
     /**
      * @brief
@@ -116,8 +118,8 @@ template <typename Point, typename L> struct PgObject {
      * @param[in] q
      * @return Point
      */
-    static constexpr auto plucker(const int64_t &ld, const Point &p, const int64_t &mu, const Point &q)
-        -> Point {
+    static constexpr auto plucker(const int64_t &ld, const Point &p, const int64_t &mu,
+                                  const Point &q) -> Point {
         return Point{::plckr(ld, p.coord, mu, q.coord)};
     }
 

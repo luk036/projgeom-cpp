@@ -12,11 +12,11 @@ namespace fun {
      * @tparam L Line
      */
     template <class Point, class L = typename Point::Dual>
-    concept CayleyKleinPlanePrimitive =    //
+    concept CayleyKleinPlanePrimitive =     //
         ProjectivePlanePrimitive<Point, L>  //
         && requires(const Point &p, const L &l) {
-        { p.perp() } -> concepts::convertible_to<L>;
-    };
+               { p.perp() } -> concepts::convertible_to<L>;
+           };
 
     /**
      * @brief C-K plane Concept (full)
@@ -25,7 +25,8 @@ namespace fun {
      * @tparam L Line
      */
     template <class Point, class L = typename Point::Dual>
-    concept CKPlanePrimDual = CayleyKleinPlanePrimitive<Point, L> && CayleyKleinPlanePrimitive<L, Point>;
+    concept CKPlanePrimDual
+        = CayleyKleinPlanePrimitive<Point, L> && CayleyKleinPlanePrimitive<L, Point>;
 
     /**
      * @brief C-K plane Concept
@@ -34,11 +35,11 @@ namespace fun {
      * @tparam L Line
      */
     template <class V, class Point, class L = typename Point::Dual>
-    concept CayleyKleinPlane =       //
+    concept CayleyKleinPlane =        //
         ProjectivePlane<V, Point, L>  //
         && requires(const Point &p, const L &l) {
-        { p.perp() } -> concepts::convertible_to<L>;
-    };
+               { p.perp() } -> concepts::convertible_to<L>;
+           };
 
     /**
      * @brief C-K plane Concept (full)
