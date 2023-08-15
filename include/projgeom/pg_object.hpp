@@ -54,10 +54,10 @@ constexpr auto plckr(const int64_t &ld, const std::array<int64_t, 3> &p, const i
 /**
  * @brief Projective Point/Line
  *
- * @tparam P
+ * @tparam Point
  * @tparam L
  */
-template <typename P, typename L> struct PgObject {
+template <typename Point, typename L> struct PgObject {
     using Dual = L;
 
     std::array<int64_t, 3> coord;
@@ -76,7 +76,7 @@ template <typename P, typename L> struct PgObject {
      * @return true
      * @return false
      */
-    friend constexpr auto operator==(const P &lhs, const P &rhs) -> bool {
+    friend constexpr auto operator==(const Point &lhs, const Point &rhs) -> bool {
         return &lhs == &rhs ? true
                             : lhs.coord[1] * rhs.coord[2] == lhs.coord[2] * rhs.coord[1]
                                   && lhs.coord[2] * rhs.coord[0] == lhs.coord[0] * rhs.coord[2]
@@ -90,7 +90,7 @@ template <typename P, typename L> struct PgObject {
      * @return true
      * @return false
      */
-    friend constexpr auto operator!=(const P &lhs, const P &rhs) -> bool { return !(lhs == rhs); }
+    friend constexpr auto operator!=(const Point &lhs, const Point &rhs) -> bool { return !(lhs == rhs); }
 
     /**
      * @brief
@@ -114,11 +114,11 @@ template <typename P, typename L> struct PgObject {
      * @param[in] p
      * @param[in] mu
      * @param[in] q
-     * @return P
+     * @return Point
      */
-    static constexpr auto plucker(const int64_t &ld, const P &p, const int64_t &mu, const P &q)
-        -> P {
-        return P{::plckr(ld, p.coord, mu, q.coord)};
+    static constexpr auto plucker(const int64_t &ld, const Point &p, const int64_t &mu, const Point &q)
+        -> Point {
+        return Point{::plckr(ld, p.coord, mu, q.coord)};
     }
 
     /**
@@ -136,7 +136,7 @@ template <typename P, typename L> struct PgObject {
      * @param[in] rhs
      * @return L
      */
-    constexpr auto circ(const P &rhs) const -> L { return L{::cross(this->coord, rhs.coord)}; }
+    constexpr auto meet(const Point &rhs) const -> L { return L{::cross(this->coord, rhs.coord)}; }
 };
 
 class PgPoint;
