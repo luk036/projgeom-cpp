@@ -1,4 +1,4 @@
-// The template and inlines for the -*- C++ -*- pg point_p classes.
+// The template and inlines for the -*- C++ -*- pg pt_p classes.
 // Initially implemented by Wai-Shing Luk <luk036@gmail.com>
 //
 
@@ -23,13 +23,13 @@ namespace fun {
         // using value_type = _K;
 
         /**
-         * @brief Construct a new pg point_p object
+         * @brief Construct a new pg pt_p object
          *
          */
         explicit pg_point(const pg_point<_K> &) = default;
 
         /**
-         * @brief Construct a new pg point_p object
+         * @brief Construct a new pg pt_p object
          *
          */
         pg_point(pg_point<_K> &&) noexcept = default;
@@ -68,13 +68,13 @@ namespace fun {
     /**
      * @brief Return join of two points.
      *
-     * @param[in] point_p
-     * @param[in] point_q
+     * @param[in] pt_p
+     * @param[in] pt_q
      * @return pg_line<_K>
      */
-    template <Ring _K> inline constexpr auto join(const pg_point<_K> &point_p,
-                                                  const pg_point<_K> &point_q) -> pg_line<_K> {
-        return point_p * point_q;
+    template <Ring _K> inline constexpr auto join(const pg_point<_K> &pt_p,
+                                                  const pg_point<_K> &pt_q) -> pg_line<_K> {
+        return pt_p * pt_q;
     }
 
 }  // namespace fun

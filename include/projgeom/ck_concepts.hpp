@@ -14,8 +14,8 @@ namespace fun {
     template <class Point, class Line = typename Point::Dual>
     concept CayleyKleinPlanePrimitive =     //
         ProjectivePlanePrimitive<Point, Line>  //
-        && requires(const Point &p, const Line &l) {
-               { p.perp() } -> concepts::convertible_to<Line>;
+        && requires(const Point &pt_p, const Line &ln_l) {
+               { pt_p.perp() } -> concepts::convertible_to<Line>;
            };
 
     /**
@@ -37,8 +37,8 @@ namespace fun {
     template <class Value, class Point, class Line = typename Point::Dual>
     concept CayleyKleinPlane =        //
         ProjectivePlane<Value, Point, Line>  //
-        && requires(const Point &p, const Line &l) {
-               { p.perp() } -> concepts::convertible_to<Line>;
+        && requires(const Point &pt_p, const Line &ln_l) {
+               { pt_p.perp() } -> concepts::convertible_to<Line>;
            };
 
     /**

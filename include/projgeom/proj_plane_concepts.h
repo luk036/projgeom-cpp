@@ -21,12 +21,12 @@ namespace fun {
     template <class Point, class Line>
     concept ProjectivePlanePrimH
         = STD_ALT::equality_comparable<Point>
-          && requires(const Point &point_p, const Point &point_q, const Line &line_l) {
-                 { incident(point_p, line_l) } -> STD_ALT::convertible_to<bool>;  // incidence
-                 { point_p *point_q } -> STD_ALT::convertible_to<Line>;           // join or meet
-                 // { point_p.aux() } -> STD_ALT::convertible_to<Line>; // line not incident
-                 // with point_p { point_p.aux2(point_q) } -> STD_ALT::convertible_to<Point>;
-                 // // point_p r on point_p * point_q, r != point_p and r != point_q
+          && requires(const Point &pt_p, const Point &pt_q, const Line &ln_l) {
+                 { incident(pt_p, ln_l) } -> STD_ALT::convertible_to<bool>;  // incidence
+                 { pt_p *pt_q } -> STD_ALT::convertible_to<Line>;           // join or meet
+                 // { pt_p.aux() } -> STD_ALT::convertible_to<Line>; // line not incident
+                 // with pt_p { pt_p.aux2(pt_q) } -> STD_ALT::convertible_to<Point>;
+                 // // pt_p pt_r on pt_p * pt_q, pt_r != pt_p and pt_r != pt_q
              };
 
     /**
@@ -58,14 +58,14 @@ namespace fun {
     template <class Point, class Line = typename Point::Dual>
     concept ProjectivePlaneGenericH
         = ProjectivePlanePrimH<Point, Line>
-          && requires(const Point &point_p, const Point &point_q) {
+          && requires(const Point &pt_p, const Point &pt_q) {
                  {
-                     point_p.aux()
-                 } -> STD_ALT::convertible_to<Line>;  // line not incident with point_p
+                     pt_p.aux()
+                 } -> STD_ALT::convertible_to<Line>;  // line not incident with pt_p
                  {
-                     point_p.aux2(point_q)
-                 } -> STD_ALT::convertible_to<Point>;  // point_p r on point_p * point_q,
-                                                       // r != point_p and r != point_q
+                     pt_p.aux2(pt_q)
+                 } -> STD_ALT::convertible_to<Point>;  // pt_p pt_r on pt_p * pt_q,
+                                                       // pt_r != pt_p and pt_r != pt_q
              };
 
     /**
@@ -97,20 +97,20 @@ namespace fun {
     template <class Point, class Line>
     concept ProjectivePlaneH
         = STD_ALT::equality_comparable<Point>
-          && requires(const Point &point_p, const Point &point_q, const Line &line_l,
-                      const Value_type<Point> &a) {
+          && requires(const Point &pt_p, const Point &pt_q, const Line &ln_l,
+                      const Value_type<Point> &pt_a) {
                  typename Value_type<Point>;
-                 // { Point(point_p) } -> Point; // copyable
-                 // { incident(point_p, line_l) } -> bool; // incidence
-                 { point_p *point_q } -> STD_ALT::convertible_to<Line>;  // join or meet
+                 // { Point(pt_p) } -> Point; // copyable
+                 // { incident(pt_p, ln_l) } -> bool; // incidence
+                 { pt_p *pt_q } -> STD_ALT::convertible_to<Line>;  // join or meet
                  {
-                     point_p.dot(line_l)
+                     pt_p.dot(ln_l)
                  } -> STD_ALT::convertible_to<Value_type<Point>>;  // for measurement
                  {
-                     point_p.aux()
-                 } -> STD_ALT::convertible_to<Line>;  // line not incident with point_p
+                     pt_p.aux()
+                 } -> STD_ALT::convertible_to<Line>;  // line not incident with pt_p
                  {
-                     plucker(a, point_p, a, point_q)
+                     plucker(pt_a, pt_p, pt_a, pt_q)
                  } -> STD_ALT::convertible_to<Point>;  // module computation
              };
 
@@ -124,8 +124,8 @@ namespace fun {
     concept ProjectivePlane = ProjectivePlaneH<Point, Line> && ProjectivePlaneH<Line, Point>;
 
     /*
-    axiom(Point point_p, Point point_q, Point r, Line line_l) {
-      line_l == Line{point_p, point_q} => I(point_p, line_l) and I(point_q, line_l);
+    axiom(Point pt_p, Point pt_q, Point pt_r, Line ln_l) {
+      ln_l == Line{pt_p, pt_q} => I(pt_p, ln_l) and I(pt_q, ln_l);
     }
     */
 
@@ -146,11 +146,11 @@ namespace fun {
      */
     template <class Point, class Line>
     concept ProjectivePlaneCoordH
-        = ProjectivePlaneH<Point, Line> && requires(const Point &point_p, size_t idx) {
+        = ProjectivePlaneH<Point, Line> && requires(const Point &pt_p, size_t idx) {
               typename Value_type<Point>;
 
               {
-                  point_p[idx]
+                  pt_p[idx]
               } -> STD_ALT::convertible_to<Value_type<Point>>;  // for coordinate acess
           };
 

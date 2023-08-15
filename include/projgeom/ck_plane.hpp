@@ -31,8 +31,8 @@ namespace fun {
 #if __cpp_concepts >= 201907L
         requires CayleyKleinPlanePrimitiveDual<Point, Line>
 #endif
-    constexpr auto altitude(const Point &p, const Line &m) -> Line {
-        return m.perp().meet(p);
+    constexpr auto altitude(const Point &pt_p, const Line &ln_m) -> Line {
+        return ln_m.perp().meet(pt_p);
     }
 
     /**
@@ -78,13 +78,13 @@ namespace fun {
 #if __cpp_concepts >= 201907L
         requires CayleyKleinPlaneDual<Value, Point, Line>
 #endif
-    constexpr auto reflect(const Line &mirror, const Point &p) -> Point {
-        return involution(mirror.perp(), mirror, p);
+    constexpr auto reflect(const Line &mirror, const Point &pt_p) -> Point {
+        return involution(mirror.perp(), mirror, pt_p);
     }
 
     /*
-    axiom(Point p, Point q, Point r, Line l) {
-      l == Line{p, q} => I(p, l) and I(q, l);
+    axiom(Point pt_p, Point pt_q, Point pt_r, Line ln_l) {
+      ln_l == Line{pt_p, pt_q} => I(pt_p, ln_l) and I(pt_q, ln_l);
     }
     */
 

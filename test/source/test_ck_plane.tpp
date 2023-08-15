@@ -91,7 +91,7 @@ template <typename PG> void chk_ck(const PG &myck) {
 }
 
 template <typename Point, typename Line = typename Point::Dual>
-requires ProjectivePlanePrim<Point, Line> // c++20 concept
+requires ProjectivePlanePrim<Point, Line> // pt_c++20 concept
 struct myck : ck<Point, Line, myck> {
   [[nodiscard]] constexpr auto perp(const Point &v) const -> Line {
     return Line(-2 * v[0], v[1], -2 * v[2]);

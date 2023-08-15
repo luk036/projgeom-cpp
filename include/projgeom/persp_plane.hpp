@@ -75,27 +75,27 @@ namespace fun {
         /**
          * @brief
          *
-         * @param[in] line_l
-         * @param[in] line_m
+         * @param[in] ln_l
+         * @param[in] ln_m
          * @return true
          * @return false
          */
-        [[nodiscard]] constexpr auto is_parallel(const Line &line_l, const Line &line_m) const
+        [[nodiscard]] constexpr auto is_parallel(const Line &ln_l, const Line &ln_m) const
             -> bool {
-            return incident(this->_l_infty, line_l * line_m);
+            return incident(this->_l_infty, ln_l * ln_m);
         }
 
         /**
          * @brief
          *
-         * @param[in] a
-         * @param[in] b
+         * @param[in] pt_a
+         * @param[in] pt_b
          * @return Point
          */
-        [[nodiscard]] constexpr auto midpoint(const Point &a, const Point &b) const -> Point {
+        [[nodiscard]] constexpr auto midpoint(const Point &pt_a, const Point &pt_b) const -> Point {
             const auto alpha = a.dot(this->_l_infty);
-            const auto beta = b.dot(this->_l_infty);
-            return plucker(alpha, a, beta, b);
+            const auto beta = pt_b.dot(this->_l_infty);
+            return plucker(alpha, pt_a, beta, pt_b);
         }
 
         /**

@@ -9,27 +9,27 @@
 /**
  * @brief Dot product
  *
- * @param[in] a
- * @param[in] b
+ * @param[in] pt_a
+ * @param[in] pt_b
  * @return int64_t
  */
-constexpr auto dot(const std::array<int64_t, 3> &a, const std::array<int64_t, 3> &b) -> int64_t {
-    return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+constexpr auto dot(const std::array<int64_t, 3> &pt_a, const std::array<int64_t, 3> &pt_b) -> int64_t {
+    return pt_a[0] * pt_b[0] + pt_a[1] * pt_b[1] + pt_a[2] * pt_b[2];
 }
 
 /**
  * @brief Cross product
  *
- * @param[in] a
- * @param[in] b
+ * @param[in] pt_a
+ * @param[in] pt_b
  * @return std::array<int64_t, 3>
  */
-constexpr auto cross(const std::array<int64_t, 3> &a, const std::array<int64_t, 3> &b)
+constexpr auto cross(const std::array<int64_t, 3> &pt_a, const std::array<int64_t, 3> &pt_b)
     -> std::array<int64_t, 3> {
     return {
-        a[1] * b[2] - a[2] * b[1],
-        a[2] * b[0] - a[0] * b[2],
-        a[0] * b[1] - a[1] * b[0],
+        pt_a[1] * pt_b[2] - pt_a[2] * pt_b[1],
+        pt_a[2] * pt_b[0] - pt_a[0] * pt_b[2],
+        pt_a[0] * pt_b[1] - pt_a[1] * pt_b[0],
     };
 }
 
@@ -37,17 +37,17 @@ constexpr auto cross(const std::array<int64_t, 3> &a, const std::array<int64_t, 
  * @brief Plucker operation
  *
  * @param[in] lambda
- * @param[in] p
+ * @param[in] pt_p
  * @param[in] mu
- * @param[in] q
+ * @param[in] pt_q
  * @return std::array<int64_t, 3>
  */
-constexpr auto plckr(const int64_t &lambda, const std::array<int64_t, 3> &p, const int64_t &mu,
-                     const std::array<int64_t, 3> &q) -> std::array<int64_t, 3> {
+constexpr auto plckr(const int64_t &lambda, const std::array<int64_t, 3> &pt_p, const int64_t &mu,
+                     const std::array<int64_t, 3> &pt_q) -> std::array<int64_t, 3> {
     return {
-        lambda * p[0] + mu * q[0],
-        lambda * p[1] + mu * q[1],
-        lambda * p[2] + mu * q[2],
+        lambda * pt_p[0] + mu * pt_q[0],
+        lambda * pt_p[1] + mu * pt_q[1],
+        lambda * pt_p[2] + mu * pt_q[2],
     };
 }
 
@@ -113,14 +113,14 @@ template <typename Point, typename Line> struct PgObject {
      * @brief
      *
      * @param[in] lambda
-     * @param[in] p
+     * @param[in] pt_p
      * @param[in] mu
-     * @param[in] q
+     * @param[in] pt_q
      * @return Point
      */
-    static constexpr auto plucker(const int64_t &lambda, const Point &p, const int64_t &mu,
-                                  const Point &q) -> Point {
-        return Point{::plckr(lambda, p.coord, mu, q.coord)};
+    static constexpr auto plucker(const int64_t &lambda, const Point &pt_p, const int64_t &mu,
+                                  const Point &pt_q) -> Point {
+        return Point{::plckr(lambda, pt_p.coord, mu, pt_q.coord)};
     }
 
     /**

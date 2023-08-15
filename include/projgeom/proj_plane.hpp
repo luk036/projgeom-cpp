@@ -19,15 +19,15 @@ namespace fun {
     /**
      * @brief
      *
-     * @param[in] point_p
-     * @param[in] line_l
+     * @param[in] pt_p
+     * @param[in] ln_l
      * @return true
      * @return false
      */
     template <typename Point, typename Line>
         requires ProjectivePlane<Point, Line>
-    constexpr auto incident(const Point &point_p, const Line &line_l) -> bool {
-        return point_p.dot(line_l) == Value_type<Point>(0);
+    constexpr auto incident(const Point &pt_p, const Line &ln_l) -> bool {
+        return pt_p.dot(ln_l) == Value_type<Point>(0);
     }
 
     /**
@@ -35,13 +35,13 @@ namespace fun {
      *
      * @tparam[in] Line Line
      * @tparam[in] Args points
-     * @return true if points are conincident (on a line line_l)
+     * @return true if points are conincident (on a line ln_l)
      * @return false otherwise
      */
     template <typename Line, typename... Args>
         requires(ProjectivePlanePrim<Line, Args> && ...)
-    constexpr auto coincident(const Line &line_l, const Args &...r) -> bool {
-        return (incident(r, line_l) && ...);
+    constexpr auto coincident(const Line &ln_l, const Args &...pt_r) -> bool {
+        return (incident(pt_r, ln_l) && ...);
     }
 
     template <typename Point> using Triple = std::array<Point, 3>;
@@ -163,30 +163,30 @@ namespace fun {
         /**
          * @brief Construct a new Involution object
          *
-         * @param[in] line_m
+         * @param[in] ln_m
          * @param[in] o
          */
-        constexpr Involution(Line line_m, Point o)  // input mirror and center
-            : _m{std::move(line_m)}, _o{std::move(o)}, _c{_m.dot(_o)} {}
+        constexpr Involution(Line ln_m, Point o)  // input mirror and center
+            : _m{std::move(ln_m)}, _o{std::move(o)}, _c{_m.dot(_o)} {}
 
         /**
          * @brief
          *
-         * @param[in] point_p
+         * @param[in] pt_p
          * @return Point
          */
-        constexpr auto operator()(const Point &point_p) const -> Point {
-            return plucker(this->_c, point_p, K(-2 * point_p.dot(this->_m)), this->_o);
+        constexpr auto operator()(const Point &pt_p) const -> Point {
+            return plucker(this->_c, pt_p, K(-2 * pt_p.dot(this->_m)), this->_o);
         }
 
         /**
          * @brief
          *
-         * @param[in] point_p
+         * @param[in] pt_p
          * @return Point
          */
-        constexpr auto operator()(const Line &line_l) const -> Line {
-            return plucker(this->_c, line_l, K(-2 * line_l.dot(this->_o)), this->_m);
+        constexpr auto operator()(const Line &ln_l) const -> Line {
+            return plucker(this->_c, ln_l, K(-2 * ln_l.dot(this->_o)), this->_m);
         }
     };
 
@@ -207,23 +207,23 @@ namespace fun {
         /**
          * @brief Construct a new Involution object
          *
-         * @param[in] line_m
+         * @param[in] ln_m
          * @param[in] o
          */
-        constexpr involution_generic(Line line_m,
+        constexpr involution_generic(Line ln_m,
                                      Point o)  // input mirror and center
-            : _m{std::move(line_m)}, _o{std::move(o)} {}
+            : _m{std::move(ln_m)}, _o{std::move(o)} {}
 
         /**
          * @brief
          *
-         * @param[in] point_p
+         * @param[in] pt_p
          * @return Point
          */
-        constexpr auto operator()(const Point &point_p) const -> Point {
-            auto po = point_p * this->_o;
+        constexpr auto operator()(const Point &pt_p) const -> Point {
+            auto po = pt_p * this->_o;
             auto B = po * this->_m;
-            return harm_conj(this->_o, B, point_p);
+            return harm_conj(this->_o, B, pt_p);
         }
     };
 

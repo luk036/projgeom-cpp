@@ -9,23 +9,23 @@
 #include <projgeom/pg_plane.hpp>
 
 TEST_CASE("Perspective") {
-    auto p = PerspPoint({3, 4, 5});
-    auto q = PerspPoint({0, 4, 1});
-    auto m = PerspLine({1, 0, 4});
-    bool is_ok = fun::check_axiom(p, q, m);
+    auto pt_p = PerspPoint({3, 4, 5});
+    auto pt_q = PerspPoint({0, 4, 1});
+    auto ln_m = PerspLine({1, 0, 4});
+    bool is_ok = fun::check_axiom(pt_p, pt_q, ln_m);
     CHECK(is_ok);
-    auto t = fun::altitude(p, m);
-    bool res = fun::is_perpendicular(t, m);
+    auto t = fun::altitude(pt_p, ln_m);
+    bool res = fun::is_perpendicular(t, ln_m);
     CHECK(res);
 }
 
 TEST_CASE("Elliptic") {
-    auto p = EllipticPoint({3, 4, 5});
-    auto q = EllipticPoint({0, 4, 1});
-    auto m = EllipticLine({1, 0, 4});
-    bool is_ok = fun::check_axiom(p, q, m);
+    auto pt_p = EllipticPoint({3, 4, 5});
+    auto pt_q = EllipticPoint({0, 4, 1});
+    auto ln_m = EllipticLine({1, 0, 4});
+    bool is_ok = fun::check_axiom(pt_p, pt_q, ln_m);
     CHECK(is_ok);
-    auto t = fun::altitude(p, m);
-    bool res = fun::is_perpendicular(t, m);
+    auto t = fun::altitude(pt_p, ln_m);
+    bool res = fun::is_perpendicular(t, ln_m);
     CHECK(res);
 }

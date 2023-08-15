@@ -29,13 +29,13 @@ namespace fun {
     };
 
     template <typename K>
-    concept Ring = STD_ALT::equality_comparable<K> && requires(K a, K b) {
-        { a + b } -> STD_ALT::convertible_to<K>;
-        { a - b } -> STD_ALT::convertible_to<K>;
-        { a *b } -> STD_ALT::convertible_to<K>;
-        { a += b } -> STD_ALT::same_as<K &>;
-        { a -= b } -> STD_ALT::same_as<K &>;
-        { a *= b } -> STD_ALT::same_as<K &>;
+    concept Ring = STD_ALT::equality_comparable<K> && requires(K a, K pt_b) {
+        { a + pt_b } -> STD_ALT::convertible_to<K>;
+        { a - pt_b } -> STD_ALT::convertible_to<K>;
+        { a *pt_b } -> STD_ALT::convertible_to<K>;
+        { a += pt_b } -> STD_ALT::same_as<K &>;
+        { a -= pt_b } -> STD_ALT::same_as<K &>;
+        { a *= pt_b } -> STD_ALT::same_as<K &>;
         { -a } -> STD_ALT::convertible_to<K>;
         { K(a) } -> STD_ALT::convertible_to<K>;
         { K(0) } -> STD_ALT::convertible_to<K>;
@@ -45,11 +45,11 @@ namespace fun {
     concept OrderedRing = Ring<K> && STD_ALT::totally_ordered<K>;
 
     template <typename Z>
-    concept Integral = OrderedRing<Z> && requires(Z a, Z b) {
-        { a % b } -> STD_ALT::convertible_to<Z>;
-        { a / b } -> STD_ALT::convertible_to<Z>;
-        { a %= b } -> STD_ALT::same_as<Z &>;
-        { a /= b } -> STD_ALT::same_as<Z &>;
+    concept Integral = OrderedRing<Z> && requires(Z a, Z pt_b) {
+        { a % pt_b } -> STD_ALT::convertible_to<Z>;
+        { a / pt_b } -> STD_ALT::convertible_to<Z>;
+        { a %= pt_b } -> STD_ALT::same_as<Z &>;
+        { a /= pt_b } -> STD_ALT::same_as<Z &>;
     };
 
 }  // namespace fun

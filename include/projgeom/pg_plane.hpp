@@ -13,20 +13,20 @@ namespace fun {
      *
      * @tparam Point Point
      * @tparam Line Line
-     * @param[in] p
-     * @param[in] q
-     * @param[in] l
+     * @param[in] pt_p
+     * @param[in] pt_q
+     * @param[in] ln_l
      */
     template <class Point, class Line>
 #if __cpp_concepts >= 201907L
         requires ProjPlanePrimDual<Point, Line>
 #endif
-    inline auto check_axiom(const Point &p, const Point &q, const Line &l) -> bool {
-        if (p != p) return false;
-        if (p.incident(l) != l.incident(p)) return false;
-        if (p.meet(q) != q.meet(p)) return false;
-        const auto m = p.meet(q);
-        if (!(m.incident(p) && m.incident(q))) return false;
+    inline auto check_axiom(const Point &pt_p, const Point &pt_q, const Line &ln_l) -> bool {
+        if (pt_p != pt_p) return false;
+        if (pt_p.incident(ln_l) != ln_l.incident(pt_p)) return false;
+        if (pt_p.meet(pt_q) != pt_q.meet(pt_p)) return false;
+        const auto ln_m = pt_p.meet(pt_q);
+        if (!(ln_m.incident(pt_p) && ln_m.incident(pt_q))) return false;
         return true;
     }
 
@@ -34,9 +34,9 @@ namespace fun {
      * @brief Coincident
      *
      * @tparam Point
-     * @param[in] p
-     * @param[in] q
-     * @param[in] r
+     * @param[in] pt_p
+     * @param[in] pt_q
+     * @param[in] pt_r
      * @return true
      * @return false
      */
@@ -44,8 +44,8 @@ namespace fun {
 #if __cpp_concepts >= 201907L
         requires ProjPlanePrimDual<Point, Line>
 #endif
-    inline constexpr auto coincident(const Point &p, const Point &q, const Point &r) -> bool {
-        return p.meet(q).incident(r);
+    inline constexpr auto coincident(const Point &pt_p, const Point &pt_q, const Point &pt_r) -> bool {
+        return pt_p.meet(pt_q).incident(pt_r);
     }
 
     /**
@@ -63,12 +63,12 @@ namespace fun {
 #endif
     inline constexpr auto check_pappus(const std::array<Point, 3> &co1,
                                        const std::array<Point, 3> &co2) -> bool {
-        const auto &[a, b, c] = co1;
-        const auto &[d, e, f] = co2;
-        const auto g = (a.meet(e)).meet(b.meet(d));
-        const auto h = (a.meet(f)).meet(c.meet(d));
-        const auto i = (b.meet(f)).meet(c.meet(e));
-        return coincident(g, h, i);
+        const auto &[pt_a, pt_b, pt_c] = co1;
+        const auto &[pt_d, pt_e, pt_f] = co2;
+        const auto pt_g = (pt_a.meet(pt_e)).meet(pt_b.meet(pt_d));
+        const auto pt_h = (pt_a.meet(pt_f)).meet(pt_c.meet(pt_d));
+        const auto pt_i = (pt_b.meet(pt_f)).meet(pt_c.meet(pt_e));
+        return coincident(pt_g, pt_h, pt_i);
     }
 
     /**
@@ -104,10 +104,10 @@ namespace fun {
 #endif
     inline constexpr auto persp(const std::array<Point, 3> &tri1, const std::array<Point, 3> &tri2)
         -> bool {
-        const auto &[a, b, c] = tri1;
-        const auto &[d, e, f] = tri2;
-        const auto &o = a.meet(d).meet(b.meet(e));
-        return c.meet(f).incident(o);
+        const auto &[pt_a, pt_b, pt_c] = tri1;
+        const auto &[pt_d, pt_e, pt_f] = tri2;
+        const auto &o = pt_a.meet(pt_d).meet(pt_b.meet(pt_e));
+        return pt_c.meet(pt_f).incident(o);
     }
 
     /**
@@ -145,22 +145,22 @@ namespace fun {
      * @tparam Value
      * @tparam Point
      * @tparam Point::Dual
-     * @param[in] p
-     * @param[in] q
-     * @param[in] l
-     * @param[in] a
-     * @param[in] b
+     * @param[in] pt_p
+     * @param[in] pt_q
+     * @param[in] ln_l
+     * @param[in] pt_a
+     * @param[in] pt_b
      */
     template <typename Value, class Point, class Line>
 #if __cpp_concepts >= 201907L
         requires ProjectivePlaneDual<Value, Point, Line>
 #endif
-    inline auto check_axiom2(const Point &p, const Point &q, const Line &l, const Value &a, const Value &b)
+    inline auto check_axiom2(const Point &pt_p, const Point &pt_q, const Line &ln_l, const Value &a, const Value &b)
         -> bool {
-        if (p.dot(l) != l.dot(p)) return false;
-        if (p.aux().incident(p)) return false;
-        const auto m = p.meet(q);
-        if (!m.incident(Point::plucker(a, p, b, q))) return false;
+        if (pt_p.dot(ln_l) != ln_l.dot(pt_p)) return false;
+        if (pt_p.aux().incident(pt_p)) return false;
+        const auto ln_m = pt_p.meet(pt_q);
+        if (!ln_m.incident(Point::plucker(a, pt_p, b, pt_q))) return false;
         return true;
     }
 
@@ -169,20 +169,20 @@ namespace fun {
      *
      * @tparam Value
      * @tparam Point
-     * @param[in] a
-     * @param[in] b
-     * @param[in] c
+     * @param[in] pt_a
+     * @param[in] pt_b
+     * @param[in] pt_c
      * @return Point
      */
     template <typename Value, class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
         requires ProjectivePlaneDual<Value, Point, Line>
 #endif
-    inline constexpr auto harm_conj(const Point &a, const Point &b, const Point &c) -> Point {
-        assert(coincident(a, b, c));
-        const auto ab = a.meet(b);
-        const auto lc = ab.aux().meet(c);
-        return Point::plucker(lc.dot(a), a, lc.dot(b), b);
+    inline constexpr auto harm_conj(const Point &pt_a, const Point &pt_b, const Point &pt_c) -> Point {
+        assert(coincident(pt_a, pt_b, pt_c));
+        const auto ab = pt_a.meet(pt_b);
+        const auto lc = ab.aux().meet(pt_c);
+        return Point::plucker(lc.dot(pt_a), pt_a, lc.dot(pt_b), pt_b);
     }
 
     /**
@@ -193,23 +193,23 @@ namespace fun {
      * @tparam Point::Dual
      * @param[in] origin
      * @param[in] mirror
-     * @param[in] p
+     * @param[in] pt_p
      * @return Point
      */
     template <typename Value, class Point, class Line>
 #if __cpp_concepts >= 201907L
         requires ProjectivePlaneDual<Value, Point, Line>
 #endif
-    inline constexpr auto involution(const Point &origin, const Line &mirror, const Point &p)
+    inline constexpr auto involution(const Point &origin, const Line &mirror, const Point &pt_p)
         -> Point {
-        const auto po = p.meet(origin);
-        const auto b = po.meet(mirror);
-        return harm_conj(origin, b, p);
+        const auto po = pt_p.meet(origin);
+        const auto pt_b = po.meet(mirror);
+        return harm_conj(origin, pt_b, pt_p);
     }
 
     /*
-    axiom(Point p, Point q, Point r, Line l) {
-      l == Line{p, q} => I(p, l) and I(q, l);
+    axiom(Point pt_p, Point pt_q, Point pt_r, Line ln_l) {
+      ln_l == Line{pt_p, pt_q} => I(pt_p, ln_l) and I(pt_q, ln_l);
     }
     */
 

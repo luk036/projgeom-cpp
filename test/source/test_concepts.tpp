@@ -119,9 +119,9 @@ using LArchetype = LA;
 static_assert(ProjectivePlaneCoord<PArchetype, LArchetype>);
 static_assert(ProjectivePlaneCoord<LArchetype, PArchetype>);
 
-inline void test_concept_usage(PArchetype point_p, LArchetype line_l) {
-  coincident(point_p * point_p, point_p);
-  coincident(line_l * line_l, line_l);
-  harm_conj(point_p, point_p, point_p);
-  harm_conj(line_l, line_l, line_l);
+inline void test_concept_usage(PArchetype pt_p, LArchetype ln_l) {
+  coincident(pt_p * pt_p, pt_p);
+  coincident(ln_l * ln_l, ln_l);
+  harm_conj(pt_p, pt_p, pt_p);
+  harm_conj(ln_l, ln_l, ln_l);
 }
