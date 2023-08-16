@@ -72,5 +72,5 @@ constexpr auto PerspPoint::perp() const -> const PerspLine & { return L_INF; }
  * @return PerspPoint
  */
 constexpr auto PerspLine::perp() const -> PerspPoint {
-    return PerspPoint::plucker(this->dot(I_RE), I_RE, this->dot(I_IM), I_IM);
+    return PerspPoint::parametrize(this->dot(I_RE), I_RE, this->dot(I_IM), I_IM);
 }

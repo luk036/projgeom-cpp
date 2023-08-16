@@ -104,7 +104,7 @@ namespace fun {
     constexpr auto harm_conj(const Point &A, const Point &B, const Point &C) -> Point {
         assert(incident(A * B, C));
         const auto lC = C * (A * B).aux();
-        return plucker(B.dot(lC), A, A.dot(lC), B);
+        return parametrize(B.dot(lC), A, A.dot(lC), B);
     }
 
     /**
@@ -176,7 +176,7 @@ namespace fun {
          * @return Point
          */
         constexpr auto operator()(const Point &pt_p) const -> Point {
-            return plucker(this->_c, pt_p, K(-2 * pt_p.dot(this->_m)), this->_o);
+            return parametrize(this->_c, pt_p, K(-2 * pt_p.dot(this->_m)), this->_o);
         }
 
         /**
@@ -186,7 +186,7 @@ namespace fun {
          * @return Point
          */
         constexpr auto operator()(const Line &ln_l) const -> Line {
-            return plucker(this->_c, ln_l, K(-2 * ln_l.dot(this->_o)), this->_m);
+            return parametrize(this->_c, ln_l, K(-2 * ln_l.dot(this->_o)), this->_m);
         }
     };
 

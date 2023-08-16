@@ -69,7 +69,7 @@ namespace fun {
         [[nodiscard]] constexpr auto perp(const Line &v) const -> Point {
             const auto alpha = v.dot(this->_Ire);
             const auto beta = v.dot(this->_Iim);
-            return plucker(alpha, this->_Ire, beta, this->_Iim);
+            return parametrize(alpha, this->_Ire, beta, this->_Iim);
         }
 
         /**
@@ -95,7 +95,7 @@ namespace fun {
         [[nodiscard]] constexpr auto midpoint(const Point &pt_a, const Point &pt_b) const -> Point {
             const auto alpha = a.dot(this->_l_infty);
             const auto beta = pt_b.dot(this->_l_infty);
-            return plucker(alpha, pt_a, beta, pt_b);
+            return parametrize(alpha, pt_a, beta, pt_b);
         }
 
         /**

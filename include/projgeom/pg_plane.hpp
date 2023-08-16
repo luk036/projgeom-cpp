@@ -160,7 +160,7 @@ namespace fun {
         if (pt_p.dot(ln_l) != ln_l.dot(pt_p)) return false;
         if (pt_p.aux().incident(pt_p)) return false;
         const auto ln_m = pt_p.meet(pt_q);
-        if (!ln_m.incident(Point::plucker(a, pt_p, b, pt_q))) return false;
+        if (!ln_m.incident(Point::parametrize(a, pt_p, b, pt_q))) return false;
         return true;
     }
 
@@ -182,7 +182,7 @@ namespace fun {
         assert(coincident(pt_a, pt_b, pt_c));
         const auto ab = pt_a.meet(pt_b);
         const auto lc = ab.aux().meet(pt_c);
-        return Point::plucker(lc.dot(pt_a), pt_a, lc.dot(pt_b), pt_b);
+        return Point::parametrize(lc.dot(pt_a), pt_a, lc.dot(pt_b), pt_b);
     }
 
     /**

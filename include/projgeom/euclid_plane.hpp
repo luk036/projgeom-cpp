@@ -3,7 +3,7 @@
 #include <type_traits>
 
 #include "pg_common.hpp"   // import cross2, dot1
-#include "proj_plane.hpp"  // import pg_point, Involution, tri_func, quad_func, plucker
+#include "proj_plane.hpp"  // import pg_point, Involution, tri_func, quad_func, parametrize
 #include "proj_plane_concepts.h"
 
 namespace fun {
@@ -102,7 +102,7 @@ namespace fun {
      */
     template <ProjectivePlaneCoord2 Point> constexpr auto midpoint(const Point &a, const Point &b)
         -> Point {
-        return plucker(b[2], a, a[2], b);
+        return parametrize(b[2], a, a[2], b);
     }
 
     /**
@@ -140,7 +140,7 @@ namespace fun {
      * @param[in] c
      * @return auto
      */
-    template <OrderedRing _Q> constexpr auto Ar(const _Q &a, const _Q &b, const _Q &c) {
+    template <OrderedRing _Q> constexpr auto archimede(const _Q &a, const _Q &b, const _Q &c) {
         return 4 * a * b - sq(a + b - c);
     }
 
@@ -173,7 +173,7 @@ namespace fun {
     template <typename T> constexpr auto Ptolemy(const T &quad) -> bool {
         const auto &[Q12, Q23, Q34, Q14, Q13, Q24] = quad;
         using _K = decltype(Q12);
-        return Ar(Q12 * Q34, Q23 * Q14, Q13 * Q24) == _K(0);
+        return archimede(Q12 * Q34, Q23 * Q14, Q13 * Q24) == _K(0);
     }
 
 }  // namespace fun

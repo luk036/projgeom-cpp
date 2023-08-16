@@ -11,7 +11,7 @@
 
 #include "projgeom/ck_plane.hpp"             // for check_sine...
 #include "projgeom/common_concepts.h"        // for Value_type
-#include "projgeom/euclid_plane.hpp"         // for uc_point, Ar
+#include "projgeom/euclid_plane.hpp"         // for uc_point, archimede
 #include "projgeom/euclid_plane_measure.hpp" // for quadrance
 #include "projgeom/fractions.hpp"            // for operator*
 #include "projgeom/pg_common.hpp"            // for sq, cross
@@ -80,11 +80,11 @@ void chk_euclid(const Triple<Point> &triangle) {
       sq(s1 + s2 + s3) - 2 * (s1 * s1 + s2 * s2 + s3 * s3) - 4 * s1 * s2 * s3;
   auto c3 = sq(q1 + q2 - q3) / (4 * q1 * q2);
 
-  auto a3p = plucker(3, a1, 4, a2);
+  auto a3p = parametrize(3, a1, 4, a2);
   auto q1p = quadrance(a2, a3p);
   auto q2p = quadrance(a1, a3p);
   auto q3p = quadrance(a1, a2);
-  auto tqf2 = Ar(q1p, q2p, q3p); // get 0
+  auto tqf2 = archimede(q1p, q2p, q3p); // get 0
 
   if constexpr (Integral<K>) {
     CHECK(!is_parallel(l1, l2));
@@ -103,7 +103,7 @@ void chk_euclid(const Triple<Point> &triangle) {
     CHECK(coincident(mt1 * mt2, mt3));
     // CHECK(cross_s(l1, l2) == c3);
     CHECK((c3 + s3) == K(1));
-    CHECK(tqf == Ar(q1, q2, q3));
+    CHECK(tqf == archimede(q1, q2, q3));
     CHECK(tsf == K(0));
     CHECK(tqf2 == K(0));
     // auto o2 = orthocenter(
@@ -126,7 +126,7 @@ void chk_euclid(const Triple<Point> &triangle) {
     CHECK(distance(a1, a1) == Zero);
     // CHECK(cross_s(l1, l2) == doctest::Approx(c3).epsilon(0.01));
     CHECK((c3 + s3) - 1 == Zero);
-    CHECK(tqf - Ar(q1, q2, q3) == Zero);
+    CHECK(tqf - archimede(q1, q2, q3) == Zero);
     CHECK(tsf == Zero);
     CHECK(tqf2 == Zero);
     // CHECK(ApproxEqual(a1, orthocenter(std::array{std::move(o), // not
@@ -154,7 +154,7 @@ template <typename T> void chk_cyclic(const T &quadangle) {
                            std::move(q14), std::move(q24), std::move(q13)});
     CHECK(okay);
   } else {
-    auto t = Ar(q12 * q34, q23 * q14, q13 * q24);
+    auto t = archimede(q12 * q34, q23 * q14, q13 * q24);
     CHECK(t == Zero);
   }
 }

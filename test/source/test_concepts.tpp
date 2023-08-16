@@ -96,12 +96,12 @@ inline auto operator*(LA const & /*unused*/, LA const & /*unused*/) -> PA {
 }
 inline auto PA::aux() -> LA { return LA{}; }
 inline auto LA::aux() -> PA { return PA{}; }
-inline auto plucker(const PA::value_type & /*unused*/, const PA & /*unused*/,
+inline auto parametrize(const PA::value_type & /*unused*/, const PA & /*unused*/,
                     const PA::value_type & /*unused*/, const PA & /*unused*/)
     -> PA {
   return PA{};
 }
-inline auto plucker(const LA::value_type & /*unused*/, const LA & /*unused*/,
+inline auto parametrize(const LA::value_type & /*unused*/, const LA & /*unused*/,
                     const LA::value_type & /*unused*/, const LA & /*unused*/)
     -> LA {
   return LA{};

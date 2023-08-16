@@ -110,7 +110,7 @@ namespace fun {
                      pt_p.aux()
                  } -> STD_ALT::convertible_to<Line>;  // line not incident with pt_p
                  {
-                     plucker(pt_a, pt_p, pt_a, pt_q)
+                     parametrize(pt_a, pt_p, pt_a, pt_q)
                  } -> STD_ALT::convertible_to<Point>;  // module computation
              };
 

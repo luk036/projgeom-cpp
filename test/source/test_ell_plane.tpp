@@ -47,7 +47,7 @@ template <typename PG> void chk_tri(const PG &myck) {
   auto a1 = Point{1, 3, 1};
   auto a2 = Point{4, 2, 1};
   auto a3 = Point{1, 1, -1};
-  auto a4 = plucker(2, a1, 3, a2);
+  auto a4 = parametrize(2, a1, 3, a2);
 
   const auto triangle = std::array{std::move(a1), std::move(a2), std::move(a3)};
   const auto trilateral = tri_dual(triangle);
@@ -85,7 +85,7 @@ template <typename PG> void chk_tri2(const PG &myck) {
 
   auto a1 = Point{1, 3, 1};
   auto a2 = Point{4, 2, 1};
-  auto a4 = plucker(2, a1, 3, a2);
+  auto a4 = parametrize(2, a1, 3, a2);
 
   const auto collin = std::array{std::move(a1), std::move(a2), std::move(a4)};
   const auto Q2 = myck.tri_quadrance(collin);

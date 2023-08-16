@@ -43,7 +43,7 @@ namespace fun {
           && requires(const Point &pt_p, const Point &pt_q, const Line &ln_l, const Value &a) {
                  { pt_p.aux() } -> concepts::convertible_to<Line>;   // line not incident with pt_p
                  { pt_p.dot(ln_l) } -> concepts::convertible_to<Value>;  // for basic measurement
-                 { Point::plucker(a, pt_p, a, pt_q) } -> concepts::convertible_to<Point>;
+                 { Point::parametrize(a, pt_p, a, pt_q) } -> concepts::convertible_to<Point>;
              };
 
     /**

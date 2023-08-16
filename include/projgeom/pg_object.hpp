@@ -34,7 +34,7 @@ constexpr auto cross(const std::array<int64_t, 3> &pt_a, const std::array<int64_
 }
 
 /**
- * @brief Plucker operation
+ * @brief Homogeneous parametrization of point or line
  *
  * @param[in] lambda
  * @param[in] pt_p
@@ -110,7 +110,7 @@ template <typename Point, typename Line> struct PgObject {
     constexpr auto dot(const Line &other) const -> int64_t { return ::dot(this->coord, other.coord); }
 
     /**
-     * @brief
+     * @brief Homogeneous parametrization of point or line
      *
      * @param[in] lambda
      * @param[in] pt_p
@@ -118,7 +118,7 @@ template <typename Point, typename Line> struct PgObject {
      * @param[in] pt_q
      * @return Point
      */
-    static constexpr auto plucker(const int64_t &lambda, const Point &pt_p, const int64_t &mu,
+    static constexpr auto parametrize(const int64_t &lambda, const Point &pt_p, const int64_t &mu,
                                   const Point &pt_q) -> Point {
         return Point{::plckr(lambda, pt_p.coord, mu, pt_q.coord)};
     }

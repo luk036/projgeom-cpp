@@ -9,7 +9,7 @@
 #include <type_traits>                      // for move
 
 #include "projgeom/common_concepts.h" // for Value_type
-#include "projgeom/euclid_plane.hpp"  // for Ar
+#include "projgeom/euclid_plane.hpp"  // for archimede
 #include "projgeom/fractions.hpp"     // for operator*
 #include "projgeom/persp_plane.hpp"   // for persp_eucl...
 #include "projgeom/pg_common.hpp"     // for sq
@@ -62,13 +62,13 @@ template <typename PG> void chk_degenerate(const PG &myck) {
     CHECK(!myck.is_parallel(l1, l2));
     CHECK(!myck.is_parallel(l2, l3));
     CHECK(coincident(t1 * t2, t3));
-    CHECK(tqf == Ar(q1, q2, q3));
+    CHECK(tqf == archimede(q1, q2, q3));
     CHECK(tsf == K(0));
   } else {
     CHECK(myck.l_infty().dot(l1 * l2) != Zero);
     CHECK(myck.l_infty().dot(l2 * l3) != Zero);
     CHECK(t1.dot(t2 * t3) == Zero);
-    CHECK(tqf - Ar(q1, q2, q3) == Zero);
+    CHECK(tqf - archimede(q1, q2, q3) == Zero);
     CHECK(tsf == Zero);
   }
 }
@@ -86,11 +86,11 @@ template <typename PG> void chk_degenerate2(const PG &myck) {
 
   auto a1 = Point{-1, 0, 3};
   auto a2 = Point{4, -2, 1};
-  auto a4 = plucker(3, a1, 4, a2);
+  auto a4 = parametrize(3, a1, 4, a2);
 
   const auto tri2 = std::array{std::move(a1), std::move(a2), std::move(a4)};
   const auto [qq1, qq2, qq3] = myck.tri_quadrance(tri2);
-  const auto tqf2 = Ar(qq1, qq2, qq3); // get 0
+  const auto tqf2 = archimede(qq1, qq2, qq3); // get 0
 
   if constexpr (Integral<K>) {
     CHECK(tqf2 == 0);

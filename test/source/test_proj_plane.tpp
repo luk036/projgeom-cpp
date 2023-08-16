@@ -31,7 +31,7 @@ TEST_CASE("Projective Point") {
   CHECK(incident(ln_l, pt_p));
   CHECK(incident(ln_l, pt_q));
 
-  auto pq = plucker(2. + 1i, pt_p, 3. + 0i, pt_q);
+  auto pq = parametrize(2. + 1i, pt_p, 3. + 0i, pt_q);
   auto pt_h = harm_conj(pt_p, pt_q, pq);
   CHECK(incident(ln_l, pq));
   CHECK(is_harmonic(pt_p, pt_q, pq, pt_h));
@@ -41,7 +41,7 @@ TEST_CASE("Projective Point") {
   // auto t = pg_point{2 + 0j, -2j, 2 + 0j};
 
   // auto O = meet(join(pt_p, s), join(pt_q, t));
-  // auto u = plucker(1 + 0j, O, -1 - 1j, pt_r);
+  // auto u = parametrize(1 + 0j, O, -1 - 1j, pt_r);
   // check_desargue(std::array{pt_p, pt_q, pt_r}, std::array{s, t, u});
 }
 
@@ -51,7 +51,7 @@ TEST_CASE("Projective Line") {
   auto ln_l = pg_line{1. - 2i, 3. - 1i, 2. + 1i}; // complex number
   auto ln_m = pg_line{-2. + 1i, 1. - 3i, -1. - 1i};
   auto A = ln_l * ln_m;
-  auto lm = plucker(2. + 3i, ln_l, 3. - 4i, ln_m);
+  auto lm = parametrize(2. + 3i, ln_l, 3. - 4i, ln_m);
 
   // std::cout << A << '\ln_m';
 
@@ -68,7 +68,7 @@ TEST_CASE("Projective Line") {
   // ln_l])
 
   // auto o = join(meet(ln_l, s), meet(ln_m, t));
-  // auto u = plucker(1 + 0j, o, -1 - 1j, pt_r);
+  // auto u = parametrize(1 + 0j, o, -1 - 1j, pt_r);
   // check_desargue(std::array{ln_l, ln_m, pt_r}, std::array{s, t, u});
 }
 
