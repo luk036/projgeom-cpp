@@ -76,15 +76,15 @@ namespace fun {
      *
      * @tparam Point Point
      * @tparam Line Line
-     * @param[in] tri
+     * @param[in] triangle
      * @return std::array<Line, 3>
      */
     template <class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
         requires ProjPlanePrimDual<Point, Line>
 #endif
-    inline constexpr auto tri_dual(const std::array<Point, 3> &tri) -> std::array<Line, 3> {
-        const auto &[a1, a2, a3] = tri;
+    inline constexpr auto tri_dual(const std::array<Point, 3> &triangle) -> std::array<Line, 3> {
+        const auto &[a1, a2, a3] = triangle;
         assert(!coincident(a1, a2, a3));
         return {a2.meet(a3), a1.meet(a3), a1.meet(a2)};
     }
@@ -127,9 +127,9 @@ namespace fun {
                                          const std::array<Point, 3> &tri2) -> bool {
         const auto trid1 = tri_dual(tri1);
         const auto trid2 = tri_dual(tri2);
-        const auto b1 = persp(tri1, tri2);
+        const auto bool1 = persp(tri1, tri2);
         const auto b2 = persp(trid1, trid2);
-        return (b1 && b2) || (!b1 && !b2);
+        return (bool1 && b2) || (!bool1 && !b2);
     }
 
     /**

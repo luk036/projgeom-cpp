@@ -65,8 +65,8 @@ template <typename PG> void chk_degenerate(const PG &myck) {
     CHECK(tqf == archimede(q1, q2, q3));
     CHECK(tsf == K(0));
   } else {
-    CHECK(myck.l_infty().dot(l1 * l2) != Zero);
-    CHECK(myck.l_infty().dot(l2 * l3) != Zero);
+    CHECK(myck.l_inf().dot(l1 * l2) != Zero);
+    CHECK(myck.l_inf().dot(l2 * l3) != Zero);
     CHECK(t1.dot(t2 * t3) == Zero);
     CHECK(tqf - archimede(q1, q2, q3) == Zero);
     CHECK(tsf == Zero);
@@ -102,23 +102,23 @@ template <typename PG> void chk_degenerate2(const PG &myck) {
 TEST_CASE("Perspective Euclid plane (cpp_int)") {
   using boost::multiprecision::cpp_int;
 
-  auto Ire = pg_point<cpp_int>(0, 1, 1);
-  auto Iim = pg_point<cpp_int>(1, 0, 0);
+  auto I_re = pg_point<cpp_int>(0, 1, 1);
+  auto I_im = pg_point<cpp_int>(1, 0, 0);
   auto l_inf = pg_line<cpp_int>(0, -1, 1);
 
-  const auto Point =
-      persp_euclid_plane{std::move(Ire), std::move(Iim), std::move(l_inf)};
-  chk_degenerate(Point);
-  chk_degenerate2(Point);
+  const auto pt_p =
+      persp_euclid_plane{std::move(I_re), std::move(I_im), std::move(l_inf)};
+  chk_degenerate(pt_p);
+  chk_degenerate2(pt_p);
 }
 
 TEST_CASE("Perspective Euclid plane (floating point_p)") {
-  auto Ire = pg_point{0., 1., 1.};
-  auto Iim = pg_point{1., 0., 0.};
+  auto I_re = pg_point{0., 1., 1.};
+  auto I_im = pg_point{1., 0., 0.};
   auto l_inf = pg_line{0., -1., 1.};
 
-  const auto Point =
-      persp_euclid_plane{std::move(Ire), std::move(Iim), std::move(l_inf)};
-  chk_degenerate(Point);
-  chk_degenerate2(Point);
+  const auto pt_p =
+      persp_euclid_plane{std::move(I_re), std::move(I_im), std::move(l_inf)};
+  chk_degenerate(pt_p);
+  chk_degenerate2(pt_p);
 }

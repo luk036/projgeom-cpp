@@ -65,7 +65,7 @@ template <typename Point, typename Line> struct PgObject {
     /**
      * @brief Construct a new Pg Object object
      *
-     * @param[in] coord
+     * @param[in] coord Homogeneous coordinate
      */
     constexpr explicit PgObject(std::array<int64_t, 3> coord) : coord{std::move(coord)} {}
 

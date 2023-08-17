@@ -25,7 +25,7 @@ class HyperbolicPoint : public PgObject<HyperbolicPoint, HyperbolicLine> {
      *
      * @return HyperbolicLine
      */
-    constexpr auto perp() const -> HyperbolicLine;
+    constexpr auto perp() const -> HyperbolicLine; // polar
 };
 
 /**
@@ -46,11 +46,11 @@ class HyperbolicLine : public PgObject<HyperbolicLine, HyperbolicPoint> {
      *
      * @return HyperbolicPoint
      */
-    constexpr auto perp() const -> HyperbolicPoint;
+    constexpr auto perp() const -> HyperbolicPoint; // pole
 };
 
 /**
- * @brief
+ * @brief Polar
  *
  * @return HyperbolicLine
  */
@@ -59,7 +59,7 @@ inline constexpr auto HyperbolicPoint::perp() const -> HyperbolicLine {
 }
 
 /**
- * @brief
+ * @brief Pole
  *
  * @return HyperbolicPoint
  */

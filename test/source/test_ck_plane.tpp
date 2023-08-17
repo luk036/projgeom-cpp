@@ -122,13 +122,13 @@ TEST_CASE("CK plane chk_ck (int)") {
   chk_ck(hyck<pg_point<cpp_int>>());
   chk_ck(hyck<pg_line<cpp_int>>());
 
-  auto Ire = pg_point<cpp_int>{0, 1, 1};
-  auto Iim = pg_point<cpp_int>{1, 0, 0};
+  auto I_re = pg_point<cpp_int>{0, 1, 1};
+  auto I_im = pg_point<cpp_int>{1, 0, 0};
   auto l_inf = pg_line<cpp_int>{0, -1, 1};
 
-  auto Point =
-      persp_euclid_plane{std::move(Ire), std::move(Iim), std::move(l_inf)};
-  chk_ck(Point);
+  auto pt_p =
+      persp_euclid_plane{std::move(I_re), std::move(I_im), std::move(l_inf)};
+  chk_ck(pt_p);
 }
 
 TEST_CASE("CK plane chk_ck (float)") {
@@ -139,11 +139,11 @@ TEST_CASE("CK plane chk_ck (float)") {
   chk_ck(hyck<pg_point<double>>());
   chk_ck(hyck<pg_line<double>>());
 
-  auto Ire = pg_point{0., 1., 1.};
-  auto Iim = pg_point{1., 0., 0.};
+  auto I_re = pg_point{0., 1., 1.};
+  auto I_im = pg_point{1., 0., 0.};
   auto l_inf = pg_line{0., -1., 1.};
 
-  auto Point =
-      persp_euclid_plane{std::move(Ire), std::move(Iim), std::move(l_inf)};
-  chk_ck(Point);
+  auto pt_p =
+      persp_euclid_plane{std::move(I_re), std::move(I_im), std::move(l_inf)};
+  chk_ck(pt_p);
 }

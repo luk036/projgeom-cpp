@@ -19,31 +19,31 @@ namespace fun {
         using K = Value_type<Point>;
 
       private:
-        Point _Ire;
-        Point _Iim;
-        Line _l_infty;
+        Point _I_re;
+        Point _I_im;
+        Line _l_inf;
 
       public:
         /**
          * @brief Construct a new persp euclid plane object
          *
-         * @param[in] Ire
-         * @param[in] Iim
-         * @param[in] l_infty
+         * @param[in] I_re
+         * @param[in] I_im
+         * @param[in] l_inf
          */
-        constexpr persp_euclid_plane(Point Ire, Point Iim, Line l_infty)
-            : _Ire{std::move(Ire)}, _Iim{std::move(Iim)}, _l_infty{std::move(l_infty)} {}
+        constexpr persp_euclid_plane(Point I_re, Point I_im, Line l_inf)
+            : _I_re{std::move(I_re)}, _I_im{std::move(I_im)}, _l_inf{std::move(l_inf)} {}
 
         // /**
         //  * @brief Construct a new persp euclid plane object
         //  *
-        //  * @param[in] Ire
-        //  * @param[in] Iim
-        //  * @param[in] l_infty
+        //  * @param[in] I_re
+        //  * @param[in] I_im
+        //  * @param[in] l_inf
         //  */
-        // constexpr persp_euclid_plane(const Point &Ire, const Point &Iim, const
-        // Line &l_infty)
-        //     : _Ire{Ire}, _Iim{Iim}, _l_infty{l_infty} {}
+        // constexpr persp_euclid_plane(const Point &I_re, const Point &I_im, const
+        // Line &l_inf)
+        //     : _I_re{I_re}, _I_im{I_im}, _l_inf{l_inf} {}
 
         // /**
         //  * @brief
@@ -51,14 +51,14 @@ namespace fun {
         //  * @param[in] x
         //  * @return const Line&
         //  */
-        // constexpr const Line &perp(const Point &x) const { return _l_infty; }
+        // constexpr const Line &perp(const Point &x) const { return _l_inf; }
 
         /**
          * @brief
          *
          * @return const Line&
          */
-        [[nodiscard]] constexpr auto l_infty() const -> const Line & { return this->_l_infty; }
+        [[nodiscard]] constexpr auto l_inf() const -> const Line & { return this->_l_inf; }
 
         /**
          * @brief
@@ -67,9 +67,9 @@ namespace fun {
          * @return Point
          */
         [[nodiscard]] constexpr auto perp(const Line &v) const -> Point {
-            const auto alpha = v.dot(this->_Ire);
-            const auto beta = v.dot(this->_Iim);
-            return parametrize(alpha, this->_Ire, beta, this->_Iim);
+            const auto alpha = v.dot(this->_I_re);
+            const auto beta = v.dot(this->_I_im);
+            return parametrize(alpha, this->_I_re, beta, this->_I_im);
         }
 
         /**
@@ -82,7 +82,7 @@ namespace fun {
          */
         [[nodiscard]] constexpr auto is_parallel(const Line &ln_l, const Line &ln_m) const
             -> bool {
-            return incident(this->_l_infty, ln_l * ln_m);
+            return incident(this->_l_inf, ln_l * ln_m);
         }
 
         /**
@@ -93,19 +93,19 @@ namespace fun {
          * @return Point
          */
         [[nodiscard]] constexpr auto midpoint(const Point &pt_a, const Point &pt_b) const -> Point {
-            const auto alpha = a.dot(this->_l_infty);
-            const auto beta = pt_b.dot(this->_l_infty);
+            const auto alpha = a.dot(this->_l_inf);
+            const auto beta = pt_b.dot(this->_l_inf);
             return parametrize(alpha, pt_a, beta, pt_b);
         }
 
         /**
          * @brief
          *
-         * @param[in] tri
+         * @param[in] triangle
          * @return auto
          */
-        [[nodiscard]] constexpr auto tri_midpoint(const Triple<Point> &tri) const {
-            const auto &[a1, a2, a3] = tri;
+        [[nodiscard]] constexpr auto tri_midpoint(const Triple<Point> &triangle) const {
+            const auto &[a1, a2, a3] = triangle;
 
             return Triple<Point>{this->midpoint(a1, a2), this->midpoint(a2, a3),
                                  this->midpoint(a1, a3)};
@@ -118,7 +118,7 @@ namespace fun {
          * @return K
          */
         [[nodiscard]] constexpr auto omega(const Point &x) const -> K {
-            return sq(x.dot(this->_l_infty));
+            return sq(x.dot(this->_l_inf));
         }
 
         /**
@@ -128,7 +128,7 @@ namespace fun {
          * @return K
          */
         [[nodiscard]] constexpr auto omega(const Line &x) const -> K {
-            return sq(x.dot(this->_Ire)) + sq(x.dot(this->_Iim));
+            return sq(x.dot(this->_I_re)) + sq(x.dot(this->_I_im));
         }
 
         /**

@@ -38,15 +38,15 @@ namespace fun {
     /**
      * @brief
      *
-     * @param[in] tri
+     * @param[in] triangle
      * @return std::arrary<Line, 3>
      */
     template <class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
         requires CayleyKleinPlanePrimitiveDual<Point, Line>
 #endif
-    constexpr auto orthocenter(const std::array<Point, 3> &tri) -> Point {
-        const auto &[a1, a2, a3] = tri;
+    constexpr auto orthocenter(const std::array<Point, 3> &triangle) -> Point {
+        const auto &[a1, a2, a3] = triangle;
         assert(!coincident(a1, a2, a3));
         const auto t1 = altitude(a1, a2.meet(a3));
         const auto t2 = altitude(a2, a3.meet(a1));
@@ -57,16 +57,16 @@ namespace fun {
     /**
      * @brief
      *
-     * @param[in] tri
+     * @param[in] triangle
      * @return std::arrary<Line, 3>
      */
     template <class Point, class Line>
 #if __cpp_concepts >= 201907L
         requires CayleyKleinPlanePrimitiveDual<Point, Line>
 #endif
-    constexpr auto tri_altitude(const std::array<Point, 3> &tri) -> std::array<Line, 3> {
-        const auto [l1, l2, l3] = tri_dual(tri);
-        const auto &[a1, a2, a3] = tri;
+    constexpr auto tri_altitude(const std::array<Point, 3> &triangle) -> std::array<Line, 3> {
+        const auto [l1, l2, l3] = tri_dual(triangle);
+        const auto &[a1, a2, a3] = triangle;
         assert(!coincident(a1, a2, a3));
         auto &&t1 = altitude(a1, l1);
         auto &&t2 = altitude(a2, l2);

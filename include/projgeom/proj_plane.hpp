@@ -49,13 +49,13 @@ namespace fun {
     /**
      * @brief
      *
-     * @param[in] tri
+     * @param[in] triangle
      * @return auto
      */
-    template <ProjectivePlanePrim2 Point> constexpr auto tri_dual(const Triple<Point> &tri)
+    template <ProjectivePlanePrim2 Point> constexpr auto tri_dual(const Triple<Point> &triangle)
 
     {
-        const auto &[a1, a2, a3] = tri;
+        const auto &[a1, a2, a3] = triangle;
         assert(!coincident(a2 * a3, a1));
         return std::array{a2 * a3, a1 * a3, a1 * a2};
     }
@@ -64,14 +64,14 @@ namespace fun {
      * @brief
      *
      * @param[in] func
-     * @param[in] tri
+     * @param[in] triangle
      * @return auto
      */
     template <ProjectivePlanePrim2 Point, typename Fn>
-    constexpr auto tri_func(Fn &&func, const Triple<Point> &tri)
+    constexpr auto tri_func(Fn &&func, const Triple<Point> &triangle)
 
     {
-        const auto &[a1, a2, a3] = tri;
+        const auto &[a1, a2, a3] = triangle;
         return std::array{func(a2, a3), func(a1, a3), func(a1, a2)};
     }
 
@@ -120,10 +120,10 @@ namespace fun {
     constexpr auto harm_conj(const _Point &A, const _Point &B, const _Point &C) -> _Point {
         assert(incident(A * B, C));
         const auto AB = A * B;
-        const auto Point = AB.aux();
-        const auto R = Point.aux2(C);
-        const auto S = (A * R) * (B * Point);
-        const auto Q = (B * R) * (A * Point);
+        const auto P = AB.aux();
+        const auto R = P.aux2(C);
+        const auto S = (A * R) * (B * P);
+        const auto Q = (B * R) * (A * P);
         return (Q * S) * AB;
     }
 
@@ -258,9 +258,9 @@ namespace fun {
     void check_desargue(const Triple<Point> &tri1, const Triple<Point> &tri2) {
         const auto trid1 = tri_dual(tri1);
         const auto trid2 = tri_dual(tri2);
-        const auto b1 = persp(tri1, tri2);
+        const auto bool1 = persp(tri1, tri2);
         const auto b2 = persp(trid1, trid2);
-        assert((b1 && b2) || (!b1 && !b2));
+        assert((bool1 && b2) || (!bool1 && !b2));
     }
 
 }  // namespace fun

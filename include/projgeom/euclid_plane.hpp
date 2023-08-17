@@ -61,23 +61,23 @@ namespace fun {
     /**
      * @brief
      *
-     * @param[in] tri
+     * @param[in] triangle
      * @return auto
      */
-    template <ProjectivePlaneCoord2 Point> constexpr auto tri_altitude(const Triple<Point> &tri) {
-        const auto &[a1, a2, a3] = tri;
+    template <ProjectivePlaneCoord2 Point> constexpr auto tri_altitude(const Triple<Point> &triangle) {
+        const auto &[a1, a2, a3] = triangle;
         return std::array{altitude(a1, a2 * a3), altitude(a2, a3 * a1), altitude(a3, a1 * a2)};
     }
 
     /**
      * @brief
      *
-     * @param[in] tri
+     * @param[in] triangle
      * @return Point
      */
-    template <ProjectivePlaneCoord2 Point> constexpr auto orthocenter(const Triple<Point> &tri)
+    template <ProjectivePlaneCoord2 Point> constexpr auto orthocenter(const Triple<Point> &triangle)
         -> Point {
-        const auto &[a1, a2, a3] = tri;
+        const auto &[a1, a2, a3] = triangle;
         const auto t1 = altitude(a1, a2 * a3);
         const auto t2 = altitude(a2, a1 * a3);
         return t1 * t2;
@@ -108,12 +108,12 @@ namespace fun {
     /**
      * @brief
      *
-     * @param[in] tri
+     * @param[in] triangle
      * @return auto
      */
-    template <ProjectivePlaneCoord2 Point> constexpr auto tri_midpoint(const Triple<Point> &tri)
+    template <ProjectivePlaneCoord2 Point> constexpr auto tri_midpoint(const Triple<Point> &triangle)
         -> Triple<Point> {
-        const auto &[a1, a2, a3] = tri;
+        const auto &[a1, a2, a3] = triangle;
         return {midpoint(a1, a2), midpoint(a2, a3), midpoint(a1, a3)};
     }
 
