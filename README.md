@@ -16,6 +16,7 @@ Projective geometric for modern C++.
 ## ✨ Features
 
 - constexpr-aware
+- branchless computation
 - Use C++20 concepts
 - [Modern CMake practices](https://pabloariasal.github.io/2018/02/19/its-time-to-do-cmake-right/)
 - Integrated test suite
