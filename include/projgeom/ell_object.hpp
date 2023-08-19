@@ -25,7 +25,7 @@ class EllipticPoint : public PgObject<EllipticPoint, EllipticLine> {
      *
      * @return EllipticLine
      */
-    constexpr auto perp() const -> EllipticLine; // polar
+    constexpr auto perp() const -> EllipticLine;  // polar
 };
 
 /**
@@ -39,14 +39,15 @@ class EllipticLine : public PgObject<EllipticLine, EllipticPoint> {
      *
      * @param[in] coord Homogeneous coordinate
      */
-    constexpr explicit EllipticLine(std::array<int64_t, 3> coord) : PgObject<EllipticLine, EllipticPoint>{coord} {}
+    constexpr explicit EllipticLine(std::array<int64_t, 3> coord)
+        : PgObject<EllipticLine, EllipticPoint>{coord} {}
 
     /**
      * @brief Pole
      *
      * @return EllipticPoint
      */
-    constexpr auto perp() const -> EllipticPoint; // pole
+    constexpr auto perp() const -> EllipticPoint;  // pole
 };
 
 /**
@@ -54,11 +55,15 @@ class EllipticLine : public PgObject<EllipticLine, EllipticPoint> {
  *
  * @return EllipticLine
  */
-inline constexpr auto EllipticPoint::perp() const -> EllipticLine { return EllipticLine{this->coord}; }
+inline constexpr auto EllipticPoint::perp() const -> EllipticLine {
+    return EllipticLine{this->coord};
+}
 
 /**
  * @brief Pole
  *
  * @return EllipticPoint
  */
-inline constexpr auto EllipticLine::perp() const -> EllipticPoint { return EllipticPoint{this->coord}; }
+inline constexpr auto EllipticLine::perp() const -> EllipticPoint {
+    return EllipticPoint{this->coord};
+}

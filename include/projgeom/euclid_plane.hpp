@@ -53,8 +53,8 @@ namespace fun {
      * @return Line
      */
     template <typename Point, typename Line>
-        requires ProjectivePlaneCoord<Point, Line>
-    constexpr auto altitude(const Point &a, const Line &line_l) -> Line {
+    requires ProjectivePlaneCoord<Point, Line> constexpr auto altitude(const Point &a,
+                                                                       const Line &line_l) -> Line {
         return a * fB(line_l);
     }
 
@@ -64,7 +64,8 @@ namespace fun {
      * @param[in] triangle
      * @return auto
      */
-    template <ProjectivePlaneCoord2 Point> constexpr auto tri_altitude(const Triple<Point> &triangle) {
+    template <ProjectivePlaneCoord2 Point>
+    constexpr auto tri_altitude(const Triple<Point> &triangle) {
         const auto &[a1, a2, a3] = triangle;
         return std::array{altitude(a1, a2 * a3), altitude(a2, a3 * a1), altitude(a3, a1 * a2)};
     }
@@ -111,8 +112,8 @@ namespace fun {
      * @param[in] triangle
      * @return auto
      */
-    template <ProjectivePlaneCoord2 Point> constexpr auto tri_midpoint(const Triple<Point> &triangle)
-        -> Triple<Point> {
+    template <ProjectivePlaneCoord2 Point>
+    constexpr auto tri_midpoint(const Triple<Point> &triangle) -> Triple<Point> {
         const auto &[a1, a2, a3] = triangle;
         return {midpoint(a1, a2), midpoint(a2, a3), midpoint(a1, a3)};
     }

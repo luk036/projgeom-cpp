@@ -56,8 +56,8 @@ namespace fun {
      * @return Cross product
      */
     template <typename Point>
-        requires Ring<Value_type<Point>>
-    auto cross(const Point &v, const Point &w) -> std::array<Value_type<Point>, 3> {
+    requires Ring<Value_type<Point>> auto cross(const Point &v, const Point &w)
+        -> std::array<Value_type<Point>, 3> {
         return {cross0(v, w), -cross1(v, w), cross2(v, w)};
     }
 

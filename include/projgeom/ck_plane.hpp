@@ -15,9 +15,9 @@ namespace fun {
      */
     template <class Line, class Point = typename Line::Dual>
 #if __cpp_concepts >= 201907L
-        requires CayleyKleinPlanePrimitiveDual<Line, Point>
+    requires CayleyKleinPlanePrimitiveDual<Line, Point>
 #endif
-    constexpr auto is_perpendicular(const Line &m1, const Line &m2) -> bool {
+        constexpr auto is_perpendicular(const Line &m1, const Line &m2) -> bool {
         return m1.perp().incident(m2);
     }
 
@@ -29,9 +29,9 @@ namespace fun {
      */
     template <class Point, class Line>
 #if __cpp_concepts >= 201907L
-        requires CayleyKleinPlanePrimitiveDual<Point, Line>
+    requires CayleyKleinPlanePrimitiveDual<Point, Line>
 #endif
-    constexpr auto altitude(const Point &pt_p, const Line &ln_m) -> Line {
+        constexpr auto altitude(const Point &pt_p, const Line &ln_m) -> Line {
         return ln_m.perp().meet(pt_p);
     }
 
@@ -43,9 +43,9 @@ namespace fun {
      */
     template <class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
-        requires CayleyKleinPlanePrimitiveDual<Point, Line>
+    requires CayleyKleinPlanePrimitiveDual<Point, Line>
 #endif
-    constexpr auto orthocenter(const std::array<Point, 3> &triangle) -> Point {
+        constexpr auto orthocenter(const std::array<Point, 3> &triangle) -> Point {
         const auto &[a1, a2, a3] = triangle;
         assert(!coincident(a1, a2, a3));
         const auto t1 = altitude(a1, a2.meet(a3));
@@ -62,9 +62,9 @@ namespace fun {
      */
     template <class Point, class Line>
 #if __cpp_concepts >= 201907L
-        requires CayleyKleinPlanePrimitiveDual<Point, Line>
+    requires CayleyKleinPlanePrimitiveDual<Point, Line>
 #endif
-    constexpr auto tri_altitude(const std::array<Point, 3> &triangle) -> std::array<Line, 3> {
+        constexpr auto tri_altitude(const std::array<Point, 3> &triangle) -> std::array<Line, 3> {
         const auto [l1, l2, l3] = tri_dual(triangle);
         const auto &[a1, a2, a3] = triangle;
         assert(!coincident(a1, a2, a3));
@@ -76,9 +76,9 @@ namespace fun {
 
     template <typename Value, class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
-        requires CayleyKleinPlaneDual<Value, Point, Line>
+    requires CayleyKleinPlaneDual<Value, Point, Line>
 #endif
-    constexpr auto reflect(const Line &mirror, const Point &pt_p) -> Point {
+        constexpr auto reflect(const Line &mirror, const Point &pt_p) -> Point {
         return involution(mirror.perp(), mirror, pt_p);
     }
 

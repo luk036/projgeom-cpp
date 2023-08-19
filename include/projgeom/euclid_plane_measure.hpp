@@ -15,9 +15,9 @@ namespace fun {
      * @param[in] z2
      * @return auto
      */
-    template <typename K>
-        requires Integral<K>
-    inline constexpr auto quad1(const K &x1, const K &z1, const K &x2, const K &z2) {
+    template <typename K> requires Integral<K> inline constexpr auto quad1(const K &x1, const K &z1,
+                                                                           const K &x2,
+                                                                           const K &z2) {
         return sq(Fraction<K>(x1, z1) - Fraction<K>(x2, z2));
     }
 
@@ -49,7 +49,7 @@ namespace fun {
         return quad1(a1[0], a1[2], a2[0], a2[2]) + quad1(a1[1], a1[2], a2[1], a2[2]);
     }
 
-    template <typename... Args> inline constexpr auto quadrance_copy(const Args &...args) {
+    template <typename... Args> inline constexpr auto quadrance_copy(const Args &... args) {
         return std::make_tuple(quadrance(args.first, args.second)...);
     }
 

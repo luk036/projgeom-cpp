@@ -14,8 +14,8 @@ namespace fun {
      * @tparam Point::Dual
      */
     template <typename Point, typename Line = typename Point::Dual>
-        requires ProjectivePlanePrim<Point, Line>  // c++20 concept
-    class persp_euclid_plane : public ck<Point, Line, persp_euclid_plane> {
+    requires ProjectivePlanePrim<Point, Line>  // c++20 concept
+        class persp_euclid_plane : public ck<Point, Line, persp_euclid_plane> {
         using K = Value_type<Point>;
 
       private:
@@ -80,8 +80,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        [[nodiscard]] constexpr auto is_parallel(const Line &ln_l, const Line &ln_m) const
-            -> bool {
+        [[nodiscard]] constexpr auto is_parallel(const Line &ln_l, const Line &ln_m) const -> bool {
             return incident(this->_l_inf, ln_l * ln_m);
         }
 

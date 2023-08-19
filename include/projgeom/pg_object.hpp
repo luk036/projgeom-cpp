@@ -13,7 +13,8 @@
  * @param[in] pt_b
  * @return int64_t
  */
-constexpr auto dot(const std::array<int64_t, 3> &pt_a, const std::array<int64_t, 3> &pt_b) -> int64_t {
+constexpr auto dot(const std::array<int64_t, 3> &pt_a, const std::array<int64_t, 3> &pt_b)
+    -> int64_t {
     return pt_a[0] * pt_b[0] + pt_a[1] * pt_b[1] + pt_a[2] * pt_b[2];
 }
 
@@ -107,7 +108,9 @@ template <typename Point, typename Line> struct PgObject {
      * @param[in] other
      * @return int64_t
      */
-    constexpr auto dot(const Line &other) const -> int64_t { return ::dot(this->coord, other.coord); }
+    constexpr auto dot(const Line &other) const -> int64_t {
+        return ::dot(this->coord, other.coord);
+    }
 
     /**
      * @brief Homogeneous parametrization of point or line
@@ -119,7 +122,7 @@ template <typename Point, typename Line> struct PgObject {
      * @return Point
      */
     static constexpr auto parametrize(const int64_t &lambda, const Point &pt_p, const int64_t &mu,
-                                  const Point &pt_q) -> Point {
+                                      const Point &pt_q) -> Point {
         return Point{::plckr(lambda, pt_p.coord, mu, pt_q.coord)};
     }
 
@@ -138,7 +141,9 @@ template <typename Point, typename Line> struct PgObject {
      * @param[in] rhs
      * @return Line
      */
-    constexpr auto meet(const Point &rhs) const -> Line { return Line{::cross(this->coord, rhs.coord)}; }
+    constexpr auto meet(const Point &rhs) const -> Line {
+        return Line{::cross(this->coord, rhs.coord)};
+    }
 };
 
 class PgPoint;

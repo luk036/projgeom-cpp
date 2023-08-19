@@ -45,8 +45,9 @@ namespace fun {
      * @todo rewrite by projecting to the y-axis first [:2]
      */
     template <typename Point, typename Line>
-        requires ProjectivePlane<Point, Line>
-    constexpr auto x_ratio(const Point &A, const Point &B, const Line &line_l, const Line &line_m) {
+    requires ProjectivePlane<Point, Line> constexpr auto x_ratio(const Point &A, const Point &B,
+                                                                 const Line &line_l,
+                                                                 const Line &line_m) {
         return ratio_ratio(A.dot(line_l), A.dot(line_m), B.dot(line_l), B.dot(line_m));
     }
 

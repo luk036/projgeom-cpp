@@ -25,7 +25,7 @@ class HyperbolicPoint : public PgObject<HyperbolicPoint, HyperbolicLine> {
      *
      * @return HyperbolicLine
      */
-    constexpr auto perp() const -> HyperbolicLine; // polar
+    constexpr auto perp() const -> HyperbolicLine;  // polar
 };
 
 /**
@@ -39,14 +39,15 @@ class HyperbolicLine : public PgObject<HyperbolicLine, HyperbolicPoint> {
      *
      * @param[in] coord Homogeneous coordinate
      */
-    constexpr explicit HyperbolicLine(std::array<int64_t, 3> coord) : PgObject<HyperbolicLine, HyperbolicPoint>{coord} {}
+    constexpr explicit HyperbolicLine(std::array<int64_t, 3> coord)
+        : PgObject<HyperbolicLine, HyperbolicPoint>{coord} {}
 
     /**
      * @brief
      *
      * @return HyperbolicPoint
      */
-    constexpr auto perp() const -> HyperbolicPoint; // pole
+    constexpr auto perp() const -> HyperbolicPoint;  // pole
 };
 
 /**
