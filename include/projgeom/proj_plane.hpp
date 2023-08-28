@@ -19,6 +19,12 @@ namespace fun {
     /**
      * @brief
      *
+     * The code snippet is defining a function named `incident` that checks if
+     * a point `pt_p` is incident to a line `ln_l` in a projective plane. The
+     * function uses the `dot` method of the `Point` class and compares it to
+     * zero to determine if the point is incident to the line. The function
+     * returns a boolean value indicating whether the point is incident to the line or not.
+     *
      * @param[in] pt_p
      * @param[in] ln_l
      * @return true
@@ -229,17 +235,18 @@ namespace fun {
     /**
      * @brief Check Pappus Theorem
      *
+     * The `check_pappus` function checks the Pappus theorem for two sets of collinear points.
      * @tparam Point
      * @tparam Line
-     * @param[in] co1
-     * @param[in] co2
+     * @param[in] coline1
+     * @param[in] coline2
      */
     template <ProjectivePlanePrim2 Point>
-    void check_pappus(const Triple<Point> &co1, const Triple<Point> &co2)
+    void check_pappus(const Triple<Point> &coline1, const Triple<Point> &coline2)
 
     {
-        const auto &[A, B, C] = co1;
-        const auto &[D, E, F] = co2;
+        const auto &[A, B, C] = coline1;
+        const auto &[D, E, F] = coline2;
 
         const auto G = (A * E) * (B * D);
         const auto H = (A * F) * (C * D);
@@ -258,8 +265,8 @@ namespace fun {
         const auto trid1 = tri_dual(tri1);
         const auto trid2 = tri_dual(tri2);
         const auto bool1 = persp(tri1, tri2);
-        const auto b2 = persp(trid1, trid2);
-        assert((bool1 && b2) || (!bool1 && !b2));
+        const auto bool2 = persp(trid1, trid2);
+        assert((bool1 && bool2) || (!bool1 && !bool2));
     }
 
 }  // namespace fun

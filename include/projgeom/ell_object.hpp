@@ -55,7 +55,7 @@ class EllipticLine : public PgObject<EllipticLine, EllipticPoint> {
  *
  * @return EllipticLine
  */
-inline constexpr auto EllipticPoint::perp() const -> EllipticLine {
+constexpr auto EllipticPoint::perp() const -> EllipticLine {
     return EllipticLine{this->coord};
 }
 
@@ -64,6 +64,6 @@ inline constexpr auto EllipticPoint::perp() const -> EllipticLine {
  *
  * @return EllipticPoint
  */
-inline constexpr auto EllipticLine::perp() const -> EllipticPoint {
+constexpr auto EllipticLine::perp() const -> EllipticPoint {
     return EllipticPoint{this->coord};
 }

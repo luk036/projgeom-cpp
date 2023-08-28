@@ -45,7 +45,7 @@ namespace fun {
     };
 
     /// Return meet of two lines.
-    template <Ring _K> inline constexpr auto meet(const pg_line<_K> &ln_l, const pg_line<_K> &ln_m)
+    template <Ring _K> constexpr auto meet(const pg_line<_K> &ln_l, const pg_line<_K> &ln_m)
         -> pg_point<_K> {
         return ln_l * ln_m;
     }

@@ -22,7 +22,7 @@ namespace fun {
      * @param[in] a
      * @return T
      */
-    template <typename T> inline constexpr auto abs(const T &a) -> T {
+    template <typename T> constexpr auto abs(const T &a) -> T {
         if constexpr (std::is_unsigned_v<T>) {
             return a;
         } else {
@@ -38,7 +38,7 @@ namespace fun {
      * @param[in] __n
      * @return _Mn
      */
-    template <Integral _Mn> inline constexpr auto gcd_recur(const _Mn &__m, const _Mn &__n) -> _Mn {
+    template <Integral _Mn> constexpr auto gcd_recur(const _Mn &__m, const _Mn &__n) -> _Mn {
         if (__n == 0) {
             return abs(__m);
         }
@@ -53,7 +53,7 @@ namespace fun {
      * @param[in] __n
      * @return _Mn
      */
-    template <Integral _Mn> inline constexpr auto gcd(const _Mn &__m, const _Mn &__n) -> _Mn {
+    template <Integral _Mn> constexpr auto gcd(const _Mn &__m, const _Mn &__n) -> _Mn {
         if (__m == 0) {
             return abs(__n);
         }
@@ -68,7 +68,7 @@ namespace fun {
      * @param[in] __n
      * @return _Mn
      */
-    template <Integral _Mn> inline constexpr auto lcm(const _Mn &__m, const _Mn &__n) -> _Mn {
+    template <Integral _Mn> constexpr auto lcm(const _Mn &__m, const _Mn &__n) -> _Mn {
         if (__m == 0 || __n == 0) {
             return 0;
         }
@@ -712,8 +712,4 @@ namespace fun {
             return os;
         }
     };
-
-    // For template deduction
-    // Integral{Z} Fraction(const Z &, const Z &) noexcept -> Fraction<Z>;
-
 }  // namespace fun

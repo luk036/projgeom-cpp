@@ -55,7 +55,7 @@ class HyperbolicLine : public PgObject<HyperbolicLine, HyperbolicPoint> {
  *
  * @return HyperbolicLine
  */
-inline constexpr auto HyperbolicPoint::perp() const -> HyperbolicLine {
+constexpr auto HyperbolicPoint::perp() const -> HyperbolicLine {
     return HyperbolicLine({this->coord[0], this->coord[1], -this->coord[2]});
 }
 
@@ -64,6 +64,6 @@ inline constexpr auto HyperbolicPoint::perp() const -> HyperbolicLine {
  *
  * @return HyperbolicPoint
  */
-inline constexpr auto HyperbolicLine::perp() const -> HyperbolicPoint {
+constexpr auto HyperbolicLine::perp() const -> HyperbolicPoint {
     return HyperbolicPoint({this->coord[0], this->coord[1], -this->coord[2]});
 }

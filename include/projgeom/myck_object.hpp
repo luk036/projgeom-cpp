@@ -55,7 +55,7 @@ class MyCKLine : public PgObject<MyCKLine, MyCKPoint> {
  *
  * @return MyCKLine
  */
-inline constexpr auto MyCKPoint::perp() const -> MyCKLine {
+constexpr auto MyCKPoint::perp() const -> MyCKLine {
     return MyCKLine({-2 * this->coord[0], this->coord[1], -2 * this->coord[2]});
 }
 
@@ -64,6 +64,6 @@ inline constexpr auto MyCKPoint::perp() const -> MyCKLine {
  *
  * @return MyCKPoint
  */
-inline constexpr auto MyCKLine::perp() const -> MyCKPoint {
+constexpr auto MyCKLine::perp() const -> MyCKPoint {
     return MyCKPoint({-this->coord[0], 2 * this->coord[1], -this->coord[2]});
 }

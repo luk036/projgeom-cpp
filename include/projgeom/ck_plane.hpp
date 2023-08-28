@@ -51,7 +51,6 @@ namespace fun {
         const auto t1 = altitude(a1, a2.meet(a3));
         const auto t2 = altitude(a2, a3.meet(a1));
         return t1.meet(t2);
-        // return {a2.meet(a3), a1.meet(a3), a1.meet(a2)};
     }
 
     /**
@@ -81,11 +80,5 @@ namespace fun {
         constexpr auto reflect(const Line &mirror, const Point &pt_p) -> Point {
         return involution(mirror.perp(), mirror, pt_p);
     }
-
-    /*
-    axiom(Point pt_p, Point pt_q, Point pt_r, Line ln_l) {
-      ln_l == Line{pt_p, pt_q} => I(pt_p, ln_l) and I(pt_q, ln_l);
-    }
-    */
 
 }  // namespace fun
