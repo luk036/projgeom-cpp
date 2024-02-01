@@ -15,7 +15,7 @@ namespace fun {
      */
     template <typename Point, typename Line = typename Point::Dual>
     requires ProjectivePlanePrim<Point, Line>  // c++20 concept
-        class persp_euclid_plane : public ck<Point, Line, persp_euclid_plane> {
+    class persp_euclid_plane : public ck<Point, Line, persp_euclid_plane> {
         using K = Value_type<Point>;
 
       private:

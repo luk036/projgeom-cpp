@@ -55,15 +55,11 @@ class EllipticLine : public PgObject<EllipticLine, EllipticPoint> {
  *
  * @return EllipticLine
  */
-constexpr auto EllipticPoint::perp() const -> EllipticLine {
-    return EllipticLine{this->coord};
-}
+constexpr auto EllipticPoint::perp() const -> EllipticLine { return EllipticLine{this->coord}; }
 
 /**
  * @brief Pole
  *
  * @return EllipticPoint
  */
-constexpr auto EllipticLine::perp() const -> EllipticPoint {
-    return EllipticPoint{this->coord};
-}
+constexpr auto EllipticLine::perp() const -> EllipticPoint { return EllipticPoint{this->coord}; }

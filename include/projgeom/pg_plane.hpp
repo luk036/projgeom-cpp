@@ -21,7 +21,7 @@ namespace fun {
 #if __cpp_concepts >= 201907L
     requires ProjPlanePrimDual<Point, Line>
 #endif
-        inline auto check_axiom(const Point &pt_p, const Point &pt_q, const Line &ln_l) -> bool {
+    inline auto check_axiom(const Point &pt_p, const Point &pt_q, const Line &ln_l) -> bool {
         if (pt_p != pt_p) return false;
         if (pt_p.incident(ln_l) != ln_l.incident(pt_p)) return false;
         if (pt_p.meet(pt_q) != pt_q.meet(pt_p)) return false;
@@ -44,8 +44,7 @@ namespace fun {
 #if __cpp_concepts >= 201907L
     requires ProjPlanePrimDual<Point, Line>
 #endif
-        constexpr auto coincident(const Point &pt_p, const Point &pt_q, const Point &pt_r)
-            -> bool {
+    constexpr auto coincident(const Point &pt_p, const Point &pt_q, const Point &pt_r) -> bool {
         return pt_p.meet(pt_q).incident(pt_r);
     }
 
@@ -62,8 +61,8 @@ namespace fun {
 #if __cpp_concepts >= 201907L
     requires ProjPlanePrimDual<Point, Line>
 #endif
-        constexpr auto check_pappus(const std::array<Point, 3> &coline1,
-                                           const std::array<Point, 3> &coline2) -> bool {
+    constexpr auto check_pappus(const std::array<Point, 3> &coline1,
+                                const std::array<Point, 3> &coline2) -> bool {
         const auto &[pt_a, pt_b, pt_c] = coline1;
         const auto &[pt_d, pt_e, pt_f] = coline2;
         const auto pt_g = (pt_a.meet(pt_e)).meet(pt_b.meet(pt_d));
@@ -84,8 +83,7 @@ namespace fun {
 #if __cpp_concepts >= 201907L
     requires ProjPlanePrimDual<Point, Line>
 #endif
-        constexpr auto tri_dual(const std::array<Point, 3> &triangle)
-            -> std::array<Line, 3> {
+    constexpr auto tri_dual(const std::array<Point, 3> &triangle) -> std::array<Line, 3> {
         const auto &[a1, a2, a3] = triangle;
         assert(!coincident(a1, a2, a3));
         return {a2.meet(a3), a1.meet(a3), a1.meet(a2)};
@@ -104,8 +102,8 @@ namespace fun {
 #if __cpp_concepts >= 201907L
     requires ProjPlanePrimDual<Point, Line>
 #endif
-        constexpr auto persp(const std::array<Point, 3> &tri1,
-                                    const std::array<Point, 3> &tri2) -> bool {
+    constexpr auto persp(const std::array<Point, 3> &tri1, const std::array<Point, 3> &tri2)
+        -> bool {
         const auto &[pt_a, pt_b, pt_c] = tri1;
         const auto &[pt_d, pt_e, pt_f] = tri2;
         const auto &o = pt_a.meet(pt_d).meet(pt_b.meet(pt_e));
@@ -125,8 +123,8 @@ namespace fun {
 #if __cpp_concepts >= 201907L
     requires ProjPlanePrimDual<Point, Line>
 #endif
-        constexpr auto check_desargue(const std::array<Point, 3> &tri1,
-                                             const std::array<Point, 3> &tri2) -> bool {
+    constexpr auto check_desargue(const std::array<Point, 3> &tri1,
+                                  const std::array<Point, 3> &tri2) -> bool {
         const auto trid1 = tri_dual(tri1);
         const auto trid2 = tri_dual(tri2);
         const auto bool1 = persp(tri1, tri2);
@@ -157,8 +155,8 @@ namespace fun {
 #if __cpp_concepts >= 201907L
     requires ProjectivePlaneDual<Value, Point, Line>
 #endif
-        inline auto check_axiom2(const Point &pt_p, const Point &pt_q, const Line &ln_l,
-                                 const Value &a, const Value &b) -> bool {
+    inline auto check_axiom2(const Point &pt_p, const Point &pt_q, const Line &ln_l, const Value &a,
+                             const Value &b) -> bool {
         if (pt_p.dot(ln_l) != ln_l.dot(pt_p)) return false;
         if (pt_p.aux().incident(pt_p)) return false;
         const auto ln_m = pt_p.meet(pt_q);
@@ -180,8 +178,7 @@ namespace fun {
 #if __cpp_concepts >= 201907L
     requires ProjectivePlaneDual<Value, Point, Line>
 #endif
-        constexpr auto harm_conj(const Point &pt_a, const Point &pt_b, const Point &pt_c)
-            -> Point {
+    constexpr auto harm_conj(const Point &pt_a, const Point &pt_b, const Point &pt_c) -> Point {
         assert(coincident(pt_a, pt_b, pt_c));
         const auto ab = pt_a.meet(pt_b);
         const auto lc = ab.aux().meet(pt_c);
@@ -203,8 +200,7 @@ namespace fun {
 #if __cpp_concepts >= 201907L
     requires ProjectivePlaneDual<Value, Point, Line>
 #endif
-        constexpr auto involution(const Point &origin, const Line &mirror, const Point &pt_p)
-            -> Point {
+    constexpr auto involution(const Point &origin, const Line &mirror, const Point &pt_p) -> Point {
         const auto po = pt_p.meet(origin);
         const auto pt_b = po.meet(mirror);
         return harm_conj(origin, pt_b, pt_p);

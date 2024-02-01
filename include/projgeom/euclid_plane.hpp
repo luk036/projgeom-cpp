@@ -53,10 +53,8 @@ namespace fun {
      * @return Line
      */
     template <typename Point, typename Line>
-    requires ProjectivePlaneCoord<Point, Line> constexpr auto altitude(const Point &a,
-                                                                       const Line &line_l) -> Line {
-        return a * fB(line_l);
-    }
+    requires ProjectivePlaneCoord<Point, Line>
+    constexpr auto altitude(const Point &a, const Line &line_l) -> Line { return a * fB(line_l); }
 
     /**
      * @brief
