@@ -139,7 +139,7 @@ namespace fun {
      * @param[in] c
      * @return auto
      */
-    template <OrderedRing _Q> constexpr auto archimede(const _Q &a, const _Q &b, const _Q &c) {
+    template <OrderedRing _Q> constexpr auto archimedes(const _Q &a, const _Q &b, const _Q &c) {
         return 4 * a * b - sq(a + b - c);
     }
 
@@ -172,7 +172,7 @@ namespace fun {
     template <typename T> constexpr auto Ptolemy(const T &quad) -> bool {
         const auto &[Q12, Q23, Q34, Q14, Q13, Q24] = quad;
         using _K = decltype(Q12);
-        return archimede(Q12 * Q34, Q23 * Q14, Q13 * Q24) == _K(0);
+        return archimedes(Q12 * Q34, Q23 * Q14, Q13 * Q24) == _K(0);
     }
 
 }  // namespace fun

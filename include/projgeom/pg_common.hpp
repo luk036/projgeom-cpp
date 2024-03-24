@@ -124,6 +124,6 @@ namespace fun {
      * @param[in] a input value
      * @return a^2
      */
-    template <typename T> constexpr inline auto sq(const T &a) { return a * a; }
+    template <typename T> constexpr auto sq(const T &a) { return a * a; }
 
 }  // namespace fun
