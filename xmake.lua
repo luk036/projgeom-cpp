@@ -27,7 +27,7 @@ target("test_projgeom")
     if is_plat("linux") then
         -- add_cxflags("-fconcepts", {force = true})
     elseif is_plat("windows") then
-        add_cxflags("/W4 /WX", {force = true})
+        add_cxflags("/W4 /WX /wd4996", {force = true})
     end
     -- add_packages("fmt", "doctest", "range-v3")
     add_packages("fmt", "doctest")
