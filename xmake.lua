@@ -1,5 +1,3 @@
-set_languages("c++11")
-
 add_rules("mode.debug", "mode.release", "mode.coverage")
 add_requires("fmt", {alias = "fmt"})
 add_requires("doctest", {alias = "doctest"})
@@ -21,13 +19,15 @@ end
 --     add_packages("range-v3")
 
 target("test_projgeom")
+    set_languages("c++14")
+
     set_kind("binary")
     add_includedirs("include", {public = true})
     add_files("test/source/*.cpp")
     if is_plat("linux") then
         -- add_cxflags("-fconcepts", {force = true})
     elseif is_plat("windows") then
-        add_cxflags("/W4 /WX /wd4819", {force = true})
+        add_cxflags("/W4 /WX", {force = true})
     end
     -- add_packages("fmt", "doctest", "range-v3")
     add_packages("fmt", "doctest")
