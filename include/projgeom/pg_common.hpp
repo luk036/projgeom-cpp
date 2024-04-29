@@ -56,7 +56,7 @@ namespace fun {
      * @return Cross product
      */
     template <typename Point>
-    requires Ring<Value_type<Point>>
+        requires Ring<Value_type<Point>>
     auto cross(const Point &v, const Point &w) -> std::array<Value_type<Point>, 3> {
         return {cross0(v, w), -cross1(v, w), cross2(v, w)};
     }
@@ -86,8 +86,8 @@ namespace fun {
      * @return lamda*v + mu*w
      */
     template <Ring _T, Ring _K> auto plucker_c(const _T &lambda, const std::array<_K, 3> &v1,
-                                               const _T &mu, const std::array<_K, 3> &v2)
-        -> std::array<_K, 3> {
+                                               const _T &mu,
+                                               const std::array<_K, 3> &v2) -> std::array<_K, 3> {
         const auto &[x1, y1, z1] = v1;
         const auto &[x2, y2, z2] = v2;
         return {lambda * x1 + mu * x2, lambda * y1 + mu * y2, lambda * z1 + mu * z2};

@@ -72,8 +72,8 @@ namespace fun {
      * @param[in] pt_q
      * @return pg_line<_K>
      */
-    template <Ring _K> constexpr auto join(const pg_point<_K> &pt_p, const pg_point<_K> &pt_q)
-        -> pg_line<_K> {
+    template <Ring _K>
+    constexpr auto join(const pg_point<_K> &pt_p, const pg_point<_K> &pt_q) -> pg_line<_K> {
         return pt_p * pt_q;
     }
 
