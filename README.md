@@ -9,7 +9,7 @@
   <img src="./projective-geometry.svg" />
 </p>
 
-# projgeom-cpp
+# 🔯 projgeom-cpp
 
 Projective geometric for modern C++.
 
