@@ -31,7 +31,7 @@ namespace fun {
      * @return false
      */
     template <typename Point, typename Line>
-        requires ProjectivePlane<Point, Line>
+    requires ProjectivePlane<Point, Line>
     constexpr auto incident(const Point &pt_p, const Line &ln_l) -> bool {
         return pt_p.dot(ln_l) == Value_type<Point>(0);
     }
@@ -45,8 +45,9 @@ namespace fun {
      * @return false otherwise
      */
     template <typename Line, typename... Args>
-        requires(ProjectivePlanePrim<Line, Args> && ...)
-    constexpr auto coincident(const Line &ln_l, const Args &...pt_r) -> bool {
+    requires(ProjectivePlanePrim<Line, Args> &&...) constexpr auto coincident(const Line &ln_l,
+                                                                              const Args &...pt_r)
+        -> bool {
         return (incident(pt_r, ln_l) && ...);
     }
 
@@ -143,9 +144,9 @@ namespace fun {
      * @return constexpr auto
      *
      */
-    template <ProjectivePlane2 Point> constexpr auto is_harmonic(const Point &A, const Point &B,
-                                                                 const Point &C,
-                                                                 const Point &D) -> bool {
+    template <ProjectivePlane2 Point>
+    constexpr auto is_harmonic(const Point &A, const Point &B, const Point &C, const Point &D)
+        -> bool {
         return harm_conj(A, B, C) == D;
     }
 
@@ -156,7 +157,7 @@ namespace fun {
      * @tparam Line
      */
     template <typename Point, typename Line>
-        requires ProjectivePlane<Point, Line>
+    requires ProjectivePlane<Point, Line>
     class Involution {
         using K = Value_type<Point>;
 
@@ -203,7 +204,7 @@ namespace fun {
      * @tparam Line
      */
     template <typename Point, typename Line>
-        requires ProjectivePlaneGeneric<Point, Line>
+    requires ProjectivePlaneGeneric<Point, Line>
     class involution_generic {
       private:
         Line _m;
