@@ -22,7 +22,7 @@ set_target_properties(${PROJECT_NAME}Tests PROPERTIES CXX_STANDARD 17)
 
 # enable compiler warnings
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-  target_compile_options(${PROJECT_NAME} INTERFACE -fconcepts -Wall -Wpedantic -Wextra -Werror)
+  target_compile_options(${PROJECT_NAME} INTERFACE -Wall -Wpedantic -Wextra -Werror)
 elseif(MSVC)
   target_compile_options(${PROJECT_NAME} INTERFACE /W4 /WX /wd4996)
   target_compile_definitions(${PROJECT_NAME}Tests INTERFACE DOCTEST_CONFIG_USE_STD_HEADERS)
