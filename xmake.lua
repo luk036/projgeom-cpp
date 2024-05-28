@@ -19,7 +19,7 @@ end
 --     add_packages("range-v3")
 
 target("test_projgeom")
-    set_languages("c++14")
+    set_languages("c++17")
 
     set_kind("binary")
     add_includedirs("include", {public = true})
