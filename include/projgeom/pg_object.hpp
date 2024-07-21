@@ -13,8 +13,8 @@
  * @param[in] pt_b
  * @return int64_t
  */
-constexpr auto dot(const std::array<int64_t, 3> &pt_a,
-                   const std::array<int64_t, 3> &pt_b) -> int64_t {
+constexpr auto dot(const std::array<int64_t, 3> &pt_a, const std::array<int64_t, 3> &pt_b)
+    -> int64_t {
     return pt_a[0] * pt_b[0] + pt_a[1] * pt_b[1] + pt_a[2] * pt_b[2];
 }
 
@@ -25,8 +25,8 @@ constexpr auto dot(const std::array<int64_t, 3> &pt_a,
  * @param[in] pt_b
  * @return std::array<int64_t, 3>
  */
-constexpr auto cross(const std::array<int64_t, 3> &pt_a,
-                     const std::array<int64_t, 3> &pt_b) -> std::array<int64_t, 3> {
+constexpr auto cross(const std::array<int64_t, 3> &pt_a, const std::array<int64_t, 3> &pt_b)
+    -> std::array<int64_t, 3> {
     return {
         pt_a[1] * pt_b[2] - pt_a[2] * pt_b[1],
         pt_a[2] * pt_b[0] - pt_a[0] * pt_b[2],
