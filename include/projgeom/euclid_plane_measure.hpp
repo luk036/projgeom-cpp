@@ -16,7 +16,7 @@ namespace fun {
      * @return auto
      */
     template <typename K>
-    requires Integral<K>
+        requires Integral<K>
     constexpr auto quad1(const K &x1, const K &z1, const K &x2, const K &z2) {
         return sq(Fraction<K>(x1, z1) - Fraction<K>(x2, z2));
     }
