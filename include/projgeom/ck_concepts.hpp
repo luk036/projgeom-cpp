@@ -15,8 +15,8 @@ namespace fun {
     concept CayleyKleinPlanePrimitive =        //
         ProjectivePlanePrimitive<Point, Line>  //
         && requires(const Point &pt_p, const Line &ln_l) {
-               { pt_p.perp() } -> concepts::convertible_to<Line>;  // pole or polar
-           };
+        { pt_p.perp() } -> concepts::convertible_to<Line>;  // pole or polar
+    };
 
     /**
      * @brief Cayley-Klein plane Concept (full)
@@ -38,8 +38,8 @@ namespace fun {
     concept CayleyKleinPlane =               //
         ProjectivePlane<Value, Point, Line>  //
         && requires(const Point &pt_p, const Line &ln_l) {
-               { pt_p.perp() } -> concepts::convertible_to<Line>;  // pole or polar
-           };
+        { pt_p.perp() } -> concepts::convertible_to<Line>;  // pole or polar
+    };
 
     /**
      * @brief Cayley-Klein plane Concept (full)

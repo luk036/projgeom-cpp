@@ -20,14 +20,14 @@ namespace fun {
      */
     template <class Point, class Line>
     concept ProjectivePlanePrimH
-        = STD_ALT::equality_comparable<Point>
-          && requires(const Point &pt_p, const Point &pt_q, const Line &ln_l) {
-                 { incident(pt_p, ln_l) } -> STD_ALT::convertible_to<bool>;  // incidence
-                 { pt_p *pt_q } -> STD_ALT::convertible_to<Line>;            // join or meet
-                 // { pt_p.aux() } -> STD_ALT::convertible_to<Line>; // line not incident
-                 // with pt_p { pt_p.aux2(pt_q) } -> STD_ALT::convertible_to<Point>;
-                 // // pt_p pt_r on pt_p * pt_q, pt_r != pt_p and pt_r != pt_q
-             };
+        = STD_ALT::equality_comparable<Point> && requires(const Point &pt_p, const Point &pt_q,
+                                                          const Line &ln_l) {
+        { incident(pt_p, ln_l) } -> STD_ALT::convertible_to<bool>;  // incidence
+        { pt_p *pt_q } -> STD_ALT::convertible_to<Line>;            // join or meet
+        // { pt_p.aux() } -> STD_ALT::convertible_to<Line>; // line not incident
+        // with pt_p { pt_p.aux2(pt_q) } -> STD_ALT::convertible_to<Point>;
+        // // pt_p pt_r on pt_p * pt_q, pt_r != pt_p and pt_r != pt_q
+    };
 
     /**
      * @brief Projective plane Concept (full)
@@ -58,12 +58,12 @@ namespace fun {
     template <class Point, class Line = typename Point::Dual>
     concept ProjectivePlaneGenericH
         = ProjectivePlanePrimH<Point, Line> && requires(const Point &pt_p, const Point &pt_q) {
-              { pt_p.aux() } -> STD_ALT::convertible_to<Line>;  // line not incident with pt_p
-              {
-                  pt_p.aux2(pt_q)
-              } -> STD_ALT::convertible_to<Point>;  // pt_p pt_r on pt_p * pt_q,
-                                                    // pt_r != pt_p and pt_r != pt_q
-          };
+        { pt_p.aux() } -> STD_ALT::convertible_to<Line>;  // line not incident with pt_p
+        {
+            pt_p.aux2(pt_q)
+            } -> STD_ALT::convertible_to<Point>;  // pt_p pt_r on pt_p * pt_q,
+                                                  // pt_r != pt_p and pt_r != pt_q
+    };
 
     /**
      * @brief Projective plane Concept (full)
@@ -93,21 +93,19 @@ namespace fun {
      */
     template <class Point, class Line>
     concept ProjectivePlaneH
-        = STD_ALT::equality_comparable<Point>
-          && requires(const Point &pt_p, const Point &pt_q, const Line &ln_l,
-                      const Value_type<Point> &pt_a) {
-                 typename Value_type<Point>;
-                 // { Point(pt_p) } -> Point; // copyable
-                 // { incident(pt_p, ln_l) } -> bool; // incidence
-                 { pt_p *pt_q } -> STD_ALT::convertible_to<Line>;  // join or meet
-                 {
-                     pt_p.dot(ln_l)
-                 } -> STD_ALT::convertible_to<Value_type<Point>>;  // for measurement
-                 { pt_p.aux() } -> STD_ALT::convertible_to<Line>;  // line not incident with pt_p
-                 {
-                     parametrize(pt_a, pt_p, pt_a, pt_q)
-                 } -> STD_ALT::convertible_to<Point>;  // module computation
-             };
+        = STD_ALT::equality_comparable<Point> && requires(const Point &pt_p, const Point &pt_q,
+                                                          const Line &ln_l,
+                                                          const Value_type<Point> &pt_a) {
+        typename Value_type<Point>;
+        // { Point(pt_p) } -> Point; // copyable
+        // { incident(pt_p, ln_l) } -> bool; // incidence
+        { pt_p *pt_q } -> STD_ALT::convertible_to<Line>;                   // join or meet
+        { pt_p.dot(ln_l) } -> STD_ALT::convertible_to<Value_type<Point>>;  // for measurement
+        { pt_p.aux() } -> STD_ALT::convertible_to<Line>;  // line not incident with pt_p
+        {
+            parametrize(pt_a, pt_p, pt_a, pt_q)
+            } -> STD_ALT::convertible_to<Point>;  // module computation
+    };
 
     /**
      * @brief Projective plane Concept (full)
@@ -142,10 +140,10 @@ namespace fun {
     template <class Point, class Line>
     concept ProjectivePlaneCoordH
         = ProjectivePlaneH<Point, Line> && requires(const Point &pt_p, size_t idx) {
-              typename Value_type<Point>;
+        typename Value_type<Point>;
 
-              { pt_p[idx] } -> STD_ALT::convertible_to<Value_type<Point>>;  // for coordinate acess
-          };
+        { pt_p[idx] } -> STD_ALT::convertible_to<Value_type<Point>>;  // for coordinate acess
+    };
 
     /**
      * @brief Projective plane Concept (full)
