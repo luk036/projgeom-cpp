@@ -1,7 +1,6 @@
 [![Actions Status](https://github.com/luk036/projgeom-cpp/workflows/MacOS/badge.svg)](https://github.com/luk036/projgeom-cpp/actions)
 [![Actions Status](https://github.com/luk036/projgeom-cpp/workflows/Windows/badge.svg)](https://github.com/luk036/projgeom-cpp/actions)
 [![Actions Status](https://github.com/luk036/projgeom-cpp/workflows/Ubuntu/badge.svg)](https://github.com/luk036/projgeom-cpp/actions)
-[![Actions Status](https://github.com/luk036/projgeom-cpp/workflows/Style/badge.svg)](https://github.com/luk036/projgeom-cpp/actions)
 [![Actions Status](https://github.com/luk036/projgeom-cpp/workflows/Install/badge.svg)](https://github.com/luk036/projgeom-cpp/actions)
 [![codecov](https://codecov.io/gh/luk036/projgeom-cpp/branch/master/graph/badge.svg)](https://codecov.io/gh/luk036/projgeom-cpp)
 
