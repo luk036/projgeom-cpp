@@ -53,8 +53,10 @@ namespace fun {
      * @return Line
      */
     template <typename Point, typename Line>
-    requires ProjectivePlaneCoord<Point, Line>
-    constexpr auto altitude(const Point &a, const Line &line_l) -> Line { return a * fB(line_l); }
+        requires ProjectivePlaneCoord<Point, Line>
+    constexpr auto altitude(const Point &a, const Line &line_l) -> Line {
+        return a * fB(line_l);
+    }
 
     /**
      * @brief
@@ -74,8 +76,8 @@ namespace fun {
      * @param[in] triangle
      * @return Point
      */
-    template <ProjectivePlaneCoord2 Point> constexpr auto orthocenter(const Triple<Point> &triangle)
-        -> Point {
+    template <ProjectivePlaneCoord2 Point>
+    constexpr auto orthocenter(const Triple<Point> &triangle) -> Point {
         const auto &[a1, a2, a3] = triangle;
         const auto t1 = altitude(a1, a2 * a3);
         const auto t2 = altitude(a2, a1 * a3);
@@ -99,8 +101,8 @@ namespace fun {
      * @param[in] b
      * @return Point
      */
-    template <ProjectivePlaneCoord2 Point> constexpr auto midpoint(const Point &a, const Point &b)
-        -> Point {
+    template <ProjectivePlaneCoord2 Point>
+    constexpr auto midpoint(const Point &a, const Point &b) -> Point {
         return parametrize(b[2], a, a[2], b);
     }
 
@@ -153,8 +155,8 @@ namespace fun {
      * @param[in] d
      * @return auto
      */
-    template <typename _Q> constexpr auto cqq(const _Q &a, const _Q &b, const _Q &c, const _Q &d)
-        -> std::array<_Q, 2> {
+    template <typename _Q>
+    constexpr auto cqq(const _Q &a, const _Q &b, const _Q &c, const _Q &d) -> std::array<_Q, 2> {
         const auto t1 = 4 * a * b;
         const auto t2 = 4 * c * d;
         auto line_m = (t1 + t2) - sq(a + b - c - d);
