@@ -14,10 +14,10 @@ namespace fun {
      */
     template <class Point, class Line>
     concept ProjectivePlanePrimitive =        //
-        concepts::equality_comparable<Point>  //
+        std::equality_comparable<Point>  //
         && requires(const Point &pt_p, const Point &pt_q, const Line &ln_l) {
-        { pt_p.incident(ln_l) } -> concepts::convertible_to<bool>;  // incidence
-        { pt_p.meet(pt_q) } -> concepts::convertible_to<Line>;      // join or meet
+        { pt_p.incident(ln_l) } -> std::convertible_to<bool>;  // incidence
+        { pt_p.meet(pt_q) } -> std::convertible_to<Line>;      // join or meet
     };
 
     /**
@@ -39,11 +39,11 @@ namespace fun {
      */
     template <typename Value, class Point, class Line>
     concept ProjectivePlane
-        = concepts::equality_comparable<Point> && ProjectivePlanePrimitive<Point, Line>  //
+        = std::equality_comparable<Point> && ProjectivePlanePrimitive<Point, Line>  //
         && requires(const Point &pt_p, const Point &pt_q, const Line &ln_l, const Value &a) {
-        { pt_p.aux() } -> concepts::convertible_to<Line>;       // line not incident with pt_p
-        { pt_p.dot(ln_l) } -> concepts::convertible_to<Value>;  // for basic measurement
-        { Point::parametrize(a, pt_p, a, pt_q) } -> concepts::convertible_to<Point>;
+        { pt_p.aux() } -> std::convertible_to<Line>;       // line not incident with pt_p
+        { pt_p.dot(ln_l) } -> std::convertible_to<Value>;  // for basic measurement
+        { Point::parametrize(a, pt_p, a, pt_q) } -> std::convertible_to<Point>;
     };
 
     /**

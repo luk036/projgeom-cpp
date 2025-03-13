@@ -1,12 +1,12 @@
 #pragma once
 
 #include <cmath>
-#include <concepts/concepts.hpp>
+#include <concepts>
 #include <numeric>
 #include <type_traits>
 #include <utility>
 // #include <ranges>
-namespace STD_ALT = concepts;
+namespace STD_ALT = std;
 
 namespace fun {
 

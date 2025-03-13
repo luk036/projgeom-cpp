@@ -19,10 +19,11 @@ end
 --     add_packages("range-v3")
 
 target("test_projgeom")
-    set_languages("c++17")
+    set_languages("c++20")
 
     set_kind("binary")
     add_includedirs("include", {public = true})
+    add_includedirs("../fractions-cpp/include", {public = true})
     add_files("test/source/*.cpp")
     if is_plat("linux") then
         -- add_cxflags("-fconcepts", {force = true})
