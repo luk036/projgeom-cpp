@@ -29,3 +29,8 @@ TEST_CASE("Elliptic") {
     bool res = fun::is_perpendicular(t, ln_m);
     CHECK(res);
 }
+
+TEST_CASE("PerspPoint") {
+    auto pt_p = PerspPoint({1, 2, 3});
+    CHECK(pt_p.perp() == L_INF);
+}
