@@ -53,7 +53,7 @@ RUN apt-get update \
 
 RUN mkdir -p /workspace/data \
     && chown -R gitpod:gitpod /workspace/data
-  
+
 RUN mkdir /home/gitpod/.conda
 # Install conda
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
@@ -62,7 +62,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
     ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate base" >> ~/.bashrc
-    
+
 RUN /opt/conda/bin/conda config --set always_yes yes --set changeps1 no \
     && /opt/conda/bin/conda update -q conda \
     && /opt/conda/bin/conda info -a
