@@ -5,6 +5,6 @@ CPMAddPackage(
   OPTIONS "FMT_INSTALL YES" # create an installable target
 )
 
-CPMAddPackage("gh:ericniebler/range-v3#0.12.0")
+# CPMAddPackage("gh:ericniebler/range-v3#0.12.0")
 
-set(SPECIFIC_LIBS fmt::fmt range-v3)
+set(SPECIFIC_LIBS fmt::fmt)
