@@ -21,7 +21,7 @@ class HyperbolicPoint : public PgObject<HyperbolicPoint, HyperbolicLine> {
         : PgObject<HyperbolicPoint, HyperbolicLine>{coord} {}
 
     /**
-     * @brief
+     * @brief Polar
      *
      * @return HyperbolicLine
      */
@@ -43,7 +43,7 @@ class HyperbolicLine : public PgObject<HyperbolicLine, HyperbolicPoint> {
         : PgObject<HyperbolicLine, HyperbolicPoint>{coord} {}
 
     /**
-     * @brief
+     * @brief Pole
      *
      * @return HyperbolicPoint
      */

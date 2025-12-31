@@ -23,7 +23,7 @@ class PerspPoint : public PgObject<PerspPoint, PerspLine> {
         : PgObject<PerspPoint, PerspLine>{coord} {}
 
     /**
-     * @brief
+     * @brief Polar
      *
      * @return const PerspLine&
      */
@@ -48,7 +48,7 @@ class PerspLine : public PgObject<PerspLine, PerspPoint> {
         : PgObject<PerspLine, PerspPoint>{coord} {}
 
     /**
-     * @brief
+     * @brief Pole
      *
      * @return PerspPoint
      */
@@ -60,14 +60,14 @@ static constexpr PerspPoint I_RE({0, 1, 1});
 static constexpr PerspPoint I_IM({1, 0, 0});
 
 /**
- * @brief
+ * @brief Polar
  *
  * @return const PerspLine&
  */
 constexpr auto PerspPoint::perp() const -> const PerspLine & { return L_INF; }
 
 /**
- * @brief
+ * @brief Pole
  *
  * @return PerspPoint
  */

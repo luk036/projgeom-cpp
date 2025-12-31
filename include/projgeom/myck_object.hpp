@@ -21,7 +21,7 @@ class MyCKPoint : public PgObject<MyCKPoint, MyCKLine> {
         : PgObject<MyCKPoint, MyCKLine>{coord} {}
 
     /**
-     * @brief
+     * @brief Polar
      *
      * @return MyCKLine
      */
@@ -43,7 +43,7 @@ class MyCKLine : public PgObject<MyCKLine, MyCKPoint> {
         : PgObject<MyCKLine, MyCKPoint>{coord} {}
 
     /**
-     * @brief
+     * @brief Pole
      *
      * @return MyCKPoint
      */
@@ -51,7 +51,7 @@ class MyCKLine : public PgObject<MyCKLine, MyCKPoint> {
 };
 
 /**
- * @brief
+ * @brief Polar
  *
  * @return MyCKLine
  */
@@ -60,7 +60,7 @@ constexpr auto MyCKPoint::perp() const -> MyCKLine {
 }
 
 /**
- * @brief
+ * @brief Pole
  *
  * @return MyCKPoint
  */
