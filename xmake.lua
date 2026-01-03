@@ -26,6 +26,13 @@ add_includedirs("include", { public = true })
 add_includedirs("../fractions-cpp/include", { public = true })
 add_files("test/source/*.cpp")
 if is_plat("linux") then
+    add_cxflags("-Wno-unused-command-line-argument", {force = true})
+    -- Check if we're on Termux/Android
+    local termux_prefix = os.getenv("PREFIX")
+    if termux_prefix then
+        add_sysincludedirs(termux_prefix .. "/include/c++/v1", {public = true})
+        add_sysincludedirs(termux_prefix .. "/include", {public = true})
+    end
 	-- add_cxflags("-fconcepts", {force = true})
 elseif is_plat("windows") then
 	add_cxflags("/W4 /WX /wd4996", { force = true })
