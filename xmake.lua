@@ -1,6 +1,7 @@
 add_rules("mode.debug", "mode.release", "mode.coverage")
 add_requires("fmt", { alias = "fmt" })
 add_requires("doctest", { alias = "doctest" })
+add_requires("spdlog", { alias = "spdlog" })
 -- add_requires("range-v3", {alias = "range-v3"})
 
 if is_mode("coverage") then
@@ -25,6 +26,7 @@ set_kind("binary")
 add_includedirs("include", { public = true })
 add_includedirs("../fractions-cpp/include", { public = true })
 add_files("test/source/*.cpp")
+add_files("source/*.cpp")
 if is_plat("linux") then
     add_cxflags("-Wno-unused-command-line-argument", {force = true})
     -- Check if we're on Termux/Android
@@ -38,7 +40,7 @@ elseif is_plat("windows") then
 	add_cxflags("/W4 /WX /wd4996", { force = true })
 end
 -- add_packages("fmt", "doctest", "range-v3")
-add_packages("fmt", "doctest")
+add_packages("fmt", "doctest", "spdlog")
 add_tests("default")
 
 -- Check if rapidcheck was downloaded by CMake

@@ -65,6 +65,15 @@ target_include_directories(
                             $<INSTALL_INTERFACE:include/${PROJECT_NAME}-${PROJECT_VERSION}>
 )
 
+# Create a static library for logger implementation
+file(GLOB_RECURSE source_files CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp")
+if(source_files)
+    add_library(${PROJECT_NAME}Lib STATIC ${source_files})
+    target_link_libraries(${PROJECT_NAME}Lib PRIVATE ${SPECIFIC_LIBS})
+    target_include_directories(${PROJECT_NAME}Lib PRIVATE ${PROJECT_SOURCE_DIR}/include)
+    target_include_directories(${PROJECT_NAME}Lib PRIVATE ${spdlog_SOURCE_DIR}/include)
+endif()
+
 # ---- Create an installable target ----
 # this allows users to install and find the library via `find_package()`.
 
