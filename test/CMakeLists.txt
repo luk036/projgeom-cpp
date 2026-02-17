@@ -8,6 +8,14 @@ option(ENABLE_TEST_COVERAGE "Enable test coverage" OFF)
 CPMAddPackage("gh:doctest/doctest#v2.4.11")
 CPMAddPackage("gh:TheLartians/Format.cmake@1.7.3")
 
+# Add RapidCheck for property-based testing
+CPMAddPackage(
+  NAME rapidcheck
+  GITHUB_REPOSITORY emil-e/rapidcheck
+  GIT_TAG master
+  OPTIONS "RC_BUILD_TESTS OFF" "RC_BUILD_EXAMPLES OFF" "RC_INSTALL OFF"
+)
+
 # if(TEST_INSTALLED_VERSION) find_package(${PROJECT_NAME} REQUIRED) else() CPMAddPackage(NAME
 # ${PROJECT_NAME} SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..) endif()
 
@@ -19,6 +27,19 @@ target_link_libraries(
   ${PROJECT_NAME}Tests doctest::doctest ${PROJECT_NAME}::${PROJECT_NAME} ${SPECIFIC_LIBS}
 )
 set_target_properties(${PROJECT_NAME}Tests PROPERTIES CXX_STANDARD 17)
+
+# Link RapidCheck if available
+if(rapidcheck_ADDED)
+  target_compile_definitions(${PROJECT_NAME}Tests PRIVATE RAPIDCHECK_H)
+  if(TARGET rapidcheck::rapidcheck)
+    target_link_libraries(${PROJECT_NAME}Tests rapidcheck::rapidcheck)
+  else()
+    target_include_directories(${PROJECT_NAME}Tests PRIVATE ${rapidcheck_SOURCE_DIR}/include)
+    if(TARGET rapidcheck)
+      target_link_libraries(${PROJECT_NAME}Tests rapidcheck)
+    endif()
+  endif()
+endif()
 
 # enable compiler warnings
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
