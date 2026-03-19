@@ -188,8 +188,8 @@ namespace fun {
         /**
          * @brief
          *
-         * @param[in] pt_p
-         * @return Point
+         * @param[in] ln_l
+         * @return Line
          */
         constexpr auto operator()(const Line &ln_l) const -> Line {
             return parametrize(this->_c, ln_l, K(-2 * ln_l.dot(this->_o)), this->_m);

@@ -73,7 +73,8 @@ template <typename Point, typename Line> struct PgObject {
     /**
      * @brief Equal to
      *
-     * @param[in] other
+     * @param[in] lhs
+     * @param[in] rhs
      * @return true
      * @return false
      */
@@ -87,7 +88,8 @@ template <typename Point, typename Line> struct PgObject {
     /**
      * @brief Equal to
      *
-     * @param[in] other
+     * @param[in] lhs
+     * @param[in] rhs
      * @return true
      * @return false
      */
