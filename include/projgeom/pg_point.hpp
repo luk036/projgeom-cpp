@@ -35,14 +35,15 @@ namespace fun {
         pg_point(pg_point<_K> &&) noexcept = default;
 
         /**
-         * @brief
+         * @brief Copy assignment operator (deleted)
          *
+         * Copy assignment is disabled for pg_point.
          * @return pg_point<_K>&
          */
         auto operator=(const pg_point<_K> &) -> pg_point<_K> & = delete;
 
         /**
-         * @brief
+         * @brief Move assignment operator
          *
          * @return pg_point<_K>&
          */
@@ -66,11 +67,13 @@ namespace fun {
     };
 
     /**
-     * @brief Return join of two points.
+     * @brief Return the join (product) of two points to form a line.
      *
-     * @param[in] pt_p
-     * @param[in] pt_q
-     * @return pg_line<_K>
+     * The join operation in projective geometry computes the line passing
+     * through two distinct points.
+     * @param[in] pt_p First point
+     * @param[in] pt_q Second point
+     * @return pg_line<_K> The line through the two points
      */
     template <Ring _K>
     constexpr auto join(const pg_point<_K> &pt_p, const pg_point<_K> &pt_q) -> pg_line<_K> {

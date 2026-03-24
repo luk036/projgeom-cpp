@@ -8,10 +8,11 @@
 
 namespace fun {
     /**
-     * @brief
+     * @brief Check if two lines are perpendicular (Cayley-Klein).
      *
-     * @tparam Point Point
-     * @tparam Line Line
+     * Uses the pole-polar relationship to check perpendicularity.
+     * @tparam Line The line type
+     * @tparam Point The point type (dual of line)
      */
     template <class Line, class Point = typename Line::Dual>
 #if __cpp_concepts >= 201907L
@@ -22,10 +23,11 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute the altitude from a point to a line (Cayley-Klein).
      *
-     * @tparam Point Point
-     * @tparam Line Line
+     * Uses the pole-polar relationship to compute the altitude.
+     * @tparam Point The point type
+     * @tparam Line The line type
      */
     template <class Point, class Line>
 #if __cpp_concepts >= 201907L
@@ -36,9 +38,10 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute the orthocenter of a triangle (Cayley-Klein).
      *
-     * @param[in] triangle
+     * Returns the intersection point of the three altitudes.
+     * @param[in] triangle Array of three non-collinear points
      * @return std::arrary<Line, 3>
      */
     template <class Point, class Line = typename Point::Dual>
@@ -54,10 +57,11 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute all three altitudes of a triangle (Cayley-Klein).
      *
-     * @param[in] triangle
-     * @return std::arrary<Line, 3>
+     * Returns an array containing the three altitude lines.
+     * @param[in] triangle Array of three non-collinear points
+     * @return std::arrary<Line, 3> Array of three altitude lines
      */
     template <class Point, class Line>
 #if __cpp_concepts >= 201907L
@@ -73,6 +77,14 @@ namespace fun {
         return {t1, t2, t3};
     }
 
+    /**
+     * @brief Reflect a point across a line (Cayley-Klein).
+     *
+     * Uses involution to reflect a point across a mirror line.
+     * @param[in] mirror The line of reflection
+     * @param[in] pt_p The point to reflect
+     * @return Point The reflected point
+     */
     template <typename Value, class Point, class Line = typename Point::Dual>
 #if __cpp_concepts >= 201907L
         requires CayleyKleinPlaneDual<Value, Point, Line>

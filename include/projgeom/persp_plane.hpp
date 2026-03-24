@@ -8,10 +8,11 @@
 namespace fun {
 
     /**
-     * @brief
+     * @brief Perspective-Euclidean plane class.
      *
-     * @tparam Point
-     * @tparam Point::Dual
+     * A Cayley-Klein plane that combines projective geometry with Euclidean metrics.
+     * @tparam Point The point type
+     * @tparam Line The line type (dual of point)
      */
     template <typename Point, typename Line = typename Point::Dual>
         requires ProjectivePlanePrim<Point, Line>  // c++20 concept
@@ -54,17 +55,17 @@ namespace fun {
         // constexpr const Line &perp(const Point &x) const { return _l_inf; }
 
         /**
-         * @brief
+         * @brief Get the line at infinity.
          *
-         * @return const Line&
+         * @return const Line& The line at infinity
          */
         [[nodiscard]] constexpr auto l_inf() const -> const Line & { return this->_l_inf; }
 
         /**
-         * @brief
+         * @brief Compute the pole of a line.
          *
-         * @param[in] x
-         * @return Point
+         * @param[in] v A line
+         * @return Point The pole (polar) of the line
          */
         [[nodiscard]] constexpr auto perp(const Line &v) const -> Point {
             const auto alpha = v.dot(this->_I_re);
@@ -73,23 +74,22 @@ namespace fun {
         }
 
         /**
-         * @brief
+         * @brief Check if two lines are parallel.
          *
-         * @param[in] ln_l
-         * @param[in] ln_m
-         * @return true
-         * @return false
+         * @param[in] ln_l First line
+         * @param[in] ln_m Second line
+         * @return true if lines are parallel, false otherwise
          */
         [[nodiscard]] constexpr auto is_parallel(const Line &ln_l, const Line &ln_m) const -> bool {
             return incident(this->_l_inf, ln_l * ln_m);
         }
 
         /**
-         * @brief
+         * @brief Compute the midpoint of two points.
          *
-         * @param[in] pt_a
-         * @param[in] pt_b
-         * @return Point
+         * @param[in] pt_a First point
+         * @param[in] pt_b Second point
+         * @return Point The midpoint
          */
         [[nodiscard]] constexpr auto midpoint(const Point &pt_a, const Point &pt_b) const -> Point {
             const auto alpha = a.dot(this->_l_inf);
@@ -98,10 +98,10 @@ namespace fun {
         }
 
         /**
-         * @brief
+         * @brief Compute the midpoints of all three sides of a triangle.
          *
-         * @param[in] triangle
-         * @return auto
+         * @param[in] triangle Array of three points
+         * @return Triple<Point> Array of three midpoints
          */
         [[nodiscard]] constexpr auto tri_midpoint(const Triple<Point> &triangle) const {
             const auto &[a1, a2, a3] = triangle;
@@ -111,31 +111,34 @@ namespace fun {
         }
 
         /**
-         * @brief
+         * @brief Compute the omega value for a point.
          *
-         * @param[in] x
-         * @return K
+         * The omega function measures how far a point is from the line at infinity.
+         * @param[in] x A point
+         * @return K The omega value
          */
         [[nodiscard]] constexpr auto omega(const Point &x) const -> K {
             return sq(x.dot(this->_l_inf));
         }
 
         /**
-         * @brief
+         * @brief Compute the omega value for a line.
          *
-         * @param[in] x
-         * @return K
+         * The omega function measures how far a line is from the ideal points.
+         * @param[in] x A line
+         * @return K The omega value
          */
         [[nodiscard]] constexpr auto omega(const Line &x) const -> K {
             return sq(x.dot(this->_I_re)) + sq(x.dot(this->_I_im));
         }
 
         /**
-         * @brief
+         * @brief Compute the cross-ratio measure between two elements.
          *
-         * @param[in] a1
-         * @param[in] a2
-         * @return auto
+         * Returns the ratio of omega values for measuring projective relationships.
+         * @param[in] a1 First point or line
+         * @param[in] a2 Second point or line
+         * @return auto The measure value
          */
         template <ProjectivePlane2 _Point>
         [[nodiscard]] constexpr auto measure(const _Point &a1, const _Point &a2) const {

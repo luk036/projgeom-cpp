@@ -44,7 +44,8 @@ namespace fun {
         constexpr pg_line(const _K &x, const _K &y, const _K &z) : _Base{_Base2{x, y, z}} {}
     };
 
-    /// Return meet of two lines.
+    /// Return the meet (intersection) of two lines to form a point.
+    /// In projective geometry, two distinct lines always intersect at a point.
     template <Ring _K>
     constexpr auto meet(const pg_line<_K> &ln_l, const pg_line<_K> &ln_m) -> pg_point<_K> {
         return ln_l * ln_m;

@@ -9,10 +9,12 @@
 namespace fun {
 
     /**
-     * @brief
+     * @brief Convert a line to its direction vector in the affine plane.
      *
-     * @param[in] line_l
-     * @return auto
+     * Extracts the direction components (first two coordinates) of a line,
+     * effectively treating the line as a direction vector in the Euclidean plane.
+     * @param[in] line_l The line to extract direction from
+     * @return The dual type representing the direction vector
      */
     template <ProjectivePlaneCoord2 Line>  // // and requires point_p[i]
     constexpr auto fB(const Line &line_l) -> typename Line::Dual {
@@ -20,12 +22,13 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Check if two lines are perpendicular.
      *
-     * @param[in] line_l
-     * @param[in] line_m
-     * @return true
-     * @return false
+     * Uses the dot product of direction vectors to determine
+     * if two lines meet at a right angle.
+     * @param[in] line_l First line
+     * @param[in] line_m Second line
+     * @return true if lines are perpendicular, false otherwise
      */
     template <ProjectivePlaneCoord2 Line>
     constexpr auto is_perpendicular(const Line &line_l, const Line &line_m) -> bool {
@@ -33,12 +36,13 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Check if two lines are parallel.
      *
-     * @param[in] line_l
-     * @param[in] line_m
-     * @return true
-     * @return false
+     * Uses the cross product of direction vectors to determine
+     * if two lines have the same direction.
+     * @param[in] line_l First line
+     * @param[in] line_m Second line
+     * @return true if lines are parallel, false otherwise
      */
     template <ProjectivePlaneCoord2 Line>
     constexpr auto is_parallel(const Line &line_l, const Line &line_m) -> bool {
@@ -46,11 +50,13 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute the altitude from a point to a line.
      *
-     * @param[in] a
-     * @param[in] line_l
-     * @return Line
+     * The altitude is the line through the given point that is perpendicular
+     * to the given line.
+     * @param[in] a The point from which the altitude is drawn
+     * @param[in] line_l The line to which the altitude is drawn
+     * @return Line The altitude line
      */
     template <typename Point, typename Line>
         requires ProjectivePlaneCoord<Point, Line>
@@ -59,10 +65,11 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute all three altitudes of a triangle.
      *
-     * @param[in] triangle
-     * @return auto
+     * Returns an array containing the three altitude lines of the triangle.
+     * @param[in] triangle Array of three non-collinear points
+     * @return std::array<Line, 3> The three altitude lines
      */
     template <ProjectivePlaneCoord2 Point>
     constexpr auto tri_altitude(const Triple<Point> &triangle) {
@@ -71,10 +78,11 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute the orthocenter of a triangle.
      *
-     * @param[in] triangle
-     * @return Point
+     * The orthocenter is the intersection point of all three altitudes of a triangle.
+     * @param[in] triangle Array of three non-collinear points
+     * @return Point The orthocenter of the triangle
      */
     template <ProjectivePlaneCoord2 Point>
     constexpr auto orthocenter(const Triple<Point> &triangle) -> Point {
@@ -85,21 +93,24 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Create an involution that reflects across a line.
      *
-     * @param[in] line_m
-     * @return auto
+     * Returns an involution that performs reflection across the given line
+     * in the Euclidean plane.
+     * @param[in] line_m The line of reflection (mirror)
+     * @return Involution The reflection involution
      */
     template <ProjectivePlaneCoord2 Line> constexpr auto reflect(const Line &line_m) {
         return Involution{line_m, fB(line_m)};
     }
 
     /**
-     * @brief
+     * @brief Compute the midpoint of two points.
      *
-     * @param[in] a
-     * @param[in] b
-     * @return Point
+     * Returns the point that divides the segment AB in the ratio 1:1.
+     * @param[in] a First point
+     * @param[in] b Second point
+     * @return Point The midpoint
      */
     template <ProjectivePlaneCoord2 Point>
     constexpr auto midpoint(const Point &a, const Point &b) -> Point {
@@ -107,10 +118,11 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute the midpoints of all three sides of a triangle.
      *
-     * @param[in] triangle
-     * @return auto
+     * Returns an array containing the midpoints of each side of the triangle.
+     * @param[in] triangle Array of three points
+     * @return Triple<Point> Array of three midpoints
      */
     template <ProjectivePlaneCoord2 Point>
     constexpr auto tri_midpoint(const Triple<Point> &triangle) -> Triple<Point> {
@@ -119,11 +131,13 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute a point on the unit circle from trigonometric parameters.
      *
-     * @param[in] lda1
-     * @param[in] mu1
-     * @return Point
+     * Creates a point on the unit circle using the parameterization
+     * (lambda^2 - mu^2, 2*lambda*mu, lambda^2 + mu^2).
+     * @param[in] lda1 The lambda parameter
+     * @param[in] mu1 The mu parameter
+     * @return Point A point on the unit circle
      */
     template <ProjectivePlaneCoord2 Point>
     constexpr auto uc_point(const Value_type<Point> &lda1, const Value_type<Point> &mu1) {
@@ -165,11 +179,13 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Check Ptolemy's theorem for a cyclic quadrilateral.
      *
-     * @tparam _Q
-     * @param[in] quad
-     * @return auto
+     * Ptolemy's theorem states that for a cyclic quadrilateral,
+     * the product of the diagonals equals the sum of the products
+     * of opposite sides.
+     * @param[in] quad Array of six side/diagonal measurements {Q12, Q23, Q34, Q14, Q13, Q24}
+     * @return true if the quadrilateral satisfies Ptolemy's theorem
      */
     template <typename T> constexpr auto Ptolemy(const T &quad) -> bool {
         const auto &[Q12, Q23, Q34, Q14, Q13, Q24] = quad;

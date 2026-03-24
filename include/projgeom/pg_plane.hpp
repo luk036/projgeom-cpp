@@ -135,21 +135,22 @@ namespace fun {
     /**
      * @brief Check Projective plane Axiom 2
      *
-     * @tparam Point Point
-     * @tparam Line Line
+     * Verifies incidence and parametrization properties.
+     * @tparam Point Point type
+     * @tparam Line Line type
      */
 
     /**
-     * @brief Check Axiom
+     * @brief Check Axiom 2 for extended projective plane properties.
      *
-     * @tparam Value
-     * @tparam Point
-     * @tparam Point::Dual
-     * @param[in] pt_p
-     * @param[in] pt_q
-     * @param[in] ln_l
-     * @param[in] pt_a
-     * @param[in] pt_b
+     * @tparam Value The value/coordinate type
+     * @tparam Point The point type
+     * @tparam Line The line type (dual of point)
+     * @param[in] pt_p First point
+     * @param[in] pt_q Second point
+     * @param[in] ln_l A line
+     * @param[in] a First parameter value
+     * @param[in] b Second parameter value
      */
     template <typename Value, class Point, class Line>
 #if __cpp_concepts >= 201907L

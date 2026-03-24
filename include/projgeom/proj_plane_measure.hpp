@@ -14,14 +14,14 @@
 namespace fun {
 
     /**
-     * @brief
+     * @brief Compute the ratio of two ratios.
      *
-     * @tparam K
-     * @param[in] a
-     * @param[in] b
-     * @param[in] c
-     * @param[in] d
-     * @return auto
+     * Computes (a/b) / (c/d) for ring elements.
+     * @param[in] a First numerator
+     * @param[in] b First denominator
+     * @param[in] c Second numerator
+     * @param[in] d Second denominator
+     * @return auto The ratio of ratios
      */
     template <Ring K> constexpr auto ratio_ratio(const K &a, const K &b, const K &c, const K &d) {
         if constexpr (Integral<K>) {
@@ -51,13 +51,15 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute the cross ratio of four collinear points.
      *
-     * @param[in] A
-     * @param[in] B
-     * @param[in] C
-     * @param[in] D
-     * @return constexpr auto
+     * Returns the cross ratio R(A, B; C, D) of four points on a line.
+     * Automatically chooses the best coordinate projection based on the points.
+     * @param[in] A First point
+     * @param[in] B Second point
+     * @param[in] C Third point
+     * @param[in] D Fourth point
+     * @return constexpr auto The cross ratio
      */
     template <ProjectivePlaneCoord2 Point>
     constexpr auto R(const Point &A, const Point &B, const Point &C, const Point &D)
@@ -72,13 +74,15 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute the cross ratio using projective construction.
      *
-     * @param[in] A
-     * @param[in] B
-     * @param[in] C
-     * @param[in] D
-     * @return constexpr auto
+     * Returns the cross ratio R(A, B; C, D) using a projective construction
+     * that works with arbitrary projective planes.
+     * @param[in] A First point
+     * @param[in] B Second point
+     * @param[in] C Third point
+     * @param[in] D Fourth point
+     * @return constexpr auto The cross ratio
      */
     template <ProjectivePlane2 Point>
     constexpr auto R(const Point &A, const Point &B, const Point &C, const Point &D) {
@@ -87,13 +91,14 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute cross ratio using yz-plane projection.
      *
-     * @param[in] A
-     * @param[in] B
-     * @param[in] C
-     * @param[in] D
-     * @return constexpr auto
+     * Returns the cross ratio R(A, B; C, D) using the yz-plane projection.
+     * @param[in] A First point
+     * @param[in] B Second point
+     * @param[in] C Third point
+     * @param[in] D Fourth point
+     * @return constexpr auto The cross ratio
      */
     template <ProjectivePlaneCoord2 Point>
     constexpr auto R0(const Point &A, const Point &B, const Point &C, const Point &D) {
@@ -101,13 +106,14 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute cross ratio using xz-plane projection.
      *
-     * @param[in] A
-     * @param[in] B
-     * @param[in] C
-     * @param[in] D
-     * @return constexpr auto
+     * Returns the cross ratio R(A, B; C, D) using the xz-plane projection.
+     * @param[in] A First point
+     * @param[in] B Second point
+     * @param[in] C Third point
+     * @param[in] D Fourth point
+     * @return constexpr auto The cross ratio
      */
     template <ProjectivePlaneCoord2 Point>
     constexpr auto R1(const Point &A, const Point &B, const Point &C, const Point &D) {

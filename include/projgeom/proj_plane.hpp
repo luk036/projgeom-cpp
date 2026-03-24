@@ -50,13 +50,20 @@ namespace fun {
         return (incident(pt_r, ln_l) && ...);
     }
 
+    /**
+     * @brief Type alias for an array of three points (a triangle)
+     *
+     * @tparam Point The point type
+     */
     template <typename Point> using Triple = std::array<Point, 3>;
 
     /**
-     * @brief
+     * @brief Compute the dual triangle (sides as points).
      *
-     * @param[in] triangle
-     * @return auto
+     * Returns the triangle formed by the three lines joining the vertices
+     * of the input triangle.
+     * @param[in] triangle Array of three non-collinear points
+     * @return auto Array of three lines (the sides)
      */
     template <ProjectivePlanePrim2 Point> constexpr auto tri_dual(const Triple<Point> &triangle)
 
@@ -67,11 +74,13 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Apply a binary function to all pairs of triangle vertices.
      *
-     * @param[in] func
-     * @param[in] triangle
-     * @return auto
+     * Returns an array with the function applied to each pair of distinct
+     * vertices of the triangle.
+     * @param[in] func A binary function to apply
+     * @param[in] triangle Array of three points
+     * @return auto Array of three results
      */
     template <ProjectivePlanePrim2 Point, typename Fn>
     constexpr auto tri_func(Fn &&func, const Triple<Point> &triangle)
@@ -98,13 +107,14 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute the harmonic conjugate of three collinear points.
      *
-     * @tparam Point
-     * @param[in] A
-     * @param[in] B
-     * @param[in] C
-     * @return constexpr Point
+     * Given three collinear points A, B, C, returns the fourth point D
+     * such that (A, B; C, D) is a harmonic range.
+     * @param[in] A First point
+     * @param[in] B Second point
+     * @param[in] C Third point (must be collinear with A and B)
+     * @return constexpr Point The harmonic conjugate
      */
     template <ProjectivePlane2 Point>
     constexpr auto harm_conj(const Point &A, const Point &B, const Point &C) -> Point {
@@ -114,13 +124,15 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Compute the harmonic conjugate (generic version).
      *
-     * @tparam Point
-     * @param[in] A
-     * @param[in] B
-     * @param[in] C
-     * @return constexpr Point
+     * Given three collinear points A, B, C, returns the fourth point D
+     * such that (A, B; C, D) is a harmonic range. Generic version using
+     * auxiliary constructions.
+     * @param[in] A First point
+     * @param[in] B Second point
+     * @param[in] C Third point (must be collinear with A and B)
+     * @return constexpr Point The harmonic conjugate
      */
     template <ProjectivePlaneGeneric2 _Point>
     constexpr auto harm_conj(const _Point &A, const _Point &B, const _Point &C) -> _Point {
@@ -134,14 +146,15 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Check if four points form a harmonic range.
      *
-     * @param[in] A
-     * @param[in] B
-     * @param[in] C
-     * @param[in] D
-     * @return constexpr auto
-     *
+     * Four points A, B, C, D form a harmonic range if the cross ratio
+     * (A, B; C, D) equals -1.
+     * @param[in] A First point
+     * @param[in] B Second point
+     * @param[in] C Third point
+     * @param[in] D Fourth point
+     * @return constexpr auto true if harmonic, false otherwise
      */
     template <ProjectivePlane2 Point> constexpr auto is_harmonic(const Point &A, const Point &B,
                                                                  const Point &C,
@@ -176,20 +189,22 @@ namespace fun {
             : _m{std::move(ln_m)}, _o{std::move(o)}, _c{_m.dot(_o)} {}
 
         /**
-         * @brief
+         * @brief Apply the involution to a point.
          *
-         * @param[in] pt_p
-         * @return Point
+         * Returns the image of pt_p under the involution.
+         * @param[in] pt_p The point to transform
+         * @return Point The transformed point
          */
         constexpr auto operator()(const Point &pt_p) const -> Point {
             return parametrize(this->_c, pt_p, K(-2 * pt_p.dot(this->_m)), this->_o);
         }
 
         /**
-         * @brief
+         * @brief Apply the involution to a line.
          *
-         * @param[in] ln_l
-         * @return Line
+         * Returns the image of ln_l under the involution.
+         * @param[in] ln_l The line to transform
+         * @return Line The transformed line
          */
         constexpr auto operator()(const Line &ln_l) const -> Line {
             return parametrize(this->_c, ln_l, K(-2 * ln_l.dot(this->_o)), this->_m);
@@ -197,10 +212,11 @@ namespace fun {
     };
 
     /**
-     * @brief
+     * @brief Generic involution class for projective planes.
      *
-     * @tparam Point
-     * @tparam Line
+     * An involution is a transformation that is its own inverse.
+     * @tparam Point The point type
+     * @tparam Line The line type
      */
     template <typename Point, typename Line>
         requires ProjectivePlaneGeneric<Point, Line>
@@ -211,20 +227,21 @@ namespace fun {
 
       public:
         /**
-         * @brief Construct a new Involution object
+         * @brief Construct a new generic involution object
          *
-         * @param[in] ln_m
-         * @param[in] o
+         * @param[in] ln_m The mirror line
+         * @param[in] o The center point
          */
         constexpr involution_generic(Line ln_m,
                                      Point o)  // input mirror and center
             : _m{std::move(ln_m)}, _o{std::move(o)} {}
 
         /**
-         * @brief
+         * @brief Apply the involution to a point.
          *
-         * @param[in] pt_p
-         * @return Point
+         * Returns the image of pt_p under the involution.
+         * @param[in] pt_p The point to transform
+         * @return Point The transformed point
          */
         constexpr auto operator()(const Point &pt_p) const -> Point {
             auto po = pt_p * this->_o;
@@ -234,13 +251,12 @@ namespace fun {
     };
 
     /**
-     * @brief Check Pappus Theorem
+     * @brief Check Pappus Theorem for two sets of collinear points.
      *
-     * The `check_pappus` function checks the Pappus theorem for two sets of collinear points.
-     * @tparam Point
-     * @tparam Line
-     * @param[in] coline1
-     * @param[in] coline2
+     * Asserts that the three intersection points formed by joining
+     * corresponding points from two collinear triples are themselves collinear.
+     * @param[in] coline1 First triple of collinear points
+     * @param[in] coline2 Second triple of collinear points
      */
     template <ProjectivePlanePrim2 Point>
     void check_pappus(const Triple<Point> &coline1, const Triple<Point> &coline2)
@@ -256,10 +272,13 @@ namespace fun {
     }
 
     /**
-     * @brief
+     * @brief Check Desargues' theorem for two triangles.
      *
-     * @param[in] tri1
-     * @param[in] tri2
+     * Asserts that two triangles are perspective from a point if and only if
+     * they are perspective from a line. This is a fundamental theorem in
+     * projective geometry.
+     * @param[in] tri1 First triangle
+     * @param[in] tri2 Second triangle
      */
     template <ProjectivePlanePrim2 Point>
     void check_desargue(const Triple<Point> &tri1, const Triple<Point> &tri2) {
