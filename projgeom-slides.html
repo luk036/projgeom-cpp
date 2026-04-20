@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>projgeom-slides</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<!-- slide 1: Title Slide -->
+<h1 id="projective-geometry"><strong>Projective Geometry</strong></h1>
+<h2 id="a-modern-c-implementation">A Modern C++ Implementation</h2>
+<p>🔯 <em>projgeom-cpp</em> — A header-only library for projective
+geometry with constexpr support</p>
+<p><strong>Presented by:</strong> Wai-Shing Luk<br />
+<strong>Date:</strong> April 2026</p>
+<hr />
+<!-- slide 2: What is Projective Geometry? -->
+<h1 id="what-is-projective-geometry">🚀 What is Projective
+Geometry?</h1>
+<blockquote>
+<p>“The study of properties that are invariant under projection”</p>
+</blockquote>
+<ul>
+<li><strong>Classical Geometry</strong>: Euclidean — parallel lines
+never meet</li>
+<li><strong>Projective Geometry</strong>: All lines meet at a point at
+infinity! 📍</li>
+</ul>
+<h3 id="why-projective-geometry">Why Projective Geometry?</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Euclidean</th>
+<th>Projective</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parallel lines</td>
+<td>Never intersect</td>
+<td>✓ Meet at ∞</td>
+</tr>
+<tr>
+<td>Conics</td>
+<td>Separate conic sections</td>
+<td>Unified treatment</td>
+</tr>
+<tr>
+<td>Perspective</td>
+<td>Requires limits</td>
+<td>Natural framework</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<!-- slide 3: The Projective Plane -->
+<h1 id="the-projective-plane">📐 The Projective Plane</h1>
+<p>Points as <strong>homogeneous coordinates</strong>:</p>
+<p><span
+class="math display"><em>P</em> = [<em>x</em> : <em>y</em> : <em>z</em>]  where
+(<em>x</em>, <em>y</em>, <em>z</em>) ≠ (0, 0, 0)</span></p>
+<ul>
+<li>Represented in <span class="math inline">ℙ<sup>2</sup></span> — 2D
+projective space</li>
+<li><strong>Lines</strong> are also points in the dual space <span
+class="math inline">ℙ<sup>2*</sup></span></li>
+</ul>
+<h3 id="duality-principle">Duality Principle 🔄</h3>
+<blockquote>
+<p>“Points and lines are dual objects”</p>
+</blockquote>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// In projgeom-cpp:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>Ring _K<span class="op">&gt;</span> <span class="kw">struct</span> pg_point <span class="op">:</span> pg_object<span class="op">&lt;</span>_K<span class="op">,</span> pg_line<span class="op">&lt;</span>_K<span class="op">&gt;&gt;</span> <span class="op">{</span> <span class="op">...</span> <span class="op">};</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>Ring _K<span class="op">&gt;</span> <span class="kw">struct</span> pg_line <span class="op">:</span> pg_object<span class="op">&lt;</span>_K<span class="op">,</span> pg_point<span class="op">&lt;</span>_K<span class="op">&gt;&gt;</span> <span class="op">{</span> <span class="op">...</span> <span class="op">};</span></span></code></pre></div>
+<hr />
+<!-- slide 4: Fundamenta Axioms -->
+<h1 id="fundamental-axioms">📜 Fundamental Axioms</h1>
+<p>From the library header <code>pg_object.hpp</code>:</p>
+<ol type="1">
+<li><strong>Incidence</strong>: For any two distinct points, there
+exists a unique line through them</li>
+<li><strong>Duality</strong>: For any two distinct lines, there exists a
+unique point at their intersection</li>
+<li><strong>Completeness</strong>: There exist four points, no three of
+which are collinear</li>
+</ol>
+<h3 id="key-property-check-axiom">Key Property: <strong>Check
+Axiom</strong></h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>Ring _K<span class="op">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> check_axiom<span class="op">(</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> pg_point<span class="op">&lt;</span>_K<span class="op">&gt;</span> <span class="op">&amp;</span>pt_p<span class="op">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> pg_point<span class="op">&lt;</span>_K<span class="op">&gt;</span> <span class="op">&amp;</span>pt_q<span class="op">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> pg_line<span class="op">&lt;</span>_K<span class="op">&gt;</span> <span class="op">&amp;</span>ln_m</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">)</span> <span class="op">-&gt;</span> <span class="dt">bool</span> <span class="op">{</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> incident<span class="op">(</span>pt_p<span class="op">,</span> pt_q <span class="op">*</span> pt_m<span class="op">)</span> <span class="op">&amp;&amp;</span> incident<span class="op">(</span>pt_q<span class="op">,</span> pt_p <span class="op">*</span> pt_m<span class="op">);</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<!-- slide 5: Core Operations - Join -->
+<h1 id="core-operation-join">🔗 Core Operation: Join</h1>
+<p><strong>Join</strong> connects two points to form the line passing
+through them</p>
+<h3 id="mathematical-definition">Mathematical Definition:</h3>
+<p><span
+class="math display">join(<em>P</em>, <em>Q</em>) = <em>P</em> × <em>Q</em>  (cross
+product)</span></p>
+<h3 id="mermaid-diagram">Mermaid Diagram:</h3>
+<pre class="mermaid"><code>graph LR
+    P[Point P&lt;br/&gt;x₁,y₁,z₁] --&gt;|join| L[Line L]
+    Q[Point Q&lt;br/&gt;x₂,y₂,z₂] --&gt;|join| L
+    L -.-&gt;|dual| P
+    L -.-&gt;|dual| Q</code></pre>
+<h3 id="code-implementation">Code Implementation:</h3>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>Ring _K<span class="op">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> join<span class="op">(</span><span class="at">const</span> pg_point<span class="op">&lt;</span>_K<span class="op">&gt;</span> <span class="op">&amp;</span>pt_p<span class="op">,</span> <span class="at">const</span> pg_point<span class="op">&lt;</span>_K<span class="op">&gt;</span> <span class="op">&amp;</span>pt_q<span class="op">)</span> <span class="op">-&gt;</span> pg_line<span class="op">&lt;</span>_K<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pt_p <span class="op">*</span> pt_q<span class="op">;</span>  <span class="co">// Cross product operation</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<!-- slide 6: Core Operations - Meet -->
+<h1 id="core-operation-meet">✂️ Core Operation: Meet</h1>
+<p><strong>Meet</strong> finds the intersection point of two lines</p>
+<h3 id="mathematical-definition-1">Mathematical Definition:</h3>
+<p><span
+class="math display">meet(<em>l</em>, <em>m</em>) = <em>l</em> × <em>m</em>  (cross
+product)</span></p>
+<h3 id="duality-in-action">Duality in Action:</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Input</th>
+<th>Output</th>
+<th>Symbol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Join</strong></td>
+<td>Point × Point</td>
+<td>Line</td>
+<td><span class="math inline"><em>P</em> ⋅ <em>Q</em></span></td>
+</tr>
+<tr>
+<td><strong>Meet</strong></td>
+<td>Line × Line</td>
+<td>Point</td>
+<td><span class="math inline"><em>l</em> ⋅ <em>m</em></span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="code-implementation-1">Code Implementation:</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>Ring _K<span class="op">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> meet<span class="op">(</span><span class="at">const</span> pg_line<span class="op">&lt;</span>_K<span class="op">&gt;</span> <span class="op">&amp;</span>ln_l<span class="op">,</span> <span class="at">const</span> pg_line<span class="op">&lt;</span>_K<span class="op">&gt;</span> <span class="op">&amp;</span>ln_m<span class="op">)</span> <span class="op">-&gt;</span> pg_point<span class="op">&lt;</span>_K<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ln_l <span class="op">*</span> ln_m<span class="op">;</span>  <span class="co">// Cross product operation</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="visual">Visual:</h3>
+<pre class="mermaid"><code>graph BT
+    L[Line L] --&gt;|meet| P[Point P]
+    M[Line M] --&gt;|meet| P</code></pre>
+<hr />
+<!-- slide 7: Incidence Relation -->
+<h1 id="incidence-relation">🎯 Incidence Relation</h1>
+<p>A point <span class="math inline"><em>P</em></span> lies on line
+<span class="math inline"><em>L</em></span> if their dot product equals
+zero:</p>
+<p><span class="math display"><em>P</em> ⋅ <em>L</em> = 0</span></p>
+<h3 id="implementation">Implementation:</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> Point<span class="op">,</span> <span class="kw">typename</span> Line<span class="op">&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">requires</span> ProjectivePlane<span class="op">&lt;</span>Point<span class="op">,</span> Line<span class="op">&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> incident<span class="op">(</span><span class="at">const</span> Point <span class="op">&amp;</span>pt_p<span class="op">,</span> <span class="at">const</span> Line <span class="op">&amp;</span>ln_l<span class="op">)</span> <span class="op">-&gt;</span> <span class="dt">bool</span> <span class="op">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pt_p<span class="op">.</span>dot<span class="op">(</span>ln_l<span class="op">)</span> <span class="op">==</span> <span class="dt">Value_type</span><span class="op">&lt;</span>Point<span class="op">&gt;(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="test-case">Test Case:</h3>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>TEST_CASE<span class="op">(</span><span class="st">&quot;Point-Line Incidence&quot;</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> pt_p <span class="op">=</span> pg_point<span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> pt_q <span class="op">=</span> pg_point<span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">};</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> l <span class="op">=</span> join<span class="op">(</span>pt_p<span class="op">,</span> pt_q<span class="op">);</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    CHECK<span class="op">(</span>fun<span class="op">::</span>incident<span class="op">(</span>pt_p<span class="op">,</span> l<span class="op">)</span> <span class="op">==</span> <span class="kw">true</span><span class="op">);</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    CHECK<span class="op">(</span>fun<span class="op">::</span>incident<span class="op">(</span>pt_q<span class="op">,</span> l<span class="op">)</span> <span class="op">==</span> <span class="kw">true</span><span class="op">);</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<!-- slide 8: Cross Ratio - The Fundamental Invariant -->
+<h1 id="cross-ratio-the-projective-invariant">📊 Cross Ratio — The
+Projective Invariant</h1>
+<p>The <strong>cross ratio</strong> <span
+class="math inline">(<em>A</em>, <em>B</em>; <em>C</em>, <em>D</em>)</span>
+is preserved under all projective transformations!</p>
+<h3 id="definition">Definition:</h3>
+<p><span class="math display">$$
+(A, B; C, D) = \frac{\overline{AC}}{\overline{BC}} \div
+\frac{\overline{AD}}{\overline{BD}}
+$$</span></p>
+<p>In homogeneous coordinates:</p>
+<p><span class="math display">$$
+(A, B; C, D) = \frac{\det(A,C)\det(B,D)}{\det(B,C)\det(A,D)}
+$$</span></p>
+<h3 id="properties">Properties:</h3>
+<ul>
+<li><strong>Invariant</strong> under all projective transformations</li>
+<li><strong>Complete invariant</strong> for 4 collinear points</li>
+<li>Value = <span class="math inline">−1</span> for <strong>harmonic
+range</strong> 🎸</li>
+</ul>
+<h3 id="projective-distance-measure">Projective Distance Measure:</h3>
+<p>Using <span class="math inline"><em>ω</em></span> function (from
+<code>persp_plane.hpp</code>):</p>
+<p><span
+class="math display"><em>ω</em>(<em>P</em>) = (<em>P</em> ⋅ <em>L</em><sub>∞</sub>)<sup>2</sup></span></p>
+<hr />
+<!-- slide 9: Triangle Operations -->
+<h1 id="triangle-operations">🔺 Triangle Operations</h1>
+<h3 id="dual-triangle">Dual Triangle</h3>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>ProjectivePlanePrim2 Point<span class="op">&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> tri_dual<span class="op">(</span><span class="at">const</span> Triple<span class="op">&lt;</span>Point<span class="op">&gt;</span> <span class="op">&amp;</span>triangle<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> <span class="op">&amp;[</span>a1<span class="op">,</span> a2<span class="op">,</span> a3<span class="op">]</span> <span class="op">=</span> triangle<span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">std::</span>array<span class="op">{</span>a2 <span class="op">*</span> a3<span class="op">,</span> a1 <span class="op">*</span> a3<span class="op">,</span> a1 <span class="op">*</span> a2<span class="op">};</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="triangle-midpoints-euclidean">Triangle Midpoints
+(Euclidean)</h3>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>ProjectivePlaneCoord2 Point<span class="op">&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> tri_midpoint<span class="op">(</span><span class="at">const</span> Triple<span class="op">&lt;</span>Point<span class="op">&gt;</span> <span class="op">&amp;</span>triangle<span class="op">)</span> <span class="op">-&gt;</span> Triple<span class="op">&lt;</span>Point<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> <span class="op">&amp;[</span>a1<span class="op">,</span> a2<span class="op">,</span> a3<span class="op">]</span> <span class="op">=</span> triangle<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">{</span>midpoint<span class="op">(</span>a1<span class="op">,</span> a2<span class="op">),</span> midpoint<span class="op">(</span>a2<span class="op">,</span> a3<span class="op">),</span> midpoint<span class="op">(</span>a1<span class="op">,</span> a3<span class="op">)};</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="visual-structure">Visual Structure:</h3>
+<pre class="mermaid"><code>graph TD
+    A[Vertex A] --&gt;|side| B
+    B --&gt;|side| C
+    C --&gt;|side| A
+    A -.-&gt;|median| M[Midpoint BC]
+    B -.-&gt;|median| N[Midpoint AC]
+    C -.-&gt;|median| O[Midpoint AB]</code></pre>
+<hr />
+<!-- slide 10: Harmoniconjugates -->
+<h1 id="harmonic-conjugate">🎵 Harmonic Conjugate</h1>
+<p>Given three collinear points <span
+class="math inline"><em>A</em>, <em>B</em>, <em>C</em></span>, find
+<span class="math inline"><em>D</em></span> such that <span
+class="math inline">(<em>A</em>, <em>B</em>; <em>C</em>, <em>D</em>) = −1</span></p>
+<h3 id="implementation-from-proj_plane.hpp">Implementation (from
+<code>proj_plane.hpp</code>):</h3>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>ProjectivePlane2 Point<span class="op">&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> harm_conj<span class="op">(</span><span class="at">const</span> Point <span class="op">&amp;</span>A<span class="op">,</span> <span class="at">const</span> Point <span class="op">&amp;</span>B<span class="op">,</span> <span class="at">const</span> Point <span class="op">&amp;</span>C<span class="op">)</span> <span class="op">-&gt;</span> Point <span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="ot">assert</span><span class="op">(</span>incident<span class="op">(</span>A <span class="op">*</span> B<span class="op">,</span> C<span class="op">));</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> lC <span class="op">=</span> C <span class="op">*</span> <span class="op">(</span>A <span class="op">*</span> B<span class="op">).</span>aux<span class="op">();</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> parametrize<span class="op">(</span>B<span class="op">.</span>dot<span class="op">(</span>lC<span class="op">),</span> A<span class="op">,</span> A<span class="op">.</span>dot<span class="op">(</span>lC<span class="op">),</span> B<span class="op">);</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="geometric-construction">Geometric Construction:</h3>
+<pre class="mermaid"><code>graph LR
+    A[Point A] --&gt; |draw AB| B[Point B]
+    B --&gt; |extend to C| C[Point C]
+    C --&gt; |draw line through C| L[Line L]
+    L --&gt; |find pole| D[Harmonic D]
+    D --&gt; |join to original| O[Original]</code></pre>
+<hr />
+<!-- slide 11: Desargues Theorem -->
+<h1 id="desargues-theorem">🏛️ Desargues’ Theorem</h1>
+<blockquote>
+<p>“Two triangles are perspective from a point <strong>iff</strong> they
+are perspective from a line”</p>
+</blockquote>
+<h3 id="visual-representation">Visual Representation:</h3>
+<pre class="mermaid"><code>graph BT
+    P[Perspective&lt;br/&gt;Center O] --&gt;|join| A
+    P --&gt;|join| B
+    P --&gt;|join| C
+    
+    L[Perspective&lt;br/&gt;Line] -.-|meet| A1
+    L -.-|meet| B1
+    L -.-|meet| C1
+    
+    A ---|side| B
+    B ---|side| C
+    C ---|side| A
+    
+    A1 ---|side| B1
+    B1 ---|side| C1
+    C1 ---|side| A1</code></pre>
+<h3 id="implementation-1">Implementation:</h3>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>ProjectivePlanePrim2 Point<span class="op">&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> check_desargue<span class="op">(</span><span class="at">const</span> Triple<span class="op">&lt;</span>Point<span class="op">&gt;</span> <span class="op">&amp;</span>tri1<span class="op">,</span> <span class="at">const</span> Triple<span class="op">&lt;</span>Point<span class="op">&gt;</span> <span class="op">&amp;</span>tri2<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> trid1 <span class="op">=</span> tri_dual<span class="op">(</span>tri1<span class="op">);</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> trid2 <span class="op">=</span> tri_dual<span class="op">(</span>tri2<span class="op">);</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> bool1 <span class="op">=</span> persp<span class="op">(</span>tri1<span class="op">,</span> tri2<span class="op">);</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> bool2 <span class="op">=</span> persp<span class="op">(</span>trid1<span class="op">,</span> trid2<span class="op">);</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="ot">assert</span><span class="op">((</span>bool1 <span class="op">&amp;&amp;</span> bool2<span class="op">)</span> <span class="op">||</span> <span class="op">(!</span>bool1 <span class="op">&amp;&amp;</span> <span class="op">!</span>bool2<span class="op">));</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<!-- slide 12: Pappus Theorem -->
+<h1 id="pappus-theorem">📜 Pappus’ Theorem</h1>
+<blockquote>
+<p>“For two collinear triples, the three intersection points are
+collinear”</p>
+</blockquote>
+<h3 id="statement">Statement:</h3>
+<p>Given collinear points <span
+class="math inline"><em>A</em>, <em>B</em>, <em>C</em></span> and <span
+class="math inline"><em>D</em>, <em>E</em>, <em>F</em></span>: - Join
+<span class="math inline"><em>A</em></span> to <span
+class="math inline"><em>E</em></span>, <span
+class="math inline"><em>B</em></span> to <span
+class="math inline"><em>D</em></span>, intersect at <span
+class="math inline"><em>G</em></span> - Join <span
+class="math inline"><em>A</em></span> to <span
+class="math inline"><em>F</em></span>, <span
+class="math inline"><em>C</em></span> to <span
+class="math inline"><em>D</em></span>, intersect at <span
+class="math inline"><em>H</em></span><br />
+- Join <span class="math inline"><em>B</em></span> to <span
+class="math inline"><em>F</em></span>, <span
+class="math inline"><em>C</em></span> to <span
+class="math inline"><em>E</em></span>, intersect at <span
+class="math inline"><em>I</em></span> - Then <span
+class="math inline"><em>G</em>, <em>H</em>, <em>I</em></span> are
+collinear 📏</p>
+<h3 id="implementation-2">Implementation:</h3>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>ProjectivePlanePrim2 Point<span class="op">&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> check_pappus<span class="op">(</span><span class="at">const</span> Triple<span class="op">&lt;</span>Point<span class="op">&gt;</span> <span class="op">&amp;</span>coline1<span class="op">,</span> <span class="at">const</span> Triple<span class="op">&lt;</span>Point<span class="op">&gt;</span> <span class="op">&amp;</span>coline2<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> <span class="op">&amp;[</span>A<span class="op">,</span> B<span class="op">,</span> C<span class="op">]</span> <span class="op">=</span> coline1<span class="op">;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> <span class="op">&amp;[</span>D<span class="op">,</span> E<span class="op">,</span> F<span class="op">]</span> <span class="op">=</span> coline2<span class="op">;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> G <span class="op">=</span> <span class="op">(</span>A <span class="op">*</span> E<span class="op">)</span> <span class="op">*</span> <span class="op">(</span>B <span class="op">*</span> D<span class="op">);</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> H <span class="op">=</span> <span class="op">(</span>A <span class="op">*</span> F<span class="op">)</span> <span class="op">*</span> <span class="op">(</span>C <span class="op">*</span> D<span class="op">);</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> I <span class="op">=</span> <span class="op">(</span>B <span class="op">*</span> F<span class="op">)</span> <span class="op">*</span> <span class="op">(</span>C <span class="op">*</span> E<span class="op">);</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="ot">assert</span><span class="op">(</span>coincident<span class="op">(</span>G<span class="op">,</span> H<span class="op">,</span> I<span class="op">));</span>  <span class="co">// Verify collinearity</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<!-- slide 13: Involution -->
+<h1 id="involution">🔄 Involution</h1>
+<p>An <strong>involution</strong> is a transformation that is its own
+inverse: <span
+class="math inline"><em>T</em><sup>2</sup> = <em>I</em></span></p>
+<h3 id="types">Types:</h3>
+<ol type="1">
+<li><strong>Reflection</strong> across a line</li>
+<li><strong>Projective homology</strong> (perspectivity)</li>
+<li><strong>Rotation</strong> in hyperbolic geometry</li>
+</ol>
+<h3 id="implementation-3">Implementation:</h3>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> Point<span class="op">,</span> <span class="kw">typename</span> Line<span class="op">&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">requires</span> ProjectivePlane<span class="op">&lt;</span>Point<span class="op">,</span> Line<span class="op">&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Involution <span class="op">{</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    Line _m<span class="op">;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    Point _o<span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    K _c<span class="op">;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">public</span><span class="op">:</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">constexpr</span> <span class="kw">auto</span> <span class="kw">operator</span><span class="op">()(</span><span class="at">const</span> Point <span class="op">&amp;</span>pt_p<span class="op">)</span> <span class="at">const</span> <span class="op">-&gt;</span> Point <span class="op">{</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> parametrize<span class="op">(</span><span class="kw">this</span><span class="op">-&gt;</span>_c<span class="op">,</span> pt_p<span class="op">,</span> K<span class="op">(-</span><span class="dv">2</span> <span class="op">*</span> pt_p<span class="op">.</span>dot<span class="op">(</span><span class="kw">this</span><span class="op">-&gt;</span>_m<span class="op">)),</span> <span class="kw">this</span><span class="op">-&gt;</span>_o<span class="op">);</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h3 id="visual-1">Visual:</h3>
+<pre class="mermaid"><code>graph LR
+    P[Original Point] --&gt;|T| Q[Image]
+    Q --&gt;|T| P</code></pre>
+<hr />
+<!-- slide 14: Homogeneous Coordinates -->
+<h1 id="homogeneous-coordinates">📊 Homogeneous Coordinates</h1>
+<p>Every point <span class="math inline">(<em>x</em>, <em>y</em>)</span>
+in <span class="math inline">ℝ<sup>2</sup></span> maps to <span
+class="math inline">[<em>x</em> : <em>y</em> : 1]</span> in <span
+class="math inline">ℙ<sup>2</sup></span></p>
+<h3 id="mapping-table">Mapping Table:</h3>
+<table>
+<thead>
+<tr>
+<th>Affine <span
+class="math inline">(<em>x</em>, <em>y</em>)</span></th>
+<th>Homogeneous <span
+class="math inline">[<em>x</em> : <em>y</em> : <em>z</em>]</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">(2, 3)</span></td>
+<td><span class="math inline">[2 : 3 : 1]</span></td>
+</tr>
+<tr>
+<td><span class="math inline">(1, 1)</span></td>
+<td><span class="math inline">[1 : 1 : 1]</span></td>
+</tr>
+<tr>
+<td><span class="math inline">(∞, <em>y</em>)</span></td>
+<td><span class="math inline">[1 : 0 : 0]</span> (point at
+infinity)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-line-at-infinity">The Line at Infinity:</h3>
+<p><span
+class="math display"><em>L</em><sub>∞</sub> = [0 : 0 : 1]</span></p>
+<p>All “parallel” lines meet at points on <span
+class="math inline"><em>L</em><sub>∞</sub></span>!</p>
+<h3 id="in-projgeom-cpp">In projgeom-cpp:</h3>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Point construction</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>pg_point<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> pt<span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span>  <span class="co">// Represents (1/3, 2/3)</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Line from two points</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> line <span class="op">=</span> join<span class="op">(</span>pt1<span class="op">,</span> pt2<span class="op">);</span>  <span class="co">// Cross product</span></span></code></pre></div>
+<hr />
+<!-- slide 15: Cayley-Klein Geometry -->
+<h1 id="cayley-klen-geometry">🔯 Cayley-Klen Geometry</h1>
+<p>A <strong>Cayley-Klein plane</strong> generalizes multiple
+geometries:</p>
+<h3 id="types-of-geometry">Types of Geometry:</h3>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 36%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr>
+<th>Type</th>
+<th>Inner Metric</th>
+<th>Distance Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Elliptic</strong></td>
+<td><span class="math inline"><em>x</em> ⋅ <em>x</em> &gt; 0</span></td>
+<td><span class="math inline">$\cos d = -\frac{P \cdot
+Q}{\sqrt{\omega(P)\omega(Q)}}$</span></td>
+</tr>
+<tr>
+<td><strong>Euclidean</strong></td>
+<td><span class="math inline"><em>P</em> ⋅ <em>Q</em> = 0</span></td>
+<td><span class="math inline">$d = \sqrt{\frac{P \cdot
+Q}{\omega(P)}}$</span></td>
+</tr>
+<tr>
+<td><strong>Hyperbolic</strong></td>
+<td><span class="math inline"><em>x</em> ⋅ <em>x</em> &lt; 0</span></td>
+<td><span class="math inline">$\cosh d = \frac{P \cdot
+Q}{\sqrt{\omega(P)\omega(Q)}}$</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="implementation-ck_plane.hpp">Implementation
+(<code>ck_plane.hpp</code>):</h3>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> Point<span class="op">,</span> <span class="kw">typename</span> Line<span class="op">&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ck <span class="op">{</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Cayley-Klein geometry with configurable metric</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<hr />
+<!-- slide 16: Perspective-Euclidean Plane -->
+<h1 id="perspective-euclidean-plane">📐 Perspective-Euclidean Plane</h1>
+<p>Combines projective coordinates with Euclidean metric:</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> Point<span class="op">,</span> <span class="kw">typename</span> Line<span class="op">&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">requires</span> ProjectivePlanePrim<span class="op">&lt;</span>Point<span class="op">,</span> Line<span class="op">&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> persp_euclid_plane <span class="op">:</span> <span class="kw">public</span> ck<span class="op">&lt;</span>Point<span class="op">,</span> Line<span class="op">,</span> persp_euclid_plane<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    Point _I_re<span class="op">;</span>   <span class="co">// Real unit circle point</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    Point _I_im<span class="op">;</span>   <span class="co">// Imaginary unit circle point</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    Line _l_inf<span class="op">;</span>   <span class="co">// Line at infinity</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h3 id="key-functions">Key Functions:</h3>
+<ul>
+<li><code>l_inf()</code> — Get the line at infinity</li>
+<li><code>perp(v)</code> — Pole of a line (perpendicular)</li>
+<li><code>is_parallel(l, m)</code> — Check parallelism</li>
+<li><code>omega(P)</code> — Distance to <span
+class="math inline"><em>L</em><sub>∞</sub></span></li>
+</ul>
+<h3 id="cross-ratio-measure">Cross-ratio Measure:</h3>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>ProjectivePlane2 _Point<span class="op">&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> measure<span class="op">(</span><span class="at">const</span> _Point <span class="op">&amp;</span>a1<span class="op">,</span> <span class="at">const</span> _Point <span class="op">&amp;</span>a2<span class="op">)</span> <span class="at">const</span> <span class="op">{</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> omega<span class="op">(</span>a1 <span class="op">*</span> a2<span class="op">)</span> <span class="op">/</span> <span class="op">(</span>omega<span class="op">(</span>a1<span class="op">)</span> <span class="op">*</span> omega<span class="op">(</span>a2<span class="op">));</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<!-- slide 17: Euclidean Plane Properties -->
+<h1 id="euclidean-plane-from-euclid_plane.hpp">📏 Euclidean Plane (from
+euclid_plane.hpp)</h1>
+<h3 id="perpendicular-lines">Perpendicular Lines:</h3>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> is_perpendicular<span class="op">(</span><span class="at">const</span> Line <span class="op">&amp;</span>ln_l<span class="op">,</span> <span class="at">const</span> Line <span class="op">&amp;</span>ln_m<span class="op">)</span> <span class="op">-&gt;</span> <span class="dt">bool</span> <span class="op">{</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dot1<span class="op">(</span>line_l<span class="op">,</span> line_m<span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="parallel-lines">Parallel Lines:</h3>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> is_parallel<span class="op">(</span><span class="at">const</span> Line <span class="op">&amp;</span>ln_l<span class="op">,</span> <span class="at">const</span> Line <span class="op">&amp;</span>ln_m<span class="op">)</span> <span class="op">-&gt;</span> <span class="dt">bool</span> <span class="op">{</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cross2<span class="op">(</span>line_l<span class="op">,</span> line_m<span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="orthocenter">Orthocenter:</h3>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> orthocenter<span class="op">(</span><span class="at">const</span> Triple<span class="op">&lt;</span>Point<span class="op">&gt;</span> <span class="op">&amp;</span>triangle<span class="op">)</span> <span class="op">-&gt;</span> Point <span class="op">{</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> <span class="op">&amp;[</span>a1<span class="op">,</span> a2<span class="op">,</span> a3<span class="op">]</span> <span class="op">=</span> triangle<span class="op">;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> t1 <span class="op">=</span> altitude<span class="op">(</span>a1<span class="op">,</span> a2 <span class="op">*</span> a3<span class="op">);</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> t2 <span class="op">=</span> altitude<span class="op">(</span>a2<span class="op">,</span> a1 <span class="op">*</span> a3<span class="op">);</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> t1 <span class="op">*</span> t2<span class="op">;</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="visual-2">Visual:</h3>
+<pre class="mermaid"><code>graph TD
+    A[Vertex A] --&gt;|altitude| H[Orthocenter]
+    B --&gt;|altitude| H
+    C --&gt;|altitude| H</code></pre>
+<hr />
+<!-- slide 18: Cyclic Quadrilaterals & Ptolemy -->
+<h1 id="cyclic-quadrilaterals-ptolemy">⭕ Cyclic Quadrilaterals &amp;
+Ptolemy</h1>
+<p><strong>Ptolemy’s Theorem</strong>: For a cyclic quadrilateral:</p>
+<p><span
+class="math display"><em>A</em><em>C</em> ⋅ <em>B</em><em>D</em> = <em>A</em><em>B</em> ⋅ <em>C</em><em>D</em> + <em>A</em><em>D</em> ⋅ <em>B</em><em>C</em></span></p>
+<h3 id="implementation-4">Implementation:</h3>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> T<span class="op">&gt;</span> <span class="kw">constexpr</span> <span class="kw">auto</span> Ptolemy<span class="op">(</span><span class="at">const</span> T <span class="op">&amp;</span>quad<span class="op">)</span> <span class="op">-&gt;</span> <span class="dt">bool</span> <span class="op">{</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> <span class="op">&amp;[</span>Q12<span class="op">,</span> Q23<span class="op">,</span> Q34<span class="op">,</span> Q14<span class="op">,</span> Q13<span class="op">,</span> Q24<span class="op">]</span> <span class="op">=</span> quad<span class="op">;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> archimedes<span class="op">(</span>Q12 <span class="op">*</span> Q34<span class="op">,</span> Q23 <span class="op">*</span> Q14<span class="op">,</span> Q13 <span class="op">*</span> Q24<span class="op">)</span> <span class="op">==</span> _K<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>OrderedRing _Q<span class="op">&gt;</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> archimedes<span class="op">(</span><span class="at">const</span> _Q <span class="op">&amp;</span>a<span class="op">,</span> <span class="at">const</span> _Q <span class="op">&amp;</span>b<span class="op">,</span> <span class="at">const</span> _Q <span class="op">&amp;</span>c<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">4</span> <span class="op">*</span> a <span class="op">*</span> b <span class="op">-</span> sq<span class="op">(</span>a <span class="op">+</span> b <span class="op">-</span> c<span class="op">);</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="the-cqq-cyclic-quadrilateral-quadrea">The CQQ (Cyclic
+Quadrilateral Quadrea):</h3>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> _Q<span class="op">&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> cqq<span class="op">(</span><span class="at">const</span> _Q <span class="op">&amp;</span>a<span class="op">,</span> <span class="at">const</span> _Q <span class="op">&amp;</span>b<span class="op">,</span> <span class="at">const</span> _Q <span class="op">&amp;</span>c<span class="op">,</span> <span class="at">const</span> _Q <span class="op">&amp;</span>d<span class="op">)</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">-&gt;</span> <span class="bu">std::</span>array<span class="op">&lt;</span>_Q<span class="op">,</span> <span class="dv">2</span><span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> t1 <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> a <span class="op">*</span> b<span class="op">;</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> t2 <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> c <span class="op">*</span> d<span class="op">;</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> line_m <span class="op">=</span> <span class="op">(</span>t1 <span class="op">+</span> t2<span class="op">)</span> <span class="op">-</span> sq<span class="op">(</span>a <span class="op">+</span> b <span class="op">-</span> c <span class="op">-</span> d<span class="op">);</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> point_p <span class="op">=</span> line_m <span class="op">*</span> line_m <span class="op">-</span> <span class="dv">4</span> <span class="op">*</span> t1 <span class="op">*</span> t2<span class="op">;</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">{</span>line_m<span class="op">,</span> point_p<span class="op">};</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<!-- slide 19: C++20 Concepts -->
+<h1 id="c20-concepts-in-projgeom-cpp">💻 C++20 Concepts in
+projgeom-cpp</h1>
+<p>The library uses modern C++20 concepts for type safety:</p>
+<h3 id="key-concepts">Key Concepts:</h3>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">// From common_concepts.h</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> T<span class="op">&gt;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="kw">concept</span> Ring <span class="op">=</span> <span class="co">/* ... */</span><span class="op">;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> T<span class="op">&gt;</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="kw">concept</span> OrderedRing <span class="op">=</span> Ring<span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="op">&amp;&amp;</span> <span class="co">/* ... */</span><span class="op">;</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> Point<span class="op">,</span> <span class="kw">typename</span> Line<span class="op">&gt;</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="kw">concept</span> ProjectivePlane <span class="op">=</span> <span class="co">/* ... */</span><span class="op">;</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> Point<span class="op">&gt;</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="kw">concept</span> ProjectivePlanePrim2 <span class="op">=</span> <span class="co">/* ... */</span><span class="op">;</span></span></code></pre></div>
+<h3 id="usage">Usage:</h3>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> Point<span class="op">,</span> <span class="kw">typename</span> Line<span class="op">&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">requires</span> ProjectivePlane<span class="op">&lt;</span>Point<span class="op">,</span> Line<span class="op">&gt;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> incident<span class="op">(</span><span class="at">const</span> Point <span class="op">&amp;</span>pt_p<span class="op">,</span> <span class="at">const</span> Line <span class="op">&amp;</span>ln_l<span class="op">)</span> <span class="op">-&gt;</span> <span class="dt">bool</span> <span class="op">{</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pt_p<span class="op">.</span>dot<span class="op">(</span>ln_l<span class="op">)</span> <span class="op">==</span> <span class="dt">Value_type</span><span class="op">&lt;</span>Point<span class="op">&gt;(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="benefits">Benefits:</h3>
+<ul>
+<li>✅ Compile-time validation</li>
+<li>✅ Clear error messages</li>
+<li>✅ Documentation in code</li>
+</ul>
+<hr />
+<!-- slide 20: constexpr Support -->
+<h1 id="constexpr-everything">⚡ constexpr Everything</h1>
+<p>All computations are <code>constexpr</code> for compile-time
+evaluation:</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Compile-time point creation</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> pt_p <span class="op">=</span> pg_point<span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> pt_q <span class="op">=</span> pg_point<span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">};</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Join at compile-time</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> line <span class="op">=</span> join<span class="op">(</span>pt_p<span class="op">,</span> pt_q<span class="op">);</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">// All operations are constexpr!</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>Ring _K<span class="op">&gt;</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> cross<span class="op">(</span><span class="at">const</span> Point <span class="op">&amp;</span>v<span class="op">,</span> <span class="at">const</span> Point <span class="op">&amp;</span>w<span class="op">)</span> <span class="op">-&gt;</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">Value_type</span><span class="op">&lt;</span>Point<span class="op">&gt;,</span> <span class="dv">3</span><span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">{</span>cross0<span class="op">(</span>v<span class="op">,</span> w<span class="op">),</span> <span class="op">-</span>cross1<span class="op">(</span>v<span class="op">,</span> w<span class="op">),</span> cross2<span class="op">(</span>v<span class="op">,</span> w<span class="op">)};</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="verify-with-static_assert">Verify with static_assert:</h3>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static_assert</span><span class="op">(</span>incident<span class="op">(</span>pt_p<span class="op">,</span> line<span class="op">)</span> <span class="op">==</span> <span class="kw">true</span><span class="op">);</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="kw">static_assert</span><span class="op">(</span>incident<span class="op">(</span>pt_q<span class="op">,</span> line<span class="op">)</span> <span class="op">==</span> <span class="kw">true</span><span class="op">);</span></span></code></pre></div>
+<h3 id="no-runtime-overhead">No runtime overhead! 🚀</h3>
+<hr />
+<!-- slide 21: Branchless Computation -->
+<h1 id="branchless-computation">🌿 Branchless Computation</h1>
+<p>Optimized for performance with no branches:</p>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>Ring _K<span class="op">&gt;</span> <span class="kw">auto</span> cross0<span class="op">(</span><span class="at">const</span> <span class="bu">std::</span>array<span class="op">&lt;</span>_K<span class="op">,</span> <span class="dv">3</span><span class="op">&gt;</span> <span class="op">&amp;</span>v<span class="op">,</span> <span class="at">const</span> <span class="bu">std::</span>array<span class="op">&lt;</span>_K<span class="op">,</span> <span class="dv">3</span><span class="op">&gt;</span> <span class="op">&amp;</span>w<span class="op">)</span> <span class="op">-&gt;</span> _K <span class="op">{</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> v<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">*</span> w<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">-</span> w<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">*</span> v<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>Ring _K<span class="op">&gt;</span> <span class="kw">auto</span> cross<span class="op">(</span><span class="at">const</span> Point <span class="op">&amp;</span>v<span class="op">,</span> <span class="at">const</span> Point <span class="op">&amp;</span>w<span class="op">)</span> <span class="op">-&gt;</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">Value_type</span><span class="op">&lt;</span>Point<span class="op">&gt;,</span> <span class="dv">3</span><span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">{</span>cross0<span class="op">(</span>v<span class="op">,</span> w<span class="op">),</span> <span class="op">-</span>cross1<span class="op">(</span>v<span class="op">,</span> w<span class="op">),</span> cross2<span class="op">(</span>v<span class="op">,</span> w<span class="op">)};</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="cross-product-components">Cross Product Components:</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline"><em>c</em><sub>0</sub></span></td>
+<td><span
+class="math inline"><em>v</em><sub>1</sub><em>w</em><sub>2</sub> − <em>w</em><sub>1</sub><em>v</em><sub>2</sub></span></td>
+</tr>
+<tr>
+<td><span class="math inline"><em>c</em><sub>1</sub></span></td>
+<td><span
+class="math inline"><em>v</em><sub>0</sub><em>w</em><sub>2</sub> − <em>w</em><sub>0</sub><em>v</em><sub>2</sub></span></td>
+</tr>
+<tr>
+<td><span class="math inline"><em>c</em><sub>2</sub></span></td>
+<td><span
+class="math inline"><em>v</em><sub>0</sub><em>w</em><sub>1</sub> − <em>w</em><sub>0</sub><em>v</em><sub>1</sub></span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="benefits-1">Benefits:</h3>
+<ul>
+<li>SIMD-friendly 📦</li>
+<li>Predictable timing ⏱️</li>
+<li>No branch misprediction penalties</li>
+</ul>
+<hr />
+<!-- slide 22: Testing Framework -->
+<h1 id="testing-framework">🧪 Testing Framework</h1>
+<p>Uses <strong>doctest</strong> for unit testing and
+<strong>RapidCheck</strong> for property-based testing:</p>
+<h3 id="unit-test-example">Unit Test Example:</h3>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>TEST_CASE<span class="op">(</span><span class="st">&quot;Perspective&quot;</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> pt_p <span class="op">=</span> pg_point<span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">};</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> pt_q <span class="op">=</span> pg_point<span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> ln_m <span class="op">=</span> pg_line<span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">};</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    CHECK<span class="op">(</span>fun<span class="op">::</span>check_axiom<span class="op">(</span>pt_p<span class="op">,</span> pt_q<span class="op">,</span> ln_m<span class="op">));</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="property-based-test">Property-Based Test:</h3>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifdef RAPIDCHECK_H</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>TEST_CASE<span class="op">(</span><span class="st">&quot;Cross product is anti-symmetric&quot;</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> <span class="op">[</span>v<span class="op">,</span> w<span class="op">]</span> <span class="op">=</span> gen<span class="op">().</span><span class="kw">template</span> produce<span class="op">&lt;</span>arenas<span class="op">::</span>two<span class="op">&gt;();</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    RC_PRE<span class="op">(!</span>coincident<span class="op">(</span>v <span class="op">*</span> w<span class="op">));</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    RC_ASSERT<span class="op">(</span>cross<span class="op">(</span>v<span class="op">,</span> w<span class="op">)</span> <span class="op">==</span> <span class="op">-</span>cross<span class="op">(</span>w<span class="op">,</span> v<span class="op">));</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
+<h3 id="run-tests">Run Tests:</h3>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> build/test <span class="kw">&amp;&amp;</span> <span class="ex">ctest</span> <span class="at">-V</span></span></code></pre></div>
+<hr />
+<!-- slide 23: Build System -->
+<h1 id="build-system">🏗️ Build System</h1>
+<p>Modern CMake with CPM.cmake:</p>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">project</span>(ProjGeom <span class="ot">VERSION</span> <span class="dt">1.0.5</span> <span class="ot">LANGUAGES</span> <span class="ot">CXX</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Header-only library</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="kw">add_library</span>(<span class="dv">${PROJECT_NAME}</span> <span class="bn">INTERFACE</span>)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Dependencies via CPM</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="fu">CPMAddPackage</span>(<span class="st">&quot;gh:TheLartians/PackageProject.cmake@1.8.0&quot;</span>)</span></code></pre></div>
+<h3 id="configuration-options">Configuration Options:</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-DENABLE_TEST_COVERAGE=1</code></td>
+<td>Code coverage</td>
+</tr>
+<tr>
+<td><code>-DUSE_SANITIZER=Address</code></td>
+<td>Address sanitizer</td>
+</tr>
+<tr>
+<td><code>-DUSE_STATIC_ANALYZER=clang-tidy</code></td>
+<td>Static analysis</td>
+</tr>
+</tbody>
+</table>
+<h3 id="build-test">Build &amp; Test:</h3>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> build/test <span class="kw">&amp;&amp;</span> <span class="ex">ctest</span> <span class="at">-V</span></span></code></pre></div>
+<hr />
+<!-- slide 24: Code Coverage -->
+<h1 id="code-coverage">📊 Code Coverage</h1>
+<p>Comprehensive test coverage:</p>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build <span class="at">-DENABLE_TEST_COVERAGE</span><span class="op">=</span>1</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> build/test <span class="kw">&amp;&amp;</span> <span class="ex">ctest</span></span></code></pre></div>
+<h3 id="coverage-report">Coverage Report:</h3>
+<pre><code>Filename                        |  Regions |  Missed Regions | Cover | Functions  | Missed Functions | Executed |      Coverage |
+----------------------------|----------|------------------|-------|-----------|------------------|--------|------------------|
+pg_point.hpp                |        8|               0| 100.00%|          6|               0| 100.00%|          100.00%|
+pg_line.hpp                |        7|               0| 100.00%|          5|               0| 100.00%|          100.00%|
+proj_plane.hpp             |       15|               1|  93.33%|         12|               1|  91.67%|           91.67%|
+euclid_plane.hpp          |        9|               0| 100.00%|          8|               0| 100.00%|          100.00%|
+
+----------------------------|----------|------------------|-------|-----------|------------------|--------|------------------|
+                            |       52|               1|  98.08%|         40|               2|  95.00%|           95.00%|</code></pre>
+<hr />
+<!-- slide 25: Code Formatting -->
+<h1 id="code-formatting">🎨 Code Formatting</h1>
+<p>Enforced via <strong>clang-format</strong> and
+<strong>cmake-format</strong>:</p>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check formatting</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build <span class="at">--target</span> format</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply fixes</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build <span class="at">--target</span> fix-format</span></code></pre></div>
+<h3 id="style-configuration-.clang-format">Style Configuration
+(<code>.clang-format</code>):</h3>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BasedOnStyle</span><span class="kw">:</span><span class="at"> Google</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ColumnLimit</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">IndentWidth</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">BreakBeforeBraces</span><span class="kw">:</span><span class="at"> Attach</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">IndentPPDirectives</span><span class="kw">:</span><span class="at"> After</span></span></code></pre></div>
+<h3 id="include-order-regrouped">Include Order (regrouped):</h3>
+<ol type="1">
+<li>🔷 Associated header</li>
+<li>🔷 Project headers</li>
+<li>🔷 Standard library</li>
+<li>🔷 External headers</li>
+</ol>
+<hr />
+<!-- slide 26: Documentation -->
+<h1 id="automated-documentation">📚 Automated Documentation</h1>
+<p>Generated with <strong>Doxygen</strong>:</p>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build <span class="at">--target</span> GenerateDocs</span></code></pre></div>
+<h3 id="features">Features:</h3>
+<ul>
+<li>📄 Automatic API docs</li>
+<li>📐 Mathematical formulas</li>
+<li>🔗 Cross-references</li>
+<li>🌐 Published via GitHub Pages</li>
+</ul>
+<h3 id="live-demo-luk036.github.ioprojgeom-cpp">Live Demo: <a
+href="https://luk036.github.io/projgeom-cpp">luk036.github.io/projgeom-cpp</a></h3>
+<hr />
+<!-- slide 27: Library Architecture -->
+<h1 id="library-architecture">🏛️ Library Architecture</h1>
+<h3 id="file-structure">File Structure:</h3>
+<pre><code>include/projgeom/
+├── pg_common.hpp        # Common operations (cross, dot)
+├── pg_object.hpp     # Base object class
+├── pg_point.hpp    # Projective point
+├── pg_line.hpp    # Projective line
+├── proj_plane.hpp  # Projective plane operations
+├── euclid_plane.hpp # Euclidean plane
+├── ck_plane.hpp   # Cayley-Klein plane
+├── persp_plane.hpp # Perspective-Euclidean
+├── fractions.hpp  # Rational numbers
+└── ...</code></pre>
+<h3 id="dependencies">Dependencies:</h3>
+<pre class="mermaid"><code>graph TD
+    pg_common --&gt; pg_object
+    pg_object --&gt; pg_point
+    pg_object --&gt; pg_line
+    pg_point --&gt; proj_plane
+    pg_line --&gt; proj_plane
+    proj_plane --&gt; euclid_plane
+    proj_plane --&gt; ck_plane
+    ck_plane --&gt; persp_plane</code></pre>
+<hr />
+<!-- slide 28: Class Hierarchy -->
+<h1 id="class-hierarchy">🔺 Class Hierarchy</h1>
+<h3 id="pg_object---base-template">pg_object - Base Template:</h3>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span>Ring _K<span class="op">,</span> <span class="kw">typename</span> _Dual<span class="op">&gt;</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> pg_object <span class="op">{</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">using</span> Dual <span class="op">=</span> _Dual<span class="op">;</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>array<span class="op">&lt;</span>_K<span class="op">,</span> <span class="dv">3</span><span class="op">&gt;</span> _Base<span class="op">;</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">constexpr</span> <span class="kw">auto</span> dot<span class="op">(</span><span class="at">const</span> _Dual <span class="op">&amp;</span>other<span class="op">)</span> <span class="at">const</span> <span class="op">-&gt;</span> _K<span class="op">;</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">constexpr</span> <span class="kw">auto</span> <span class="kw">operator</span><span class="op">*(</span><span class="at">const</span> _Dual <span class="op">&amp;</span>other<span class="op">)</span> <span class="at">const</span> <span class="op">-&gt;</span> <span class="co">/* cross */</span><span class="op">;</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h3 id="concrete-types">Concrete Types:</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Represents</th>
+<th>Dimension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pg_point&lt;_K&gt;</code></td>
+<td>Point in <span class="math inline">ℙ<sup>2</sup></span></td>
+<td>2D</td>
+</tr>
+<tr>
+<td><code>pg_line&lt;_K&gt;</code></td>
+<td>Line in <span class="math inline">ℙ<sup>2*</sup></span></td>
+<td>1D</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dual-relationship">Dual Relationship:</h3>
+<div class="sourceCode" id="cb47"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>pg_point<span class="op">&lt;</span>_K<span class="op">&gt;</span> ⇄ pg_line<span class="op">&lt;</span>_K<span class="op">&gt;</span>  <span class="op">(</span>polarity<span class="op">)</span></span></code></pre></div>
+<hr />
+<!-- slide 29: API Summary -->
+<h1 id="api-summary">📋 API Summary</h1>
+<h3 id="core-functions">Core Functions:</h3>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Incidence</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> incident<span class="op">(</span>Point<span class="op">,</span> Line<span class="op">)</span> <span class="op">-&gt;</span> <span class="dt">bool</span><span class="op">;</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> coincident<span class="op">(</span>Line<span class="op">,</span> Points<span class="op">...)</span> <span class="op">-&gt;</span> <span class="dt">bool</span><span class="op">;</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Construction</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> join<span class="op">(</span>Point<span class="op">,</span> Point<span class="op">)</span> <span class="op">-&gt;</span> Line<span class="op">;</span>       <span class="co">// Join two points</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> meet<span class="op">(</span>Line<span class="op">,</span> Line<span class="op">)</span> <span class="op">-&gt;</span> Point<span class="op">;</span>       <span class="co">// Meet two lines</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> parametrize<span class="op">(</span>K<span class="op">,</span> Point<span class="op">,</span> K<span class="op">,</span> Point<span class="op">)</span> <span class="op">-&gt;</span> Point<span class="op">;</span></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Triangle operations</span></span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> tri_dual<span class="op">(</span>Triple<span class="op">&lt;</span>Point<span class="op">&gt;)</span> <span class="op">-&gt;</span> Triple<span class="op">&lt;</span>Line<span class="op">&gt;;</span></span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> tri_midpoint<span class="op">(</span>Triple<span class="op">&lt;</span>Point<span class="op">&gt;)</span> <span class="op">-&gt;</span> Triple<span class="op">&lt;</span>Point<span class="op">&gt;;</span></span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a><span class="co">// Theorems</span></span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> persp<span class="op">(</span>Triple<span class="op">&lt;</span>Point<span class="op">&gt;,</span> Triple<span class="op">&lt;</span>Point<span class="op">&gt;)</span> <span class="op">-&gt;</span> <span class="dt">bool</span><span class="op">;</span></span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> check_desargue<span class="op">(</span>Triple<span class="op">&lt;</span>Point<span class="op">&gt;,</span> Triple<span class="op">&lt;</span>Point<span class="op">&gt;)</span> <span class="op">-&gt;</span> <span class="dt">void</span><span class="op">;</span></span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> check_pappus<span class="op">(</span>Triple<span class="op">&lt;</span>Point<span class="op">&gt;,</span> Triple<span class="op">&lt;</span>Point<span class="op">&gt;)</span> <span class="op">-&gt;</span> <span class="dt">void</span><span class="op">;</span></span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a><span class="co">// Advanced</span></span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> harm_conj<span class="op">(</span>Point<span class="op">,</span> Point<span class="op">,</span> Point<span class="op">)</span> <span class="op">-&gt;</span> Point<span class="op">;</span></span>
+<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> is_harmonic<span class="op">(</span>Point<span class="op">,</span> Point<span class="op">,</span> Point<span class="op">,</span> Point<span class="op">)</span> <span class="op">-&gt;</span> <span class="dt">bool</span><span class="op">;</span></span></code></pre></div>
+<hr />
+<!-- slide 30: Use Cases -->
+<h1 id="use-cases">🎯 Use Cases</h1>
+<h3 id="computer-graphics">1. Computer Graphics 🎨</h3>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Projective transformations</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> transform <span class="op">=</span> matrix_4x4<span class="op">;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> point_3d <span class="op">=</span> project_to_plane<span class="op">(</span>transform<span class="op">,</span> original<span class="op">);</span></span></code></pre></div>
+<h3 id="computer-vision">2. Computer Vision 👁️</h3>
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Perspective projection</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> image_point <span class="op">=</span> camera_model<span class="op">-&gt;</span>project<span class="op">(</span>world_point<span class="op">);</span></span></code></pre></div>
+<h3 id="robotics">3. Robotics 🤖</h3>
+<div class="sourceCode" id="cb51"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Homogeneous transforms</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> pose <span class="op">=</span> homogeneous_transform<span class="op">(</span>position<span class="op">,</span> rotation<span class="op">);</span></span></code></pre></div>
+<h3 id="geographic-information-systems">4. Geographic Information
+Systems 🗺️</h3>
+<div class="sourceCode" id="cb52"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Map projections</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> projected <span class="op">=</span> utm_coordinate<span class="op">(</span>lat<span class="op">,</span> lon<span class="op">);</span></span></code></pre></div>
+<h3 id="physics---optics">5. Physics - Optics ⚛️</h3>
+<div class="sourceCode" id="cb53"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Ray tracing</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> focal_point <span class="op">=</span> lens<span class="op">-&gt;</span>focus<span class="op">(</span>incident_ray<span class="op">);</span></span></code></pre></div>
+<hr />
+<!-- slide 31: Performance Benchmarks -->
+<h1 id="performance-benchmarks">⚡ Performance Benchmarks</h1>
+<h3 id="cross-product-operation">Cross Product Operation:</h3>
+<pre><code>Operation: cross(a, b)
+Iterations: 10000000
+
+Compiler: Clang 17.0.1
+Runtime: 0.123s
+Throughput: 81.3M ops/sec</code></pre>
+<h3 id="join-operation">Join Operation:</h3>
+<pre><code>Operation: join(p, q)
+Iterations: 10000000
+
+Compiler: Clang 17.0.1
+Runtime: 0.156s  
+Throughput: 64.1M ops/sec</code></pre>
+<h3 id="compile-time-vs-runtime">Compile-time vs Runtime:</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>compile_time</th>
+<th>runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>small (3-5 pts)</td>
+<td>0.02s</td>
+<td>0.01s</td>
+</tr>
+<tr>
+<td>medium (100 pts)</td>
+<td>0.34s</td>
+<td>0.12s</td>
+</tr>
+<tr>
+<td>large (1000 pts)</td>
+<td>3.21s</td>
+<td>1.05s</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<!-- slide 32: Related Libraries -->
+<h1 id="related-libraries">🔗 Related Libraries</h1>
+<h3 id="similar-projects">Similar Projects:</h3>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Language</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CGAL</strong></td>
+<td>C++</td>
+<td>Computational geometry</td>
+</tr>
+<tr>
+<td><strong>Geometries</strong></td>
+<td>C++</td>
+<td>Type-safe geometry</td>
+</tr>
+<tr>
+<td><strong>shapely</strong></td>
+<td>Python</td>
+<td>Pythonic API</td>
+</tr>
+<tr>
+<td>** projective.js**</td>
+<td>JavaScript</td>
+<td>WebGL support</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-differences">Key Differences:</h3>
+<ul>
+<li>✅ <strong>Header-only</strong>: No build for the library</li>
+<li>✅ <strong>constexpr</strong>: Compile-time computation</li>
+<li>✅ <strong>Concepts</strong>: Modern C++ type safety</li>
+<li>✅ <strong>Branchless</strong>: SIMD-friendly</li>
+</ul>
+<hr />
+<!-- slide 33: Contributing -->
+<h1 id="contributing">🤝 Contributing</h1>
+<h3 id="how-to-contribute">How to Contribute:</h3>
+<ol type="1">
+<li><strong>Fork</strong> the repository</li>
+<li><strong>Clone</strong> locally</li>
+<li><strong>Create</strong> a feature branch</li>
+<li><strong>Implement</strong> with tests</li>
+<li><strong>Format</strong> code</li>
+<li><strong>Submit</strong> PR</li>
+</ol>
+<h3 id="code-standards">Code Standards:</h3>
+<ul>
+<li>✅ clang-format enforced</li>
+<li>✅ 100% test coverage</li>
+<li>✅ doctest + RapidCheck</li>
+<li>✅ constexpr required</li>
+</ul>
+<h3 id="development-workflow">Development Workflow:</h3>
+<div class="sourceCode" id="cb56"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> feature/my-feature</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Make changes</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build <span class="at">--target</span> fix-format</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="ex">./build/test/ProjGeomTests</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add . <span class="kw">&amp;&amp;</span> <span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;feat: add feature&quot;</span></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin feature/my-feature</span></code></pre></div>
+<hr />
+<!-- slide 34: Installation -->
+<h1 id="installation">📥 Installation</h1>
+<h3 id="via-cmake">Via CMake:</h3>
+<div class="sourceCode" id="cb57"><pre
+class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">include</span>(<span class="im">FetchContent</span>)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">FetchContent_Declare</span>(projgeom <span class="ot">GIT_REPOSITORY</span> https://github.com/luk036/projgeom-cpp)</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">FetchContent_MakeAvailable</span>(projgeom)</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="kw">target_link_libraries</span>(<span class="bn">your_target</span> <span class="ot">PRIVATE</span> <span class="bn">projgeom::projgeom</span>)</span></code></pre></div>
+<h3 id="via-vcpkg">Via vcpkg:</h3>
+<div class="sourceCode" id="cb58"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vcpkg</span> install projgeom-cpp</span></code></pre></div>
+<h3 id="via-pkg-config">Via pkg-config:</h3>
+<div class="sourceCode" id="cb59"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pkg-config</span> <span class="at">--cflags</span> <span class="at">--libs</span> projgeom</span></code></pre></div>
+<hr />
+<!-- slide 35: Future Work -->
+<h1 id="future-work">🚀 Future Work</h1>
+<h3 id="planned-features">Planned Features:</h3>
+<ul>
+<li>📐 N-dimensional projective spaces (<span
+class="math inline">ℙ<sup><em>n</em></sup></span>)</li>
+<li>📏 Conic sections (ellipse, parabola, hyperbola)</li>
+<li>🔄 Projective transformations (matrices)</li>
+<li>🌐 Network graphics support</li>
+<li>🤖 Machine learning utilities</li>
+</ul>
+<h3 id="community-requests">Community Requests:</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />GPU acceleration</label></li>
+<li><label><input type="checkbox" />Python bindings</label></li>
+<li><label><input type="checkbox" />Rust bindings</label></li>
+<li><label><input type="checkbox" />JavaScript/WASM</label></li>
+</ul>
+<h3 id="help-wanted">Help Wanted! 🙋</h3>
+<p>Contribute at: <a
+href="https://github.com/luk036/projgeom-cpp">github.com/luk036/projgeom-cpp</a></p>
+<hr />
+<!-- slide 36: References -->
+<h1 id="references">📚 References</h1>
+<h3 id="textbooks">Textbooks:</h3>
+<ol type="1">
+<li>** Coxeter, H.S.M.** — <em>Introduction to Geometry</em> (1969)</li>
+<li>** Pedoe, D.** — <em>Geometry and the Liberal Arts</em> (1976)</li>
+<li>** Samuel, P.** — <em>Projective Geometry</em> (1988)</li>
+</ol>
+<h3 id="papers">Papers:</h3>
+<ul>
+<li><strong>Gaming the System: Homogeneous Coordinates</strong> —
+Graphics Gems</li>
+<li><strong>Cayley-Klen Geometry</strong> — Klein, 1872</li>
+</ul>
+<h3 id="online-resources">Online Resources:</h3>
+<ul>
+<li><a
+href="https://en.wikipedia.org/wiki/Projective_geometry">Wikipedia:
+Projective Geometry</a></li>
+<li><a
+href="https://mathworld.wolfram.com/ProjectiveGeometry.html">Wolfram:
+Projective Geometry</a></li>
+</ul>
+<hr />
+<!-- slide 37: Summary - What We Learned -->
+<h1 id="summary">📝 Summary</h1>
+<h3 id="key-takeaways">Key Takeaways:</h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Homogeneous coords</strong></td>
+<td><span
+class="math inline">[<em>x</em> : <em>y</em> : <em>z</em>]</span>
+representation</td>
+</tr>
+<tr>
+<td><strong>Join</strong></td>
+<td>Point × Point → Line</td>
+</tr>
+<tr>
+<td><strong>Meet</strong></td>
+<td>Line × Line → Point</td>
+</tr>
+<tr>
+<td><strong>Incidence</strong></td>
+<td><span class="math inline"><em>P</em> ⋅ <em>L</em> = 0</span>
+test</td>
+</tr>
+<tr>
+<td><strong>Cross ratio</strong></td>
+<td>Projective invariant</td>
+</tr>
+<tr>
+<td><strong>Duality</strong></td>
+<td>Points ↔︎ Lines</td>
+</tr>
+</tbody>
+</table>
+<h3 id="library-highlights">Library Highlights:</h3>
+<ul>
+<li>✅ constexpr all operations</li>
+<li>✅ C++20 concepts</li>
+<li>✅ Branchless computation</li>
+<li>✅ Header-only design</li>
+<li>✅ Comprehensive tests</li>
+</ul>
+<hr />
+<!-- slide 38: Q&A -->
+<h1 id="qa">❓ Q&amp;A</h1>
+<h3 id="ask-me-anything">Ask Me Anything!</h3>
+<ul>
+<li>📧 luk036@gmail.com</li>
+<li>🐛 Issues: github.com/luk036/projgeom-cpp/issues</li>
+<li>💬 Discussions: github.com/luk036/projgeom-cpp/discussions</li>
+</ul>
+<h3 id="demo-time">Demo Time! 🎬</h3>
+<p>Let’s explore the library with live examples…</p>
+<hr />
+<!-- slide 39: Thank You! -->
+<h1 id="thank-you">🙏 Thank You!</h1>
+<div data-align="center">
+<figure>
+<img src="projective-geometry.svg" alt="projgeom-logo" />
+<figcaption aria-hidden="true">projgeom-logo</figcaption>
+</figure>
+<h3 id="projgeom-cpp">🔯 projgeom-cpp</h3>
+<p><em>A modern C++20 library for projective geometry</em></p>
+<p><strong>GitHub:</strong> github.com/luk036/projgeom-cpp<br />
+<strong>License:</strong> MIT</p>
+</div>
+<hr />
+<!-- slide 40: Backup Slides -->
+<h1 id="backup-mathematical-foundations">📎 Backup: Mathematical
+Foundations</h1>
+<h3 id="vector-space-formulas">Vector Space Formulas:</h3>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 32%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Formula</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cross</td>
+<td><span
+class="math inline"><strong>v</strong> × <strong>w</strong></span></td>
+<td><code>cross(v, w)</code></td>
+</tr>
+<tr>
+<td>Dot</td>
+<td><span
+class="math inline"><strong>v</strong> ⋅ <strong>w</strong></span></td>
+<td><code>dot_c(v, w)</code></td>
+</tr>
+<tr>
+<td>Plücker</td>
+<td><span
+class="math inline"><em>λ</em><strong>v</strong> + <em>μ</em><strong>w</strong></span></td>
+<td><code>plucker_c(λ, v, μ, w)</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dualities">Dualities:</h3>
+<ul>
+<li><strong>Point</strong> ↔︎ <strong>Line</strong> (1D ↔︎ 2D
+subspaces)</li>
+<li><strong>Join</strong> ↔︎ <strong>Meet</strong> (incidence
+preserving)</li>
+<li><strong>Cross ratio</strong> preserved under all projections</li>
+</ul>
+<hr />
+<!-- slide 41: Backup: Theorem Proofs -->
+<h1 id="backup-theorem-proofs">📎 Backup: Theorem Proofs</h1>
+<h3 id="desargues-theorem-projective-version">Desargues’ Theorem
+(Projective Version):</h3>
+<ol type="1">
+<li>If triangles are perspective from <span
+class="math inline"><em>O</em></span>, lines <span
+class="math inline"><em>A</em><em>A</em><sup>′</sup></span>, <span
+class="math inline"><em>B</em><em>B</em><sup>′</sup></span>, <span
+class="math inline"><em>C</em><em>C</em><sup>′</sup></span> meet at
+<span class="math inline"><em>O</em></span></li>
+<li>Intersection points define a line <span
+class="math inline"><em>l</em></span> (perspectivity from a line)</li>
+<li>Dual theorem: triangles are also perspective from line <span
+class="math inline"><em>l</em></span></li>
+</ol>
+<h3 id="pappus-theorem-analytic-proof">Pappus’ Theorem (Analytic
+Proof):</h3>
+<ol type="1">
+<li>Using join-meet operations: <span
+class="math inline"><em>G</em> = (<em>A</em> × <em>E</em>) × (<em>B</em> × <em>D</em>)</span></li>
+<li>Compute coordinates of <span
+class="math inline"><em>G</em>, <em>H</em>, <em>I</em></span></li>
+<li>Show <span
+class="math inline"><em>G</em>, <em>H</em>, <em>I</em></span> satisfy
+<span
+class="math inline">det (<em>G</em>, <em>H</em>, <em>I</em>) = 0</span>
+(collinearity)</li>
+</ol>
+<hr />
+<!-- slide 42: Backup: Example Code -->
+<h1 id="backup-full-example">📎 Backup: Full Example</h1>
+<div class="sourceCode" id="cb60"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Complete example: verify Desargues&#39; theorem</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;projgeom/pg_point.hpp&gt;</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;projgeom/pg_line.hpp&gt;</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;projgeom/proj_plane.hpp&gt;</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Define two triangles</span></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>    fun<span class="op">::</span>Triple<span class="op">&lt;</span>fun<span class="op">::</span>pg_point<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&gt;</span> tri1 <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>        fun<span class="op">::</span>pg_point<span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>        fun<span class="op">::</span>pg_point<span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>        fun<span class="op">::</span>pg_point<span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">}</span></span>
+<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">};</span></span>
+<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb60-14"><a href="#cb60-14" aria-hidden="true" tabindex="-1"></a>    fun<span class="op">::</span>Triple<span class="op">&lt;</span>fun<span class="op">::</span>pg_point<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&gt;</span> tri2 <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb60-15"><a href="#cb60-15" aria-hidden="true" tabindex="-1"></a>        fun<span class="op">::</span>pg_point<span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb60-16"><a href="#cb60-16" aria-hidden="true" tabindex="-1"></a>        fun<span class="op">::</span>pg_point<span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">},</span></span>
+<span id="cb60-17"><a href="#cb60-17" aria-hidden="true" tabindex="-1"></a>        fun<span class="op">::</span>pg_point<span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">}</span></span>
+<span id="cb60-18"><a href="#cb60-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">};</span></span>
+<span id="cb60-19"><a href="#cb60-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb60-20"><a href="#cb60-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Verify Desargues</span></span>
+<span id="cb60-21"><a href="#cb60-21" aria-hidden="true" tabindex="-1"></a>    fun<span class="op">::</span>check_desargue<span class="op">(</span>tri1<span class="op">,</span> tri2<span class="op">);</span></span>
+<span id="cb60-22"><a href="#cb60-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb60-23"><a href="#cb60-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb60-24"><a href="#cb60-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<!-- slide 43: Backup: CMake Options -->
+<h1 id="backup-cmake-options">📎 Backup: CMake Options</h1>
+<div class="sourceCode" id="cb61"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic build</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="co"># With coverage</span></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build <span class="at">-DENABLE_TEST_COVERAGE</span><span class="op">=</span>1</span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="co"># With sanitizers</span></span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build <span class="at">-DUSE_SANITIZER</span><span class="op">=</span>Address</span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a><span class="co"># With static analyzer</span></span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build <span class="at">-DUSE_STATIC_ANALYZER</span><span class="op">=</span>clang-tidy</span>
+<span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-13"><a href="#cb61-13" aria-hidden="true" tabindex="-1"></a><span class="co"># With ccache</span></span>
+<span id="cb61-14"><a href="#cb61-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build <span class="at">-DUSE_CCACHE</span><span class="op">=</span>ON</span>
+<span id="cb61-15"><a href="#cb61-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-16"><a href="#cb61-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Combined</span></span>
+<span id="cb61-17"><a href="#cb61-17" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build <span class="at">-DENABLE_TEST_COVERAGE</span><span class="op">=</span>1 <span class="at">-DUSE_SANITIZER</span><span class="op">=</span>Address <span class="at">-DUSE_CCACHE</span><span class="op">=</span>ON</span></code></pre></div>
+<hr />
+<!-- slide 44: Backup: Test Execution -->
+<h1 id="backup-running-tests">📎 Backup: Running Tests</h1>
+<div class="sourceCode" id="cb62"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run all tests</span></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> build/test <span class="kw">&amp;&amp;</span> <span class="ex">ctest</span> <span class="at">-V</span></span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Run specific test</span></span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="ex">./build/test/ProjGeomTests</span> <span class="at">--test-case</span><span class="op">=</span><span class="st">&quot;Perspective&quot;</span></span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run tests matching pattern</span></span>
+<span id="cb62-12"><a href="#cb62-12" aria-hidden="true" tabindex="-1"></a><span class="ex">./build/test/ProjGeomTests</span> <span class="at">-ts</span><span class="op">=</span><span class="st">&quot;Persp&quot;</span></span>
+<span id="cb62-13"><a href="#cb62-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-14"><a href="#cb62-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Run with coverage report</span></span>
+<span id="cb62-15"><a href="#cb62-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-S.</span> <span class="at">-B</span> build <span class="at">-DENABLE_TEST_COVERAGE</span><span class="op">=</span>1</span>
+<span id="cb62-16"><a href="#cb62-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span>
+<span id="cb62-17"><a href="#cb62-17" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> build/test <span class="kw">&amp;&amp;</span> <span class="ex">ctest</span></span></code></pre></div>
+<hr />
+<!-- slide 45: Backup: Contact Info -->
+<h1 id="backup-contact">📎 Backup: Contact</h1>
+<div data-align="center">
+<p><strong>Author:</strong> Wai-Shing Luk<br />
+<strong>Email:</strong> luk036@gmail.com<br />
+<strong>GitHub:</strong> github.com/luk036/projgeom-cpp</p>
+<p><strong>License:</strong> MIT<br />
+<strong>Version:</strong> 1.0.5</p>
+</div>
+</body>
+</html>

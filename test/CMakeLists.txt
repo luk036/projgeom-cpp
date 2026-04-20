@@ -43,12 +43,12 @@ endif()
 
 # enable compiler warnings
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-  target_compile_options(${PROJECT_NAME} INTERFACE -Wall -Wpedantic -Wextra -Werror)
+  target_compile_options(${PROJECT_NAME} INTERFACE -Wall -Wpedantic -Wextra -Werror -Wno-deprecated-literal-operator)
 elseif(MSVC)
   target_compile_options(${PROJECT_NAME} INTERFACE /W4 /WX /wd4996)
   target_compile_definitions(${PROJECT_NAME}Tests INTERFACE DOCTEST_CONFIG_USE_STD_HEADERS)
 else()
-  target_compile_options(${PROJECT_NAME} INTERFACE -Wall -Wpedantic -Wextra -Werror)
+  target_compile_options(${PROJECT_NAME} INTERFACE -Wall -Wpedantic -Wextra -Werror -Wno-deprecated-literal-operator)
 endif()
 
 # ---- Add ${PROJECT_NAME}Tests ----
