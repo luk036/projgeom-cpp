@@ -38,7 +38,7 @@ namespace fun {
         { t.size() } -> STD_ALT::convertible_to<std::size_t>;
         { t.empty() } -> STD_ALT::convertible_to<bool>;
         { t.back() } -> STD_ALT::same_as<Element_type<T>>;
-        { t.push_back(x) };
+        { t.emplace_back(x) };
     };
 
     /**

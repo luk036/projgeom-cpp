@@ -5,7 +5,7 @@
 #include <fstream>
 
 TEST_CASE("Spdlogger basic test") {
-    std::cout << "=== Testing spdlogger integration ===" << std::endl;
+    std::cout << "=== Testing spdlogger integration ===\n";
     
     // Test wrapper function
     projgeom::log_with_spdlog("Spdlogger test initialization");
@@ -32,8 +32,8 @@ TEST_CASE("Spdlogger basic test") {
     
     if (log_file.is_open()) {
         log_file.close();
-        std::cout << "✓ Log file created successfully" << std::endl;
+        std::cout << "✓ Log file created successfully\n";
     }
     
-    std::cout << "=== Spdlogger integration test completed ===" << std::endl;
+    std::cout << "=== Spdlogger integration test completed ===\n";
 }
