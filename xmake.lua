@@ -15,7 +15,7 @@ end
 --     if is_plat("linux") then
 --         add_cxflags("-fconcepts", {force = true})
 --     elseif is_plat("windows") then
---         add_cxflags("/W4 /WX /wd4819", {force = true})
+--         add_cxflags("/W4 /WX /wd4459 /wd4819", {force = true})
 --     end
 --     add_packages("range-v3")
 
@@ -37,7 +37,7 @@ if is_plat("linux") then
     end
 	-- add_cxflags("-fconcepts", {force = true})
 elseif is_plat("windows") then
-	add_cxflags("/W4 /WX /wd4996", { force = true })
+	add_cxflags("/W4 /WX /wd4459 /wd4996", { force = true })
 end
 -- add_packages("fmt", "doctest", "range-v3")
 add_packages("fmt", "doctest", "spdlog")
