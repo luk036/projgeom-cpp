@@ -32,5 +32,5 @@ TEST_CASE("Elliptic") {
 
 TEST_CASE("PerspPoint") {
     auto pt_p = PerspPoint({1, 2, 3});
-    CHECK(pt_p.perp() == L_INF);
+    CHECK_EQ(pt_p.perp(), L_INF);
 }

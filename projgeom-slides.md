@@ -179,8 +179,8 @@ TEST_CASE("Point-Line Incidence") {
     auto pt_q = pg_point{4, 5, 6};
     auto l = join(pt_p, pt_q);
     
-    CHECK(fun::incident(pt_p, l) == true);
-    CHECK(fun::incident(pt_q, l) == true);
+    CHECK_EQ(fun::incident(pt_p, l), true);
+    CHECK_EQ(fun::incident(pt_q, l), true);
 }
 ```
 
