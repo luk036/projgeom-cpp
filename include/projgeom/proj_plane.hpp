@@ -32,7 +32,7 @@ namespace fun {
      */
     template <typename Point, typename Line>
         requires ProjectivePlane<Point, Line>
-    constexpr auto incident(const Point &pt_p, const Line &ln_l) -> bool {
+    constexpr auto incident(const Point& pt_p, const Line& ln_l) -> bool {
         return pt_p.dot(ln_l) == Value_type<Point>(0);
     }
 
@@ -46,7 +46,7 @@ namespace fun {
      */
     template <typename Line, typename... Args>
         requires(ProjectivePlanePrim<Line, Args> && ...)
-    constexpr auto coincident(const Line &ln_l, const Args &...pt_r) -> bool {
+    constexpr auto coincident(const Line& ln_l, const Args&... pt_r) -> bool {
         return (incident(pt_r, ln_l) && ...);
     }
 
@@ -65,10 +65,10 @@ namespace fun {
      * @param[in] triangle Array of three non-collinear points
      * @return auto Array of three lines (the sides)
      */
-    template <ProjectivePlanePrim2 Point> constexpr auto tri_dual(const Triple<Point> &triangle)
+    template <ProjectivePlanePrim2 Point> constexpr auto tri_dual(const Triple<Point>& triangle)
 
     {
-        const auto &[a1, a2, a3] = triangle;
+        const auto& [a1, a2, a3] = triangle;
         assert(!coincident(a2 * a3, a1));
         return std::array{a2 * a3, a1 * a3, a1 * a2};
     }
@@ -83,10 +83,10 @@ namespace fun {
      * @return auto Array of three results
      */
     template <ProjectivePlanePrim2 Point, typename Fn>
-    constexpr auto tri_func(Fn &&func, const Triple<Point> &triangle)
+    constexpr auto tri_func(Fn&& func, const Triple<Point>& triangle)
 
     {
-        const auto &[a1, a2, a3] = triangle;
+        const auto& [a1, a2, a3] = triangle;
         return std::array{func(a2, a3), func(a1, a3), func(a1, a2)};
     }
 
@@ -99,9 +99,9 @@ namespace fun {
      * @return false
      */
     template <ProjectivePlanePrim2 Point>
-    constexpr auto persp(const Triple<Point> &tri1, const Triple<Point> &tri2) -> bool {
-        const auto &[A, B, C] = tri1;
-        const auto &[D, E, F] = tri2;
+    constexpr auto persp(const Triple<Point>& tri1, const Triple<Point>& tri2) -> bool {
+        const auto& [A, B, C] = tri1;
+        const auto& [D, E, F] = tri2;
         const auto O = (A * D) * (B * E);
         return incident(O, C * F);
     }
@@ -117,7 +117,7 @@ namespace fun {
      * @return constexpr Point The harmonic conjugate
      */
     template <ProjectivePlane2 Point>
-    constexpr auto harm_conj(const Point &A, const Point &B, const Point &C) -> Point {
+    constexpr auto harm_conj(const Point& A, const Point& B, const Point& C) -> Point {
         assert(incident(A * B, C));
         const auto lC = C * (A * B).aux();
         return parametrize(B.dot(lC), A, A.dot(lC), B);
@@ -135,7 +135,7 @@ namespace fun {
      * @return constexpr Point The harmonic conjugate
      */
     template <ProjectivePlaneGeneric2 _Point>
-    constexpr auto harm_conj(const _Point &A, const _Point &B, const _Point &C) -> _Point {
+    constexpr auto harm_conj(const _Point& A, const _Point& B, const _Point& C) -> _Point {
         assert(incident(A * B, C));
         const auto AB = A * B;
         const auto P = AB.aux();
@@ -156,9 +156,9 @@ namespace fun {
      * @param[in] D Fourth point
      * @return constexpr auto true if harmonic, false otherwise
      */
-    template <ProjectivePlane2 Point> constexpr auto is_harmonic(const Point &A, const Point &B,
-                                                                 const Point &C,
-                                                                 const Point &D) -> bool {
+    template <ProjectivePlane2 Point>
+    constexpr auto is_harmonic(const Point& A, const Point& B, const Point& C, const Point& D)
+        -> bool {
         return harm_conj(A, B, C) == D;
     }
 
@@ -195,7 +195,7 @@ namespace fun {
          * @param[in] pt_p The point to transform
          * @return Point The transformed point
          */
-        constexpr auto operator()(const Point &pt_p) const -> Point {
+        constexpr auto operator()(const Point& pt_p) const -> Point {
             return parametrize(this->_c, pt_p, K(-2 * pt_p.dot(this->_m)), this->_o);
         }
 
@@ -206,7 +206,7 @@ namespace fun {
          * @param[in] ln_l The line to transform
          * @return Line The transformed line
          */
-        constexpr auto operator()(const Line &ln_l) const -> Line {
+        constexpr auto operator()(const Line& ln_l) const -> Line {
             return parametrize(this->_c, ln_l, K(-2 * ln_l.dot(this->_o)), this->_m);
         }
     };
@@ -243,7 +243,7 @@ namespace fun {
          * @param[in] pt_p The point to transform
          * @return Point The transformed point
          */
-        constexpr auto operator()(const Point &pt_p) const -> Point {
+        constexpr auto operator()(const Point& pt_p) const -> Point {
             auto po = pt_p * this->_o;
             auto B = po * this->_m;
             return harm_conj(this->_o, B, pt_p);
@@ -259,11 +259,11 @@ namespace fun {
      * @param[in] coline2 Second triple of collinear points
      */
     template <ProjectivePlanePrim2 Point>
-    void check_pappus(const Triple<Point> &coline1, const Triple<Point> &coline2)
+    void check_pappus(const Triple<Point>& coline1, const Triple<Point>& coline2)
 
     {
-        const auto &[A, B, C] = coline1;
-        const auto &[D, E, F] = coline2;
+        const auto& [A, B, C] = coline1;
+        const auto& [D, E, F] = coline2;
 
         const auto G = (A * E) * (B * D);
         const auto H = (A * F) * (C * D);
@@ -281,7 +281,7 @@ namespace fun {
      * @param[in] tri2 Second triangle
      */
     template <ProjectivePlanePrim2 Point>
-    void check_desargue(const Triple<Point> &tri1, const Triple<Point> &tri2) {
+    void check_desargue(const Triple<Point>& tri1, const Triple<Point>& tri2) {
         const auto trid1 = tri_dual(tri1);
         const auto trid2 = tri_dual(tri2);
         const auto bool1 = persp(tri1, tri2);

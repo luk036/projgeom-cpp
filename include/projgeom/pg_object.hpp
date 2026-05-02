@@ -13,8 +13,8 @@
  * @param[in] pt_b
  * @return int64_t
  */
-constexpr auto dot(const std::array<int64_t, 3> &pt_a,
-                   const std::array<int64_t, 3> &pt_b) -> int64_t {
+constexpr auto dot(const std::array<int64_t, 3>& pt_a, const std::array<int64_t, 3>& pt_b)
+    -> int64_t {
     return pt_a[0] * pt_b[0] + pt_a[1] * pt_b[1] + pt_a[2] * pt_b[2];
 }
 
@@ -25,8 +25,8 @@ constexpr auto dot(const std::array<int64_t, 3> &pt_a,
  * @param[in] pt_b
  * @return std::array<int64_t, 3>
  */
-constexpr auto cross(const std::array<int64_t, 3> &pt_a,
-                     const std::array<int64_t, 3> &pt_b) -> std::array<int64_t, 3> {
+constexpr auto cross(const std::array<int64_t, 3>& pt_a, const std::array<int64_t, 3>& pt_b)
+    -> std::array<int64_t, 3> {
     return {
         pt_a[1] * pt_b[2] - pt_a[2] * pt_b[1],
         pt_a[2] * pt_b[0] - pt_a[0] * pt_b[2],
@@ -43,8 +43,8 @@ constexpr auto cross(const std::array<int64_t, 3> &pt_a,
  * @param[in] pt_q
  * @return std::array<int64_t, 3>
  */
-constexpr auto plckr(const int64_t &lambda, const std::array<int64_t, 3> &pt_p, const int64_t &mu,
-                     const std::array<int64_t, 3> &pt_q) -> std::array<int64_t, 3> {
+constexpr auto plckr(const int64_t& lambda, const std::array<int64_t, 3>& pt_p, const int64_t& mu,
+                     const std::array<int64_t, 3>& pt_q) -> std::array<int64_t, 3> {
     return {
         lambda * pt_p[0] + mu * pt_q[0],
         lambda * pt_p[1] + mu * pt_q[1],
@@ -78,7 +78,7 @@ template <typename Point, typename Line> struct PgObject {
      * @return true
      * @return false
      */
-    friend constexpr auto operator==(const Point &lhs, const Point &rhs) -> bool {
+    friend constexpr auto operator==(const Point& lhs, const Point& rhs) -> bool {
         return &lhs == &rhs ? true
                             : lhs.coord[1] * rhs.coord[2] == lhs.coord[2] * rhs.coord[1]
                                   && lhs.coord[2] * rhs.coord[0] == lhs.coord[0] * rhs.coord[2]
@@ -93,7 +93,7 @@ template <typename Point, typename Line> struct PgObject {
      * @return true
      * @return false
      */
-    friend constexpr auto operator!=(const Point &lhs, const Point &rhs) -> bool {
+    friend constexpr auto operator!=(const Point& lhs, const Point& rhs) -> bool {
         return !(lhs == rhs);
     }
 
@@ -110,7 +110,7 @@ template <typename Point, typename Line> struct PgObject {
      * @param[in] other
      * @return int64_t
      */
-    constexpr auto dot(const Line &other) const -> int64_t {
+    constexpr auto dot(const Line& other) const -> int64_t {
         return ::dot(this->coord, other.coord);
     }
 
@@ -123,8 +123,8 @@ template <typename Point, typename Line> struct PgObject {
      * @param[in] pt_q
      * @return Point
      */
-    static constexpr auto parametrize(const int64_t &lambda, const Point &pt_p, const int64_t &mu,
-                                      const Point &pt_q) -> Point {
+    static constexpr auto parametrize(const int64_t& lambda, const Point& pt_p, const int64_t& mu,
+                                      const Point& pt_q) -> Point {
         return Point{::plckr(lambda, pt_p.coord, mu, pt_q.coord)};
     }
 
@@ -135,7 +135,7 @@ template <typename Point, typename Line> struct PgObject {
      * @return true
      * @return false
      */
-    constexpr auto incident(const Line &other) const -> bool { return this->dot(other) == 0; }
+    constexpr auto incident(const Line& other) const -> bool { return this->dot(other) == 0; }
 
     /**
      * @brief
@@ -143,7 +143,7 @@ template <typename Point, typename Line> struct PgObject {
      * @param[in] rhs
      * @return Line
      */
-    constexpr auto meet(const Point &rhs) const -> Line {
+    constexpr auto meet(const Point& rhs) const -> Line {
         return Line{::cross(this->coord, rhs.coord)};
     }
 };

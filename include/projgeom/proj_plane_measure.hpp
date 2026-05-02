@@ -23,7 +23,7 @@ namespace fun {
      * @param[in] d Second denominator
      * @return auto The ratio of ratios
      */
-    template <Ring K> constexpr auto ratio_ratio(const K &a, const K &b, const K &c, const K &d) {
+    template <Ring K> constexpr auto ratio_ratio(const K& a, const K& b, const K& c, const K& d) {
         if constexpr (Integral<K>) {
             return Fraction(a, b) / Fraction(c, d);
         } else {
@@ -46,7 +46,7 @@ namespace fun {
      */
     template <typename Point, typename Line>
         requires ProjectivePlane<Point, Line>
-    constexpr auto x_ratio(const Point &A, const Point &B, const Line &line_l, const Line &line_m) {
+    constexpr auto x_ratio(const Point& A, const Point& B, const Line& line_l, const Line& line_m) {
         return ratio_ratio(A.dot(line_l), A.dot(line_m), B.dot(line_l), B.dot(line_m));
     }
 
@@ -62,7 +62,7 @@ namespace fun {
      * @return constexpr auto The cross ratio
      */
     template <ProjectivePlaneCoord2 Point>
-    constexpr auto R(const Point &A, const Point &B, const Point &C, const Point &D)
+    constexpr auto R(const Point& A, const Point& B, const Point& C, const Point& D)
 
     {
         using K = Value_type<Point>;
@@ -85,7 +85,7 @@ namespace fun {
      * @return constexpr auto The cross ratio
      */
     template <ProjectivePlane2 Point>
-    constexpr auto R(const Point &A, const Point &B, const Point &C, const Point &D) {
+    constexpr auto R(const Point& A, const Point& B, const Point& C, const Point& D) {
         const auto O = (C * D).aux();
         return x_ratio(A, B, O * C, O * D);
     }
@@ -101,7 +101,7 @@ namespace fun {
      * @return constexpr auto The cross ratio
      */
     template <ProjectivePlaneCoord2 Point>
-    constexpr auto R0(const Point &A, const Point &B, const Point &C, const Point &D) {
+    constexpr auto R0(const Point& A, const Point& B, const Point& C, const Point& D) {
         return ratio_ratio(cross0(A, C), cross0(A, D), cross0(B, C), cross0(B, D));
     }
 
@@ -116,7 +116,7 @@ namespace fun {
      * @return constexpr auto The cross ratio
      */
     template <ProjectivePlaneCoord2 Point>
-    constexpr auto R1(const Point &A, const Point &B, const Point &C, const Point &D) {
+    constexpr auto R1(const Point& A, const Point& B, const Point& C, const Point& D) {
         return ratio_ratio(cross1(A, C), cross1(A, D), cross1(B, C), cross1(B, D));
     }
 

@@ -59,7 +59,7 @@ namespace fun {
          *
          * @return const Line& The line at infinity
          */
-        [[nodiscard]] constexpr auto l_inf() const -> const Line & { return this->_l_inf; }
+        [[nodiscard]] constexpr auto l_inf() const -> const Line& { return this->_l_inf; }
 
         /**
          * @brief Compute the pole of a line.
@@ -67,7 +67,7 @@ namespace fun {
          * @param[in] v A line
          * @return Point The pole (polar) of the line
          */
-        [[nodiscard]] constexpr auto perp(const Line &v) const -> Point {
+        [[nodiscard]] constexpr auto perp(const Line& v) const -> Point {
             const auto alpha = v.dot(this->_I_re);
             const auto beta = v.dot(this->_I_im);
             return parametrize(alpha, this->_I_re, beta, this->_I_im);
@@ -80,7 +80,7 @@ namespace fun {
          * @param[in] ln_m Second line
          * @return true if lines are parallel, false otherwise
          */
-        [[nodiscard]] constexpr auto is_parallel(const Line &ln_l, const Line &ln_m) const -> bool {
+        [[nodiscard]] constexpr auto is_parallel(const Line& ln_l, const Line& ln_m) const -> bool {
             return incident(this->_l_inf, ln_l * ln_m);
         }
 
@@ -91,7 +91,7 @@ namespace fun {
          * @param[in] pt_b Second point
          * @return Point The midpoint
          */
-        [[nodiscard]] constexpr auto midpoint(const Point &pt_a, const Point &pt_b) const -> Point {
+        [[nodiscard]] constexpr auto midpoint(const Point& pt_a, const Point& pt_b) const -> Point {
             const auto alpha = a.dot(this->_l_inf);
             const auto beta = pt_b.dot(this->_l_inf);
             return parametrize(alpha, pt_a, beta, pt_b);
@@ -103,8 +103,8 @@ namespace fun {
          * @param[in] triangle Array of three points
          * @return Triple<Point> Array of three midpoints
          */
-        [[nodiscard]] constexpr auto tri_midpoint(const Triple<Point> &triangle) const {
-            const auto &[a1, a2, a3] = triangle;
+        [[nodiscard]] constexpr auto tri_midpoint(const Triple<Point>& triangle) const {
+            const auto& [a1, a2, a3] = triangle;
 
             return Triple<Point>{this->midpoint(a1, a2), this->midpoint(a2, a3),
                                  this->midpoint(a1, a3)};
@@ -117,7 +117,7 @@ namespace fun {
          * @param[in] x A point
          * @return K The omega value
          */
-        [[nodiscard]] constexpr auto omega(const Point &x) const -> K {
+        [[nodiscard]] constexpr auto omega(const Point& x) const -> K {
             return sq(x.dot(this->_l_inf));
         }
 
@@ -128,7 +128,7 @@ namespace fun {
          * @param[in] x A line
          * @return K The omega value
          */
-        [[nodiscard]] constexpr auto omega(const Line &x) const -> K {
+        [[nodiscard]] constexpr auto omega(const Line& x) const -> K {
             return sq(x.dot(this->_I_re)) + sq(x.dot(this->_I_im));
         }
 
@@ -141,7 +141,7 @@ namespace fun {
          * @return auto The measure value
          */
         template <ProjectivePlane2 _Point>
-        [[nodiscard]] constexpr auto measure(const _Point &a1, const _Point &a2) const {
+        [[nodiscard]] constexpr auto measure(const _Point& a1, const _Point& a2) const {
             const auto omg = K(this->omega(a1 * a2));
             const auto den = K(this->omega(a1) * this->omega(a2));
             if constexpr (Integral<K>) {

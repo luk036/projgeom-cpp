@@ -17,7 +17,7 @@ namespace fun {
      */
     template <typename K>
         requires Integral<K>
-    constexpr auto quad1(const K &x1, const K &z1, const K &x2, const K &z2) {
+    constexpr auto quad1(const K& x1, const K& z1, const K& x2, const K& z2) {
         return sq(Fraction<K>(x1, z1) - Fraction<K>(x2, z2));
     }
 
@@ -33,7 +33,7 @@ namespace fun {
      */
     template <typename K>
     // requires (!Integral<K>)
-    constexpr auto quad1(const K &x1, const K &z1, const K &x2, const K &z2) {
+    constexpr auto quad1(const K& x1, const K& z1, const K& x2, const K& z2) {
         return sq(x1 / z1 - x2 / z2);
     }
 
@@ -47,7 +47,7 @@ namespace fun {
      * @return auto The quadrance (squared distance)
      */
     template <ProjectivePlaneCoord2 Point>
-    constexpr auto quadrance(const Point &a1, const Point &a2) {
+    constexpr auto quadrance(const Point& a1, const Point& a2) {
         return quad1(a1[0], a1[2], a2[0], a2[2]) + quad1(a1[1], a1[2], a2[1], a2[2]);
     }
 
@@ -58,7 +58,7 @@ namespace fun {
      * @param[in] args Pairs of points
      * @return std::tuple of quadrance values
      */
-    template <typename... Args> constexpr auto quadrance_copy(const Args &...args) {
+    template <typename... Args> constexpr auto quadrance_copy(const Args&... args) {
         return std::make_tuple(quadrance(args.first, args.second)...);
     }
 
@@ -76,7 +76,7 @@ namespace fun {
      * @return auto
      */
     template <ProjectivePlaneCoord2 Line, typename T>
-    constexpr auto sbase(const Line &l1, const Line &l2, const T &d) {
+    constexpr auto sbase(const Line& l1, const Line& l2, const T& d) {
         using K = Value_type<Line>;
         if constexpr (Integral<K>) {
             return Fraction<K>(d, dot1(l1, l1)) * Fraction<K>(d, dot1(l2, l2));
@@ -94,7 +94,7 @@ namespace fun {
      * @param[in] l2 Second line
      * @return auto The spread
      */
-    template <ProjectivePlaneCoord2 Line> constexpr auto spread(const Line &l1, const Line &l2) {
+    template <ProjectivePlaneCoord2 Line> constexpr auto spread(const Line& l1, const Line& l2) {
         return sbase(l1, l2, cross2(l1, l2));
     }
 
@@ -106,8 +106,8 @@ namespace fun {
      * @return auto Array of three quadrance values
      */
     template <ProjectivePlaneCoord2 Point>
-    constexpr auto tri_quadrance(const Triple<Point> &triangle) {
-        const auto &[a1, a2, a3] = triangle;
+    constexpr auto tri_quadrance(const Triple<Point>& triangle) {
+        const auto& [a1, a2, a3] = triangle;
         return std::array{quadrance(a2, a3), quadrance(a1, a3), quadrance(a1, a2)};
     }
 
@@ -119,8 +119,8 @@ namespace fun {
      * @return auto Array of three spread values
      */
     template <ProjectivePlaneCoord2 Line>
-    constexpr auto tri_spread(const Triple<Line> &trilateral) {
-        const auto &[a1, a2, a3] = trilateral;
+    constexpr auto tri_spread(const Triple<Line>& trilateral) {
+        const auto& [a1, a2, a3] = trilateral;
         return std::array{spread(a2, a3), spread(a1, a3), spread(a1, a2)};
     }
 
@@ -132,7 +132,7 @@ namespace fun {
      * @param[in] l2 Second line
      * @return auto The cross spread
      */
-    template <ProjectivePlaneCoord2 Line> constexpr auto cross_s(const Line &l1, const Line &l2) {
+    template <ProjectivePlaneCoord2 Line> constexpr auto cross_s(const Line& l1, const Line& l2) {
         return sbase(l1, l2, dot1(l1, l2));
     }
 
@@ -145,7 +145,7 @@ namespace fun {
      * @param[in] b Second point
      * @return auto The Euclidean distance
      */
-    template <ProjectivePlaneCoord2 Point> constexpr auto distance(const Point &a, const Point &b) {
+    template <ProjectivePlaneCoord2 Point> constexpr auto distance(const Point& a, const Point& b) {
         return std::sqrt(double(quadrance(a, b)));
     }
 
@@ -158,7 +158,7 @@ namespace fun {
      * @return auto The angle in radians
      */
     template <ProjectivePlaneCoord2 Line>
-    constexpr auto angle(const Line &line_l, const Line &line_m) {
+    constexpr auto angle(const Line& line_l, const Line& line_m) {
         return std::asin(std::sqrt(double(spread(line_l, line_m))));
     }
 

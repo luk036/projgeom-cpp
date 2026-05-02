@@ -19,7 +19,7 @@ namespace fun {
      * @param[in] w
      * @return 1st term of Cross product
      */
-    template <Ring _K> auto cross0(const std::array<_K, 3> &v, const std::array<_K, 3> &w) -> _K {
+    template <Ring _K> auto cross0(const std::array<_K, 3>& v, const std::array<_K, 3>& w) -> _K {
         return v[1] * w[2] - w[1] * v[2];
     }
 
@@ -31,7 +31,7 @@ namespace fun {
      * @param[in] w
      * @return 2nd term of Cross product
      */
-    template <Ring _K> auto cross1(const std::array<_K, 3> &v, const std::array<_K, 3> &w) -> _K {
+    template <Ring _K> auto cross1(const std::array<_K, 3>& v, const std::array<_K, 3>& w) -> _K {
         return v[0] * w[2] - w[0] * v[2];
     }
 
@@ -43,7 +43,7 @@ namespace fun {
      * @param[in] w
      * @return 3rd term of Cross product
      */
-    template <Ring _K> auto cross2(const std::array<_K, 3> &v, const std::array<_K, 3> &w) -> _K {
+    template <Ring _K> auto cross2(const std::array<_K, 3>& v, const std::array<_K, 3>& w) -> _K {
         return v[0] * w[1] - w[0] * v[1];
     }
 
@@ -57,7 +57,7 @@ namespace fun {
      */
     template <typename Point>
         requires Ring<Value_type<Point>>
-    auto cross(const Point &v, const Point &w) -> std::array<Value_type<Point>, 3> {
+    auto cross(const Point& v, const Point& w) -> std::array<Value_type<Point>, 3> {
         return {cross0(v, w), -cross1(v, w), cross2(v, w)};
     }
 
@@ -69,9 +69,9 @@ namespace fun {
      * @param[in] w
      * @return auto
      */
-    template <Ring _K> auto dot_c(const std::array<_K, 3> &v, const std::array<_K, 3> &w) -> _K {
-        const auto &[x1, y1, z1] = v;
-        const auto &[x2, y2, z2] = w;
+    template <Ring _K> auto dot_c(const std::array<_K, 3>& v, const std::array<_K, 3>& w) -> _K {
+        const auto& [x1, y1, z1] = v;
+        const auto& [x2, y2, z2] = w;
         return x1 * x2 + y1 * y2 + z1 * z2;
     }
 
@@ -85,11 +85,11 @@ namespace fun {
      * @param[in] w
      * @return lamda*v + mu*w
      */
-    template <Ring _T, Ring _K> auto plucker_c(const _T &lambda, const std::array<_K, 3> &v1,
-                                               const _T &mu,
-                                               const std::array<_K, 3> &v2) -> std::array<_K, 3> {
-        const auto &[x1, y1, z1] = v1;
-        const auto &[x2, y2, z2] = v2;
+    template <Ring _T, Ring _K> auto plucker_c(const _T& lambda, const std::array<_K, 3>& v1,
+                                               const _T& mu, const std::array<_K, 3>& v2)
+        -> std::array<_K, 3> {
+        const auto& [x1, y1, z1] = v1;
+        const auto& [x2, y2, z2] = v2;
         return {lambda * x1 + mu * x2, lambda * y1 + mu * y2, lambda * z1 + mu * z2};
     }
 
@@ -101,7 +101,7 @@ namespace fun {
      * @param[in] w
      * @return auto
      */
-    template <Ring _K> auto dot1(const std::array<_K, 3> &v, const std::array<_K, 3> &w) -> _K {
+    template <Ring _K> auto dot1(const std::array<_K, 3>& v, const std::array<_K, 3>& w) -> _K {
         return v[0] * w[0] + v[1] * w[1];
     }
 
@@ -113,7 +113,7 @@ namespace fun {
      * @param[in] w
      * @return auto
      */
-    template <Ring _K> auto dot2(const std::array<_K, 3> &v, const std::array<_K, 3> &w) -> _K {
+    template <Ring _K> auto dot2(const std::array<_K, 3>& v, const std::array<_K, 3>& w) -> _K {
         return v[0] * w[0] + v[2] * w[2];
     }
 
@@ -124,6 +124,6 @@ namespace fun {
      * @param[in] a input value
      * @return a^2
      */
-    template <typename T> constexpr auto sq(const T &a) { return a * a; }
+    template <typename T> constexpr auto sq(const T& a) { return a * a; }
 
 }  // namespace fun

@@ -32,7 +32,7 @@ namespace fun {
          *
          * @param[in] a array of coordinates
          */
-        constexpr explicit pg_line(const _Base2 &a) : _Base{a} {}
+        constexpr explicit pg_line(const _Base2& a) : _Base{a} {}
 
         /**
          * @brief Construct a new pg_object object
@@ -41,13 +41,13 @@ namespace fun {
          * @param[in] y
          * @param[in] z
          */
-        constexpr pg_line(const _K &x, const _K &y, const _K &z) : _Base{_Base2{x, y, z}} {}
+        constexpr pg_line(const _K& x, const _K& y, const _K& z) : _Base{_Base2{x, y, z}} {}
     };
 
     /// Return the meet (intersection) of two lines to form a point.
     /// In projective geometry, two distinct lines always intersect at a point.
-    template <Ring _K>
-    constexpr auto meet(const pg_line<_K> &ln_l, const pg_line<_K> &ln_m) -> pg_point<_K> {
+    template <Ring _K> constexpr auto meet(const pg_line<_K>& ln_l, const pg_line<_K>& ln_m)
+        -> pg_point<_K> {
         return ln_l * ln_m;
     }
 

@@ -26,13 +26,13 @@ namespace fun {
          * @brief Construct a new pg pt_p object
          *
          */
-        explicit pg_point(const pg_point<_K> &) = default;
+        explicit pg_point(const pg_point<_K>&) = default;
 
         /**
          * @brief Construct a new pg pt_p object
          *
          */
-        pg_point(pg_point<_K> &&) noexcept = default;
+        pg_point(pg_point<_K>&&) noexcept = default;
 
         /**
          * @brief Copy assignment operator (deleted)
@@ -40,21 +40,21 @@ namespace fun {
          * Copy assignment is disabled for pg_point.
          * @return pg_point<_K>&
          */
-        auto operator=(const pg_point<_K> &) -> pg_point<_K> & = delete;
+        auto operator=(const pg_point<_K>&) -> pg_point<_K>& = delete;
 
         /**
          * @brief Move assignment operator
          *
          * @return pg_point<_K>&
          */
-        auto operator=(pg_point<_K> &&) noexcept -> pg_point<_K> & = default;
+        auto operator=(pg_point<_K>&&) noexcept -> pg_point<_K>& = default;
 
         /**
          * @brief Construct a new pg object object
          *
          * @param[in] a array of coordinates
          */
-        constexpr explicit pg_point(const _Base2 &a) : _Base{a} {}
+        constexpr explicit pg_point(const _Base2& a) : _Base{a} {}
 
         /**
          * @brief Construct a new pg_object object
@@ -63,7 +63,7 @@ namespace fun {
          * @param[in] y
          * @param[in] z
          */
-        constexpr pg_point(const _K &x, const _K &y, const _K &z) : _Base{_Base2{x, y, z}} {}
+        constexpr pg_point(const _K& x, const _K& y, const _K& z) : _Base{_Base2{x, y, z}} {}
     };
 
     /**
@@ -75,8 +75,8 @@ namespace fun {
      * @param[in] pt_q Second point
      * @return pg_line<_K> The line through the two points
      */
-    template <Ring _K>
-    constexpr auto join(const pg_point<_K> &pt_p, const pg_point<_K> &pt_q) -> pg_line<_K> {
+    template <Ring _K> constexpr auto join(const pg_point<_K>& pt_p, const pg_point<_K>& pt_q)
+        -> pg_line<_K> {
         return pt_p * pt_q;
     }
 

@@ -24,7 +24,8 @@ CPMAddPackage(
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
 add_executable(${PROJECT_NAME}Tests ${sources})
 target_link_libraries(
-  ${PROJECT_NAME}Tests doctest::doctest ${PROJECT_NAME}::${PROJECT_NAME} ${PROJECT_NAME}Lib ${SPECIFIC_LIBS}
+  ${PROJECT_NAME}Tests doctest::doctest ${PROJECT_NAME}::${PROJECT_NAME} ${PROJECT_NAME}Lib
+  ${SPECIFIC_LIBS}
 )
 set_target_properties(${PROJECT_NAME}Tests PROPERTIES CXX_STANDARD 20)
 
@@ -43,12 +44,16 @@ endif()
 
 # enable compiler warnings
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-  target_compile_options(${PROJECT_NAME} INTERFACE -Wall -Wpedantic -Wextra -Werror -Wno-deprecated-literal-operator)
+  target_compile_options(
+    ${PROJECT_NAME} INTERFACE -Wall -Wpedantic -Wextra -Werror -Wno-deprecated-literal-operator
+  )
 elseif(MSVC)
   target_compile_options(${PROJECT_NAME} INTERFACE /W4 /WX /wd4459 /wd4996)
   target_compile_definitions(${PROJECT_NAME}Tests INTERFACE DOCTEST_CONFIG_USE_STD_HEADERS)
 else()
-  target_compile_options(${PROJECT_NAME} INTERFACE -Wall -Wpedantic -Wextra -Werror -Wno-deprecated-literal-operator)
+  target_compile_options(
+    ${PROJECT_NAME} INTERFACE -Wall -Wpedantic -Wextra -Werror -Wno-deprecated-literal-operator
+  )
 endif()
 
 # ---- Add ${PROJECT_NAME}Tests ----

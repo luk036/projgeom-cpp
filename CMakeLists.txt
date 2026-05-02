@@ -85,7 +85,7 @@ packageProject(
 
 if(NOT INSTALL_ONLY)
   include(specific.cmake)
-  
+
   # Create a static library for logger implementation (must be after specific.cmake)
   file(GLOB_RECURSE source_files CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp")
   if(source_files)
@@ -93,7 +93,7 @@ if(NOT INSTALL_ONLY)
     target_link_libraries(${PROJECT_NAME}Lib PRIVATE ${SPECIFIC_LIBS})
     target_include_directories(${PROJECT_NAME}Lib PRIVATE ${PROJECT_SOURCE_DIR}/include)
   endif()
-  
+
   add_subdirectory(test)
   # add_subdirectory(standalone)
   add_subdirectory(documentation)

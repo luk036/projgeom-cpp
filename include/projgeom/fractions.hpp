@@ -22,7 +22,7 @@ namespace fun {
      * @param[in] a
      * @return T
      */
-    template <typename T> constexpr auto abs(const T &a) -> T {
+    template <typename T> constexpr auto abs(const T& a) -> T {
         if constexpr (std::is_unsigned_v<T>) {
             return a;
         } else {
@@ -38,7 +38,7 @@ namespace fun {
      * @param[in] __n
      * @return _Mn
      */
-    template <Integral _Mn> constexpr auto gcd_recur(const _Mn &__m, const _Mn &__n) -> _Mn {
+    template <Integral _Mn> constexpr auto gcd_recur(const _Mn& __m, const _Mn& __n) -> _Mn {
         if (__n == 0) {
             return abs(__m);
         }
@@ -53,7 +53,7 @@ namespace fun {
      * @param[in] __n
      * @return _Mn
      */
-    template <Integral _Mn> constexpr auto gcd(const _Mn &__m, const _Mn &__n) -> _Mn {
+    template <Integral _Mn> constexpr auto gcd(const _Mn& __m, const _Mn& __n) -> _Mn {
         if (__m == 0) {
             return abs(__n);
         }
@@ -68,7 +68,7 @@ namespace fun {
      * @param[in] __n
      * @return _Mn
      */
-    template <Integral _Mn> constexpr auto lcm(const _Mn &__m, const _Mn &__n) -> _Mn {
+    template <Integral _Mn> constexpr auto lcm(const _Mn& __m, const _Mn& __n) -> _Mn {
         if (__m == 0 || __n == 0) {
             return 0;
         }
@@ -136,14 +136,14 @@ namespace fun {
          *
          * @param[in] num
          */
-        constexpr explicit Fraction(Z &&num) : _num{std::move(num)}, _den(Z(1)) {}
+        constexpr explicit Fraction(Z&& num) : _num{std::move(num)}, _den(Z(1)) {}
 
         /**
          * @brief Construct a new Fraction object
          *
          * @param[in] num
          */
-        constexpr explicit Fraction(const Z &num) : _num{num}, _den(1) {}
+        constexpr explicit Fraction(const Z& num) : _num{num}, _den(1) {}
 
         /**
          * @brief Construct a new Fraction object
@@ -157,14 +157,14 @@ namespace fun {
          *
          * @return const Z&
          */
-        [[nodiscard]] constexpr auto num() const noexcept -> const Z & { return _num; }
+        [[nodiscard]] constexpr auto num() const noexcept -> const Z& { return _num; }
 
         /**
          * @brief
          *
          * @return const Z&
          */
-        [[nodiscard]] constexpr auto den() const noexcept -> const Z & { return _den; }
+        [[nodiscard]] constexpr auto den() const noexcept -> const Z& { return _den; }
 
         /**
          * @brief cross product
@@ -172,7 +172,7 @@ namespace fun {
          * @param[in] rhs
          * @return Z
          */
-        constexpr auto cross(const Fraction &rhs) const -> Z {
+        constexpr auto cross(const Fraction& rhs) const -> Z {
             return this->_num * rhs._den - this->_den * rhs._num;
         }
 
@@ -240,7 +240,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        friend constexpr auto operator==(const Z &lhs, const Fraction &rhs) -> bool {
+        friend constexpr auto operator==(const Z& lhs, const Fraction& rhs) -> bool {
             return rhs == lhs;
         }
 
@@ -295,7 +295,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        constexpr auto operator!=(const Fraction &rhs) const -> bool { return !(*this == rhs); }
+        constexpr auto operator!=(const Fraction& rhs) const -> bool { return !(*this == rhs); }
 
         /**
          * @brief Greater than
@@ -304,7 +304,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        constexpr auto operator>(const Fraction &rhs) const -> bool { return rhs < *this; }
+        constexpr auto operator>(const Fraction& rhs) const -> bool { return rhs < *this; }
 
         /**
          * @brief Greater than or euqal to
@@ -313,7 +313,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        constexpr auto operator>=(const Fraction &rhs) const -> bool { return !(*this < rhs); }
+        constexpr auto operator>=(const Fraction& rhs) const -> bool { return !(*this < rhs); }
 
         /**
          * @brief Less than or equal to
@@ -322,7 +322,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        constexpr auto operator<=(const Fraction &rhs) const -> bool { return !(rhs < *this); }
+        constexpr auto operator<=(const Fraction& rhs) const -> bool { return !(rhs < *this); }
 
         /**
          * @brief Greater than
@@ -331,7 +331,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        constexpr auto operator>(const Z &rhs) const -> bool { return rhs < *this; }
+        constexpr auto operator>(const Z& rhs) const -> bool { return rhs < *this; }
 
         /**
          * @brief Less than or equal to
@@ -340,7 +340,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        constexpr auto operator<=(const Z &rhs) const -> bool { return !(rhs < *this); }
+        constexpr auto operator<=(const Z& rhs) const -> bool { return !(rhs < *this); }
 
         /**
          * @brief Greater than or equal to
@@ -349,7 +349,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        constexpr auto operator>=(const Z &rhs) const -> bool { return !(*this < rhs); }
+        constexpr auto operator>=(const Z& rhs) const -> bool { return !(*this < rhs); }
 
         /**
          * @brief Greater than
@@ -359,7 +359,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        friend constexpr auto operator>(const Z &lhs, const Fraction &rhs) -> bool {
+        friend constexpr auto operator>(const Z& lhs, const Fraction& rhs) -> bool {
             return rhs < lhs;
         }
 
@@ -371,7 +371,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        friend constexpr auto operator<=(const Z &lhs, const Fraction &rhs) -> bool {
+        friend constexpr auto operator<=(const Z& lhs, const Fraction& rhs) -> bool {
             return !(rhs < lhs);
         }
 
@@ -383,7 +383,7 @@ namespace fun {
          * @return true
          * @return false
          */
-        friend constexpr auto operator>=(const Z &lhs, const Fraction &rhs) -> bool {
+        friend constexpr auto operator>=(const Z& lhs, const Fraction& rhs) -> bool {
             return !(lhs < rhs);
         }
 
@@ -404,7 +404,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction&
          */
-        constexpr auto operator*=(Fraction rhs) -> Fraction & {
+        constexpr auto operator*=(Fraction rhs) -> Fraction& {
             std::swap(this->_num, rhs._num);
             this->normalize2();
             rhs.normalize2();
@@ -420,7 +420,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction
          */
-        friend constexpr auto operator*(Fraction lhs, const Fraction &rhs) -> Fraction {
+        friend constexpr auto operator*(Fraction lhs, const Fraction& rhs) -> Fraction {
             return lhs *= rhs;
         }
 
@@ -430,7 +430,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction&
          */
-        constexpr auto operator*=(Z rhs) -> Fraction & {
+        constexpr auto operator*=(Z rhs) -> Fraction& {
             std::swap(this->_num, rhs);
             this->normalize2();
             this->_num *= rhs;
@@ -444,7 +444,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction
          */
-        friend constexpr auto operator*(Fraction lhs, const Z &rhs) -> Fraction {
+        friend constexpr auto operator*(Fraction lhs, const Z& rhs) -> Fraction {
             return lhs *= rhs;
         }
 
@@ -455,7 +455,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction
          */
-        friend constexpr auto operator*(const Z &lhs, Fraction rhs) -> Fraction {
+        friend constexpr auto operator*(const Z& lhs, Fraction rhs) -> Fraction {
             return rhs *= lhs;
         }
 
@@ -465,7 +465,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction&
          */
-        constexpr auto operator/=(Fraction rhs) -> Fraction & {
+        constexpr auto operator/=(Fraction rhs) -> Fraction& {
             std::swap(this->_den, rhs._num);
             this->normalize();
             rhs.normalize2();
@@ -481,7 +481,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction
          */
-        friend constexpr auto operator/(Fraction lhs, const Fraction &rhs) -> Fraction {
+        friend constexpr auto operator/(Fraction lhs, const Fraction& rhs) -> Fraction {
             return lhs /= rhs;
         }
 
@@ -491,7 +491,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction&
          */
-        constexpr auto operator/=(const Z &rhs) -> Fraction & {
+        constexpr auto operator/=(const Z& rhs) -> Fraction& {
             std::swap(this->_den, rhs);
             this->normalize();
             this->_den *= rhs;
@@ -505,7 +505,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction
          */
-        friend constexpr auto operator/(Fraction lhs, const Z &rhs) -> Fraction {
+        friend constexpr auto operator/(Fraction lhs, const Z& rhs) -> Fraction {
             return lhs /= rhs;
         }
 
@@ -516,7 +516,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction
          */
-        friend constexpr auto operator/(const Z &lhs, Fraction rhs) -> Fraction {
+        friend constexpr auto operator/(const Z& lhs, Fraction rhs) -> Fraction {
             rhs.reciprocal();
             return rhs *= lhs;
         }
@@ -538,7 +538,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction
          */
-        constexpr auto operator+(const Fraction &rhs) const -> Fraction {
+        constexpr auto operator+(const Fraction& rhs) const -> Fraction {
             if (this->_den == rhs._den) {
                 return Fraction(this->_num + rhs._num, this->_den);
             }
@@ -559,7 +559,7 @@ namespace fun {
          * @param[in] frac
          * @return Fraction
          */
-        constexpr auto operator-(const Fraction &frac) const -> Fraction { return *this + (-frac); }
+        constexpr auto operator-(const Fraction& frac) const -> Fraction { return *this + (-frac); }
 
         /**
          * @brief Add
@@ -568,7 +568,7 @@ namespace fun {
          * @param[in] i
          * @return Fraction
          */
-        friend constexpr auto operator+(Fraction frac, const Z &i) -> Fraction { return frac += i; }
+        friend constexpr auto operator+(Fraction frac, const Z& i) -> Fraction { return frac += i; }
 
         /**
          * @brief Add
@@ -577,7 +577,7 @@ namespace fun {
          * @param[in] frac
          * @return Fraction
          */
-        friend constexpr auto operator+(const Z &i, Fraction frac) -> Fraction { return frac += i; }
+        friend constexpr auto operator+(const Z& i, Fraction frac) -> Fraction { return frac += i; }
 
         /**
          * @brief
@@ -585,7 +585,7 @@ namespace fun {
          * @param[in] i
          * @return Fraction
          */
-        constexpr auto operator-(const Z &i) const -> Fraction { return *this + (-i); }
+        constexpr auto operator-(const Z& i) const -> Fraction { return *this + (-i); }
 
         /**
          * @brief
@@ -593,7 +593,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction
          */
-        constexpr auto operator+=(const Fraction &rhs) -> Fraction & { return *this -= (-rhs); }
+        constexpr auto operator+=(const Fraction& rhs) -> Fraction& { return *this -= (-rhs); }
 
         /**
          * @brief
@@ -601,7 +601,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction
          */
-        constexpr auto operator-=(const Fraction &rhs) -> Fraction & {
+        constexpr auto operator-=(const Fraction& rhs) -> Fraction& {
             if (this->_den == rhs._den) {
                 this->_num -= rhs._num;
                 this->normalize2();
@@ -629,7 +629,7 @@ namespace fun {
          * @param[in] i
          * @return Fraction
          */
-        constexpr auto operator+=(const Z &i) -> Fraction & { return *this -= (-i); }
+        constexpr auto operator+=(const Z& i) -> Fraction& { return *this -= (-i); }
 
         /**
          * @brief
@@ -637,7 +637,7 @@ namespace fun {
          * @param[in] rhs
          * @return Fraction
          */
-        constexpr auto operator-=(const Z &rhs) -> Fraction & {
+        constexpr auto operator-=(const Z& rhs) -> Fraction& {
             if (this->_den == Z(1)) {
                 this->_num -= rhs;
                 return *this;
@@ -660,7 +660,7 @@ namespace fun {
          * @param[in] frac
          * @return Fraction
          */
-        friend constexpr auto operator-(const Z &c, const Fraction &frac) -> Fraction {
+        friend constexpr auto operator-(const Z& c, const Fraction& frac) -> Fraction {
             return c + (-frac);
         }
 
@@ -671,7 +671,7 @@ namespace fun {
          * @param[in] frac
          * @return Fraction
          */
-        friend constexpr auto operator+(int &&c, const Fraction &frac) -> Fraction {
+        friend constexpr auto operator+(int&& c, const Fraction& frac) -> Fraction {
             return frac + Z(c);
         }
 
@@ -682,7 +682,7 @@ namespace fun {
          * @param[in] frac
          * @return Fraction
          */
-        friend constexpr auto operator-(int &&c, const Fraction &frac) -> Fraction {
+        friend constexpr auto operator-(int&& c, const Fraction& frac) -> Fraction {
             return (-frac) + Z(c);
         }
 
@@ -693,7 +693,7 @@ namespace fun {
          * @param[in] frac
          * @return Fraction<Z>
          */
-        friend constexpr auto operator*(int &&c, const Fraction &frac) -> Fraction {
+        friend constexpr auto operator*(int&& c, const Fraction& frac) -> Fraction {
             return frac * Z(c);
         }
 
@@ -706,8 +706,8 @@ namespace fun {
          * @param[in] frac
          * @return _Stream&
          */
-        template <typename _Stream>
-        friend auto operator<<(_Stream &os, const Fraction &frac) -> _Stream & {
+        template <typename _Stream> friend auto operator<<(_Stream& os, const Fraction& frac)
+            -> _Stream& {
             os << "(" << frac.num() << "/" << frac.den() << ")";
             return os;
         }

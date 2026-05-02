@@ -27,7 +27,7 @@ class PerspPoint : public PgObject<PerspPoint, PerspLine> {
      *
      * @return const PerspLine&
      */
-    constexpr auto perp() const -> const PerspLine &;
+    constexpr auto perp() const -> const PerspLine&;
 };
 
 /**
@@ -64,7 +64,7 @@ static constexpr PerspPoint I_IM({1, 0, 0});
  *
  * @return const PerspLine&
  */
-constexpr auto PerspPoint::perp() const -> const PerspLine & { return L_INF; }
+constexpr auto PerspPoint::perp() const -> const PerspLine& { return L_INF; }
 
 /**
  * @brief Pole

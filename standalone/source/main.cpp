@@ -7,7 +7,7 @@
 #include <string>         // for char_traits, hash, operator==
 #include <unordered_map>  // for operator==, unordered_map, __hash_map_...
 
-auto main(int argc, char **argv) -> int {
+auto main(int argc, char** argv) -> int {
     // const std::unordered_map<std::string, projgeom::LanguageCode> languages{
     //     {"en", projgeom::LanguageCode::EN},
     //     {"de", projgeom::LanguageCode::DE},
