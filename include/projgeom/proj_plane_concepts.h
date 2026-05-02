@@ -1,4 +1,4 @@
-/** @file include/proj_plane_concepts.h
+/** @file proj_plane_concepts.h
  *  This is a C++ Library header.
  */
 

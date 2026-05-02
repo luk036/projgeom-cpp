@@ -1,7 +1,7 @@
 // -*- coding: utf-16 -*-
 #pragma once
 
-/** @file include/fractions.hpp
+/** @file fractions.hpp
  *  This is a C++ Library header.
  */
 
@@ -85,10 +85,10 @@ namespace fun {
         Z _den;
 
         /**
-         * @brief Construct a new Fraction object
+         * @brief Construct a new Fraction object from two values.
          *
-         * @param[in] num
-         * @param[in] den
+         * @param[in] num numerator
+         * @param[in] den denominator
          */
         constexpr Fraction(Z num, Z den) : _num{std::move(num)}, _den{std::move(den)} {
             this->normalize();
@@ -132,23 +132,17 @@ namespace fun {
         }
 
         /**
-         * @brief Construct a new Fraction object
-         *
-         * @param[in] num
+         * @brief Construct a new Fraction object from a single value (rvalue).
          */
         constexpr explicit Fraction(Z&& num) : _num{std::move(num)}, _den(Z(1)) {}
 
         /**
-         * @brief Construct a new Fraction object
-         *
-         * @param[in] num
+         * @brief Construct a new Fraction object from a single value (const ref).
          */
         constexpr explicit Fraction(const Z& num) : _num{num}, _den(1) {}
 
         /**
-         * @brief Construct a new Fraction object
-         *
-         * @param[in] num
+         * @brief Default construct a new Fraction object (0/1).
          */
         constexpr Fraction() : _num(0), _den(1) {}
 

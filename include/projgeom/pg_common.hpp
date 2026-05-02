@@ -1,4 +1,4 @@
-/** @file include/pg_common.hpp
+/** @file pg_common.hpp
  *  This is a C++ Library header.
  */
 
@@ -78,12 +78,13 @@ namespace fun {
     /**
      * @brief generic Plucker function
      *
-     * @tparam _K data type
-     * @param[in] lambda lamda
-     * @param[in] v
-     * @param[in] mu
-     * @param[in] w
-     * @return lamda*v + mu*w
+     * @tparam _T scalar type
+     * @tparam _K coordinate type
+     * @param[in] lambda scalar for v1
+     * @param[in] v1 first vector
+     * @param[in] mu scalar for v2
+     * @param[in] v2 second vector
+     * @return lambda*v1 + mu*v2
      */
     template <Ring _T, Ring _K> auto plucker_c(const _T& lambda, const std::array<_K, 3>& v1,
                                                const _T& mu, const std::array<_K, 3>& v2)

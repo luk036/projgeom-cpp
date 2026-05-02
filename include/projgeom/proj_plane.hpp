@@ -6,7 +6,7 @@
 
 #include "proj_plane_concepts.h"
 
-/** @file include/proj_plane.hpp
+/** @file proj_plane.hpp
  *  This is a C++ Library header.
  */
 
@@ -39,8 +39,8 @@ namespace fun {
     /**
      * @brief Coincident
      *
-     * @tparam[in] Line Line
-     * @tparam[in] Args points
+     * @tparam Line Line
+     * @tparam Args points
      * @return true if points are conincident (on a line ln_l)
      * @return false otherwise
      */

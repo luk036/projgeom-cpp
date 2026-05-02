@@ -3,7 +3,7 @@
 #include "fractions.hpp"
 #include "proj_plane.hpp"
 
-/** @file include/proj_plane.hpp
+/** @file proj_plane_measure.hpp
  *  This is a C++ Library header.
  */
 
@@ -36,10 +36,10 @@ namespace fun {
      *
      * @tparam Point
      * @tparam Line
-     * @param[in] A point_p \in Point
-     * @param[in] B point_p \in Point
-     * @param[in] line_l line \in Point
-     * @param[in] line_m line \in Point
+     * @param[in] A point A
+     * @param[in] B point B
+     * @param[in] line_l line l
+     * @param[in] line_m line m
      * @return cross ratio R(A,B;line_l,line_m)
      *
      * @todo rewrite by projecting to the y-axis first [:2]
@@ -78,10 +78,6 @@ namespace fun {
      *
      * Returns the cross ratio R(A, B; C, D) using a projective construction
      * that works with arbitrary projective planes.
-     * @param[in] A First point
-     * @param[in] B Second point
-     * @param[in] C Third point
-     * @param[in] D Fourth point
      * @return constexpr auto The cross ratio
      */
     template <ProjectivePlane2 Point>

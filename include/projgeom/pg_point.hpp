@@ -2,7 +2,7 @@
 // Initially implemented by Wai-Shing Luk <luk036@gmail.com>
 //
 
-/** @file include/pg_point.hpp
+/** @file pg_point.hpp
  *  This is a C++ Library header.
  */
 
