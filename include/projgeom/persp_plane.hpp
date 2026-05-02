@@ -27,38 +27,14 @@ namespace fun {
       public:
         /**
          * @brief Construct a new persp euclid plane object
-         *
-         * @param[in] I_re
-         * @param[in] I_im
-         * @param[in] l_inf
          */
         constexpr persp_euclid_plane(Point I_re, Point I_im, Line l_inf)
             : _I_re{std::move(I_re)}, _I_im{std::move(I_im)}, _l_inf{std::move(l_inf)} {}
 
-        // /**
-        //  * @brief Construct a new persp euclid plane object
-        //  *
-        //  * @param[in] I_re
-        //  * @param[in] I_im
-        //  * @param[in] l_inf
-        //  */
         // constexpr persp_euclid_plane(const Point &I_re, const Point &I_im, const
         // Line &l_inf)
         //     : _I_re{I_re}, _I_im{I_im}, _l_inf{l_inf} {}
 
-        // /**
-        //  * @brief
-        //  *
-        //  * @param[in] x
-        //  * @return const Line&
-        //  */
-        // constexpr const Line &perp(const Point &x) const { return _l_inf; }
-
-        /**
-         * @brief Get the line at infinity.
-         *
-         * @return const Line& The line at infinity
-         */
         [[nodiscard]] constexpr auto l_inf() const -> const Line& { return this->_l_inf; }
 
         /**

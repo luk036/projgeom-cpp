@@ -1,6 +1,6 @@
 # ---- Dependencies ----
 
-# CPMAddPackage("gh:mosra/m.css#42d4a9a48f31f5df6e246c948403b54b50574a2a")
+# Use m.css from master branch - track latest stable
 CPMAddPackage("gh:mosra/m.css#0a460a7a9973a41db48f735e7b49e4da9a876325")
 
 # ---- Doxygen variables ----

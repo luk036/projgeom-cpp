@@ -25,10 +25,6 @@ namespace fun {
      * @brief Compute squared difference of ratios (non-integral version).
      *
      * Computes ((x1/z1) - (x2/z2))^2 for non-integral types.
-     * @param[in] x1 First numerator
-     * @param[in] z1 First denominator
-     * @param[in] x2 Second numerator
-     * @param[in] z2 Second denominator
      * @return auto The squared difference of ratios
      */
     template <typename K>
