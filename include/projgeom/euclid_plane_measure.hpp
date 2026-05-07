@@ -1,7 +1,7 @@
 #pragma once
 
 #include "euclid_plane.hpp"
-#include "fractions.hpp"
+// #include "fractions.hpp"
 
 namespace fun {
 

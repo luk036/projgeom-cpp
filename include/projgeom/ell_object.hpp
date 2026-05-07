@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ck_plane.hpp"
+// #include "ck_plane.hpp"
 #include "pg_object.hpp"
 
 class EllipticPoint;
