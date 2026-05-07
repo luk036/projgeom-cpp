@@ -1,7 +1,6 @@
 #include <doctest/doctest.h>
 
 #include <cstdint>
-
 #include <projgeom/ck_plane.hpp>
 #include <projgeom/persp_object.hpp>
 
@@ -24,7 +23,7 @@ TEST_CASE("ck_plane: orthocenter - Perspective") {
     PerspPoint pt_b({0, 1, 1});
     PerspPoint pt_c({1, 1, 1});
     std::array<PerspPoint, 3> triangle = {pt_a, pt_b, pt_c};
-    
+
     auto ortho = fun::orthocenter(triangle);
     (void)ortho;
 }

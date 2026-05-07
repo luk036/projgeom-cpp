@@ -2,7 +2,6 @@
 
 #include <array>
 #include <cstdint>
-
 #include <projgeom/pg_object.hpp>
 
 TEST_CASE("Zero coordinates") {

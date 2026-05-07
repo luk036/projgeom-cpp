@@ -2,7 +2,6 @@
 
 #include <array>
 #include <cstdint>
-
 #include <projgeom/pg_common.hpp>
 
 TEST_CASE("pg_common: cross0") {

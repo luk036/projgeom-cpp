@@ -2,7 +2,6 @@
 
 #include <array>
 #include <cstdint>
-
 #include <projgeom/pg_object.hpp>
 
 TEST_CASE("pg_object: dot function") {
@@ -84,16 +83,16 @@ TEST_CASE("pg_object: parametrize - negative coefficients") {
     PgPoint pt_p({1, 2, 3});
     PgPoint pt_q({4, 5, 6});
     auto result = PgPoint::parametrize(-1, pt_p, 2, pt_q);
-    CHECK(result.coord[0] == -1*1 + 2*4);
-    CHECK(result.coord[1] == -1*2 + 2*5);
-    CHECK(result.coord[2] == -1*3 + 2*6);
+    CHECK(result.coord[0] == -1 * 1 + 2 * 4);
+    CHECK(result.coord[1] == -1 * 2 + 2 * 5);
+    CHECK(result.coord[2] == -1 * 3 + 2 * 6);
 }
 
 TEST_CASE("PgPoint: equality") {
     PgPoint pt_p({1, 2, 3});
     PgPoint pt_q({2, 4, 6});
     CHECK(pt_p == pt_q);
-    
+
     PgPoint pt_r({1, 2, 4});
     CHECK(pt_p != pt_r);
 }
@@ -102,7 +101,7 @@ TEST_CASE("PgPoint: equality - scaled coordinates") {
     PgPoint pt_p({1, 2, 3});
     PgPoint pt_q({2, 4, 6});
     CHECK(pt_p == pt_q);
-    
+
     PgPoint pt_r({1, 2, 3});
     PgPoint pt_s({-1, -2, -3});
     CHECK(pt_r == pt_s);
@@ -112,7 +111,7 @@ TEST_CASE("PgLine: equality") {
     PgLine ln_p({1, 2, 3});
     PgLine ln_q({2, 4, 6});
     CHECK(ln_p == ln_q);
-    
+
     PgLine ln_r({1, 2, 4});
     CHECK(ln_p != ln_r);
 }
@@ -144,7 +143,7 @@ TEST_CASE("aux returns dual type") {
     PgPoint pt({1, 2, 3});
     auto ln = pt.aux();
     CHECK(ln.coord == pt.coord);
-    
+
     PgLine ln2({1, 2, 3});
     auto pt2 = ln2.aux();
     CHECK(pt2.coord == ln2.coord);

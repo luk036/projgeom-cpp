@@ -1,6 +1,7 @@
 #pragma once
 
 #include <array>
+
 #include "pg_plane.hpp"
 
 #if __cpp_concepts >= 201907L

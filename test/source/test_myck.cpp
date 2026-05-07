@@ -1,7 +1,6 @@
 #include <doctest/doctest.h>
 
 #include <cstdint>
-
 #include <projgeom/ck_plane.hpp>
 #include <projgeom/myck_object.hpp>
 
@@ -11,7 +10,7 @@ TEST_CASE("MyCK: basic operations") {
     MyCKLine ln_m({1, 0, 4});
     bool is_ok = fun::check_axiom(pt_p, pt_q, ln_m);
     CHECK(is_ok);
-    
+
     auto t = fun::altitude(pt_p, ln_m);
     bool res = fun::is_perpendicular(t, ln_m);
     CHECK(res);

@@ -1,7 +1,6 @@
 #include <doctest/doctest.h>
 
 #include <cstdint>
-
 #include <projgeom/ck_plane.hpp>
 #include <projgeom/hyp_object.hpp>
 
@@ -24,7 +23,7 @@ TEST_CASE("ck_plane: orthocenter - Hyperbolic") {
     HyperbolicPoint pt_b({1, 2, 1});
     HyperbolicPoint pt_c({1, 1, 2});
     std::array<HyperbolicPoint, 3> triangle = {pt_a, pt_b, pt_c};
-    
+
     auto ortho = fun::orthocenter(triangle);
     bool is_nonzero = ortho.coord[0] != 0 || ortho.coord[1] != 0 || ortho.coord[2] != 0;
     CHECK(is_nonzero);
@@ -50,7 +49,7 @@ TEST_CASE("Hyperbolic: double perp returns original") {
     HyperbolicPoint pt({3, 4, 5});
     auto pt2 = pt.perp().perp();
     CHECK(pt2 == pt);
-    
+
     HyperbolicLine ln({3, 4, 5});
     auto ln2 = ln.perp().perp();
     CHECK(ln2 == ln);

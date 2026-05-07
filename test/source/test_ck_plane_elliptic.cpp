@@ -1,7 +1,6 @@
 #include <doctest/doctest.h>
 
 #include <cstdint>
-
 #include <projgeom/ck_plane.hpp>
 #include <projgeom/ell_object.hpp>
 
@@ -24,7 +23,7 @@ TEST_CASE("ck_plane: orthocenter - Elliptic") {
     EllipticPoint pt_b({0, 1, 1});
     EllipticPoint pt_c({1, 1, 1});
     std::array<EllipticPoint, 3> triangle = {pt_a, pt_b, pt_c};
-    
+
     auto ortho = fun::orthocenter(triangle);
     (void)ortho;
 }
@@ -45,7 +44,7 @@ TEST_CASE("Elliptic: double perp returns original") {
     EllipticPoint pt({3, 4, 5});
     auto pt2 = pt.perp().perp();
     CHECK(pt2 == pt);
-    
+
     EllipticLine ln({3, 4, 5});
     auto ln2 = ln.perp().perp();
     CHECK(ln2 == ln);
