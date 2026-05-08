@@ -1,6 +1,5 @@
 #include <doctest/doctest.h>
 
-#include <cstdint>
 #include <projgeom/ck_plane.hpp>
 #include <projgeom/hyp_object.hpp>
 
