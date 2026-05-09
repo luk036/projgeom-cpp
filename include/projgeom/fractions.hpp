@@ -694,14 +694,14 @@ namespace fun {
         /**
          * @brief
          *
-         * @tparam _Stream
+         * @tparam Stream
          * @tparam Z
          * @param[in] os
          * @param[in] frac
-         * @return _Stream&
+         * @return Stream&
          */
-        template <typename _Stream> friend auto operator<<(_Stream& os, const Fraction& frac)
-            -> _Stream& {
+        template <typename Stream> friend auto operator<<(Stream& os, const Fraction& frac)
+            -> Stream& {
             os << "(" << frac.num() << "/" << frac.den() << ")";
             return os;
         }
