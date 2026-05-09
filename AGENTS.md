@@ -104,10 +104,10 @@ Requires: `doxygen`, `jinja2`, `pygments`
   ```cpp
   #include "pg_common.hpp"
   #include "pg_object.hpp"
-  
+
   #include <array>
   #include <cassert>
-  
+
   #include "common_concepts.h"  // external
   ```
 

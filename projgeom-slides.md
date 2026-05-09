@@ -12,7 +12,7 @@ footer: "projgeom-cpp | C++20 Library"
 
 🔯 *projgeom-cpp* — A header-only library for projective geometry with constexpr support
 
-**Presented by:** Wai-Shing Luk  
+**Presented by:** Wai-Shing Luk
 **Date:** April 2026
 
 ---
@@ -178,7 +178,7 @@ TEST_CASE("Point-Line Incidence") {
     auto pt_p = pg_point{1, 2, 3};
     auto pt_q = pg_point{4, 5, 6};
     auto l = join(pt_p, pt_q);
-    
+
     CHECK_EQ(fun::incident(pt_p, l), true);
     CHECK_EQ(fun::incident(pt_q, l), true);
 }
@@ -297,15 +297,15 @@ graph BT
     P[Perspective<br/>Center O] -->|join| A
     P -->|join| B
     P -->|join| C
-    
+
     L[Perspective<br/>Line] -.-|meet| A1
     L -.-|meet| B1
     L -.-|meet| C1
-    
+
     A ---|side| B
     B ---|side| C
     C ---|side| A
-    
+
     A1 ---|side| B1
     B1 ---|side| C1
     C1 ---|side| A1
@@ -335,7 +335,7 @@ void check_desargue(const Triple<Point> &tri1, const Triple<Point> &tri2) {
 
 Given collinear points $A, B, C$ and $D, E, F$:
 - Join $A$ to $E$, $B$ to $D$, intersect at $G$
-- Join $A$ to $F$, $C$ to $D$, intersect at $H$  
+- Join $A$ to $F$, $C$ to $D$, intersect at $H$
 - Join $B$ to $F$, $C$ to $E$, intersect at $I$
 - Then $G, H, I$ are collinear 📏
 
@@ -552,7 +552,7 @@ constexpr auto archimedes(const _Q &a, const _Q &b, const _Q &c) {
 
 ```cpp
 template <typename _Q>
-constexpr auto cqq(const _Q &a, const _Q &b, const _Q &c, const _Q &d) 
+constexpr auto cqq(const _Q &a, const _Q &b, const _Q &c, const _Q &d)
     -> std::array<_Q, 2> {
     const auto t1 = 4 * a * b;
     const auto t2 = 4 * c * d;
@@ -678,7 +678,7 @@ TEST_CASE("Perspective") {
     auto pt_p = pg_point{3, 4, 5};
     auto pt_q = pg_point{5, 4, 3};
     auto ln_m = pg_line{2, 3, 4};
-    
+
     CHECK(fun::check_axiom(pt_p, pt_q, ln_m));
 }
 ```
@@ -689,7 +689,7 @@ TEST_CASE("Perspective") {
 #ifdef RAPIDCHECK_H
 TEST_CASE("Cross product is anti-symmetric") {
     auto [v, w] = gen().template produce<arenas::two>();
-    
+
     RC_PRE(!coincident(v * w));
     RC_ASSERT(cross(v, w) == -cross(w, v));
 }
@@ -861,7 +861,7 @@ template <Ring _K, typename _Dual>
 struct pg_object {
     using Dual = _Dual;
     std::array<_K, 3> _Base;
-    
+
     constexpr auto dot(const _Dual &other) const -> _K;
     constexpr auto operator*(const _Dual &other) const -> /* cross */;
 };
@@ -975,7 +975,7 @@ Operation: join(p, q)
 Iterations: 10000000
 
 Compiler: Clang 17.0.1
-Runtime: 0.156s  
+Runtime: 0.156s
 Throughput: 64.1M ops/sec
 ```
 
@@ -1165,7 +1165,7 @@ Let's explore the library with live examples...
 
 *A modern C++20 library for projective geometry*
 
-**GitHub:** github.com/luk036/projgeom-cpp  
+**GitHub:** github.com/luk036/projgeom-cpp
 **License:** MIT
 
 </div>
@@ -1224,16 +1224,16 @@ int main() {
         fun::pg_point{0, 1, 1},
         fun::pg_point{1, 1, 1}
     };
-    
+
     fun::Triple<fun::pg_point<int>> tri2 = {
         fun::pg_point{2, 0, 1},
         fun::pg_point{0, 2, 1},
         fun::pg_point{2, 2, 1}
     };
-    
+
     // Verify Desargues
     fun::check_desargue(tri1, tri2);
-    
+
     return 0;
 }
 ```
@@ -1295,11 +1295,11 @@ cd build/test && ctest
 
 <div align="center">
 
-**Author:** Wai-Shing Luk  
-**Email:** luk036@gmail.com  
+**Author:** Wai-Shing Luk
+**Email:** luk036@gmail.com
 **GitHub:** github.com/luk036/projgeom-cpp
 
-**License:** MIT  
+**License:** MIT
 **Version:** 1.0.5
 
 </div>
