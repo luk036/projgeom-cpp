@@ -22,9 +22,9 @@ namespace fun {
      *
      * @tparam  _K  Type of line elements
      */
-    template <Ring _K> struct pg_line : pg_object<_K, pg_point<_K>> {
+    template <Ring _K> struct pg_line : pg_object<_K, pg_line<_K>, pg_point<_K>> {
         /// Value typedef.
-        using _Base = pg_object<_K, pg_point<_K>>;
+        using _Base = pg_object<_K, pg_line<_K>, pg_point<_K>>;
         using _Base2 = std::array<_K, 3>;
 
         /**

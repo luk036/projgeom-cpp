@@ -16,9 +16,9 @@ namespace fun {
     // Forward declarations.
     template <Ring _K> struct pg_line;
 
-    template <Ring _K> struct pg_point : pg_object<_K, pg_line<_K>> {
+    template <Ring _K> struct pg_point : pg_object<_K, pg_point<_K>, pg_line<_K>> {
         /// Value typedef.
-        using _Base = pg_object<_K, pg_line<_K>>;
+        using _Base = pg_object<_K, pg_point<_K>, pg_line<_K>>;
         using _Base2 = std::array<_K, 3>;
         // using value_type = _K;
 

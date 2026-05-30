@@ -127,4 +127,25 @@ namespace fun {
      */
     template <typename T> constexpr auto sq(const T& a) { return a * a; }
 
+    /**
+     * @brief Homogeneous parametrization of point or line (free function)
+     *
+     * Returns lambda * p + mu * q in homogeneous coordinates.
+     * This free function is required by the ProjectivePlaneH concept
+     * and is used by Involution and other algorithms in proj_plane.hpp.
+     * @tparam Value The scalar type (coordinate type)
+     * @tparam Point The point or line type
+     * @param[in] lambda First scalar coefficient
+     * @param[in] pt_p First point/line
+     * @param[in] mu Second scalar coefficient
+     * @param[in] pt_q Second point/line
+     * @return Point The parametrized point/line
+     */
+    template <typename Value, typename Point>
+        requires Ring<Value>
+    constexpr auto parametrize(const Value& lambda, const Point& pt_p, const Value& mu,
+                               const Point& pt_q) -> Point {
+        return Point::parametrize(lambda, pt_p, mu, pt_q);
+    }
+
 }  // namespace fun
