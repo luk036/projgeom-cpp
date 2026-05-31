@@ -54,53 +54,55 @@ constexpr auto plckr(const int64_t& lambda, const std::array<int64_t, 3>& pt_p, 
 
 namespace fun {
 
-/**
- * @brief Generic projective geometry object (value-type templated)
- *
- * Base for pg_point and pg_line. Provides meet/join via operator*,
- * dot product, incidence check, and parametrization.
- * @tparam _K Ring value type (coordinate type)
- * @tparam DualType The dual object type (pg_line for points, pg_point for lines)
- */
-template <Ring _K, typename Self, typename DualType> struct pg_object {
-    using Dual = DualType;
-    using value_type = _K;
+    /**
+     * @brief Generic projective geometry object (value-type templated)
+     *
+     * Base for pg_point and pg_line. Provides meet/join via operator*,
+     * dot product, incidence check, and parametrization.
+     * @tparam _K Ring value type (coordinate type)
+     * @tparam DualType The dual object type (pg_line for points, pg_point for lines)
+     */
+    template <Ring _K, typename Self, typename DualType> struct pg_object {
+        using Dual = DualType;
+        using value_type = _K;
 
-    std::array<_K, 3> coord;
+        std::array<_K, 3> coord;
 
-    constexpr explicit pg_object(std::array<_K, 3> coord) : coord{std::move(coord)} {}
+        constexpr explicit pg_object(std::array<_K, 3> coord) : coord{std::move(coord)} {}
 
-    constexpr pg_object(const _K& x, const _K& y, const _K& z) : coord{{x, y, z}} {}
+        constexpr pg_object(const _K& x, const _K& y, const _K& z) : coord{{x, y, z}} {}
 
-    friend constexpr auto operator==(const Self& lhs, const Self& rhs) -> bool {
-        return &lhs == &rhs
-               || (lhs.coord[1] * rhs.coord[2] == lhs.coord[2] * rhs.coord[1]
-                   && lhs.coord[2] * rhs.coord[0] == lhs.coord[0] * rhs.coord[2]
-                   && lhs.coord[0] * rhs.coord[1] == lhs.coord[1] * rhs.coord[0]);
-    }
+        friend constexpr auto operator==(const Self& lhs, const Self& rhs) -> bool {
+            return &lhs == &rhs
+                   || (lhs.coord[1] * rhs.coord[2] == lhs.coord[2] * rhs.coord[1]
+                       && lhs.coord[2] * rhs.coord[0] == lhs.coord[0] * rhs.coord[2]
+                       && lhs.coord[0] * rhs.coord[1] == lhs.coord[1] * rhs.coord[0]);
+        }
 
-    friend constexpr auto operator!=(const Self& lhs, const Self& rhs) -> bool {
-        return !(lhs == rhs);
-    }
+        friend constexpr auto operator!=(const Self& lhs, const Self& rhs) -> bool {
+            return !(lhs == rhs);
+        }
 
-    friend constexpr auto operator*(const Self& lhs, const Self& rhs) -> DualType {
-        return DualType{::cross(lhs.coord, rhs.coord)};
-    }
+        friend constexpr auto operator*(const Self& lhs, const Self& rhs) -> DualType {
+            return DualType{::cross(lhs.coord, rhs.coord)};
+        }
 
-    constexpr auto aux() const -> DualType { return DualType{this->coord}; }
+        constexpr auto aux() const -> DualType { return DualType{this->coord}; }
 
-    constexpr auto dot(const DualType& other) const -> _K {
-        return this->coord[0] * other.coord[0] + this->coord[1] * other.coord[1]
-               + this->coord[2] * other.coord[2];
-    }
+        constexpr auto dot(const DualType& other) const -> _K {
+            return this->coord[0] * other.coord[0] + this->coord[1] * other.coord[1]
+                   + this->coord[2] * other.coord[2];
+        }
 
-    constexpr auto incident(const DualType& other) const -> bool { return this->dot(other) == _K(0); }
+        constexpr auto incident(const DualType& other) const -> bool {
+            return this->dot(other) == _K(0);
+        }
 
-    static constexpr auto parametrize(const _K& lambda, const Self& pt_p, const _K& mu,
-                                      const Self& pt_q) -> Self {
-        return Self{::plckr(lambda, pt_p.coord, mu, pt_q.coord)};
-    }
-};
+        static constexpr auto parametrize(const _K& lambda, const Self& pt_p, const _K& mu,
+                                          const Self& pt_q) -> Self {
+            return Self{::plckr(lambda, pt_p.coord, mu, pt_q.coord)};
+        }
+    };
 
 }  // namespace fun
 
