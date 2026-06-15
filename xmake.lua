@@ -37,7 +37,7 @@ if is_plat("linux") then
     end
 	-- add_cxflags("-fconcepts", {force = true})
 elseif is_plat("windows") then
-	add_cxflags("/utf-8 /W4 /WX /wd5285 /wd4996", { force = true })
+	add_cxflags("/utf-8 /W4 /WX /wd5285", { force = true })
 end
 -- add_packages("fmt", "doctest", "range-v3")
 add_packages("fmt", "doctest", "spdlog")
