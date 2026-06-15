@@ -5,7 +5,7 @@ option(ENABLE_TEST_COVERAGE "Enable test coverage" OFF)
 
 # ---- Dependencies ----
 
-CPMAddPackage("gh:doctest/doctest#v2.4.11")
+CPMAddPackage("gh:doctest/doctest#v2.5.2")
 CPMAddPackage("gh:TheLartians/Format.cmake@1.7.3")
 
 # Add RapidCheck for property-based testing
@@ -48,7 +48,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
     ${PROJECT_NAME} INTERFACE -Wall -Wpedantic -Wextra -Werror -Wno-deprecated-literal-operator
   )
 elseif(MSVC)
-  target_compile_options(${PROJECT_NAME} INTERFACE /utf-8 /W4 /WX /wd5285)
+  target_compile_options(${PROJECT_NAME} INTERFACE /utf-8 /W4 /WX)
   # target_compile_definitions(${PROJECT_NAME}Tests INTERFACE DOCTEST_CONFIG_USE_STD_HEADERS)
 else()
   target_compile_options(
