@@ -10,7 +10,8 @@ CPMAddPackage(
   NAME spdlog
   GIT_TAG v1.17.0
   GITHUB_REPOSITORY gabime/spdlog
-  OPTIONS "SPDLOG_INSTALL YES" "SPDLOG_FMT_EXTERNAL YES" # use external fmt to avoid duplicate symbols
+  OPTIONS "SPDLOG_INSTALL YES" "SPDLOG_FMT_EXTERNAL YES" # use external fmt to avoid duplicate
+                                                         # symbols
 )
 
 # CPMAddPackage("gh:ericniebler/range-v3#0.12.0")
