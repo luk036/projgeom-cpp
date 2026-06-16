@@ -1,3 +1,7 @@
+/** @file hyp_object.hpp
+ *  @brief Hyperbolic point and line classes with pole/polar relationships.
+ */
+
 #pragma once
 
 #include "ck_plane.hpp"

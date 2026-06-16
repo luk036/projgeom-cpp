@@ -1,3 +1,7 @@
+/** @file pg_concepts.hpp
+ *  @brief C++20 concepts for projective plane primitives.
+ */
+
 #pragma once
 
 #include <array>

@@ -1,3 +1,7 @@
+/** @file euclid_plane.hpp
+ *  @brief Euclidean plane functions: perpendicularity, parallelism, altitude, orthocenter, etc.
+ */
+
 #pragma once
 
 #include <type_traits>

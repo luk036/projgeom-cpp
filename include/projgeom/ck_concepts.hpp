@@ -1,3 +1,7 @@
+/** @file ck_concepts.hpp
+ *  @brief C++20 concepts for Cayley-Klein planes.
+ */
+
 #pragma once
 
 // #include <array>

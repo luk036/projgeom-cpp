@@ -1,3 +1,7 @@
+/** @file pg_object.hpp
+ *  @brief Core projective geometry object template (pg_object, PgObject, PgPoint, PgLine).
+ */
+
 #pragma once
 
 #include <array>
@@ -7,10 +11,10 @@
 #include "pg_plane.hpp"
 
 /**
- * @brief Dot product
+ * @brief Dot product of two homogeneous 3-vectors.
  *
- * @param[in] pt_a
- * @param[in] pt_b
+ * @param[in] pt_a First vector
+ * @param[in] pt_b Second vector
  * @return int64_t
  */
 constexpr auto dot(const std::array<int64_t, 3>& pt_a, const std::array<int64_t, 3>& pt_b)
@@ -19,10 +23,10 @@ constexpr auto dot(const std::array<int64_t, 3>& pt_a, const std::array<int64_t,
 }
 
 /**
- * @brief Cross product
+ * @brief Cross product of two homogeneous 3-vectors.
  *
- * @param[in] pt_a
- * @param[in] pt_b
+ * @param[in] pt_a First vector
+ * @param[in] pt_b Second vector
  * @return std::array<int64_t, 3>
  */
 constexpr auto cross(const std::array<int64_t, 3>& pt_a, const std::array<int64_t, 3>& pt_b)
@@ -44,7 +48,7 @@ constexpr auto cross(const std::array<int64_t, 3>& pt_a, const std::array<int64_
  * @return std::array<int64_t, 3>
  */
 constexpr auto plckr(const int64_t& lambda, const std::array<int64_t, 3>& pt_p, const int64_t& mu,
-                     const std::array<int64_t, 3>& pt_q) -> std::array<int64_t, 3> {
+                      const std::array<int64_t, 3>& pt_q) -> std::array<int64_t, 3> {
     return {
         lambda * pt_p[0] + mu * pt_q[0],
         lambda * pt_p[1] + mu * pt_q[1],
@@ -60,6 +64,7 @@ namespace fun {
      * Base for pg_point and pg_line. Provides meet/join via operator*,
      * dot product, incidence check, and parametrization.
      * @tparam _K Ring value type (coordinate type)
+     * @tparam Self The derived type (CRTP)
      * @tparam DualType The dual object type (pg_line for points, pg_point for lines)
      */
     template <Ring _K, typename Self, typename DualType> struct pg_object {
@@ -99,7 +104,7 @@ namespace fun {
         }
 
         static constexpr auto parametrize(const _K& lambda, const Self& pt_p, const _K& mu,
-                                          const Self& pt_q) -> Self {
+                                           const Self& pt_q) -> Self {
             return Self{::plckr(lambda, pt_p.coord, mu, pt_q.coord)};
         }
     };
@@ -107,7 +112,7 @@ namespace fun {
 }  // namespace fun
 
 /**
- * @brief Projective Point/Line
+ * @brief Projective Point/Line (int64_t specialization)
  *
  * @tparam Point
  * @tparam Line
@@ -140,7 +145,7 @@ template <typename Point, typename Line> struct PgObject {
     }
 
     /**
-     * @brief Equal to
+     * @brief Not equal to
      *
      * @param[in] lhs
      * @param[in] rhs
@@ -152,14 +157,14 @@ template <typename Point, typename Line> struct PgObject {
     }
 
     /**
-     * @brief
+     * @brief Return the dual object (auxiliary line/point).
      *
      * @return Line
      */
     constexpr auto aux() const -> Line { return Line{this->coord}; }
 
     /**
-     * @brief
+     * @brief Dot product with the dual object.
      *
      * @param[in] other
      * @return int64_t
@@ -178,12 +183,12 @@ template <typename Point, typename Line> struct PgObject {
      * @return Point
      */
     static constexpr auto parametrize(const int64_t& lambda, const Point& pt_p, const int64_t& mu,
-                                      const Point& pt_q) -> Point {
+                                       const Point& pt_q) -> Point {
         return Point{::plckr(lambda, pt_p.coord, mu, pt_q.coord)};
     }
 
     /**
-     * @brief
+     * @brief Check incidence with the dual object.
      *
      * @param[in] other
      * @return true
@@ -192,7 +197,7 @@ template <typename Point, typename Line> struct PgObject {
     constexpr auto incident(const Line& other) const -> bool { return this->dot(other) == 0; }
 
     /**
-     * @brief
+     * @brief Meet (intersection) with another point to form a line.
      *
      * @param[in] rhs
      * @return Line

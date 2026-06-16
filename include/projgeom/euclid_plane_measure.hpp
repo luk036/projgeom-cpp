@@ -1,3 +1,7 @@
+/** @file euclid_plane_measure.hpp
+ *  @brief Euclidean plane measurement functions: quadrance, spread, distance, angle.
+ */
+
 #pragma once
 
 #include "euclid_plane.hpp"

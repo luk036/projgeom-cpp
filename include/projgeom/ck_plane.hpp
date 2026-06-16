@@ -1,3 +1,7 @@
+/** @file ck_plane.hpp
+ *  @brief Cayley-Klein plane functions: perpendicularity, altitude, orthocenter, reflection.
+ */
+
 #pragma once
 
 #include <array>

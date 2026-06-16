@@ -1,5 +1,5 @@
 /** @file proj_plane_concepts.h
- *  This is a C++ Library header.
+ *  @brief C++20 concepts for projective planes with coordinate access and parametrization.
  */
 
 #pragma once

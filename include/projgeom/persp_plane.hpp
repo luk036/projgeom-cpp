@@ -1,3 +1,7 @@
+/** @file persp_plane.hpp
+ *  @brief Perspective-Euclidean plane class with pole/polar and measurement.
+ */
+
 #pragma once
 
 #include "ck_plane.hpp"

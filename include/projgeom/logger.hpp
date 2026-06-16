@@ -1,3 +1,7 @@
+/** @file logger.hpp
+ *  @brief Logger wrapper for spdlog (projgeom).
+ */
+
 #pragma once
 
 #include <string>

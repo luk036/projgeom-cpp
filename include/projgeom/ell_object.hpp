@@ -1,3 +1,7 @@
+/** @file ell_object.hpp
+ *  @brief Elliptic point and line classes with pole/polar relationships.
+ */
+
 #pragma once
 
 // #include "ck_plane.hpp"

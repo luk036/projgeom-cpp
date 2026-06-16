@@ -1,3 +1,7 @@
+/** @file common_concepts.h
+ *  @brief Common C++20 concepts: Ring, OrderedRing, Integral, Sequence.
+ */
+
 #pragma once
 
 #include <cmath>

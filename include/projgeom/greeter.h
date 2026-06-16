@@ -1,3 +1,7 @@
+/** @file greeter.h
+ *  @brief Simple Greeter class with localized greeting messages.
+ */
+
 #pragma once
 
 #include <string>

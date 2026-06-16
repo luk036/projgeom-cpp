@@ -1,3 +1,7 @@
+/** @file persp_object.hpp
+ *  @brief Perspective point and line classes with pole/polar via line at infinity.
+ */
+
 #pragma once
 
 #include "ck_plane.hpp"

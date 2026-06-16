@@ -1,3 +1,7 @@
+/** @file myck_object.hpp
+ *  @brief Example Cayley-Klein point and line classes with custom perp().
+ */
+
 #pragma once
 
 #include "ck_plane.hpp"
