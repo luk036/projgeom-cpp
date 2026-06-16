@@ -28,7 +28,7 @@ add_includedirs("../fractions-cpp/include", { public = true })
 add_files("test/source/*.cpp")
 add_files("source/*.cpp")
 if is_plat("linux") then
-    add_cxflags("-Wno-unused-command-line-argument", {force = true})
+    -- add_cxflags("-Wno-unused-command-line-argument", {force = true})
     -- Check if we're on Termux/Android
     local termux_prefix = os.getenv("PREFIX")
     if termux_prefix then
