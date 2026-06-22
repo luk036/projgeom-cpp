@@ -12,8 +12,11 @@
 namespace fun {
 
     /**
-     * @brief 1st term of Cross product
+     * @brief 1st term of Cross product (yz-plane projection)
      *
+     * @f[
+     *     \mathrm{cross}_0(v,w) = v_y w_z - w_y v_z
+     * @f]
      * @tparam _K
      * @param[in] v
      * @param[in] w
@@ -24,8 +27,11 @@ namespace fun {
     }
 
     /**
-     * @brief 2nd term of Cross product
+     * @brief 2nd term of Cross product (xz-plane projection)
      *
+     * @f[
+     *     \mathrm{cross}_1(v,w) = v_x w_z - w_x v_z
+     * @f]
      * @tparam _K
      * @param[in] v
      * @param[in] w
@@ -36,8 +42,11 @@ namespace fun {
     }
 
     /**
-     * @brief 3rd term of Cross product
+     * @brief 3rd term of Cross product (xy-plane projection)
      *
+     * @f[
+     *     \mathrm{cross}_2(v,w) = v_x w_y - w_x v_y
+     * @f]
      * @tparam _K
      * @param[in] v
      * @param[in] w
@@ -48,8 +57,15 @@ namespace fun {
     }
 
     /**
-     * @brief Cross product
+     * @brief Cross product in homogeneous 3D coordinates
      *
+     * @f[
+     *     v \times w = \begin{pmatrix}
+     *         v_y w_z - w_y v_z \\
+     *         w_x v_z - v_x w_z \\
+     *         v_x w_y - w_x v_y
+     *     \end{pmatrix}
+     * @f]
      * @tparam _K
      * @param[in] v
      * @param[in] w
@@ -62,8 +78,11 @@ namespace fun {
     }
 
     /**
-     * @brief Dot product
+     * @brief Dot product (full 3-component)
      *
+     * @f[
+     *     v \cdot w = v_x w_x + v_y w_y + v_z w_z
+     * @f]
      * @tparam _K
      * @param[in] v
      * @param[in] w
@@ -76,8 +95,11 @@ namespace fun {
     }
 
     /**
-     * @brief generic Plucker function
+     * @brief generic Plücker linear combination
      *
+     * @f[
+     *     \lambda v_1 + \mu v_2
+     * @f]
      * @tparam _T scalar type
      * @tparam _K coordinate type
      * @param[in] lambda scalar for v1
@@ -95,8 +117,11 @@ namespace fun {
     }
 
     /**
-     * @brief dot product of the (0,1)-component of two vectors
+     * @brief Dot product of the (x,y)-components of two vectors (affine part)
      *
+     * @f[
+     *     \mathrm{dot}_1(v,w) = v_x w_x + v_y w_y
+     * @f]
      * @tparam _K
      * @param[in] v
      * @param[in] w
@@ -121,6 +146,9 @@ namespace fun {
     /**
      * @brief Square function
      *
+     * @f[
+     *     \mathrm{sq}(a) = a^2
+     * @f]
      * @tparam T data type
      * @param[in] a input value
      * @return a^2

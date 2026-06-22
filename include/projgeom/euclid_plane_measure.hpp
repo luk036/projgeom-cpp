@@ -12,7 +12,9 @@ namespace fun {
     /**
      * @brief Compute squared difference of ratios (integral version).
      *
-     * Computes ((x1/z1) - (x2/z2))^2 for integral types.
+     * @f[
+     *     \mathrm{quad}_1 = \left(\frac{x_1}{z_1} - \frac{x_2}{z_2}\right)^2
+     * @f]
      * @param[in] x1 First numerator
      * @param[in] z1 First denominator
      * @param[in] x2 Second numerator
@@ -41,7 +43,11 @@ namespace fun {
      * @brief Compute the quadrance between two points.
      *
      * The quadrance is the squared distance between two points in the
-     * Euclidean plane, represented using homogeneous coordinates.
+     * Euclidean plane:
+     * @f[
+     *     Q(A,B) = \left(\frac{A_x}{A_z} - \frac{B_x}{B_z}\right)^2
+     *            + \left(\frac{A_y}{A_z} - \frac{B_y}{B_z}\right)^2
+     * @f]
      * @param[in] a1 First point
      * @param[in] a2 Second point
      * @return auto The quadrance (squared distance)
@@ -88,8 +94,11 @@ namespace fun {
     /**
      * @brief Compute the spread between two lines.
      *
-     * The spread is the squared sine of the angle between two lines,
-     * a fundamental measure in Euclidean geometry.
+     * The spread is the squared sine of the angle between two lines:
+     * @f[
+     *     s(l_1, l_2) = \frac{\mathrm{cross}_2(l_1, l_2)^2}
+     *                         {\mathrm{dot}_1(l_1, l_1) \mathrm{dot}_1(l_2, l_2)}
+     * @f]
      * @param[in] l1 First line
      * @param[in] l2 Second line
      * @return auto The spread
@@ -127,7 +136,11 @@ namespace fun {
     /**
      * @brief Compute the cross spread between two lines.
      *
-     * The cross spread is related to the cosine squared of the angle between lines.
+     * The cross spread is the squared cosine of the angle between lines:
+     * @f[
+     * \mathrm{cross\_s}(l_1, l_2) = \frac{\mathrm{dot}_1(l_1, l_2)^2}
+     *                                              {\mathrm{dot}_1(l_1, l_1) \mathrm{dot}_1(l_2, l_2)}
+     * @f]
      * @param[in] l1 First line
      * @param[in] l2 Second line
      * @return auto The cross spread
@@ -141,6 +154,9 @@ namespace fun {
     /**
      * @brief Compute the Euclidean distance between two points.
      *
+     * @f[
+     *     d(A,B) = \sqrt{Q(A,B)}
+     * @f]
      * @param[in] a First point
      * @param[in] b Second point
      * @return auto The Euclidean distance
@@ -152,7 +168,10 @@ namespace fun {
     /**
      * @brief Compute the angle between two lines.
      *
-     * Returns the angle between two lines using arcsin of the square root of spread.
+     * Returns the angle between two lines:
+     * @f[
+     *     \theta = \arcsin\sqrt{s(l_1, l_2)}
+     * @f]
      * @param[in] line_l First line
      * @param[in] line_m Second line
      * @return auto The angle in radians

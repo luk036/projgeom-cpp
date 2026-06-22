@@ -16,7 +16,9 @@ namespace fun {
     /**
      * @brief Compute the ratio of two ratios.
      *
-     * Computes (a/b) / (c/d) for ring elements.
+     * @f[
+     *     \frac{a/b}{c/d} = \frac{ad}{bc}
+     * @f]
      * @param[in] a First numerator
      * @param[in] b First denominator
      * @param[in] c Second numerator
@@ -34,6 +36,10 @@ namespace fun {
     /**
      * @brief Cross Ratio
      *
+     * The cross ratio of four points with respect to two lines:
+     * @f[
+     *     R(A,B;l,m) = \frac{A \cdot l}{A \cdot m} \Big/ \frac{B \cdot l}{B \cdot m}
+     * @f]
      * @tparam Point
      * @tparam Line
      * @param[in] A point A
@@ -53,8 +59,15 @@ namespace fun {
     /**
      * @brief Compute the cross ratio of four collinear points.
      *
-     * Returns the cross ratio R(A, B; C, D) of four points on a line.
+     * Returns the cross ratio \f$R(A, B; C, D)\f$ of four points on a line.
      * Automatically chooses the best coordinate projection based on the points.
+     *
+     * In homogeneous coordinates:
+     * @f[
+     *     R(A,B;C,D) = \frac{\mathrm{cross}_k(A,C)}{\mathrm{cross}_k(A,D)}
+     *                \Big/ \frac{\mathrm{cross}_k(B,C)}{\mathrm{cross}_k(B,D)}
+     * @f]
+     * where \f$k\f$ is chosen (0 or 1) to avoid degenerate projections.
      * @param[in] A First point
      * @param[in] B Second point
      * @param[in] C Third point
