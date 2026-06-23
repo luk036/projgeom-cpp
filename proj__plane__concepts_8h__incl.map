@@ -1,0 +1,15 @@
+<map id="projgeom/proj_plane_concepts.h" name="projgeom/proj_plane_concepts.h">
+<area shape="rect" id="Node000001" title="C++20 concepts for projective planes with coordinate access and parametrization." alt="" coords="156,5,312,45"/>
+<area shape="rect" id="Node000002" href="$common__concepts_8h.html" title="Common C++20 concepts: Ring, OrderedRing, Integral, Sequence." alt="" coords="156,93,312,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,46,237,79,231,79,231,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,68,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="203,121,82,165,80,160,201,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="93,167,173,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="219,121,162,161,159,156,216,116"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="197,167,271,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="237,119,237,153,231,153,231,119"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="296,167,388,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="253,116,314,157,311,161,250,121"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="412,167,472,192"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="268,116,399,161,397,166,267,121"/>
+</map>

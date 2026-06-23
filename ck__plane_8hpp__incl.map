@@ -1,0 +1,10 @@
+<map id="projgeom/ck_plane.hpp" name="projgeom/ck_plane.hpp">
+<area shape="rect" id="Node000001" title="Cayley&#45;Klein plane functions: perpendicularity, altitude, orthocenter, reflection." alt="" coords="5,5,180,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="22,152,78,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,32,75,79,59,139,54,138,70,78,86,30"/>
+<area shape="rect" id="Node000003" href="$pg__plane_8hpp.html" title="Projective plane axioms and geometric checks (coincidence, Pappus, Desargues)." alt="" coords="85,79,194,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="103,30,126,66,122,69,98,32"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="127,106,77,145,74,141,123,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="105,152,174,177"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="142,104,142,138,137,138,137,104"/>
+</map>

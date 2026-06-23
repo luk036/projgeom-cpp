@@ -1,0 +1,21 @@
+<map id="projgeom/ck_concepts.hpp" name="projgeom/ck_concepts.hpp">
+<area shape="rect" id="Node000001" title="C++20 concepts for Cayley&#45;Klein planes." alt="" coords="22,5,218,31"/>
+<area shape="rect" id="Node000002" href="$pg__concepts_8hpp.html" title="C++20 concepts for projective plane primitives." alt="" coords="55,79,185,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,31,123,65,117,65,117,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,61,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,106,60,145,56,141,104,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="85,152,155,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="123,104,123,138,117,138,117,104"/>
+<area shape="rect" id="Node000005" href="$common__concepts_8h.html" title="Common C++20 concepts: Ring, OrderedRing, Integral, Sequence." alt="" coords="179,152,335,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="143,102,224,143,222,148,141,106"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="29,225,91,251"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="227,180,105,223,104,218,225,175"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="116,225,196,251"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="243,180,185,219,182,215,240,175"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="220,225,295,251"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="260,178,260,212,255,212,255,178"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="319,225,411,251"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="276,175,338,215,335,220,273,180"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="435,225,495,251"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="292,175,423,219,421,224,290,180"/>
+</map>

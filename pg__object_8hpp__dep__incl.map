@@ -1,0 +1,15 @@
+<map id="projgeom/pg_object.hpp" name="projgeom/pg_object.hpp">
+<area shape="rect" id="Node000001" title="Core projective geometry object template (pg_object, PgObject, PgPoint, PgLine)." alt="" coords="540,5,719,31"/>
+<area shape="rect" id="Node000002" href="$ell__object_8hpp.html" title="Elliptic point and line classes with pole/polar relationships." alt="" coords="5,79,184,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="530,35,181,81,180,76,529,30"/>
+<area shape="rect" id="Node000003" href="$hyp__object_8hpp.html" title="Hyperbolic point and line classes with pole/polar relationships." alt="" coords="208,79,395,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="564,36,355,81,354,76,563,31"/>
+<area shape="rect" id="Node000004" href="$myck__object_8hpp.html" title="Example Cayley&#45;Klein point and line classes with custom perp()." alt="" coords="419,79,618,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="601,40,538,81,535,76,599,36"/>
+<area shape="rect" id="Node000005" href="$persp__object_8hpp.html" title="Perspective point and line classes with pole/polar via line at infinity." alt="" coords="642,79,841,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="661,36,724,76,722,81,658,40"/>
+<area shape="rect" id="Node000006" href="$pg__line_8hpp.html" title=" " alt="" coords="865,79,1028,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="694,31,896,76,895,81,693,36"/>
+<area shape="rect" id="Node000007" href="$pg__point_8hpp.html" title=" " alt="" coords="1053,79,1225,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="725,30,1057,76,1056,81,725,35"/>
+</map>

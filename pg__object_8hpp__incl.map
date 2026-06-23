@@ -1,0 +1,12 @@
+<map id="projgeom/pg_object.hpp" name="projgeom/pg_object.hpp">
+<area shape="rect" id="Node000001" title="Core projective geometry object template (pg_object, PgObject, PgPoint, PgLine)." alt="" coords="5,5,184,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="44,152,100,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,33,66,53,52,80,49,94,51,110,61,139,56,140,45,111,44,94,47,78,62,50,80,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="61,79,128,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="97,31,97,65,92,65,92,31"/>
+<area shape="rect" id="Node000004" href="$pg__plane_8hpp.html" title="Projective plane axioms and geometric checks (coincidence, Pappus, Desargues)." alt="" coords="152,79,261,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="114,28,178,69,175,73,111,33"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="186,106,107,148,105,143,184,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="172,152,241,177"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="209,104,209,138,204,138,204,104"/>
+</map>

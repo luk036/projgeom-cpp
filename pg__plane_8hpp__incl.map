@@ -1,0 +1,7 @@
+<map id="projgeom/pg_plane.hpp" name="projgeom/pg_plane.hpp">
+<area shape="rect" id="Node000001" title="Projective plane axioms and geometric checks (coincidence, Pappus, Desargues)." alt="" coords="5,5,180,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="22,79,78,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,32,66,68,62,66,83,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="102,79,171,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="102,30,125,66,120,68,98,32"/>
+</map>

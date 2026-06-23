@@ -1,0 +1,14 @@
+<map id="projgeom/ell_object.hpp" name="projgeom/ell_object.hpp">
+<area shape="rect" id="Node000001" title="Elliptic point and line classes with pole/polar relationships." alt="" coords="5,5,184,31"/>
+<area shape="rect" id="Node000002" href="$pg__object_8hpp.html" title="Core projective geometry object template (pg_object, PgObject, PgPoint, PgLine)." alt="" coords="38,79,151,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,31,97,65,92,65,92,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="44,225,100,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="84,106,66,127,52,153,49,168,51,183,61,212,56,214,45,184,44,168,47,151,62,124,80,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="61,152,128,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="97,104,97,138,92,138,92,104"/>
+<area shape="rect" id="Node000005" href="$pg__plane_8hpp.html" title="Projective plane axioms and geometric checks (coincidence, Pappus, Desargues)." alt="" coords="152,152,261,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="114,102,178,142,175,147,111,106"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="186,180,107,221,105,216,184,175"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="172,225,241,251"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="209,178,209,212,204,212,204,178"/>
+</map>

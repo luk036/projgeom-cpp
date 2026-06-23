@@ -1,0 +1,19 @@
+<map id="projgeom/pg_concepts.hpp" name="projgeom/pg_concepts.hpp">
+<area shape="rect" id="Node000001" title="C++20 concepts for projective plane primitives." alt="" coords="21,5,219,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,61,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,33,60,72,56,68,104,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="85,79,155,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="123,31,123,65,117,65,117,31"/>
+<area shape="rect" id="Node000004" href="$common__concepts_8h.html" title="Common C++20 concepts: Ring, OrderedRing, Integral, Sequence." alt="" coords="179,79,335,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="143,28,224,70,222,75,141,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="29,152,91,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="227,107,105,150,104,145,225,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="116,152,196,177"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="243,106,185,146,182,142,240,102"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="220,152,295,177"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="260,104,260,138,255,138,255,104"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="319,152,411,177"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="276,102,338,142,335,147,273,106"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="435,152,495,177"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="292,101,423,146,421,151,290,107"/>
+</map>

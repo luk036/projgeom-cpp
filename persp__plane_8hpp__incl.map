@@ -1,0 +1,38 @@
+<map id="projgeom/persp_plane.hpp" name="projgeom/persp_plane.hpp">
+<area shape="rect" id="Node000001" title="Perspective&#45;Euclidean plane class with pole/polar and measurement." alt="" coords="152,5,347,31"/>
+<area shape="rect" id="Node000002" href="$ck__plane_8hpp.html" title="Cayley&#45;Klein plane functions: perpendicularity, altitude, orthocenter, reflection." alt="" coords="21,79,129,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,33,117,76,115,71,221,28"/>
+<area shape="rect" id="Node000006" href="$fractions_8hpp.html" title=" " alt="" coords="526,152,632,177"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="277,28,542,144,539,149,275,33"/>
+<area shape="rect" id="Node000013" href="$proj__plane_8hpp.html" title=" " alt="" coords="190,79,309,104"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="252,31,252,65,247,65,247,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="47,225,103,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="56,106,37,120,20,137,9,156,8,166,11,176,26,198,45,215,42,219,22,201,6,178,3,166,4,155,15,134,34,116,53,102"/>
+<area shape="rect" id="Node000004" href="$pg__plane_8hpp.html" title="Projective plane axioms and geometric checks (coincidence, Pappus, Desargues)." alt="" coords="20,152,130,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="78,104,78,138,72,138,72,104"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="78,178,78,212,72,212,72,178"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="155,225,224,251"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="95,175,161,216,158,220,92,180"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="427,299,502,324"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="572,179,484,290,480,286,568,176"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="526,299,618,324"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="581,178,576,285,571,285,576,178"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="642,299,702,324"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="589,176,660,286,655,289,584,179"/>
+<area shape="rect" id="Node000010" href="$common__concepts_8h.html" title="Common C++20 concepts: Ring, OrderedRing, Integral, Sequence." alt="" coords="340,225,496,251"/>
+<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="554,180,458,222,456,217,552,175"/>
+<area shape="poly" id="edge13_Node000010_Node000007" title=" " alt="" coords="428,250,451,286,447,289,423,252"/>
+<area shape="poly" id="edge14_Node000010_Node000008" title=" " alt="" coords="444,248,536,290,534,295,441,253"/>
+<area shape="poly" id="edge15_Node000010_Node000009" title=" " alt="" coords="459,248,630,295,628,301,458,253"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="340,299,402,324"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="412,252,388,289,384,286,408,250"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="235,299,315,324"/>
+<area shape="poly" id="edge12_Node000010_Node000012" title=" " alt="" coords="396,253,312,295,309,290,394,248"/>
+<area shape="poly" id="edge17_Node000013_Node000003" title=" " alt="" coords="237,107,101,219,98,215,234,102"/>
+<area shape="poly" id="edge18_Node000013_Node000005" title=" " alt="" coords="247,105,202,214,197,211,242,103"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="256,152,310,177"/>
+<area shape="poly" id="edge19_Node000013_Node000014" title=" " alt="" coords="258,103,274,139,269,141,253,105"/>
+<area shape="rect" id="Node000015" href="$proj__plane__concepts_8h.html" title="C++20 concepts for projective planes with coordinate access and parametrization." alt="" coords="334,152,501,177"/>
+<area shape="poly" id="edge20_Node000013_Node000015" title=" " alt="" coords="278,102,379,144,377,149,276,106"/>
+<area shape="poly" id="edge21_Node000015_Node000010" title=" " alt="" coords="420,178,420,212,415,212,415,178"/>
+</map>

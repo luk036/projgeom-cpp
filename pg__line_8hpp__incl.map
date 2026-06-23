@@ -1,0 +1,31 @@
+<map id="projgeom/pg_line.hpp" name="projgeom/pg_line.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="413,5,576,31"/>
+<area shape="rect" id="Node000002" href="$pg__common_8hpp.html" title=" " alt="" coords="356,79,487,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="484,33,445,71,441,67,481,29"/>
+<area shape="rect" id="Node000011" href="$pg__object_8hpp.html" title="Core projective geometry object template (pg_object, PgObject, PgPoint, PgLine)." alt="" coords="521,79,634,104"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="510,29,555,67,552,72,506,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="496,225,552,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="432,103,510,213,506,216,428,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="374,152,429,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="421,105,411,140,406,138,415,104"/>
+<area shape="rect" id="Node000005" href="$common__concepts_8h.html" title="Common C++20 concepts: Ring, OrderedRing, Integral, Sequence." alt="" coords="189,152,345,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="398,106,305,149,303,144,395,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="409,225,471,251"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="296,175,400,218,398,222,294,180"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="5,225,85,251"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="232,180,95,224,93,219,230,175"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="109,225,184,251"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="249,180,180,220,177,216,246,175"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="209,225,301,251"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="267,178,262,212,256,211,262,177"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="325,225,385,251"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="282,175,331,214,328,219,279,179"/>
+<area shape="poly" id="edge11_Node000011_Node000003" title=" " alt="" coords="571,106,545,153,530,212,525,211,540,151,567,103"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="555,152,621,177"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="582,104,587,138,582,139,576,105"/>
+<area shape="rect" id="Node000013" href="$pg__plane_8hpp.html" title="Projective plane axioms and geometric checks (coincidence, Pappus, Desargues)." alt="" coords="645,152,755,177"/>
+<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="598,102,670,143,667,147,596,106"/>
+<area shape="poly" id="edge14_Node000013_Node000003" title=" " alt="" coords="673,180,566,223,564,218,671,175"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="665,225,735,251"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="703,178,703,212,697,212,697,178"/>
+</map>

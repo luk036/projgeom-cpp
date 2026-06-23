@@ -1,0 +1,23 @@
+<map id="projgeom/proj_plane.hpp" name="projgeom/proj_plane.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="71,5,255,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,61,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,33,68,74,66,69,141,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="85,79,155,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,32,136,68,132,66,153,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="179,79,234,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,30,195,66,190,68,168,32"/>
+<area shape="rect" id="Node000005" href="$proj__plane__concepts_8h.html" title="C++20 concepts for projective planes with coordinate access and parametrization." alt="" coords="258,79,425,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="192,28,301,71,299,76,190,33"/>
+<area shape="rect" id="Node000006" href="$common__concepts_8h.html" title="Common C++20 concepts: Ring, OrderedRing, Integral, Sequence." alt="" coords="263,152,419,177"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="344,104,344,138,339,138,339,104"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="113,225,175,251"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="311,180,189,223,188,218,309,175"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="200,225,280,251"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="327,180,269,219,266,215,324,175"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="304,225,379,251"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="344,178,344,212,339,212,339,178"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="403,225,495,251"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="360,175,422,215,419,220,357,180"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="519,225,579,251"/>
+<area shape="poly" id="edge10_Node000006_Node000011" title=" " alt="" coords="376,175,507,219,505,224,374,180"/>
+</map>

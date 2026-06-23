@@ -1,0 +1,18 @@
+<map id="projgeom/fractions.hpp" name="projgeom/fractions.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="119,5,292,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,152,80,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,33,68,145,64,141,190,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,152,197,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="200,32,176,80,158,139,153,138,171,78,196,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="413,152,473,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="247,28,300,48,356,76,395,107,426,139,422,143,391,111,353,81,298,53,245,33"/>
+<area shape="rect" id="Node000005" href="$common__concepts_8h.html" title="Common C++20 concepts: Ring, OrderedRing, Integral, Sequence." alt="" coords="186,79,342,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="217,29,248,67,244,70,213,33"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="229,107,92,150,90,145,228,101"/>
+<area shape="poly" id="edge8_Node000005_Node000003" title=" " alt="" coords="247,106,182,147,179,142,244,102"/>
+<area shape="poly" id="edge9_Node000005_Node000004" title=" " alt="" coords="294,102,402,144,400,149,292,107"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="326,152,389,177"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="281,102,333,141,330,146,277,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="221,152,301,177"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="266,104,265,139,260,138,261,104"/>
+</map>

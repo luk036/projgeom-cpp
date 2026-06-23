@@ -1,0 +1,32 @@
+<map id="projgeom/euclid_plane.hpp" name="projgeom/euclid_plane.hpp">
+<area shape="rect" id="Node000001" title="Euclidean plane functions: perpendicularity, parallelism, altitude, orthocenter, etc." alt="" coords="143,5,341,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,299,97,324"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,33,129,51,109,64,92,80,76,104,65,131,52,187,48,242,51,285,45,285,43,242,46,187,60,129,72,102,88,77,106,60,126,46,171,28"/>
+<area shape="rect" id="Node000003" href="$pg__common_8hpp.html" title=" " alt="" coords="102,79,233,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,33,191,71,188,67,228,29"/>
+<area shape="rect" id="Node000011" href="$proj__plane_8hpp.html" title=" " alt="" coords="257,79,376,104"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="256,29,296,67,293,71,252,33"/>
+<area shape="rect" id="Node000013" href="$proj__plane__concepts_8h.html" title="C++20 concepts for projective planes with coordinate access and parametrization." alt="" coords="393,152,560,177"/>
+<area shape="poly" id="edge17_Node000001_Node000013" title=" " alt="" coords="282,28,335,48,390,76,429,107,460,139,456,143,425,111,387,81,333,53,280,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="139,152,195,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="170,104,170,138,165,138,165,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="220,152,275,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="182,102,226,141,222,145,178,106"/>
+<area shape="rect" id="Node000006" href="$common__concepts_8h.html" title="Common C++20 concepts: Ring, OrderedRing, Integral, Sequence." alt="" coords="159,225,315,251"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="156,106,143,121,131,139,126,158,130,176,153,201,182,218,180,222,149,205,125,179,120,158,127,137,139,118,152,103"/>
+<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="208,253,95,296,93,291,206,248"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="205,299,268,324"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="239,251,239,285,234,285,234,251"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="293,299,373,324"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="254,249,307,288,304,292,251,253"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="397,299,471,324"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="269,248,390,291,388,296,267,253"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="121,299,181,324"/>
+<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="225,253,177,292,174,288,221,249"/>
+<area shape="poly" id="edge12_Node000011_Node000004" title=" " alt="" coords="294,106,205,148,203,144,292,102"/>
+<area shape="poly" id="edge14_Node000011_Node000005" title=" " alt="" coords="307,106,270,144,266,140,303,102"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="299,152,369,177"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="322,104,331,138,325,140,317,105"/>
+<area shape="poly" id="edge15_Node000011_Node000013" title=" " alt="" coords="343,102,439,144,437,149,341,106"/>
+<area shape="poly" id="edge16_Node000013_Node000006" title=" " alt="" coords="439,180,290,224,288,219,437,175"/>
+</map>
