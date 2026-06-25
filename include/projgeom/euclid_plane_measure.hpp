@@ -1,5 +1,5 @@
 /** @file euclid_plane_measure.hpp
- *  @brief Euclidean plane measurement functions: quadrance, spread, distance, angle.
+ *  @brief Euclidean plane measurement functions: quadrance, spread.
  */
 
 #pragma once
@@ -147,38 +147,6 @@ namespace fun {
      */
     template <ProjectivePlaneCoord2 Line> constexpr auto cross_s(const Line& l1, const Line& l2) {
         return sbase(l1, l2, dot1(l1, l2));
-    }
-
-#include <cmath>
-
-    /**
-     * @brief Compute the Euclidean distance between two points.
-     *
-     * @f[
-     *     d(A,B) = \sqrt{Q(A,B)}
-     * @f]
-     * @param[in] a First point
-     * @param[in] b Second point
-     * @return auto The Euclidean distance
-     */
-    template <ProjectivePlaneCoord2 Point> constexpr auto distance(const Point& a, const Point& b) {
-        return std::sqrt(double(quadrance(a, b)));
-    }
-
-    /**
-     * @brief Compute the angle between two lines.
-     *
-     * Returns the angle between two lines:
-     * @f[
-     *     \theta = \arcsin\sqrt{s(l_1, l_2)}
-     * @f]
-     * @param[in] line_l First line
-     * @param[in] line_m Second line
-     * @return auto The angle in radians
-     */
-    template <ProjectivePlaneCoord2 Line>
-    constexpr auto angle(const Line& line_l, const Line& line_m) {
-        return std::asin(std::sqrt(double(spread(line_l, line_m))));
     }
 
 }  // namespace fun
