@@ -66,6 +66,9 @@ static constexpr PerspPoint I_IM({1, 0, 0});
 /**
  * @brief Polar
  *
+ * @f[
+ *     p^\perp = l_\infty
+ * @f]
  * @return const PerspLine&
  */
 constexpr auto PerspPoint::perp() const -> const PerspLine& { return L_INF; }
@@ -73,6 +76,9 @@ constexpr auto PerspPoint::perp() const -> const PerspLine& { return L_INF; }
 /**
  * @brief Pole
  *
+ * @f[
+ *     l^\perp = \operatorname{parametrize}(l \cdot I_{\mathrm{re}},\; I_{\mathrm{re}},\; l \cdot I_{\mathrm{im}},\; I_{\mathrm{im}})
+ * @f]
  * @return PerspPoint
  */
 constexpr auto PerspLine::perp() const -> PerspPoint {

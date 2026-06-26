@@ -71,6 +71,9 @@ namespace fun {
      *
      * The join operation in projective geometry computes the line passing
      * through two distinct points.
+     * @f[
+     *     l = p \times q
+     * @f]
      * @param[in] pt_p First point
      * @param[in] pt_q Second point
      * @return pg_line<_K> The line through the two points

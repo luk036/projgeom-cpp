@@ -30,7 +30,9 @@ namespace fun {
     /**
      * @brief Compute squared difference of ratios (non-integral version).
      *
-     * Computes ((x1/z1) - (x2/z2))^2 for non-integral types.
+     * @f[
+     *     \mathrm{quad}_1 = \left(\frac{x_1}{z_1} - \frac{x_2}{z_2}\right)^2
+     * @f]
      * @return auto The squared difference of ratios
      */
     template <typename K>
@@ -48,6 +50,25 @@ namespace fun {
      *     Q(A,B) = \left(\frac{A_x}{A_z} - \frac{B_x}{B_z}\right)^2
      *            + \left(\frac{A_y}{A_z} - \frac{B_y}{B_z}\right)^2
      * @f]
+     *
+     * @dot
+     *   digraph quadrance_flow {
+     *     rankdir=LR;
+     *     bgcolor="transparent";
+     *     node [shape=box, style=filled, fillcolor="#d4e6f1"];
+     *     a1 [label="Point A\n(x1,y1,z1)", fillcolor="#a9cce3"];
+     *     a2 [label="Point B\n(x2,y2,z2)", fillcolor="#a9cce3"];
+     *     dx [label="(x1/z1 - x2/z2)^2", fillcolor="#d4e6f1"];
+     *     dy [label="(y1/z1 - y2/z2)^2", fillcolor="#d4e6f1"];
+     *     sum [label="+", shape=diamond, fillcolor="#f9e79f"];
+     *     q [label="Q(A,B)", fillcolor="#7fb3d8"];
+     *     a1 -> dx; a2 -> dx;
+     *     a1 -> dy; a2 -> dy;
+     *     dx -> sum; dy -> sum;
+     *     sum -> q;
+     *   }
+     * @enddot
+     *
      * @param[in] a1 First point
      * @param[in] a2 Second point
      * @return auto The quadrance (squared distance)
@@ -74,11 +95,14 @@ namespace fun {
     // }
 
     /**
-     * @brief
+     * @brief Base function for spread and cross-spread.
      *
-     * @param[in] l1
-     * @param[in] l2
-     * @param[in] d
+     * @f[
+     *     \mathrm{sbase}(l_1, l_2, d) = \frac{d^2}{\mathrm{dot}_1(l_1,l_1)\,\mathrm{dot}_1(l_2,l_2)}
+     * @f]
+     * @param[in] l1 First line
+     * @param[in] l2 Second line
+     * @param[in] d Scalar value (cross or dot product)
      * @return auto
      */
     template <ProjectivePlaneCoord2 Line, typename T>
@@ -99,6 +123,25 @@ namespace fun {
      *     s(l_1, l_2) = \frac{\mathrm{cross}_2(l_1, l_2)^2}
      *                         {\mathrm{dot}_1(l_1, l_1) \mathrm{dot}_1(l_2, l_2)}
      * @f]
+     *
+     * @dot
+     *   digraph spread_flow {
+     *     rankdir=LR;
+     *     bgcolor="transparent";
+     *     node [shape=box, style=filled, fillcolor="#d4e6f1"];
+     *     l1 [label="Line l1", fillcolor="#a9cce3"];
+     *     l2 [label="Line l2", fillcolor="#a9cce3"];
+     *     cross [label="cross2(l1,l2)^2", fillcolor="#d4e6f1"];
+     *     denom [label="dot1(l1,l1)*\ndot1(l2,l2)", fillcolor="#d4e6f1"];
+     *     div [label="/", shape=diamond, fillcolor="#f9e79f"];
+     *     s [label="s(l1,l2)", fillcolor="#7fb3d8"];
+     *     l1 -> cross; l2 -> cross;
+     *     l1 -> denom; l2 -> denom;
+     *     cross -> div; denom -> div;
+     *     div -> s;
+     *   }
+     * @enddot
+     *
      * @param[in] l1 First line
      * @param[in] l2 Second line
      * @return auto The spread

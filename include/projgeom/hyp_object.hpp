@@ -57,6 +57,9 @@ class HyperbolicLine : public PgObject<HyperbolicLine, HyperbolicPoint> {
 /**
  * @brief Polar
  *
+ * @f[
+ *     (x, y, z)^\perp = (x, y, -z)
+ * @f]
  * @return HyperbolicLine
  */
 constexpr auto HyperbolicPoint::perp() const -> HyperbolicLine {
@@ -66,6 +69,9 @@ constexpr auto HyperbolicPoint::perp() const -> HyperbolicLine {
 /**
  * @brief Pole
  *
+ * @f[
+ *     (x, y, z)^\perp = (x, y, -z)
+ * @f]
  * @return HyperbolicPoint
  */
 constexpr auto HyperbolicLine::perp() const -> HyperbolicPoint {

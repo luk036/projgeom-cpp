@@ -46,6 +46,10 @@ namespace fun {
 
     /// Return the meet (intersection) of two lines to form a point.
     /// In projective geometry, two distinct lines always intersect at a point.
+    ///
+    /// @f[
+    ///     p = l \times m
+    /// @f]
     template <Ring _K> constexpr auto meet(const pg_line<_K>& ln_l, const pg_line<_K>& ln_m)
         -> pg_point<_K> {
         return ln_l * ln_m;

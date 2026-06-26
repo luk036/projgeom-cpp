@@ -57,6 +57,9 @@ class MyCKLine : public PgObject<MyCKLine, MyCKPoint> {
 /**
  * @brief Polar
  *
+ * @f[
+ *     (x, y, z)^\perp = (-2x,\; y,\; -2z)
+ * @f]
  * @return MyCKLine
  */
 constexpr auto MyCKPoint::perp() const -> MyCKLine {
@@ -66,6 +69,9 @@ constexpr auto MyCKPoint::perp() const -> MyCKLine {
 /**
  * @brief Pole
  *
+ * @f[
+ *     (x, y, z)^\perp = (-x,\; 2y,\; -z)
+ * @f]
  * @return MyCKPoint
  */
 constexpr auto MyCKLine::perp() const -> MyCKPoint {

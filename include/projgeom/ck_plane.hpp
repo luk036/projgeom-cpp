@@ -33,6 +33,11 @@ namespace fun {
      *
      * Uses the pole-polar relationship to compute the altitude.
      * @tparam Point The point type
+     * @f[
+     *     h = m^\perp \times p
+     * @f]
+     * where \f$m^\perp\f$ is the polar of the line.
+     * @tparam Point The point type
      * @tparam Line The line type
      */
     template <class Point, class Line>
@@ -47,6 +52,9 @@ namespace fun {
      * @brief Compute the orthocenter of a triangle (Cayley-Klein).
      *
      * Returns the intersection point of the three altitudes.
+     * @f[
+     *     H = h_{a_1} \times h_{a_2}
+     * @f]
      * @param[in] triangle Array of three non-collinear points
      * @return std::arrary<Line, 3>
      */
@@ -66,6 +74,9 @@ namespace fun {
      * @brief Compute all three altitudes of a triangle (Cayley-Klein).
      *
      * Returns an array containing the three altitude lines.
+     * @f[
+     *     \{h_{a_1},\; h_{a_2},\; h_{a_3}\}
+     * @f]
      * @param[in] triangle Array of three non-collinear points
      * @return std::arrary<Line, 3> Array of three altitude lines
      */
@@ -87,6 +98,10 @@ namespace fun {
      * @brief Reflect a point across a line (Cayley-Klein).
      *
      * Uses involution to reflect a point across a mirror line.
+     * @f[
+     *     p' = \operatorname{involution}(m^\perp,\; m,\; p)
+     * @f]
+     * where \f$m^\perp\f$ is the pole of the mirror line.
      * @param[in] mirror The line of reflection
      * @param[in] pt_p The point to reflect
      * @return Point The reflected point

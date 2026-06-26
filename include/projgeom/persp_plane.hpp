@@ -44,6 +44,11 @@ namespace fun {
         /**
          * @brief Compute the pole of a line.
          *
+         * @f[
+         *     v^\perp = \alpha I_{\mathrm{re}} + \beta I_{\mathrm{im}}
+         * @f]
+         * where \f$\alpha = v \cdot I_{\mathrm{re}}\f$ and
+         * \f$\beta = v \cdot I_{\mathrm{im}}\f$.
          * @param[in] v A line
          * @return Point The pole (polar) of the line
          */
@@ -67,6 +72,10 @@ namespace fun {
         /**
          * @brief Compute the midpoint of two points.
          *
+         * @f[
+         *     M = \operatorname{parametrize}(\alpha,\; a,\; \beta,\; b)
+         * @f]
+         * where \f$\alpha = a \cdot l_\infty\f$, \f$\beta = b \cdot l_\infty\f$.
          * @param[in] pt_a First point
          * @param[in] pt_b Second point
          * @return Point The midpoint
@@ -94,6 +103,9 @@ namespace fun {
          * @brief Compute the omega value for a point.
          *
          * The omega function measures how far a point is from the line at infinity.
+         * @f[
+         *     \omega(p) = (p \cdot l_\infty)^2
+         * @f]
          * @param[in] x A point
          * @return K The omega value
          */
@@ -105,6 +117,9 @@ namespace fun {
          * @brief Compute the omega value for a line.
          *
          * The omega function measures how far a line is from the ideal points.
+         * @f[
+         *     \omega(l) = (l \cdot I_{\mathrm{re}})^2 + (l \cdot I_{\mathrm{im}})^2
+         * @f]
          * @param[in] x A line
          * @return K The omega value
          */
@@ -116,6 +131,9 @@ namespace fun {
          * @brief Compute the cross-ratio measure between two elements.
          *
          * Returns the ratio of omega values for measuring projective relationships.
+         * @f[
+         *     \mu(a_1, a_2) = \frac{\omega(a_1 \times a_2)}{\omega(a_1)\omega(a_2)}
+         * @f]
          * @param[in] a1 First point or line
          * @param[in] a2 Second point or line
          * @return auto The measure value

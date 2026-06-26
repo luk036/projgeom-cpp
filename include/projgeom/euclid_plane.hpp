@@ -58,6 +58,10 @@ namespace fun {
      *
      * The altitude is the line through the given point that is perpendicular
      * to the given line.
+     * @f[
+     *     h_a = a \times \bar{l}
+     * @f]
+     * where \f$\bar{l}\f$ is the direction vector of line \f$l\f$.
      * @param[in] a The point from which the altitude is drawn
      * @param[in] line_l The line to which the altitude is drawn
      * @return Line The altitude line
@@ -72,6 +76,9 @@ namespace fun {
      * @brief Compute all three altitudes of a triangle.
      *
      * Returns an array containing the three altitude lines of the triangle.
+     * @f[
+     *     \{h_{a_1},\; h_{a_2},\; h_{a_3}\}
+     * @f]
      * @param[in] triangle Array of three non-collinear points
      * @return std::array<Line, 3> The three altitude lines
      */
@@ -85,6 +92,29 @@ namespace fun {
      * @brief Compute the orthocenter of a triangle.
      *
      * The orthocenter is the intersection point of all three altitudes of a triangle.
+     * @f[
+     *     H = h_{a_1} \times h_{a_2}
+     * @f]
+     *
+     * @dot
+     *   digraph orthocenter_flow {
+     *     bgcolor="transparent";
+     *     node [shape=circle, style=filled, fillcolor="#d4e6f1"];
+     *     a1 [label="A", fillcolor="#a9cce3"];
+     *     a2 [label="B", fillcolor="#a9cce3"];
+     *     a3 [label="C", fillcolor="#a9cce3"];
+     *     ha [label="alt A", shape=box, fillcolor="#d5f5e3"];
+     *     hb [label="alt B", shape=box, fillcolor="#d5f5e3"];
+     *     h [label="H\n(orthocenter)", fillcolor="#fadbd8"];
+     *     a1 -> ha;
+     *     a2 -> hb;
+     *     ha -> h;
+     *     hb -> h;
+     *     note [shape=note, fillcolor="#fcf3cf", label="H = h_a1 x h_a2"];
+     *     h -> note [style=dashed, color="#888", constraint=false];
+     *   }
+     * @enddot
+     *
      * @param[in] triangle Array of three non-collinear points
      * @return Point The orthocenter of the triangle
      */
@@ -101,6 +131,23 @@ namespace fun {
      *
      * Returns an involution that performs reflection across the given line
      * in the Euclidean plane.
+     * @f[
+     *     I_m(p) = \operatorname{Involution}(m,\; \bar{m})
+     * @f]
+     * where \f$\bar{m}\f$ is the direction vector of the mirror line.
+     *
+     * @dot
+     *   digraph reflect_flow {
+     *     bgcolor="transparent";
+     *     node [shape=circle, style=filled, fillcolor="#d4e6f1"];
+     *     p [label="P", fillcolor="#a9cce3"];
+     *     m [label="mirror line m", shape=box, fillcolor="#d5f5e3"];
+     *     pp [label="P' = I_m(P)", fillcolor="#fadbd8"];
+     *     p -> m [label="reflect"];
+     *     m -> pp;
+     *   }
+     * @enddot
+     *
      * @param[in] line_m The line of reflection (mirror)
      * @return Involution The reflection involution
      */
@@ -112,6 +159,24 @@ namespace fun {
      * @brief Compute the midpoint of two points.
      *
      * Returns the point that divides the segment AB in the ratio 1:1.
+     * @f[
+     *     M = \operatorname{parametrize}(b_z,\; a,\; a_z,\; b)
+     * @f]
+     *
+     * @dot
+     *   digraph midpoint_flow {
+     *     bgcolor="transparent";
+     *     node [shape=circle, style=filled, fillcolor="#d4e6f1"];
+     *     a [label="A", fillcolor="#a9cce3"];
+     *     b [label="B", fillcolor="#a9cce3"];
+     *     m [label="M\n(midpoint)", fillcolor="#7fb3d8"];
+     *     a -> m [label="b_z * A"];
+     *     b -> m [label="a_z * B"];
+     *     note [shape=note, fillcolor="#fcf3cf", label="M = param(b_z, a, a_z, b)"];
+     *     m -> note [style=dashed, color="#888", constraint=false];
+     *   }
+     * @enddot
+     *
      * @param[in] a First point
      * @param[in] b Second point
      * @return Point The midpoint
@@ -125,6 +190,9 @@ namespace fun {
      * @brief Compute the midpoints of all three sides of a triangle.
      *
      * Returns an array containing the midpoints of each side of the triangle.
+     * @f[
+     *     \{M_{a_1a_2},\; M_{a_2a_3},\; M_{a_1a_3}\}
+     * @f]
      * @param[in] triangle Array of three points
      * @return Triple<Point> Array of three midpoints
      */
@@ -139,6 +207,9 @@ namespace fun {
      *
      * Creates a point on the unit circle using the parameterization
      * (lambda^2 - mu^2, 2*lambda*mu, lambda^2 + mu^2).
+     * @f[
+     *     (\lambda^2 - \mu^2,\; 2\lambda\mu,\; \lambda^2 + \mu^2)
+     * @f]
      * @param[in] lda1 The lambda parameter
      * @param[in] mu1 The mu parameter
      * @return Point A point on the unit circle
@@ -153,6 +224,9 @@ namespace fun {
     /**
      * @brief Archimedes's function
      *
+     * @f[
+     *     \mathrm{archimedes}(a,b,c) = 4ab - (a + b - c)^2
+     * @f]
      * @tparam _Q
      * @param[in] a
      * @param[in] b
@@ -166,6 +240,12 @@ namespace fun {
     /**
      * @brief Cyclic quadrilateral quadrea theorem
      *
+     * Returns the coefficients of the quadratic equation whose roots
+     * are the quadrea of a cyclic quadrilateral with opposite sides
+     * (a,b) and (c,d).
+     * @f[
+     *     Q^2 - (4ab + 4cd - (a+b-c-d)^2)\,Q + 16abcd = 0
+     * @f]
      * @tparam _Q
      * @param[in] a
      * @param[in] b
@@ -188,6 +268,10 @@ namespace fun {
      * Ptolemy's theorem states that for a cyclic quadrilateral,
      * the product of the diagonals equals the sum of the products
      * of opposite sides.
+     * @f[
+     *     Q_{12}Q_{34} + Q_{23}Q_{14} = Q_{13}Q_{24}
+     * @f]
+     * or equivalently \f$\mathrm{archimedes}(Q_{12}Q_{34},\; Q_{23}Q_{14},\; Q_{13}Q_{24}) = 0\f$.
      * @param[in] quad Array of six side/diagonal measurements {Q12, Q23, Q34, Q14, Q13, Q24}
      * @return true if the quadrilateral satisfies Ptolemy's theorem
      */

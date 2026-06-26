@@ -78,6 +78,9 @@ namespace fun {
     /**
      * @brief Dual of triangle
      *
+     * @f[
+     *     \{l_1, l_2, l_3\} = \{a_2 \times a_3,\; a_1 \times a_3,\; a_1 \times a_2\}
+     * @f]
      * @tparam Point Point
      * @tparam Line Line
      * @param[in] triangle
@@ -162,8 +165,11 @@ namespace fun {
     }
 
     /**
-     * @brief harmonic conjugate
+     * @brief Harmonic conjugate
      *
+     * @f[
+     *     (A, B; C, D) = -1
+     * @f]
      * @tparam Value
      * @tparam Point
      * @param[in] pt_a
@@ -183,8 +189,12 @@ namespace fun {
     }
 
     /**
-     * @brief Involution
+     * @brief Involution on a point.
      *
+     * Applies the involution defined by origin and mirror to point pt_p.
+     * @f[
+     *     p' = \operatorname{harm\_conj}(o,\; (p \times o) \times m,\; p)
+     * @f]
      * @tparam Value
      * @tparam Point
      * @tparam Point::Dual

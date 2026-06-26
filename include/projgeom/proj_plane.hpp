@@ -62,6 +62,9 @@ namespace fun {
      *
      * Returns the triangle formed by the three lines joining the vertices
      * of the input triangle.
+     * @f[
+     *     \{l_1, l_2, l_3\} = \{a_2 \times a_3,\; a_1 \times a_3,\; a_1 \times a_2\}
+     * @f]
      * @param[in] triangle Array of three non-collinear points
      * @return auto Array of three lines (the sides)
      */
@@ -111,6 +114,26 @@ namespace fun {
      *
      * Given three collinear points A, B, C, returns the fourth point D
      * such that (A, B; C, D) is a harmonic range.
+     * @f[
+     *     (A, B; C, D) = -1 \quad\Longrightarrow\quad
+     *     D = \operatorname{parametrize}(B \cdot l_C,\; A,\; A \cdot l_C,\; B)
+     * @f]
+     *
+     * @dot
+     *   digraph harm_conj {
+     *     bgcolor="transparent";
+     *     node [shape=circle, style=filled, fillcolor="#d4e6f1"];
+     *     a [label="A", fillcolor="#a9cce3"];
+     *     b [label="B", fillcolor="#a9cce3"];
+     *     c [label="C"];
+     *     d [label="D (conj)", fillcolor="#fadbd8"];
+     *     a -> b -> c [style=invis];
+     *     { rank=same; a; b; c; d; }
+     *     note [shape=note, fillcolor="#fcf3cf", label="(A,B;C,D) = -1"];
+     *     d -> note [style=dashed, color="#888", constraint=false];
+     *   }
+     * @enddot
+     *
      * @param[in] A First point
      * @param[in] B Second point
      * @param[in] C Third point (must be collinear with A and B)
@@ -129,6 +152,12 @@ namespace fun {
      * Given three collinear points A, B, C, returns the fourth point D
      * such that (A, B; C, D) is a harmonic range. Generic version using
      * auxiliary constructions.
+     * @f[
+     *     D = (Q \times S) \times AB
+     * @f]
+     * where \f$P = AB^\perp\f$, \f$R = P^\perp(C)\f$,
+     * \f$S = (A \times R) \times (B \times P)\f$,
+     * \f$Q = (B \times R) \times (A \times P)\f$.
      * @param[in] A First point
      * @param[in] B Second point
      * @param[in] C Third point (must be collinear with A and B)
@@ -192,6 +221,9 @@ namespace fun {
          * @brief Apply the involution to a point.
          *
          * Returns the image of pt_p under the involution.
+         * @f[
+         *     p' = \operatorname{parametrize}(c,\; p,\; -2(p \cdot m),\; o)
+         * @f]
          * @param[in] pt_p The point to transform
          * @return Point The transformed point
          */
@@ -203,6 +235,9 @@ namespace fun {
          * @brief Apply the involution to a line.
          *
          * Returns the image of ln_l under the involution.
+         * @f[
+         *     l' = \operatorname{parametrize}(c,\; l,\; -2(l \cdot o),\; m)
+         * @f]
          * @param[in] ln_l The line to transform
          * @return Line The transformed line
          */

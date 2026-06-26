@@ -103,6 +103,10 @@ namespace fun {
      * @brief Compute cross ratio using yz-plane projection.
      *
      * Returns the cross ratio R(A, B; C, D) using the yz-plane projection.
+     * @f[
+     *     R_0(A,B;C,D) = \frac{\mathrm{cross}_0(A,C)}{\mathrm{cross}_0(A,D)}
+     *                  \Big/ \frac{\mathrm{cross}_0(B,C)}{\mathrm{cross}_0(B,D)}
+     * @f]
      * @param[in] A First point
      * @param[in] B Second point
      * @param[in] C Third point
@@ -118,6 +122,10 @@ namespace fun {
      * @brief Compute cross ratio using xz-plane projection.
      *
      * Returns the cross ratio R(A, B; C, D) using the xz-plane projection.
+     * @f[
+     *     R_1(A,B;C,D) = \frac{\mathrm{cross}_1(A,C)}{\mathrm{cross}_1(A,D)}
+     *                  \Big/ \frac{\mathrm{cross}_1(B,C)}{\mathrm{cross}_1(B,D)}
+     * @f]
      * @param[in] A First point
      * @param[in] B Second point
      * @param[in] C Third point

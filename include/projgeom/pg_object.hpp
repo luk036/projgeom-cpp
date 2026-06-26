@@ -13,6 +13,9 @@
 /**
  * @brief Dot product of two homogeneous 3-vectors.
  *
+ * @f[
+ *     a \cdot b = a_x b_x + a_y b_y + a_z b_z
+ * @f]
  * @param[in] pt_a First vector
  * @param[in] pt_b Second vector
  * @return int64_t
@@ -25,6 +28,9 @@ constexpr auto dot(const std::array<int64_t, 3>& pt_a, const std::array<int64_t,
 /**
  * @brief Cross product of two homogeneous 3-vectors.
  *
+ * @f[
+ *     a \times b = (a_y b_z - a_z b_y,\; a_z b_x - a_x b_z,\; a_x b_y - a_y b_x)^T
+ * @f]
  * @param[in] pt_a First vector
  * @param[in] pt_b Second vector
  * @return std::array<int64_t, 3>
@@ -44,6 +50,9 @@ constexpr auto cross(const std::array<int64_t, 3>& pt_a, const std::array<int64_
  * @param[in] lambda
  * @param[in] pt_p
  * @param[in] mu
+ * @f[
+ *     \lambda p + \mu q
+ * @f]
  * @param[in] pt_q
  * @return std::array<int64_t, 3>
  */
@@ -166,6 +175,9 @@ template <typename Point, typename Line> struct PgObject {
     /**
      * @brief Dot product with the dual object.
      *
+     * @f[
+     *     a \cdot b = a_x b_x + a_y b_y + a_z b_z
+     * @f]
      * @param[in] other
      * @return int64_t
      */
@@ -176,6 +188,9 @@ template <typename Point, typename Line> struct PgObject {
     /**
      * @brief Homogeneous parametrization of point or line
      *
+     * @f[
+     *     \lambda p + \mu q
+     * @f]
      * @param[in] lambda
      * @param[in] pt_p
      * @param[in] mu
@@ -183,7 +198,7 @@ template <typename Point, typename Line> struct PgObject {
      * @return Point
      */
     static constexpr auto parametrize(const int64_t& lambda, const Point& pt_p, const int64_t& mu,
-                                       const Point& pt_q) -> Point {
+                                        const Point& pt_q) -> Point {
         return Point{::plckr(lambda, pt_p.coord, mu, pt_q.coord)};
     }
 
@@ -199,6 +214,9 @@ template <typename Point, typename Line> struct PgObject {
     /**
      * @brief Meet (intersection) with another point to form a line.
      *
+     * @f[
+     *     l = p \times q
+     * @f]
      * @param[in] rhs
      * @return Line
      */

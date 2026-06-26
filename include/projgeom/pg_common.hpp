@@ -132,8 +132,11 @@ namespace fun {
     }
 
     /**
-     * @brief dot product of the (0,2)-component of two vectors
+     * @brief Dot product of the (0,2)-component of two vectors
      *
+     * @f[
+     *     \mathrm{dot}_2(v,w) = v_x w_x + v_z w_z
+     * @f]
      * @tparam _K
      * @param[in] v
      * @param[in] w
@@ -166,6 +169,9 @@ namespace fun {
      * @param[in] lambda First scalar coefficient
      * @param[in] pt_p First point/line
      * @param[in] mu Second scalar coefficient
+     * @f[
+     *     \lambda p + \mu q
+     * @f]
      * @param[in] pt_q Second point/line
      * @return Point The parametrized point/line
      */

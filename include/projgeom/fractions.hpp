@@ -46,8 +46,14 @@ namespace fun {
     }
 
     /**
-     * @brief Greatest common divider
+     * @brief Greatest common divisor
      *
+     * @f[
+     *     \gcd(m,n) = \begin{cases}
+     *         |n| & \text{if } m = 0 \\
+     *         \gcd(|m|, n \bmod |m|) & \text{otherwise}
+     *     \end{cases}
+     * @f]
      * @tparam Mn
      * @param[in] _m
      * @param[in] _n
@@ -63,6 +69,9 @@ namespace fun {
     /**
      * @brief Least common multiple
      *
+     * @f[
+     *     \operatorname{lcm}(m,n) = \frac{|m|}{|m| \bmod |n|} \cdot |n|
+     * @f]
      * @tparam Mn
      * @param[in] _m
      * @param[in] _n
@@ -161,8 +170,11 @@ namespace fun {
         [[nodiscard]] constexpr auto den() const noexcept -> const Z& { return _den; }
 
         /**
-         * @brief cross product
+         * @brief Cross product of two fractions
          *
+         * @f[
+         *     a/b \times c/d = ad - bc
+         * @f]
          * @param[in] rhs
          * @return Z
          */

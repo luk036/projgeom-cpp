@@ -57,6 +57,9 @@ class EllipticLine : public PgObject<EllipticLine, EllipticPoint> {
 /**
  * @brief Polar
  *
+ * @f[
+ *     p^\perp = p
+ * @f]
  * @return EllipticLine
  */
 constexpr auto EllipticPoint::perp() const -> EllipticLine { return EllipticLine{this->coord}; }
@@ -64,6 +67,9 @@ constexpr auto EllipticPoint::perp() const -> EllipticLine { return EllipticLine
 /**
  * @brief Pole
  *
+ * @f[
+ *     l^\perp = l
+ * @f]
  * @return EllipticPoint
  */
 constexpr auto EllipticLine::perp() const -> EllipticPoint { return EllipticPoint{this->coord}; }
