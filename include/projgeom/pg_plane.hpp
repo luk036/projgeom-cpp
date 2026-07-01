@@ -66,7 +66,7 @@ namespace fun {
         requires ProjPlanePrimDual<Point, Line>
 #endif
     constexpr auto check_pappus(const std::array<Point, 3>& coline1,
-                                 const std::array<Point, 3>& coline2) -> bool {
+                                const std::array<Point, 3>& coline2) -> bool {
         const auto& [pt_a, pt_b, pt_c] = coline1;
         const auto& [pt_d, pt_e, pt_f] = coline2;
         const auto pt_g = (pt_a.meet(pt_e)).meet(pt_b.meet(pt_d));
@@ -131,7 +131,7 @@ namespace fun {
         requires ProjPlanePrimDual<Point, Line>
 #endif
     constexpr auto check_desargue(const std::array<Point, 3>& tri1,
-                                   const std::array<Point, 3>& tri2) -> bool {
+                                  const std::array<Point, 3>& tri2) -> bool {
         const auto trid1 = tri_dual(tri1);
         const auto trid2 = tri_dual(tri2);
         const auto bool1 = persp(tri1, tri2);
@@ -156,7 +156,7 @@ namespace fun {
         requires ProjectivePlaneDual<Value, Point, Line>
 #endif
     inline auto check_axiom2(const Point& pt_p, const Point& pt_q, const Line& ln_l, const Value& a,
-                              const Value& b) -> bool {
+                             const Value& b) -> bool {
         if (pt_p.dot(ln_l) != ln_l.dot(pt_p)) return false;
         if (pt_p.aux().incident(pt_p)) return false;
         const auto ln_m = pt_p.meet(pt_q);

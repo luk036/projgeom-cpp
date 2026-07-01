@@ -98,7 +98,8 @@ namespace fun {
      * @brief Base function for spread and cross-spread.
      *
      * @f[
-     *     \mathrm{sbase}(l_1, l_2, d) = \frac{d^2}{\mathrm{dot}_1(l_1,l_1)\,\mathrm{dot}_1(l_2,l_2)}
+     *     \mathrm{sbase}(l_1, l_2, d) =
+     * \frac{d^2}{\mathrm{dot}_1(l_1,l_1)\,\mathrm{dot}_1(l_2,l_2)}
      * @f]
      * @param[in] l1 First line
      * @param[in] l2 Second line
@@ -182,7 +183,8 @@ namespace fun {
      * The cross spread is the squared cosine of the angle between lines:
      * @f[
      * \mathrm{cross\_s}(l_1, l_2) = \frac{\mathrm{dot}_1(l_1, l_2)^2}
-     *                                              {\mathrm{dot}_1(l_1, l_1) \mathrm{dot}_1(l_2, l_2)}
+     *                                              {\mathrm{dot}_1(l_1, l_1) \mathrm{dot}_1(l_2,
+     * l_2)}
      * @f]
      * @param[in] l1 First line
      * @param[in] l2 Second line
