@@ -93,10 +93,10 @@ namespace fun {
          * @return Triple<Point> Array of three midpoints
          */
         [[nodiscard]] constexpr auto tri_midpoint(const Triple<Point>& triangle) const {
-            const auto& [a1, a2, a3] = triangle;
+            const auto& [a_1, a_2, a_3] = triangle;
 
-            return Triple<Point>{this->midpoint(a1, a2), this->midpoint(a2, a3),
-                                 this->midpoint(a1, a3)};
+            return Triple<Point>{this->midpoint(a_1, a_2), this->midpoint(a_2, a_3),
+                                 this->midpoint(a_1, a_3)};
         }
 
         /**

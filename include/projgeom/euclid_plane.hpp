@@ -84,8 +84,8 @@ namespace fun {
      */
     template <ProjectivePlaneCoord2 Point>
     constexpr auto tri_altitude(const Triple<Point>& triangle) {
-        const auto& [a1, a2, a3] = triangle;
-        return std::array{altitude(a1, a2 * a3), altitude(a2, a3 * a1), altitude(a3, a1 * a2)};
+        const auto& [a_1, a_2, a_3] = triangle;
+        return std::array{altitude(a_1, a_2 * a_3), altitude(a_2, a_3 * a_1), altitude(a_3, a_1 * a_2)};
     }
 
     /**
@@ -120,9 +120,9 @@ namespace fun {
      */
     template <ProjectivePlaneCoord2 Point> constexpr auto orthocenter(const Triple<Point>& triangle)
         -> Point {
-        const auto& [a1, a2, a3] = triangle;
-        const auto t1 = altitude(a1, a2 * a3);
-        const auto t2 = altitude(a2, a1 * a3);
+        const auto& [a_1, a_2, a_3] = triangle;
+        const auto t1 = altitude(a_1, a_2 * a_3);
+        const auto t2 = altitude(a_2, a_1 * a_3);
         return t1 * t2;
     }
 
@@ -198,8 +198,8 @@ namespace fun {
      */
     template <ProjectivePlaneCoord2 Point>
     constexpr auto tri_midpoint(const Triple<Point>& triangle) -> Triple<Point> {
-        const auto& [a1, a2, a3] = triangle;
-        return {midpoint(a1, a2), midpoint(a2, a3), midpoint(a1, a3)};
+        const auto& [a_1, a_2, a_3] = triangle;
+        return {midpoint(a_1, a_2), midpoint(a_2, a_3), midpoint(a_1, a_3)};
     }
 
     /**

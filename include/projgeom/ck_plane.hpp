@@ -24,8 +24,8 @@ namespace fun {
 #if __cpp_concepts >= 201907L
         requires CayleyKleinPlanePrimitiveDual<Line, Point>
 #endif
-    constexpr auto is_perpendicular(const Line& m1, const Line& m2) -> bool {
-        return m1.perp().incident(m2);
+    constexpr auto is_perpendicular(const Line& l_1, const Line& l_2) -> bool {
+        return l_1.perp().incident(l_2);
     }
 
     /**
@@ -63,10 +63,10 @@ namespace fun {
         requires CayleyKleinPlanePrimitiveDual<Point, Line>
 #endif
     constexpr auto orthocenter(const std::array<Point, 3>& triangle) -> Point {
-        const auto& [a1, a2, a3] = triangle;
-        assert(!coincident(a1, a2, a3));
-        const auto t1 = altitude(a1, a2.meet(a3));
-        const auto t2 = altitude(a2, a3.meet(a1));
+        const auto& [a_1, a_2, a_3] = triangle;
+        assert(!coincident(a_1, a_2, a_3));
+        const auto t1 = altitude(a_1, a_2.meet(a_3));
+        const auto t2 = altitude(a_2, a_3.meet(a_1));
         return t1.meet(t2);
     }
 
@@ -86,11 +86,11 @@ namespace fun {
 #endif
     constexpr auto tri_altitude(const std::array<Point, 3>& triangle) -> std::array<Line, 3> {
         const auto [l1, l2, l3] = tri_dual(triangle);
-        const auto& [a1, a2, a3] = triangle;
-        assert(!coincident(a1, a2, a3));
-        auto&& t1 = altitude(a1, l1);
-        auto&& t2 = altitude(a2, l2);
-        auto&& t3 = altitude(a3, l3);
+        const auto& [a_1, a_2, a_3] = triangle;
+        assert(!coincident(a_1, a_2, a_3));
+        auto&& t1 = altitude(a_1, l1);
+        auto&& t2 = altitude(a_2, l2);
+        auto&& t3 = altitude(a_3, l3);
         return {t1, t2, t3};
     }
 

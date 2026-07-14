@@ -1,6 +1,7 @@
 add_rules("mode.debug", "mode.release", "mode.coverage")
 add_requires("fmt", { alias = "fmt" })
 add_requires("doctest", { alias = "doctest" })
+add_requires("benchmark", { alias = "benchmark" })
 add_requires("spdlog", { alias = "spdlog" })
 -- add_requires("range-v3", {alias = "range-v3"})
 
@@ -56,6 +57,17 @@ if os.isdir(rapidcheck_dir) and os.isdir(rapidcheck_lib_dir) then
     add_linkdirs(rapidcheck_lib_dir)
     add_links("rapidcheck")
     add_defines("RAPIDCHECK_H")
+end
+
+target("BM_projgeom")
+set_languages("c++20")
+set_kind("binary")
+add_includedirs("include", { public = true })
+add_includedirs("../fractions-cpp/include", { public = true })
+add_files("bench/BM_projgeom.cpp")
+add_packages("benchmark", "fmt", "spdlog")
+if is_plat("linux", "macosx") then
+	add_syslinks("pthread")
 end
 
 --
