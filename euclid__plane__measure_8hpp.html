@@ -28,7 +28,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.8;  VERSION ${PROJECT_VERSION}</span>
+   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.9;  VERSION ${PROJECT_VERSION}</span>
    </div>
   </td>
  </tr>
@@ -87,48 +87,46 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Euclidean plane measurement functions: quadrance, spread, distance, angle.  
+<p>Euclidean plane measurement functions: quadrance, spread.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="euclid__plane_8hpp_source.html">euclid_plane.hpp</a>&quot;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for euclid_plane_measure.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="euclid__plane__measure_8hpp__incl.png" border="0" usemap="#aprojgeom_2euclid__plane__measure_8hpp" alt=""/></div>
 <map name="aprojgeom_2euclid__plane__measure_8hpp" id="aprojgeom_2euclid__plane__measure_8hpp">
-<area shape="rect" title="Euclidean plane measurement functions: quadrance, spread, distance, angle." alt="" coords="353,5,523,45"/>
-<area shape="rect" href="euclid__plane_8hpp.html" title="Euclidean plane functions: perpendicularity, parallelism, altitude, orthocenter, etc." alt="" coords="240,93,372,119"/>
-<area shape="poly" title=" " alt="" coords="408,48,339,88,336,84,405,43"/>
-<area shape="rect" title=" " alt="" coords="527,387,589,412"/>
-<area shape="poly" title=" " alt="" coords="476,43,509,66,544,96,570,134,578,155,581,178,581,254,576,319,566,374,561,373,570,318,575,254,575,178,573,156,565,136,540,100,506,70,473,48"/>
+<area shape="rect" title="Euclidean plane measurement functions: quadrance, spread." alt="" coords="157,5,327,45"/>
+<area shape="rect" href="euclid__plane_8hpp.html" title="Euclidean plane functions: perpendicularity, parallelism, altitude, orthocenter, etc." alt="" coords="176,93,308,119"/>
+<area shape="poly" title=" " alt="" coords="245,46,245,79,239,79,239,46"/>
 <area shape="rect" title=" " alt="" coords="5,387,97,412"/>
-<area shape="poly" title=" " alt="" coords="240,118,143,138,102,152,76,169,60,192,49,218,40,275,42,329,48,373,43,373,36,330,35,274,44,216,56,189,72,165,99,147,141,133,239,113"/>
-<area shape="rect" href="pg__common_8hpp.html" title=" " alt="" coords="86,167,217,192"/>
-<area shape="poly" title=" " alt="" coords="282,121,190,163,188,158,280,116"/>
-<area shape="rect" href="proj__plane_8hpp.html" title=" " alt="" coords="247,167,365,192"/>
-<area shape="poly" title=" " alt="" coords="309,119,309,153,303,153,303,119"/>
-<area shape="rect" href="proj__plane__concepts_8h.html" title="C++20 concepts for projective planes with coordinate access and parametrization." alt="" coords="373,240,540,265"/>
-<area shape="poly" title=" " alt="" coords="323,117,380,165,440,228,436,231,376,169,320,121"/>
-<area shape="rect" title=" " alt="" coords="119,240,175,265"/>
-<area shape="poly" title=" " alt="" coords="153,192,151,227,146,226,148,192"/>
-<area shape="rect" title=" " alt="" coords="200,240,255,265"/>
-<area shape="poly" title=" " alt="" coords="165,190,207,229,203,232,162,194"/>
-<area shape="rect" href="common__concepts_8h.html" title="Common C++20 concepts: Ring, OrderedRing, Integral, Sequence." alt="" coords="264,313,420,339"/>
-<area shape="poly" title=" " alt="" coords="139,194,124,209,111,228,104,247,105,255,109,264,130,279,165,292,251,311,250,316,163,297,128,284,105,267,100,257,99,246,106,225,120,206,135,191"/>
-<area shape="poly" title=" " alt="" coords="296,341,111,386,110,381,295,336"/>
-<area shape="poly" title=" " alt="" coords="378,336,514,381,513,386,376,341"/>
-<area shape="rect" title=" " alt="" coords="201,387,281,412"/>
-<area shape="poly" title=" " alt="" coords="327,341,270,381,267,376,324,336"/>
-<area shape="rect" title=" " alt="" coords="305,387,379,412"/>
-<area shape="poly" title=" " alt="" coords="345,339,345,373,339,373,339,339"/>
-<area shape="rect" title=" " alt="" coords="404,387,464,412"/>
-<area shape="poly" title=" " alt="" coords="358,337,410,376,407,380,355,341"/>
-<area shape="poly" title=" " alt="" coords="282,194,187,237,185,232,279,190"/>
-<area shape="poly" title=" " alt="" coords="295,194,252,233,248,229,292,190"/>
-<area shape="rect" title=" " alt="" coords="279,240,349,265"/>
-<area shape="poly" title=" " alt="" coords="310,192,314,226,309,227,305,193"/>
-<area shape="poly" title=" " alt="" coords="331,190,421,232,418,236,329,194"/>
-<area shape="poly" title=" " alt="" coords="440,268,374,308,371,304,437,263"/>
+<area shape="poly" title=" " alt="" coords="177,120,131,138,110,151,92,168,76,192,65,219,52,275,48,330,51,373,45,373,43,330,46,275,60,217,72,190,88,165,106,147,128,133,175,115"/>
+<area shape="rect" href="pg__common_8hpp.html" title=" " alt="" coords="102,167,233,192"/>
+<area shape="poly" title=" " alt="" coords="232,121,191,159,188,155,228,117"/>
+<area shape="rect" href="proj__plane_8hpp.html" title=" " alt="" coords="257,167,376,192"/>
+<area shape="poly" title=" " alt="" coords="256,117,296,155,293,159,252,121"/>
+<area shape="rect" href="proj__plane__concepts_8h.html" title="C++20 concepts for projective planes with coordinate access and parametrization." alt="" coords="393,240,560,265"/>
+<area shape="poly" title=" " alt="" coords="282,116,335,136,390,164,429,195,460,227,456,231,425,199,387,169,333,141,280,121"/>
+<area shape="rect" title=" " alt="" coords="139,240,195,265"/>
+<area shape="poly" title=" " alt="" coords="170,192,170,226,165,226,165,192"/>
+<area shape="rect" title=" " alt="" coords="220,240,275,265"/>
+<area shape="poly" title=" " alt="" coords="182,190,226,229,222,233,178,194"/>
+<area shape="rect" href="common__concepts_8h.html" title="Common C++20 concepts: Ring, OrderedRing, Integral, Sequence." alt="" coords="159,313,315,339"/>
+<area shape="poly" title=" " alt="" coords="156,194,143,209,131,227,126,246,130,264,153,289,182,306,180,310,149,293,125,267,120,246,127,225,139,206,152,191"/>
+<area shape="poly" title=" " alt="" coords="208,341,95,384,93,379,206,336"/>
+<area shape="rect" title=" " alt="" coords="205,387,268,412"/>
+<area shape="poly" title=" " alt="" coords="239,339,239,373,234,373,234,339"/>
+<area shape="rect" title=" " alt="" coords="293,387,373,412"/>
+<area shape="poly" title=" " alt="" coords="254,337,307,376,304,380,251,341"/>
+<area shape="rect" title=" " alt="" coords="397,387,471,412"/>
+<area shape="poly" title=" " alt="" coords="269,336,390,379,388,384,267,341"/>
+<area shape="rect" title=" " alt="" coords="121,387,181,412"/>
+<area shape="poly" title=" " alt="" coords="225,341,177,380,174,376,221,337"/>
+<area shape="poly" title=" " alt="" coords="294,194,205,236,203,232,292,190"/>
+<area shape="poly" title=" " alt="" coords="307,194,270,232,266,228,303,190"/>
+<area shape="rect" title=" " alt="" coords="299,240,369,265"/>
+<area shape="poly" title=" " alt="" coords="322,192,331,226,325,228,317,193"/>
+<area shape="poly" title=" " alt="" coords="343,190,439,232,437,237,341,194"/>
+<area shape="poly" title=" " alt="" coords="439,268,290,312,288,307,437,263"/>
 </map>
 </div>
 </div>
@@ -160,6 +158,7 @@ requires Integral&lt;K&gt;</td></tr>
 <tr class="separator:a454ca9c5399c26cf68e8612747eca1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ed766412afb971e7a559d8d3e06fec0" id="r_a6ed766412afb971e7a559d8d3e06fec0"><td class="memTemplParams" colspan="2">template&lt;ProjectivePlaneCoord2 Line, typename T &gt; </td></tr>
 <tr class="memitem:a6ed766412afb971e7a559d8d3e06fec0"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a6ed766412afb971e7a559d8d3e06fec0">fun::sbase</a> (const Line &amp;l1, const Line &amp;l2, const T &amp;d)</td></tr>
+<tr class="memdesc:a6ed766412afb971e7a559d8d3e06fec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base function for spread and cross-spread.  <br /></td></tr>
 <tr class="separator:a6ed766412afb971e7a559d8d3e06fec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1f75ed6aff0e2b160f95a9f6735ff2b" id="r_ae1f75ed6aff0e2b160f95a9f6735ff2b"><td class="memTemplParams" colspan="2">template&lt;ProjectivePlaneCoord2 Line&gt; </td></tr>
 <tr class="memitem:ae1f75ed6aff0e2b160f95a9f6735ff2b"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#ae1f75ed6aff0e2b160f95a9f6735ff2b">fun::spread</a> (const Line &amp;l1, const Line &amp;l2)</td></tr>
@@ -177,17 +176,9 @@ requires Integral&lt;K&gt;</td></tr>
 <tr class="memitem:a6d53f3f395faba622f767f359ca04ff1"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a6d53f3f395faba622f767f359ca04ff1">fun::cross_s</a> (const Line &amp;l1, const Line &amp;l2)</td></tr>
 <tr class="memdesc:a6d53f3f395faba622f767f359ca04ff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cross spread between two lines.  <br /></td></tr>
 <tr class="separator:a6d53f3f395faba622f767f359ca04ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc3421853cd773a0c6fb8e4daaa195a6" id="r_acc3421853cd773a0c6fb8e4daaa195a6"><td class="memTemplParams" colspan="2">template&lt;ProjectivePlaneCoord2 Point&gt; </td></tr>
-<tr class="memitem:acc3421853cd773a0c6fb8e4daaa195a6"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#acc3421853cd773a0c6fb8e4daaa195a6">fun::distance</a> (const Point &amp;a, const Point &amp;b)</td></tr>
-<tr class="memdesc:acc3421853cd773a0c6fb8e4daaa195a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Euclidean distance between two points.  <br /></td></tr>
-<tr class="separator:acc3421853cd773a0c6fb8e4daaa195a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9b4d0ffbbe64aedbec1626dac97ff44" id="r_aa9b4d0ffbbe64aedbec1626dac97ff44"><td class="memTemplParams" colspan="2">template&lt;ProjectivePlaneCoord2 Line&gt; </td></tr>
-<tr class="memitem:aa9b4d0ffbbe64aedbec1626dac97ff44"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#aa9b4d0ffbbe64aedbec1626dac97ff44">fun::angle</a> (const Line &amp;line_l, const Line &amp;line_m)</td></tr>
-<tr class="memdesc:aa9b4d0ffbbe64aedbec1626dac97ff44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the angle between two lines.  <br /></td></tr>
-<tr class="separator:aa9b4d0ffbbe64aedbec1626dac97ff44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Euclidean plane measurement functions: quadrance, spread, distance, angle. </p>
+<div class="textblock"><p>Euclidean plane measurement functions: quadrance, spread. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

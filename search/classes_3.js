@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['hyperbolicline_0',['HyperbolicLine',['../classHyperbolicLine.html',1,'']]],
-  ['hyperbolicpoint_1',['HyperbolicPoint',['../classHyperbolicPoint.html',1,'']]]
+  ['greeter_0',['Greeter',['../classprojgeom_1_1Greeter.html',1,'projgeom']]]
 ];

@@ -28,7 +28,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.8;  VERSION ${PROJECT_VERSION}</span>
+   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.9;  VERSION ${PROJECT_VERSION}</span>
    </div>
   </td>
  </tr>
@@ -139,9 +139,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:af7bcbdf04a3f109b0797c31990016bbc inherit pub_types_structPgObject" id="r_af7bcbdf04a3f109b0797c31990016bbc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPgObject.html#af7bcbdf04a3f109b0797c31990016bbc">Dual</a> = <a class="el" href="classPerspPoint.html">PerspPoint</a></td></tr>
 <tr class="separator:af7bcbdf04a3f109b0797c31990016bbc inherit pub_types_structPgObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_structPgObject"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_structPgObject')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="structPgObject.html">PgObject&lt; PerspLine, PerspPoint &gt;</a></td></tr>
-<tr class="memitem:a93f82ebf645f1c2fd83b5fbfc950edfa inherit pub_static_methods_structPgObject" id="r_a93f82ebf645f1c2fd83b5fbfc950edfa"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPgObject.html#a93f82ebf645f1c2fd83b5fbfc950edfa">parametrize</a> (const int64_t &amp;lambda, const <a class="el" href="classPerspLine.html">PerspLine</a> &amp;pt_p, const int64_t &amp;mu, const <a class="el" href="classPerspLine.html">PerspLine</a> &amp;pt_q) -&gt; <a class="el" href="classPerspLine.html">PerspLine</a></td></tr>
-<tr class="memdesc:a93f82ebf645f1c2fd83b5fbfc950edfa inherit pub_static_methods_structPgObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Homogeneous parametrization of point or line.  <br /></td></tr>
-<tr class="separator:a93f82ebf645f1c2fd83b5fbfc950edfa inherit pub_static_methods_structPgObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c90ccc9c42b45fa7d9cd3c3aefca9f8 inherit pub_static_methods_structPgObject" id="r_a5c90ccc9c42b45fa7d9cd3c3aefca9f8"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPgObject.html#a5c90ccc9c42b45fa7d9cd3c3aefca9f8">parametrize</a> (const int64_t &amp;lambda_val, const <a class="el" href="classPerspLine.html">PerspLine</a> &amp;pt_p, const int64_t &amp;mu_val, const <a class="el" href="classPerspLine.html">PerspLine</a> &amp;pt_q) -&gt; <a class="el" href="classPerspLine.html">PerspLine</a></td></tr>
+<tr class="memdesc:a5c90ccc9c42b45fa7d9cd3c3aefca9f8 inherit pub_static_methods_structPgObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Homogeneous parametrization of point or line.  <br /></td></tr>
+<tr class="separator:a5c90ccc9c42b45fa7d9cd3c3aefca9f8 inherit pub_static_methods_structPgObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_structPgObject"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structPgObject')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="structPgObject.html">PgObject&lt; PerspLine, PerspPoint &gt;</a></td></tr>
 <tr class="memitem:a4a9e00289304a2c220243125fece0d94 inherit pub_attribs_structPgObject" id="r_a4a9e00289304a2c220243125fece0d94"><td class="memItemLeft" align="right" valign="top">std::array&lt; int64_t, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPgObject.html#a4a9e00289304a2c220243125fece0d94">coord</a></td></tr>
 <tr class="separator:a4a9e00289304a2c220243125fece0d94 inherit pub_attribs_structPgObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -208,7 +208,14 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Pole. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classPerspPoint.html" title="Perspective Point.">PerspPoint</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classPerspPoint.html" title="Perspective Point.">PerspPoint</a></dd></dl>
+<p class="formulaDsp">
+\[
+    l^\perp = \operatorname{parametrize}(l \cdot I_{\mathrm{re}},\; I_{\mathrm{re}},\; l \cdot
+I_{\mathrm{im}},\; I_{\mathrm{im}})
+\]
+</p>
+ <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classPerspPoint.html" title="Perspective Point.">PerspPoint</a> </dd></dl>
 
 </div>
 </div>

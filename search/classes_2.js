@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['greeter_0',['Greeter',['../classprojgeom_1_1Greeter.html',1,'projgeom']]]
+  ['fraction_0',['Fraction',['../structfun_1_1Fraction.html',1,'fun']]]
 ];

@@ -28,7 +28,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.8;  VERSION ${PROJECT_VERSION}</span>
+   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.9;  VERSION ${PROJECT_VERSION}</span>
    </div>
   </td>
  </tr>
@@ -80,6 +80,7 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">fun Namespace Reference</div></div>
 </div><!--header-->
@@ -87,6 +88,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfun_1_1Conic.html">Conic</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A conic section represented by a symmetric 3x3 matrix.  <a href="classfun_1_1Conic.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfun_1_1Fraction.html">Fraction</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structfun_1_1Fraction.html" title="Fraction.">Fraction</a>.  <a href="structfun_1_1Fraction.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,12 +198,21 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:a73553426c0a76ebb7d2787b024e68426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type alias for an array of three points (a triangle)  <br /></td></tr>
 <tr class="separator:a73553426c0a76ebb7d2787b024e68426"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a02624ab25f02e9c4ccb47a050ea11e6a" id="r_a02624ab25f02e9c4ccb47a050ea11e6a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefun.html#a02624ab25f02e9c4ccb47a050ea11e6a">ConicType</a> { <a class="el" href="namespacefun.html#a02624ab25f02e9c4ccb47a050ea11e6aa119518c2134c46108179369f0ce81fa2">Ellipse</a>
+, <a class="el" href="namespacefun.html#a02624ab25f02e9c4ccb47a050ea11e6aadf5a05bb403aa376bd71f1341f8acfa6">Parabola</a>
+, <a class="el" href="namespacefun.html#a02624ab25f02e9c4ccb47a050ea11e6aa2af03ca39974cae19a90cdad5a5f3230">Hyperbola</a>
+ }</td></tr>
+<tr class="memdesc:a02624ab25f02e9c4ccb47a050ea11e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of conic types based on the discriminant.  <a href="namespacefun.html#a02624ab25f02e9c4ccb47a050ea11e6a">More...</a><br /></td></tr>
+<tr class="separator:a02624ab25f02e9c4ccb47a050ea11e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1586d086bd5c55c817ecd16c2506540f" id="r_a1586d086bd5c55c817ecd16c2506540f"><td class="memTemplParams" colspan="2">template&lt;class Line , class Point  = typename Line::Dual&gt; </td></tr>
-<tr class="memitem:a1586d086bd5c55c817ecd16c2506540f"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a1586d086bd5c55c817ecd16c2506540f">is_perpendicular</a> (const Line &amp;m1, const Line &amp;m2) -&gt; bool</td></tr>
-<tr class="memdesc:a1586d086bd5c55c817ecd16c2506540f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two lines are perpendicular (Cayley-Klein).  <br /></td></tr>
-<tr class="separator:a1586d086bd5c55c817ecd16c2506540f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3258fafc8a3bf8bba827b25c47f58f" id="r_abd3258fafc8a3bf8bba827b25c47f58f"><td class="memTemplParams" colspan="2">template&lt;class Line , class Point  = typename Line::Dual&gt; </td></tr>
+<tr class="memitem:abd3258fafc8a3bf8bba827b25c47f58f"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#abd3258fafc8a3bf8bba827b25c47f58f">is_perpendicular</a> (const Line &amp;l_1, const Line &amp;l_2) -&gt; bool</td></tr>
+<tr class="memdesc:abd3258fafc8a3bf8bba827b25c47f58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two lines are perpendicular (Cayley-Klein).  <br /></td></tr>
+<tr class="separator:abd3258fafc8a3bf8bba827b25c47f58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2e3c4f5d9213edefc83e6214babdbed" id="r_aa2e3c4f5d9213edefc83e6214babdbed"><td class="memTemplParams" colspan="2">template&lt;class Point , class Line &gt; </td></tr>
 <tr class="memitem:aa2e3c4f5d9213edefc83e6214babdbed"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#aa2e3c4f5d9213edefc83e6214babdbed">altitude</a> (const Point &amp;pt_p, const Line &amp;ln_m) -&gt; Line</td></tr>
 <tr class="memdesc:aa2e3c4f5d9213edefc83e6214babdbed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the altitude from a point to a line (Cayley-Klein).  <br /></td></tr>
@@ -288,6 +301,7 @@ requires Integral&lt;K&gt;</td></tr>
 <tr class="separator:a454ca9c5399c26cf68e8612747eca1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ed766412afb971e7a559d8d3e06fec0" id="r_a6ed766412afb971e7a559d8d3e06fec0"><td class="memTemplParams" colspan="2">template&lt;ProjectivePlaneCoord2 Line, typename T &gt; </td></tr>
 <tr class="memitem:a6ed766412afb971e7a559d8d3e06fec0"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a6ed766412afb971e7a559d8d3e06fec0">sbase</a> (const Line &amp;l1, const Line &amp;l2, const T &amp;d)</td></tr>
+<tr class="memdesc:a6ed766412afb971e7a559d8d3e06fec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base function for spread and cross-spread.  <br /></td></tr>
 <tr class="separator:a6ed766412afb971e7a559d8d3e06fec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1f75ed6aff0e2b160f95a9f6735ff2b" id="r_ae1f75ed6aff0e2b160f95a9f6735ff2b"><td class="memTemplParams" colspan="2">template&lt;ProjectivePlaneCoord2 Line&gt; </td></tr>
 <tr class="memitem:ae1f75ed6aff0e2b160f95a9f6735ff2b"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#ae1f75ed6aff0e2b160f95a9f6735ff2b">spread</a> (const Line &amp;l1, const Line &amp;l2)</td></tr>
@@ -305,14 +319,6 @@ requires Integral&lt;K&gt;</td></tr>
 <tr class="memitem:a6d53f3f395faba622f767f359ca04ff1"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a6d53f3f395faba622f767f359ca04ff1">cross_s</a> (const Line &amp;l1, const Line &amp;l2)</td></tr>
 <tr class="memdesc:a6d53f3f395faba622f767f359ca04ff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cross spread between two lines.  <br /></td></tr>
 <tr class="separator:a6d53f3f395faba622f767f359ca04ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc3421853cd773a0c6fb8e4daaa195a6" id="r_acc3421853cd773a0c6fb8e4daaa195a6"><td class="memTemplParams" colspan="2">template&lt;ProjectivePlaneCoord2 Point&gt; </td></tr>
-<tr class="memitem:acc3421853cd773a0c6fb8e4daaa195a6"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#acc3421853cd773a0c6fb8e4daaa195a6">distance</a> (const Point &amp;a, const Point &amp;b)</td></tr>
-<tr class="memdesc:acc3421853cd773a0c6fb8e4daaa195a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Euclidean distance between two points.  <br /></td></tr>
-<tr class="separator:acc3421853cd773a0c6fb8e4daaa195a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9b4d0ffbbe64aedbec1626dac97ff44" id="r_aa9b4d0ffbbe64aedbec1626dac97ff44"><td class="memTemplParams" colspan="2">template&lt;ProjectivePlaneCoord2 Line&gt; </td></tr>
-<tr class="memitem:aa9b4d0ffbbe64aedbec1626dac97ff44"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#aa9b4d0ffbbe64aedbec1626dac97ff44">angle</a> (const Line &amp;line_l, const Line &amp;line_m)</td></tr>
-<tr class="memdesc:aa9b4d0ffbbe64aedbec1626dac97ff44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the angle between two lines.  <br /></td></tr>
-<tr class="separator:aa9b4d0ffbbe64aedbec1626dac97ff44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab146a5f3e8d28b96c2a95ee4a9131203" id="r_ab146a5f3e8d28b96c2a95ee4a9131203"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab146a5f3e8d28b96c2a95ee4a9131203"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#ab146a5f3e8d28b96c2a95ee4a9131203">abs</a> (const T &amp;a) -&gt; T</td></tr>
 <tr class="memdesc:ab146a5f3e8d28b96c2a95ee4a9131203"><td class="mdescLeft">&#160;</td><td class="mdescRight">absolute  <br /></td></tr>
@@ -323,54 +329,54 @@ requires Integral&lt;K&gt;</td></tr>
 <tr class="separator:a96551b6cf3cc2e52947ec4f95fbb4122"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace53eb3e1941a9614068af40244b79ac" id="r_ace53eb3e1941a9614068af40244b79ac"><td class="memTemplParams" colspan="2">template&lt;Integral Mn&gt; </td></tr>
 <tr class="memitem:ace53eb3e1941a9614068af40244b79ac"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#ace53eb3e1941a9614068af40244b79ac">gcd</a> (const Mn &amp;_m, const Mn &amp;_n) -&gt; Mn</td></tr>
-<tr class="memdesc:ace53eb3e1941a9614068af40244b79ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Greatest common divider.  <br /></td></tr>
+<tr class="memdesc:ace53eb3e1941a9614068af40244b79ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Greatest common divisor.  <br /></td></tr>
 <tr class="separator:ace53eb3e1941a9614068af40244b79ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a146be467b0b704bf2f6402c0cfd1118f" id="r_a146be467b0b704bf2f6402c0cfd1118f"><td class="memTemplParams" colspan="2">template&lt;Integral Mn&gt; </td></tr>
 <tr class="memitem:a146be467b0b704bf2f6402c0cfd1118f"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a146be467b0b704bf2f6402c0cfd1118f">lcm</a> (const Mn &amp;_m, const Mn &amp;_n) -&gt; Mn</td></tr>
 <tr class="memdesc:a146be467b0b704bf2f6402c0cfd1118f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Least common multiple.  <br /></td></tr>
 <tr class="separator:a146be467b0b704bf2f6402c0cfd1118f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cdcf98d0571e5d3e4030edcddd36e44" id="r_a9cdcf98d0571e5d3e4030edcddd36e44"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
-<tr class="memitem:a9cdcf98d0571e5d3e4030edcddd36e44"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a9cdcf98d0571e5d3e4030edcddd36e44">cross0</a> (const std::array&lt; _K, 3 &gt; &amp;v, const std::array&lt; _K, 3 &gt; &amp;w) -&gt; _K</td></tr>
-<tr class="memdesc:a9cdcf98d0571e5d3e4030edcddd36e44"><td class="mdescLeft">&#160;</td><td class="mdescRight">1st term of Cross product (yz-plane projection)  <br /></td></tr>
-<tr class="separator:a9cdcf98d0571e5d3e4030edcddd36e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57948a71d5676b82cd44690eb2bddc9c" id="r_a57948a71d5676b82cd44690eb2bddc9c"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
-<tr class="memitem:a57948a71d5676b82cd44690eb2bddc9c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a57948a71d5676b82cd44690eb2bddc9c">cross1</a> (const std::array&lt; _K, 3 &gt; &amp;v, const std::array&lt; _K, 3 &gt; &amp;w) -&gt; _K</td></tr>
-<tr class="memdesc:a57948a71d5676b82cd44690eb2bddc9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">2nd term of Cross product (xz-plane projection)  <br /></td></tr>
-<tr class="separator:a57948a71d5676b82cd44690eb2bddc9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0608f092081d82ca084979a23b02e33" id="r_ae0608f092081d82ca084979a23b02e33"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
-<tr class="memitem:ae0608f092081d82ca084979a23b02e33"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#ae0608f092081d82ca084979a23b02e33">cross2</a> (const std::array&lt; _K, 3 &gt; &amp;v, const std::array&lt; _K, 3 &gt; &amp;w) -&gt; _K</td></tr>
-<tr class="memdesc:ae0608f092081d82ca084979a23b02e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">3rd term of Cross product (xy-plane projection)  <br /></td></tr>
-<tr class="separator:ae0608f092081d82ca084979a23b02e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6be1a2ffaafb1ba217975d5aa9331fc" id="r_ac6be1a2ffaafb1ba217975d5aa9331fc"><td class="memTemplParams" colspan="2">template&lt;typename Point &gt; <br />
+<tr class="memitem:a2e9cff554479cde3fb5a6d2d320b0c96" id="r_a2e9cff554479cde3fb5a6d2d320b0c96"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
+<tr class="memitem:a2e9cff554479cde3fb5a6d2d320b0c96"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a2e9cff554479cde3fb5a6d2d320b0c96">cross0</a> (const std::array&lt; _K, 3 &gt; &amp;v_a, const std::array&lt; _K, 3 &gt; &amp;v_b) -&gt; _K</td></tr>
+<tr class="memdesc:a2e9cff554479cde3fb5a6d2d320b0c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">1st term of Cross product (yz-plane projection)  <br /></td></tr>
+<tr class="separator:a2e9cff554479cde3fb5a6d2d320b0c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc17fad30db14747a3f87757562c117c" id="r_acc17fad30db14747a3f87757562c117c"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
+<tr class="memitem:acc17fad30db14747a3f87757562c117c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#acc17fad30db14747a3f87757562c117c">cross1</a> (const std::array&lt; _K, 3 &gt; &amp;v_a, const std::array&lt; _K, 3 &gt; &amp;v_b) -&gt; _K</td></tr>
+<tr class="memdesc:acc17fad30db14747a3f87757562c117c"><td class="mdescLeft">&#160;</td><td class="mdescRight">2nd term of Cross product (xz-plane projection)  <br /></td></tr>
+<tr class="separator:acc17fad30db14747a3f87757562c117c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3988738e45d78ab72907da7eab7690cf" id="r_a3988738e45d78ab72907da7eab7690cf"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
+<tr class="memitem:a3988738e45d78ab72907da7eab7690cf"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a3988738e45d78ab72907da7eab7690cf">cross2</a> (const std::array&lt; _K, 3 &gt; &amp;v_a, const std::array&lt; _K, 3 &gt; &amp;v_b) -&gt; _K</td></tr>
+<tr class="memdesc:a3988738e45d78ab72907da7eab7690cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">3rd term of Cross product (xy-plane projection)  <br /></td></tr>
+<tr class="separator:a3988738e45d78ab72907da7eab7690cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae91da543730dd5ecb716f4f02fd82f7" id="r_aae91da543730dd5ecb716f4f02fd82f7"><td class="memTemplParams" colspan="2">template&lt;typename Point &gt; <br />
 requires Ring&lt;<a class="el" href="namespacefun.html#a37431bda783312b6220a70d27570e949">Value_type</a>&lt;Point&gt;&gt;</td></tr>
-<tr class="memitem:ac6be1a2ffaafb1ba217975d5aa9331fc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#ac6be1a2ffaafb1ba217975d5aa9331fc">cross</a> (const Point &amp;v, const Point &amp;w) -&gt; std::array&lt; <a class="el" href="namespacefun.html#a37431bda783312b6220a70d27570e949">Value_type</a>&lt; Point &gt;, 3 &gt;</td></tr>
-<tr class="memdesc:ac6be1a2ffaafb1ba217975d5aa9331fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cross product in homogeneous 3D coordinates.  <br /></td></tr>
-<tr class="separator:ac6be1a2ffaafb1ba217975d5aa9331fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd00d8d47dc41ed5111534d98a0bcdf6" id="r_afd00d8d47dc41ed5111534d98a0bcdf6"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
-<tr class="memitem:afd00d8d47dc41ed5111534d98a0bcdf6"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#afd00d8d47dc41ed5111534d98a0bcdf6">dot_c</a> (const std::array&lt; _K, 3 &gt; &amp;v, const std::array&lt; _K, 3 &gt; &amp;w) -&gt; _K</td></tr>
-<tr class="memdesc:afd00d8d47dc41ed5111534d98a0bcdf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dot product (full 3-component)  <br /></td></tr>
-<tr class="separator:afd00d8d47dc41ed5111534d98a0bcdf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58585b245e80fadd6c3eacfac1e25dd9" id="r_a58585b245e80fadd6c3eacfac1e25dd9"><td class="memTemplParams" colspan="2">template&lt;Ring _T, Ring _K&gt; </td></tr>
-<tr class="memitem:a58585b245e80fadd6c3eacfac1e25dd9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a58585b245e80fadd6c3eacfac1e25dd9">plucker_c</a> (const _T &amp;lambda, const std::array&lt; _K, 3 &gt; &amp;v1, const _T &amp;mu, const std::array&lt; _K, 3 &gt; &amp;v2) -&gt; std::array&lt; _K, 3 &gt;</td></tr>
-<tr class="memdesc:a58585b245e80fadd6c3eacfac1e25dd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">generic Plücker linear combination  <br /></td></tr>
-<tr class="separator:a58585b245e80fadd6c3eacfac1e25dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa65b41de344715d6ddb058aa7dcd9f90" id="r_aa65b41de344715d6ddb058aa7dcd9f90"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
-<tr class="memitem:aa65b41de344715d6ddb058aa7dcd9f90"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#aa65b41de344715d6ddb058aa7dcd9f90">dot1</a> (const std::array&lt; _K, 3 &gt; &amp;v, const std::array&lt; _K, 3 &gt; &amp;w) -&gt; _K</td></tr>
-<tr class="memdesc:aa65b41de344715d6ddb058aa7dcd9f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dot product of the (x,y)-components of two vectors (affine part)  <br /></td></tr>
-<tr class="separator:aa65b41de344715d6ddb058aa7dcd9f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae71e6138b5f516642b60fa3149a9db57" id="r_ae71e6138b5f516642b60fa3149a9db57"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
-<tr class="memitem:ae71e6138b5f516642b60fa3149a9db57"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#ae71e6138b5f516642b60fa3149a9db57">dot2</a> (const std::array&lt; _K, 3 &gt; &amp;v, const std::array&lt; _K, 3 &gt; &amp;w) -&gt; _K</td></tr>
-<tr class="memdesc:ae71e6138b5f516642b60fa3149a9db57"><td class="mdescLeft">&#160;</td><td class="mdescRight">dot product of the (0,2)-component of two vectors  <br /></td></tr>
-<tr class="separator:ae71e6138b5f516642b60fa3149a9db57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae91da543730dd5ecb716f4f02fd82f7"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#aae91da543730dd5ecb716f4f02fd82f7">cross</a> (const Point &amp;v_a, const Point &amp;v_b) -&gt; std::array&lt; <a class="el" href="namespacefun.html#a37431bda783312b6220a70d27570e949">Value_type</a>&lt; Point &gt;, 3 &gt;</td></tr>
+<tr class="memdesc:aae91da543730dd5ecb716f4f02fd82f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cross product in homogeneous 3D coordinates.  <br /></td></tr>
+<tr class="separator:aae91da543730dd5ecb716f4f02fd82f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac91d7878dc12724d7b3b9d40cac4a2f6" id="r_ac91d7878dc12724d7b3b9d40cac4a2f6"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
+<tr class="memitem:ac91d7878dc12724d7b3b9d40cac4a2f6"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#ac91d7878dc12724d7b3b9d40cac4a2f6">dot_c</a> (const std::array&lt; _K, 3 &gt; &amp;v_a, const std::array&lt; _K, 3 &gt; &amp;v_b) -&gt; _K</td></tr>
+<tr class="memdesc:ac91d7878dc12724d7b3b9d40cac4a2f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dot product (full 3-component)  <br /></td></tr>
+<tr class="separator:ac91d7878dc12724d7b3b9d40cac4a2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95ecf62a332527db159491cef919136d" id="r_a95ecf62a332527db159491cef919136d"><td class="memTemplParams" colspan="2">template&lt;Ring _T, Ring _K&gt; </td></tr>
+<tr class="memitem:a95ecf62a332527db159491cef919136d"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a95ecf62a332527db159491cef919136d">plucker_c</a> (const _T &amp;lambda_val, const std::array&lt; _K, 3 &gt; &amp;v_a, const _T &amp;mu_val, const std::array&lt; _K, 3 &gt; &amp;v_b) -&gt; std::array&lt; _K, 3 &gt;</td></tr>
+<tr class="memdesc:a95ecf62a332527db159491cef919136d"><td class="mdescLeft">&#160;</td><td class="mdescRight">generic Plücker linear combination  <br /></td></tr>
+<tr class="separator:a95ecf62a332527db159491cef919136d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bd4901c57552ff76983d7033e2ca066" id="r_a8bd4901c57552ff76983d7033e2ca066"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
+<tr class="memitem:a8bd4901c57552ff76983d7033e2ca066"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a8bd4901c57552ff76983d7033e2ca066">dot1</a> (const std::array&lt; _K, 3 &gt; &amp;v_a, const std::array&lt; _K, 3 &gt; &amp;v_b) -&gt; _K</td></tr>
+<tr class="memdesc:a8bd4901c57552ff76983d7033e2ca066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dot product of the (x,y)-components of two vectors (affine part)  <br /></td></tr>
+<tr class="separator:a8bd4901c57552ff76983d7033e2ca066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbd7a202e759451309c1bde10222b34e" id="r_acbd7a202e759451309c1bde10222b34e"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
+<tr class="memitem:acbd7a202e759451309c1bde10222b34e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#acbd7a202e759451309c1bde10222b34e">dot2</a> (const std::array&lt; _K, 3 &gt; &amp;v_a, const std::array&lt; _K, 3 &gt; &amp;v_b) -&gt; _K</td></tr>
+<tr class="memdesc:acbd7a202e759451309c1bde10222b34e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dot product of the (0,2)-component of two vectors.  <br /></td></tr>
+<tr class="separator:acbd7a202e759451309c1bde10222b34e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedf8ed73d3c766478d73cc514e63107b" id="r_aedf8ed73d3c766478d73cc514e63107b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aedf8ed73d3c766478d73cc514e63107b"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#aedf8ed73d3c766478d73cc514e63107b">sq</a> (const T &amp;a)</td></tr>
 <tr class="memdesc:aedf8ed73d3c766478d73cc514e63107b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Square function.  <br /></td></tr>
 <tr class="separator:aedf8ed73d3c766478d73cc514e63107b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28cc8a3d4a71663a9f08fd6d8be82aa0" id="r_a28cc8a3d4a71663a9f08fd6d8be82aa0"><td class="memTemplParams" colspan="2">template&lt;typename Value , typename Point &gt; <br />
+<tr class="memitem:ab930af6d7754b03044fa3a98433e92da" id="r_ab930af6d7754b03044fa3a98433e92da"><td class="memTemplParams" colspan="2">template&lt;typename Value , typename Point &gt; <br />
 requires Ring&lt;Value&gt;</td></tr>
-<tr class="memitem:a28cc8a3d4a71663a9f08fd6d8be82aa0"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a28cc8a3d4a71663a9f08fd6d8be82aa0">parametrize</a> (const Value &amp;lambda, const Point &amp;pt_p, const Value &amp;mu, const Point &amp;pt_q) -&gt; Point</td></tr>
-<tr class="memdesc:a28cc8a3d4a71663a9f08fd6d8be82aa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Homogeneous parametrization of point or line (free function)  <br /></td></tr>
-<tr class="separator:a28cc8a3d4a71663a9f08fd6d8be82aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab930af6d7754b03044fa3a98433e92da"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#ab930af6d7754b03044fa3a98433e92da">parametrize</a> (const Value &amp;lambda_val, const Point &amp;pt_p, const Value &amp;mu_val, const Point &amp;pt_q) -&gt; Point</td></tr>
+<tr class="memdesc:ab930af6d7754b03044fa3a98433e92da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Homogeneous parametrization of point or line (free function)  <br /></td></tr>
+<tr class="separator:ab930af6d7754b03044fa3a98433e92da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa832d27b210d35fb13b98213038e3789" id="r_aa832d27b210d35fb13b98213038e3789"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
 <tr class="memitem:aa832d27b210d35fb13b98213038e3789"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#aa832d27b210d35fb13b98213038e3789">meet</a> (const <a class="el" href="structfun_1_1pg__line.html">pg_line</a>&lt; _K &gt; &amp;ln_l, const <a class="el" href="structfun_1_1pg__line.html">pg_line</a>&lt; _K &gt; &amp;ln_m) -&gt; <a class="el" href="structfun_1_1pg__point.html">pg_point</a>&lt; _K &gt;</td></tr>
 <tr class="separator:aa832d27b210d35fb13b98213038e3789"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -404,11 +410,11 @@ requires Ring&lt;Value&gt;</td></tr>
 <tr class="separator:ae2b505f21938d30c1403e3666a14def1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b21e1fbfaf3b610eeeb588759ef4a4a" id="r_a7b21e1fbfaf3b610eeeb588759ef4a4a"><td class="memTemplParams" colspan="2">template&lt;typename Value , class Point , class Line  = typename Point::Dual&gt; </td></tr>
 <tr class="memitem:a7b21e1fbfaf3b610eeeb588759ef4a4a"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a7b21e1fbfaf3b610eeeb588759ef4a4a">harm_conj</a> (const Point &amp;pt_a, const Point &amp;pt_b, const Point &amp;pt_c) -&gt; Point</td></tr>
-<tr class="memdesc:a7b21e1fbfaf3b610eeeb588759ef4a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">harmonic conjugate  <br /></td></tr>
+<tr class="memdesc:a7b21e1fbfaf3b610eeeb588759ef4a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Harmonic conjugate.  <br /></td></tr>
 <tr class="separator:a7b21e1fbfaf3b610eeeb588759ef4a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae32e0f76ead2115af37e008b4f785d1a" id="r_ae32e0f76ead2115af37e008b4f785d1a"><td class="memTemplParams" colspan="2">template&lt;typename Value , class Point , class Line &gt; </td></tr>
 <tr class="memitem:ae32e0f76ead2115af37e008b4f785d1a"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#ae32e0f76ead2115af37e008b4f785d1a">involution</a> (const Point &amp;origin, const Line &amp;mirror, const Point &amp;pt_p) -&gt; Point</td></tr>
-<tr class="memdesc:ae32e0f76ead2115af37e008b4f785d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classfun_1_1Involution.html">Involution</a>.  <br /></td></tr>
+<tr class="memdesc:ae32e0f76ead2115af37e008b4f785d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classfun_1_1Involution.html">Involution</a> on a point.  <br /></td></tr>
 <tr class="separator:ae32e0f76ead2115af37e008b4f785d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26c56cc0604356c825835d6ae80f1809" id="r_a26c56cc0604356c825835d6ae80f1809"><td class="memTemplParams" colspan="2">template&lt;Ring _K&gt; </td></tr>
 <tr class="memitem:a26c56cc0604356c825835d6ae80f1809"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefun.html#a26c56cc0604356c825835d6ae80f1809">join</a> (const <a class="el" href="structfun_1_1pg__point.html">pg_point</a>&lt; _K &gt; &amp;pt_p, const <a class="el" href="structfun_1_1pg__point.html">pg_point</a>&lt; _K &gt; &amp;pt_q) -&gt; <a class="el" href="structfun_1_1pg__line.html">pg_line</a>&lt; _K &gt;</td></tr>
@@ -555,6 +561,36 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a02624ab25f02e9c4ccb47a050ea11e6a" name="a02624ab25f02e9c4ccb47a050ea11e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02624ab25f02e9c4ccb47a050ea11e6a">&#9670;&#160;</a></span>ConicType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="namespacefun.html#a02624ab25f02e9c4ccb47a050ea11e6a">fun::ConicType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enumeration of conic types based on the discriminant. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a02624ab25f02e9c4ccb47a050ea11e6aa119518c2134c46108179369f0ce81fa2" name="a02624ab25f02e9c4ccb47a050ea11e6aa119518c2134c46108179369f0ce81fa2"></a>Ellipse&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02624ab25f02e9c4ccb47a050ea11e6aadf5a05bb403aa376bd71f1341f8acfa6" name="a02624ab25f02e9c4ccb47a050ea11e6aadf5a05bb403aa376bd71f1341f8acfa6"></a>Parabola&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a02624ab25f02e9c4ccb47a050ea11e6aa2af03ca39974cae19a90cdad5a5f3230" name="a02624ab25f02e9c4ccb47a050ea11e6aa2af03ca39974cae19a90cdad5a5f3230"></a>Hyperbola&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ab146a5f3e8d28b96c2a95ee4a9131203" name="ab146a5f3e8d28b96c2a95ee4a9131203"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab146a5f3e8d28b96c2a95ee4a9131203">&#9670;&#160;</a></span>abs()</h2>
@@ -637,7 +673,12 @@ requires ProjectivePlaneCoord&lt;Point, Line&gt;</div>
 </div><div class="memdoc">
 
 <p>Compute the altitude from a point to a line. </p>
-<p>The altitude is the line through the given point that is perpendicular to the given line. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>The altitude is the line through the given point that is perpendicular to the given line.  </p><p class="formulaDsp">
+\[
+    h_a = a \times \bar{l}
+\]
+</p>
+<p> where \(\bar{l}\) is the direction vector of line \(l\). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>The point from which the altitude is drawn </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">line_l</td><td>The line to which the altitude is drawn </td></tr>
@@ -687,64 +728,17 @@ template&lt;class Point , class Line &gt; </div>
 <p>Compute the altitude from a point to a line (Cayley-Klein). </p>
 <p>Uses the pole-polar relationship to compute the altitude. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
+    <tr><td class="paramname">Point</td><td>The point type  <p class="formulaDsp">
+\[
+    h = m^\perp \times p
+\]
+</p>
+ where \(m^\perp\) is the polar of the line. </td></tr>
     <tr><td class="paramname">Point</td><td>The point type </td></tr>
     <tr><td class="paramname">Line</td><td>The line type </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="aa9b4d0ffbbe64aedbec1626dac97ff44" name="aa9b4d0ffbbe64aedbec1626dac97ff44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9b4d0ffbbe64aedbec1626dac97ff44">&#9670;&#160;</a></span>angle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;ProjectivePlaneCoord2 Line&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto fun::angle </td>
-          <td>(</td>
-          <td class="paramtype">const Line &amp;&#160;</td>
-          <td class="paramname"><em>line_l</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Line &amp;&#160;</td>
-          <td class="paramname"><em>line_m</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compute the angle between two lines. </p>
-<p>Returns the angle between two lines:  </p><p class="formulaDsp">
-\[
-    \theta = \arcsin\sqrt{s(l_1, l_2)}
-\]
-</p>
- <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">line_l</td><td>First line </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">line_m</td><td>Second line </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>auto The angle in radians </dd></dl>
 
 </div>
 </div>
@@ -791,7 +785,12 @@ template&lt;OrderedRing _Q&gt; </div>
 </div><div class="memdoc">
 
 <p>Archimedes's function. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p class="formulaDsp">
+\[
+    \mathrm{archimedes}(a,b,c) = 4ab - (a + b - c)^2
+\]
+</p>
+ <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">_Q</td><td></td></tr>
   </table>
@@ -1299,7 +1298,12 @@ template&lt;typename _Q &gt; </div>
 </div><div class="memdoc">
 
 <p>Cyclic quadrilateral quadrea theorem. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Returns the coefficients of the quadratic equation whose roots are the quadrea of a cyclic quadrilateral with opposite sides (a,b) and (c,d).  </p><p class="formulaDsp">
+\[
+    Q^2 - (4ab + 4cd - (a+b-c-d)^2)\,Q + 16abcd = 0
+\]
+</p>
+ <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">_Q</td><td></td></tr>
   </table>
@@ -1318,8 +1322,8 @@ template&lt;typename _Q &gt; </div>
 
 </div>
 </div>
-<a id="ac6be1a2ffaafb1ba217975d5aa9331fc" name="ac6be1a2ffaafb1ba217975d5aa9331fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6be1a2ffaafb1ba217975d5aa9331fc">&#9670;&#160;</a></span>cross()</h2>
+<a id="aae91da543730dd5ecb716f4f02fd82f7" name="aae91da543730dd5ecb716f4f02fd82f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae91da543730dd5ecb716f4f02fd82f7">&#9670;&#160;</a></span>cross()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1331,13 +1335,13 @@ requires Ring&lt;<a class="el" href="namespacefun.html#a37431bda783312b6220a70d2
           <td class="memname">auto fun::cross </td>
           <td>(</td>
           <td class="paramtype">const Point &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
+          <td class="paramname"><em>v_a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const Point &amp;&#160;</td>
-          <td class="paramname"><em>w</em>&#160;</td>
+          <td class="paramname"><em>v_b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1350,10 +1354,10 @@ requires Ring&lt;<a class="el" href="namespacefun.html#a37431bda783312b6220a70d2
 <p>Cross product in homogeneous 3D coordinates. </p>
 <p class="formulaDsp">
 \[
-    v \times w = \begin{pmatrix}
-        v_y w_z - w_y v_z \\
-        w_x v_z - v_x w_z \\
-        v_x w_y - w_x v_y
+    v_a \times v_b = \begin{pmatrix}
+        v_{a,y} v_{b,z} - v_{b,y} v_{a,z} \\
+        v_{b,x} v_{a,z} - v_{a,x} v_{b,z} \\
+        v_{a,x} v_{b,y} - v_{b,x} v_{a,y}
     \end{pmatrix}
 \]
 </p>
@@ -1365,8 +1369,8 @@ requires Ring&lt;<a class="el" href="namespacefun.html#a37431bda783312b6220a70d2
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">w</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_a</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_b</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1374,8 +1378,8 @@ requires Ring&lt;<a class="el" href="namespacefun.html#a37431bda783312b6220a70d2
 
 </div>
 </div>
-<a id="a9cdcf98d0571e5d3e4030edcddd36e44" name="a9cdcf98d0571e5d3e4030edcddd36e44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cdcf98d0571e5d3e4030edcddd36e44">&#9670;&#160;</a></span>cross0()</h2>
+<a id="a2e9cff554479cde3fb5a6d2d320b0c96" name="a2e9cff554479cde3fb5a6d2d320b0c96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e9cff554479cde3fb5a6d2d320b0c96">&#9670;&#160;</a></span>cross0()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1386,13 +1390,13 @@ template&lt;Ring _K&gt; </div>
           <td class="memname">auto fun::cross0 </td>
           <td>(</td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
+          <td class="paramname"><em>v_a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>w</em>&#160;</td>
+          <td class="paramname"><em>v_b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1425,8 +1429,8 @@ template&lt;Ring _K&gt; </div>
 
 </div>
 </div>
-<a id="a57948a71d5676b82cd44690eb2bddc9c" name="a57948a71d5676b82cd44690eb2bddc9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57948a71d5676b82cd44690eb2bddc9c">&#9670;&#160;</a></span>cross1()</h2>
+<a id="acc17fad30db14747a3f87757562c117c" name="acc17fad30db14747a3f87757562c117c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc17fad30db14747a3f87757562c117c">&#9670;&#160;</a></span>cross1()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1437,13 +1441,13 @@ template&lt;Ring _K&gt; </div>
           <td class="memname">auto fun::cross1 </td>
           <td>(</td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
+          <td class="paramname"><em>v_a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>w</em>&#160;</td>
+          <td class="paramname"><em>v_b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1456,7 +1460,7 @@ template&lt;Ring _K&gt; </div>
 <p>2nd term of Cross product (xz-plane projection) </p>
 <p class="formulaDsp">
 \[
-    \mathrm{cross}_1(v,w) = v_x w_z - w_x v_z
+    \mathrm{cross}_1(v_a,v_b) = v_{a,x} v_{b,z} - v_{b,x} v_{a,z}
 \]
 </p>
  <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -1467,8 +1471,8 @@ template&lt;Ring _K&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">w</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_a</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_b</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1476,8 +1480,8 @@ template&lt;Ring _K&gt; </div>
 
 </div>
 </div>
-<a id="ae0608f092081d82ca084979a23b02e33" name="ae0608f092081d82ca084979a23b02e33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0608f092081d82ca084979a23b02e33">&#9670;&#160;</a></span>cross2()</h2>
+<a id="a3988738e45d78ab72907da7eab7690cf" name="a3988738e45d78ab72907da7eab7690cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3988738e45d78ab72907da7eab7690cf">&#9670;&#160;</a></span>cross2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1488,13 +1492,13 @@ template&lt;Ring _K&gt; </div>
           <td class="memname">auto fun::cross2 </td>
           <td>(</td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
+          <td class="paramname"><em>v_a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>w</em>&#160;</td>
+          <td class="paramname"><em>v_b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1507,7 +1511,7 @@ template&lt;Ring _K&gt; </div>
 <p>3rd term of Cross product (xy-plane projection) </p>
 <p class="formulaDsp">
 \[
-    \mathrm{cross}_2(v,w) = v_x w_y - w_x v_y
+    \mathrm{cross}_2(v_a,v_b) = v_{a,x} v_{b,y} - v_{b,x} v_{a,y}
 \]
 </p>
  <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -1518,8 +1522,8 @@ template&lt;Ring _K&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">w</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_a</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_b</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1567,7 +1571,8 @@ template&lt;ProjectivePlaneCoord2 Line&gt; </div>
 <p>The cross spread is the squared cosine of the angle between lines:  </p><p class="formulaDsp">
 \[
 \mathrm{cross\_s}(l_1, l_2) = \frac{\mathrm{dot}_1(l_1, l_2)^2}
-                                             {\mathrm{dot}_1(l_1, l_1) \mathrm{dot}_1(l_2, l_2)}
+                                             {\mathrm{dot}_1(l_1, l_1) \mathrm{dot}_1(l_2,
+l_2)}
 \]
 </p>
  <dl class="params"><dt>Parameters</dt><dd>
@@ -1581,61 +1586,8 @@ template&lt;ProjectivePlaneCoord2 Line&gt; </div>
 
 </div>
 </div>
-<a id="acc3421853cd773a0c6fb8e4daaa195a6" name="acc3421853cd773a0c6fb8e4daaa195a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc3421853cd773a0c6fb8e4daaa195a6">&#9670;&#160;</a></span>distance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;ProjectivePlaneCoord2 Point&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto fun::distance </td>
-          <td>(</td>
-          <td class="paramtype">const Point &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Point &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compute the Euclidean distance between two points. </p>
-<p class="formulaDsp">
-\[
-    d(A,B) = \sqrt{Q(A,B)}
-\]
-</p>
- <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>First point </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Second point </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>auto The Euclidean distance </dd></dl>
-
-</div>
-</div>
-<a id="aa65b41de344715d6ddb058aa7dcd9f90" name="aa65b41de344715d6ddb058aa7dcd9f90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa65b41de344715d6ddb058aa7dcd9f90">&#9670;&#160;</a></span>dot1()</h2>
+<a id="a8bd4901c57552ff76983d7033e2ca066" name="a8bd4901c57552ff76983d7033e2ca066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bd4901c57552ff76983d7033e2ca066">&#9670;&#160;</a></span>dot1()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1646,13 +1598,13 @@ template&lt;Ring _K&gt; </div>
           <td class="memname">auto fun::dot1 </td>
           <td>(</td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
+          <td class="paramname"><em>v_a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>w</em>&#160;</td>
+          <td class="paramname"><em>v_b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1665,7 +1617,7 @@ template&lt;Ring _K&gt; </div>
 <p>Dot product of the (x,y)-components of two vectors (affine part) </p>
 <p class="formulaDsp">
 \[
-    \mathrm{dot}_1(v,w) = v_x w_x + v_y w_y
+    \mathrm{dot}_1(v_a,v_b) = v_{a,x} v_{b,x} + v_{a,y} v_{b,y}
 \]
 </p>
  <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -1676,8 +1628,8 @@ template&lt;Ring _K&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">w</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_a</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_b</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1685,8 +1637,8 @@ template&lt;Ring _K&gt; </div>
 
 </div>
 </div>
-<a id="ae71e6138b5f516642b60fa3149a9db57" name="ae71e6138b5f516642b60fa3149a9db57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae71e6138b5f516642b60fa3149a9db57">&#9670;&#160;</a></span>dot2()</h2>
+<a id="acbd7a202e759451309c1bde10222b34e" name="acbd7a202e759451309c1bde10222b34e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbd7a202e759451309c1bde10222b34e">&#9670;&#160;</a></span>dot2()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1697,13 +1649,13 @@ template&lt;Ring _K&gt; </div>
           <td class="memname">auto fun::dot2 </td>
           <td>(</td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
+          <td class="paramname"><em>v_a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>w</em>&#160;</td>
+          <td class="paramname"><em>v_b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1713,8 +1665,13 @@ template&lt;Ring _K&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>dot product of the (0,2)-component of two vectors </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Dot product of the (0,2)-component of two vectors. </p>
+<p class="formulaDsp">
+\[
+    \mathrm{dot}_2(v_a,v_b) = v_{a,x} v_{b,x} + v_{a,z} v_{b,z}
+\]
+</p>
+ <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">_K</td><td></td></tr>
   </table>
@@ -1722,8 +1679,8 @@ template&lt;Ring _K&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">w</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_a</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_b</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1731,8 +1688,8 @@ template&lt;Ring _K&gt; </div>
 
 </div>
 </div>
-<a id="afd00d8d47dc41ed5111534d98a0bcdf6" name="afd00d8d47dc41ed5111534d98a0bcdf6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd00d8d47dc41ed5111534d98a0bcdf6">&#9670;&#160;</a></span>dot_c()</h2>
+<a id="ac91d7878dc12724d7b3b9d40cac4a2f6" name="ac91d7878dc12724d7b3b9d40cac4a2f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac91d7878dc12724d7b3b9d40cac4a2f6">&#9670;&#160;</a></span>dot_c()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1743,13 +1700,13 @@ template&lt;Ring _K&gt; </div>
           <td class="memname">auto fun::dot_c </td>
           <td>(</td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
+          <td class="paramname"><em>v_a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>w</em>&#160;</td>
+          <td class="paramname"><em>v_b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1762,7 +1719,7 @@ template&lt;Ring _K&gt; </div>
 <p>Dot product (full 3-component) </p>
 <p class="formulaDsp">
 \[
-    v \cdot w = v_x w_x + v_y w_y + v_z w_z
+    v_a \cdot v_b = v_{a,x} v_{b,x} + v_{a,y} v_{b,y} + v_{a,z} v_{b,z}
 \]
 </p>
  <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -1773,8 +1730,8 @@ template&lt;Ring _K&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">w</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_a</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_b</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1855,8 +1812,16 @@ template&lt;Integral Mn&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Greatest common divider. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Greatest common divisor. </p>
+<p class="formulaDsp">
+\[
+    \gcd(m,n) = \begin{cases}
+        |n| &amp; \text{if } m = 0 \\
+        \gcd(|m|, n \bmod |m|) &amp; \text{otherwise}
+    \end{cases}
+\]
+</p>
+ <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Mn</td><td></td></tr>
   </table>
@@ -1970,7 +1935,12 @@ template&lt;ProjectivePlaneGeneric2 _Point&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the harmonic conjugate (generic version). </p>
-<p>Given three collinear points A, B, C, returns the fourth point D such that (A, B; C, D) is a harmonic range. Generic version using auxiliary constructions. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Given three collinear points A, B, C, returns the fourth point D such that (A, B; C, D) is a harmonic range. Generic version using auxiliary constructions.  </p><p class="formulaDsp">
+\[
+    D = (Q \times S) \times AB
+\]
+</p>
+<p> where \(P = AB^\perp\), \(R = P^\perp(C)\), \(S = (A \times R) \times (B \times P)\), \(Q = (B \times R) \times (A \times P)\). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>First point </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>Second point </td></tr>
@@ -2025,7 +1995,16 @@ template&lt;ProjectivePlane2 Point&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the harmonic conjugate of three collinear points. </p>
-<p>Given three collinear points A, B, C, returns the fourth point D such that (A, B; C, D) is a harmonic range. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Given three collinear points A, B, C, returns the fourth point D such that (A, B; C, D) is a harmonic range.  </p><p class="formulaDsp">
+\[
+    (A, B; C, D) = -1 \quad\Longrightarrow\quad
+    D = \operatorname{parametrize}(B \cdot l_C,\; A,\; A \cdot l_C,\; B)
+\]
+</p>
+<div class="dotgraph">
+<img src="dot_inline_dotgraph_1.png" alt="dot_inline_dotgraph_1.png" border="0" usemap="#dot_inline_dotgraph_1.map"/>
+</div>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>First point </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>Second point </td></tr>
@@ -2079,8 +2058,13 @@ template&lt;typename Value , class Point , class Line  = typename Point::Dual&gt
 </table>
 </div><div class="memdoc">
 
-<p>harmonic conjugate </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Harmonic conjugate. </p>
+<p class="formulaDsp">
+\[
+    (A, B; C, D) = -1
+\]
+</p>
+ <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Value</td><td></td></tr>
     <tr><td class="paramname">Point</td><td></td></tr>
@@ -2192,8 +2176,13 @@ template&lt;typename Value , class Point , class Line &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classfun_1_1Involution.html">Involution</a>. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p><a class="el" href="classfun_1_1Involution.html">Involution</a> on a point. </p>
+<p>Applies the involution defined by origin and mirror to point pt_p.  </p><p class="formulaDsp">
+\[
+    p&#39; = \operatorname{harm\_conj}(o,\; (p \times o) \times m,\; p)
+\]
+</p>
+ <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Value</td><td></td></tr>
     <tr><td class="paramname">Point</td><td></td></tr>
@@ -2323,8 +2312,55 @@ template&lt;ProjectivePlaneCoord2 Line&gt; </div>
 
 </div>
 </div>
+<a id="abd3258fafc8a3bf8bba827b25c47f58f" name="abd3258fafc8a3bf8bba827b25c47f58f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd3258fafc8a3bf8bba827b25c47f58f">&#9670;&#160;</a></span>is_perpendicular() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Line , class Point  = typename Line::Dual&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto fun::is_perpendicular </td>
+          <td>(</td>
+          <td class="paramtype">const Line &amp;&#160;</td>
+          <td class="paramname"><em>l_1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Line &amp;&#160;</td>
+          <td class="paramname"><em>l_2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> -&gt; bool </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if two lines are perpendicular (Cayley-Klein). </p>
+<p>Uses the pole-polar relationship to check perpendicularity. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Line</td><td>The line type </td></tr>
+    <tr><td class="paramname">Point</td><td>The point type (dual of line) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a9280483161808d19651ce540d148e7ff" name="a9280483161808d19651ce540d148e7ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9280483161808d19651ce540d148e7ff">&#9670;&#160;</a></span>is_perpendicular() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9280483161808d19651ce540d148e7ff">&#9670;&#160;</a></span>is_perpendicular() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2371,53 +2407,6 @@ template&lt;ProjectivePlaneCoord2 Line&gt; </div>
 
 </div>
 </div>
-<a id="a1586d086bd5c55c817ecd16c2506540f" name="a1586d086bd5c55c817ecd16c2506540f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1586d086bd5c55c817ecd16c2506540f">&#9670;&#160;</a></span>is_perpendicular() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Line , class Point  = typename Line::Dual&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto fun::is_perpendicular </td>
-          <td>(</td>
-          <td class="paramtype">const Line &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Line &amp;&#160;</td>
-          <td class="paramname"><em>m2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> -&gt; bool </td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if two lines are perpendicular (Cayley-Klein). </p>
-<p>Uses the pole-polar relationship to check perpendicularity. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Line</td><td>The line type </td></tr>
-    <tr><td class="paramname">Point</td><td>The point type (dual of line) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a26c56cc0604356c825835d6ae80f1809" name="a26c56cc0604356c825835d6ae80f1809"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a26c56cc0604356c825835d6ae80f1809">&#9670;&#160;</a></span>join()</h2>
 
@@ -2455,7 +2444,12 @@ template&lt;Ring _K&gt; </div>
 </div><div class="memdoc">
 
 <p>Return the join (product) of two points to form a line. </p>
-<p>The join operation in projective geometry computes the line passing through two distinct points. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>The join operation in projective geometry computes the line passing through two distinct points.  </p><p class="formulaDsp">
+\[
+    l = p \times q
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">pt_p</td><td>First point </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pt_q</td><td>Second point </td></tr>
@@ -2503,7 +2497,12 @@ template&lt;Integral Mn&gt; </div>
 </div><div class="memdoc">
 
 <p>Least common multiple. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p class="formulaDsp">
+\[
+    \operatorname{lcm}(m,n) = \frac{|m|}{|m| \bmod |n|} \cdot |n|
+\]
+</p>
+ <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Mn</td><td></td></tr>
   </table>
@@ -2555,8 +2554,13 @@ template&lt;Ring _K&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return the meet (intersection) of two lines to form a point. In projective geometry, two distinct lines always intersect at a point. </p>
-
+<p>Return the meet (intersection) of two lines to form a point. In projective geometry, two distinct lines always intersect at a point.</p>
+<p class="formulaDsp">
+\[
+    p = l \times m
+\]
+</p>
+ 
 </div>
 </div>
 <a id="a9a23cfab09bb26de62d0f7441e10d9b7" name="a9a23cfab09bb26de62d0f7441e10d9b7"></a>
@@ -2596,7 +2600,15 @@ template&lt;ProjectivePlaneCoord2 Point&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the midpoint of two points. </p>
-<p>Returns the point that divides the segment AB in the ratio 1:1. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Returns the point that divides the segment AB in the ratio 1:1.  </p><p class="formulaDsp">
+\[
+    M = \operatorname{parametrize}(b_z,\; a,\; a_z,\; b)
+\]
+</p>
+<div class="dotgraph">
+<img src="dot_inline_dotgraph_2.png" alt="dot_inline_dotgraph_2.png" border="0" usemap="#dot_inline_dotgraph_2.map"/>
+</div>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>First point </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Second point </td></tr>
@@ -2634,7 +2646,12 @@ template&lt;class Point , class Line  = typename Point::Dual&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the orthocenter of a triangle (Cayley-Klein). </p>
-<p>Returns the intersection point of the three altitudes. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Returns the intersection point of the three altitudes.  </p><p class="formulaDsp">
+\[
+    H = h_{a_1} \times h_{a_2}
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">triangle</td><td>Array of three non-collinear points </td></tr>
   </table>
@@ -2671,7 +2688,15 @@ template&lt;ProjectivePlaneCoord2 Point&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the orthocenter of a triangle. </p>
-<p>The orthocenter is the intersection point of all three altitudes of a triangle. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>The orthocenter is the intersection point of all three altitudes of a triangle.  </p><p class="formulaDsp">
+\[
+    H = h_{a_1} \times h_{a_2}
+\]
+</p>
+<div class="dotgraph">
+<img src="dot_inline_dotgraph_3.png" alt="dot_inline_dotgraph_3.png" border="0" usemap="#dot_inline_dotgraph_3.map"/>
+</div>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">triangle</td><td>Array of three non-collinear points </td></tr>
   </table>
@@ -2681,8 +2706,8 @@ template&lt;ProjectivePlaneCoord2 Point&gt; </div>
 
 </div>
 </div>
-<a id="a28cc8a3d4a71663a9f08fd6d8be82aa0" name="a28cc8a3d4a71663a9f08fd6d8be82aa0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28cc8a3d4a71663a9f08fd6d8be82aa0">&#9670;&#160;</a></span>parametrize()</h2>
+<a id="ab930af6d7754b03044fa3a98433e92da" name="ab930af6d7754b03044fa3a98433e92da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab930af6d7754b03044fa3a98433e92da">&#9670;&#160;</a></span>parametrize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2697,7 +2722,7 @@ requires Ring&lt;Value&gt;</div>
           <td class="memname">constexpr auto fun::parametrize </td>
           <td>(</td>
           <td class="paramtype">const Value &amp;&#160;</td>
-          <td class="paramname"><em>lambda</em>, </td>
+          <td class="paramname"><em>lambda_val</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -2709,7 +2734,7 @@ requires Ring&lt;Value&gt;</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const Value &amp;&#160;</td>
-          <td class="paramname"><em>mu</em>, </td>
+          <td class="paramname"><em>mu_val</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -2742,7 +2767,12 @@ requires Ring&lt;Value&gt;</div>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">lambda</td><td>First scalar coefficient </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pt_p</td><td>First point/line </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mu</td><td>Second scalar coefficient </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mu</td><td>Second scalar coefficient  <p class="formulaDsp">
+\[
+    \lambda p + \mu q
+\]
+</p>
+ </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pt_q</td><td>Second point/line </td></tr>
   </table>
   </dd>
@@ -2857,8 +2887,8 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="a58585b245e80fadd6c3eacfac1e25dd9" name="a58585b245e80fadd6c3eacfac1e25dd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58585b245e80fadd6c3eacfac1e25dd9">&#9670;&#160;</a></span>plucker_c()</h2>
+<a id="a95ecf62a332527db159491cef919136d" name="a95ecf62a332527db159491cef919136d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95ecf62a332527db159491cef919136d">&#9670;&#160;</a></span>plucker_c()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2869,25 +2899,25 @@ template&lt;Ring _T, Ring _K&gt; </div>
           <td class="memname">auto fun::plucker_c </td>
           <td>(</td>
           <td class="paramtype">const _T &amp;&#160;</td>
-          <td class="paramname"><em>lambda</em>, </td>
+          <td class="paramname"><em>lambda_val</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v1</em>, </td>
+          <td class="paramname"><em>v_a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const _T &amp;&#160;</td>
-          <td class="paramname"><em>mu</em>, </td>
+          <td class="paramname"><em>mu_val</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::array&lt; _K, 3 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v2</em>&#160;</td>
+          <td class="paramname"><em>v_b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2900,7 +2930,7 @@ template&lt;Ring _T, Ring _K&gt; </div>
 <p>generic Plücker linear combination </p>
 <p class="formulaDsp">
 \[
-    \lambda v_1 + \mu v_2
+    \lambda v_a + \mu v_b
 \]
 </p>
  <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -2912,14 +2942,14 @@ template&lt;Ring _T, Ring _K&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">lambda</td><td>scalar for v1 </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">v1</td><td>first vector </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mu</td><td>scalar for v2 </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">v2</td><td>second vector </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lambda_val</td><td>scalar for v_a </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_a</td><td>first vector </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mu_val</td><td>scalar for v_b </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_b</td><td>second vector </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>lambda*v1 + mu*v2 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>lambda_val*v_a + mu_val*v_b </dd></dl>
 
 </div>
 </div>
@@ -2950,7 +2980,12 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Check Ptolemy's theorem for a cyclic quadrilateral. </p>
-<p>Ptolemy's theorem states that for a cyclic quadrilateral, the product of the diagonals equals the sum of the products of opposite sides. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Ptolemy's theorem states that for a cyclic quadrilateral, the product of the diagonals equals the sum of the products of opposite sides.  </p><p class="formulaDsp">
+\[
+    Q_{12}Q_{34} + Q_{23}Q_{14} = Q_{13}Q_{24}
+\]
+</p>
+<p> or equivalently \(\mathrm{archimedes}(Q_{12}Q_{34},\; Q_{23}Q_{14},\; Q_{13}Q_{24}) = 0\). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">quad</td><td>Array of six side/diagonal measurements {Q12, Q23, Q34, Q14, Q13, Q24} </td></tr>
   </table>
@@ -3077,7 +3112,12 @@ template&lt;typename K &gt; </div>
 </div><div class="memdoc">
 
 <p>Compute squared difference of ratios (non-integral version). </p>
-<p>Computes ((x1/z1) - (x2/z2))^2 for non-integral types. </p><dl class="section return"><dt>Returns</dt><dd>auto The squared difference of ratios </dd></dl>
+<p class="formulaDsp">
+\[
+    \mathrm{quad}_1 = \left(\frac{x_1}{z_1} - \frac{x_2}{z_2}\right)^2
+\]
+</p>
+ <dl class="section return"><dt>Returns</dt><dd>auto The squared difference of ratios </dd></dl>
 
 </div>
 </div>
@@ -3124,7 +3164,10 @@ template&lt;ProjectivePlaneCoord2 Point&gt; </div>
            + \left(\frac{A_y}{A_z} - \frac{B_y}{B_z}\right)^2
 \]
 </p>
- <dl class="params"><dt>Parameters</dt><dd>
+<div class="dotgraph">
+<img src="dot_inline_dotgraph_4.png" alt="dot_inline_dotgraph_4.png" border="0" usemap="#dot_inline_dotgraph_4.map"/>
+</div>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">a1</td><td>First point </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">a2</td><td>Second point </td></tr>
@@ -3292,7 +3335,13 @@ template&lt;ProjectivePlaneCoord2 Point&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute cross ratio using yz-plane projection. </p>
-<p>Returns the cross ratio R(A, B; C, D) using the yz-plane projection. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Returns the cross ratio R(A, B; C, D) using the yz-plane projection.  </p><p class="formulaDsp">
+\[
+    R_0(A,B;C,D) = \frac{\mathrm{cross}_0(A,C)}{\mathrm{cross}_0(A,D)}
+                 \Big/ \frac{\mathrm{cross}_0(B,C)}{\mathrm{cross}_0(B,D)}
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>First point </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>Second point </td></tr>
@@ -3354,7 +3403,13 @@ template&lt;ProjectivePlaneCoord2 Point&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute cross ratio using xz-plane projection. </p>
-<p>Returns the cross ratio R(A, B; C, D) using the xz-plane projection. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Returns the cross ratio R(A, B; C, D) using the xz-plane projection.  </p><p class="formulaDsp">
+\[
+    R_1(A,B;C,D) = \frac{\mathrm{cross}_1(A,C)}{\mathrm{cross}_1(A,D)}
+                 \Big/ \frac{\mathrm{cross}_1(B,C)}{\mathrm{cross}_1(B,D)}
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>First point </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>Second point </td></tr>
@@ -3461,7 +3516,16 @@ template&lt;ProjectivePlaneCoord2 Line&gt; </div>
 </div><div class="memdoc">
 
 <p>Create an involution that reflects across a line. </p>
-<p>Returns an involution that performs reflection across the given line in the Euclidean plane. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Returns an involution that performs reflection across the given line in the Euclidean plane.  </p><p class="formulaDsp">
+\[
+    I_m(p) = \operatorname{Involution}(m,\; \bar{m})
+\]
+</p>
+<p> where \(\bar{m}\) is the direction vector of the mirror line.</p>
+<div class="dotgraph">
+<img src="dot_inline_dotgraph_5.png" alt="dot_inline_dotgraph_5.png" border="0" usemap="#dot_inline_dotgraph_5.map"/>
+</div>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">line_m</td><td>The line of reflection (mirror) </td></tr>
   </table>
@@ -3508,7 +3572,12 @@ template&lt;typename Value , class Point , class Line  = typename Point::Dual&gt
 </div><div class="memdoc">
 
 <p>Reflect a point across a line (Cayley-Klein). </p>
-<p>Uses involution to reflect a point across a mirror line. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Uses involution to reflect a point across a mirror line.  </p><p class="formulaDsp">
+\[
+    p&#39; = \operatorname{involution}(m^\perp,\; m,\; p)
+\]
+</p>
+<p> where \(m^\perp\) is the pole of the mirror line. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">mirror</td><td>The line of reflection </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pt_p</td><td>The point to reflect </td></tr>
@@ -3560,11 +3629,19 @@ template&lt;ProjectivePlaneCoord2 Line, typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+
+<p>Base function for spread and cross-spread. </p>
+<p class="formulaDsp">
+\[
+    \mathrm{sbase}(l_1, l_2, d) =
+\frac{d^2}{\mathrm{dot}_1(l_1,l_1)\,\mathrm{dot}_1(l_2,l_2)}
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">l1</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">l2</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l1</td><td>First line </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l2</td><td>Second line </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>Scalar value (cross or dot product) </td></tr>
   </table>
   </dd>
 </dl>
@@ -3615,7 +3692,10 @@ template&lt;ProjectivePlaneCoord2 Line&gt; </div>
                         {\mathrm{dot}_1(l_1, l_1) \mathrm{dot}_1(l_2, l_2)}
 \]
 </p>
- <dl class="params"><dt>Parameters</dt><dd>
+<div class="dotgraph">
+<img src="dot_inline_dotgraph_6.png" alt="dot_inline_dotgraph_6.png" border="0" usemap="#dot_inline_dotgraph_6.map"/>
+</div>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">l1</td><td>First line </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">l2</td><td>Second line </td></tr>
@@ -3701,7 +3781,12 @@ template&lt;class Point , class Line &gt; </div>
 </div><div class="memdoc">
 
 <p>Compute all three altitudes of a triangle (Cayley-Klein). </p>
-<p>Returns an array containing the three altitude lines. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Returns an array containing the three altitude lines.  </p><p class="formulaDsp">
+\[
+    \{h_{a_1},\; h_{a_2},\; h_{a_3}\}
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">triangle</td><td>Array of three non-collinear points </td></tr>
   </table>
@@ -3738,7 +3823,12 @@ template&lt;ProjectivePlaneCoord2 Point&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute all three altitudes of a triangle. </p>
-<p>Returns an array containing the three altitude lines of the triangle. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Returns an array containing the three altitude lines of the triangle.  </p><p class="formulaDsp">
+\[
+    \{h_{a_1},\; h_{a_2},\; h_{a_3}\}
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">triangle</td><td>Array of three non-collinear points </td></tr>
   </table>
@@ -3775,7 +3865,12 @@ template&lt;class Point , class Line  = typename Point::Dual&gt; </div>
 </div><div class="memdoc">
 
 <p>Dual of triangle. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p class="formulaDsp">
+\[
+    \{l_1, l_2, l_3\} = \{a_2 \times a_3,\; a_1 \times a_3,\; a_1 \times a_2\}
+\]
+</p>
+ <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Point</td><td>Point </td></tr>
     <tr><td class="paramname">Line</td><td>Line </td></tr>
@@ -3819,7 +3914,12 @@ template&lt;ProjectivePlanePrim2 Point&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the dual triangle (sides as points). </p>
-<p>Returns the triangle formed by the three lines joining the vertices of the input triangle. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Returns the triangle formed by the three lines joining the vertices of the input triangle.  </p><p class="formulaDsp">
+\[
+    \{l_1, l_2, l_3\} = \{a_2 \times a_3,\; a_1 \times a_3,\; a_1 \times a_2\}
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">triangle</td><td>Array of three non-collinear points </td></tr>
   </table>
@@ -3904,7 +4004,12 @@ template&lt;ProjectivePlaneCoord2 Point&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the midpoints of all three sides of a triangle. </p>
-<p>Returns an array containing the midpoints of each side of the triangle. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Returns an array containing the midpoints of each side of the triangle.  </p><p class="formulaDsp">
+\[
+    \{M_{a_1a_2},\; M_{a_2a_3},\; M_{a_1a_3}\}
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">triangle</td><td>Array of three points </td></tr>
   </table>
@@ -4025,7 +4130,12 @@ template&lt;ProjectivePlaneCoord2 Point&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute a point on the unit circle from trigonometric parameters. </p>
-<p>Creates a point on the unit circle using the parameterization (lambda^2 - mu^2, 2*lambda*mu, lambda^2 + mu^2). </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Creates a point on the unit circle using the parameterization (lambda^2 - mu^2, 2*lambda*mu, lambda^2 + mu^2).  </p><p class="formulaDsp">
+\[
+    (\lambda^2 - \mu^2,\; 2\lambda\mu,\; \lambda^2 + \mu^2)
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">lda1</td><td>The lambda parameter </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">mu1</td><td>The mu parameter </td></tr>

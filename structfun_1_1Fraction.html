@@ -28,7 +28,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.8;  VERSION ${PROJECT_VERSION}</span>
+   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.9;  VERSION ${PROJECT_VERSION}</span>
    </div>
   </td>
  </tr>
@@ -132,7 +132,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ade9f100fa0a32336cc93ce130d682420" id="r_ade9f100fa0a32336cc93ce130d682420"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfun_1_1Fraction.html#ade9f100fa0a32336cc93ce130d682420">den</a> () const noexcept -&gt; const Z &amp;</td></tr>
 <tr class="separator:ade9f100fa0a32336cc93ce130d682420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6359ae628ef59047260da243a684cd24" id="r_a6359ae628ef59047260da243a684cd24"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfun_1_1Fraction.html#a6359ae628ef59047260da243a684cd24">cross</a> (const <a class="el" href="structfun_1_1Fraction.html">Fraction</a> &amp;rhs) const -&gt; Z</td></tr>
-<tr class="memdesc:a6359ae628ef59047260da243a684cd24"><td class="mdescLeft">&#160;</td><td class="mdescRight">cross product  <br /></td></tr>
+<tr class="memdesc:a6359ae628ef59047260da243a684cd24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cross product of two fractions.  <br /></td></tr>
 <tr class="separator:a6359ae628ef59047260da243a684cd24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09b24357014e226695ea41c4c20a3447" id="r_a09b24357014e226695ea41c4c20a3447"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfun_1_1Fraction.html#a09b24357014e226695ea41c4c20a3447">reciprocal</a> () noexcept(std::is_nothrow_swappable_v&lt; Z &gt;)</td></tr>
 <tr class="memdesc:a09b24357014e226695ea41c4c20a3447"><td class="mdescLeft">&#160;</td><td class="mdescRight">reciprocal  <br /></td></tr>
@@ -438,8 +438,13 @@ template&lt;Integral Z&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>cross product </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Cross product of two fractions. </p>
+<p class="formulaDsp">
+\[
+    a/b \times c/d = ad - bc
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">rhs</td><td></td></tr>
   </table>

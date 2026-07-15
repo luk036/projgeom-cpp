@@ -28,7 +28,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.8;  VERSION ${PROJECT_VERSION}</span>
+   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.9;  VERSION ${PROJECT_VERSION}</span>
    </div>
   </td>
  </tr>
@@ -187,7 +187,12 @@ template&lt;typename Point , typename Line &gt; </div>
 </div><div class="memdoc">
 
 <p>Apply the involution to a line. </p>
-<p>Returns the image of ln_l under the involution. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Returns the image of ln_l under the involution.  </p><p class="formulaDsp">
+\[
+    l&#39; = \operatorname{parametrize}(c,\; l,\; -2(l \cdot o),\; m)
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">ln_l</td><td>The line to transform </td></tr>
   </table>
@@ -224,7 +229,12 @@ template&lt;typename Point , typename Line &gt; </div>
 </div><div class="memdoc">
 
 <p>Apply the involution to a point. </p>
-<p>Returns the image of pt_p under the involution. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Returns the image of pt_p under the involution.  </p><p class="formulaDsp">
+\[
+    p&#39; = \operatorname{parametrize}(c,\; p,\; -2(p \cdot m),\; o)
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">pt_p</td><td>The point to transform </td></tr>
   </table>

@@ -28,7 +28,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.8;  VERSION ${PROJECT_VERSION}</span>
+   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.9;  VERSION ${PROJECT_VERSION}</span>
    </div>
   </td>
  </tr>
@@ -315,7 +315,12 @@ template&lt;ProjectivePlane2 _Point&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the cross-ratio measure between two elements. </p>
-<p>Returns the ratio of omega values for measuring projective relationships. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Returns the ratio of omega values for measuring projective relationships.  </p><p class="formulaDsp">
+\[
+    \mu(a_1, a_2) = \frac{\omega(a_1 \times a_2)}{\omega(a_1)\omega(a_2)}
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">a1</td><td>First point or line </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">a2</td><td>Second point or line </td></tr>
@@ -363,7 +368,12 @@ template&lt;typename Point , typename Line  = typename Point::Dual&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the midpoint of two points. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p class="formulaDsp">
+\[
+    M = \operatorname{parametrize}(\alpha,\; a,\; \beta,\; b)
+\]
+</p>
+<p> where \(\alpha = a \cdot l_\infty\), \(\beta = b \cdot l_\infty\). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">pt_a</td><td>First point </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pt_b</td><td>Second point </td></tr>
@@ -401,7 +411,12 @@ template&lt;typename Point , typename Line  = typename Point::Dual&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the omega value for a line. </p>
-<p>The omega function measures how far a line is from the ideal points. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>The omega function measures how far a line is from the ideal points.  </p><p class="formulaDsp">
+\[
+    \omega(l) = (l \cdot I_{\mathrm{re}})^2 + (l \cdot I_{\mathrm{im}})^2
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>A line </td></tr>
   </table>
@@ -438,7 +453,12 @@ template&lt;typename Point , typename Line  = typename Point::Dual&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the omega value for a point. </p>
-<p>The omega function measures how far a point is from the line at infinity. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>The omega function measures how far a point is from the line at infinity.  </p><p class="formulaDsp">
+\[
+    \omega(p) = (p \cdot l_\infty)^2
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>A point </td></tr>
   </table>
@@ -475,7 +495,12 @@ template&lt;typename Point , typename Line  = typename Point::Dual&gt; </div>
 </div><div class="memdoc">
 
 <p>Compute the pole of a line. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p class="formulaDsp">
+\[
+    v^\perp = \alpha I_{\mathrm{re}} + \beta I_{\mathrm{im}}
+\]
+</p>
+<p> where \(\alpha = v \cdot I_{\mathrm{re}}\) and \(\beta = v \cdot I_{\mathrm{im}}\). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>A line </td></tr>
   </table>

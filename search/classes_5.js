@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['myckline_0',['MyCKLine',['../classMyCKLine.html',1,'']]],
-  ['myckpoint_1',['MyCKPoint',['../classMyCKPoint.html',1,'']]]
+  ['involution_0',['Involution',['../classfun_1_1Involution.html',1,'fun']]],
+  ['involution_5fgeneric_1',['involution_generic',['../classfun_1_1involution__generic.html',1,'fun']]]
 ];

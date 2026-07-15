@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ellipticline_0',['EllipticLine',['../classEllipticLine.html',1,'']]],
-  ['ellipticpoint_1',['EllipticPoint',['../classEllipticPoint.html',1,'']]]
+  ['conic_0',['Conic',['../classfun_1_1Conic.html',1,'fun']]]
 ];

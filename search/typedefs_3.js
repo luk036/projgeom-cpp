@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['triple_0',['Triple',['../namespacefun.html#a73553426c0a76ebb7d2787b024e68426',1,'fun']]]
+  ['mat3x3_0',['Mat3x3',['../classfun_1_1Conic.html#af961880d927dabbc94b36ea7fb423557',1,'fun::Conic']]]
 ];

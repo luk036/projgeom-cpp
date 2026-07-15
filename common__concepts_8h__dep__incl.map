@@ -1,31 +1,35 @@
 <map id="projgeom/common_concepts.h" name="projgeom/common_concepts.h">
-<area shape="rect" id="Node000001" title="Common C++20 concepts: Ring, OrderedRing, Integral, Sequence." alt="" coords="412,5,635,31"/>
-<area shape="rect" id="Node000002" href="$fractions_8hpp.html" title=" " alt="" coords="35,167,209,192"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="469,37,334,81,227,128,145,169,143,164,225,123,332,76,467,32"/>
-<area shape="rect" id="Node000005" href="$pg__common_8hpp.html" title=" " alt="" coords="525,86,721,111"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="551,37,610,84,607,88,547,41"/>
-<area shape="rect" id="Node000010" href="$pg__concepts_8hpp.html" title="C++20 concepts for projective plane primitives." alt="" coords="835,86,1033,111"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="597,31,875,83,874,89,596,36"/>
-<area shape="rect" id="Node000012" href="$proj__plane__concepts_8h.html" title="C++20 concepts for projective planes with coordinate access and parametrization." alt="" coords="345,79,501,119"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="499,41,449,81,446,76,496,37"/>
-<area shape="rect" id="Node000003" href="$persp__plane_8hpp.html" title="Perspective&#45;Euclidean plane class with pole/polar and measurement." alt="" coords="186,247,381,273"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="159,195,261,245,259,250,156,200"/>
-<area shape="rect" id="Node000004" href="$proj__plane__measure_8hpp.html" title=" " alt="" coords="5,240,161,280"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="113,205,95,241,90,239,108,203"/>
-<area shape="rect" id="Node000006" href="$euclid__plane_8hpp.html" title="Euclidean plane functions: perpendicularity, parallelism, altitude, orthocenter, etc." alt="" coords="405,247,604,273"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="588,120,558,141,532,168,521,188,514,210,508,247,503,246,509,209,517,186,528,165,555,137,585,116"/>
-<area shape="rect" id="Node000008" href="$pg__line_8hpp.html" title=" " alt="" coords="542,167,705,192"/>
-<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="626,125,626,166,621,166,621,125"/>
-<area shape="rect" id="Node000009" href="$pg__point_8hpp.html" title=" " alt="" coords="729,167,901,192"/>
-<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="665,114,788,164,786,169,663,119"/>
-<area shape="rect" id="Node000007" href="$euclid__plane__measure_8hpp.html" title="Euclidean plane measurement functions: quadrance, spread, distance, angle." alt="" coords="419,328,590,368"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="507,286,507,328,502,328,502,286"/>
-<area shape="rect" id="Node000011" href="$ck__concepts_8hpp.html" title="C++20 concepts for Cayley&#45;Klein planes." alt="" coords="925,167,1121,192"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="959,118,1012,164,1008,168,956,122"/>
-<area shape="poly" id="edge12_Node000012_Node000006" title=" " alt="" coords="442,130,501,246,496,248,437,132"/>
-<area shape="rect" id="Node000013" href="$proj__plane_8hpp.html" title=" " alt="" coords="233,167,417,192"/>
-<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="390,129,341,168,338,164,387,125"/>
-<area shape="poly" id="edge15_Node000013_Node000003" title=" " alt="" coords="315,205,292,248,287,246,310,203"/>
-<area shape="poly" id="edge16_Node000013_Node000004" title=" " alt="" coords="277,199,142,242,141,237,276,194"/>
-<area shape="poly" id="edge14_Node000013_Node000006" title=" " alt="" coords="364,195,480,245,477,250,362,200"/>
+<area shape="rect" id="Node000001" title="Common C++20 concepts: Ring, OrderedRing, Integral, Sequence." alt="" coords="785,5,1008,31"/>
+<area shape="rect" id="Node000002" href="$fractions_8hpp.html" title=" " alt="" coords="375,167,549,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="844,37,707,81,584,129,489,169,487,164,582,124,705,76,843,32"/>
+<area shape="rect" id="Node000007" href="$pg__common_8hpp.html" title=" " alt="" coords="899,86,1095,111"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="924,37,983,84,980,88,921,41"/>
+<area shape="rect" id="Node000012" href="$pg__concepts_8hpp.html" title="C++20 concepts for projective plane primitives." alt="" coords="1209,86,1406,111"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="970,31,1248,83,1247,89,969,36"/>
+<area shape="rect" id="Node000014" href="$proj__plane__concepts_8h.html" title="C++20 concepts for projective planes with coordinate access and parametrization." alt="" coords="719,79,875,119"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="873,41,822,81,819,76,869,37"/>
+<area shape="rect" id="Node000003" href="$conic_8hpp.html" title="Conic sections in homogeneous coordinates." alt="" coords="209,247,360,273"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="425,200,312,250,309,245,423,195"/>
+<area shape="rect" id="Node000004" href="$persp__plane_8hpp.html" title="Perspective&#45;Euclidean plane class with pole/polar and measurement." alt="" coords="565,247,759,273"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="505,195,634,245,632,250,503,200"/>
+<area shape="rect" id="Node000005" href="$proj__plane__measure_8hpp.html" title=" " alt="" coords="384,240,540,280"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="465,206,465,240,459,240,459,206"/>
+<area shape="rect" id="Node000006" href="$transform_8hpp.html" title="Projective transformations (translation, rotation, scaling, shear)." alt="" coords="5,247,185,273"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="396,197,149,250,148,245,395,192"/>
+<area shape="rect" id="Node000008" href="$euclid__plane_8hpp.html" title="Euclidean plane functions: perpendicularity, parallelism, altitude, orthocenter, etc." alt="" coords="784,247,983,273"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="961,120,931,141,906,168,896,188,890,210,886,247,881,247,885,209,891,186,901,165,928,137,958,116"/>
+<area shape="rect" id="Node000010" href="$pg__line_8hpp.html" title=" " alt="" coords="915,167,1078,192"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="999,125,999,166,994,166,994,125"/>
+<area shape="rect" id="Node000011" href="$pg__point_8hpp.html" title=" " alt="" coords="1103,167,1275,192"/>
+<area shape="poly" id="edge10_Node000007_Node000011" title=" " alt="" coords="1038,114,1162,164,1160,169,1036,119"/>
+<area shape="rect" id="Node000009" href="$euclid__plane__measure_8hpp.html" title="Euclidean plane measurement functions: quadrance, spread." alt="" coords="798,328,969,368"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="886,286,886,328,881,328,881,286"/>
+<area shape="rect" id="Node000013" href="$ck__concepts_8hpp.html" title="C++20 concepts for Cayley&#45;Klein planes." alt="" coords="1299,167,1495,192"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="1332,118,1385,164,1382,168,1329,122"/>
+<area shape="poly" id="edge14_Node000014_Node000008" title=" " alt="" coords="816,130,879,246,875,248,811,132"/>
+<area shape="rect" id="Node000015" href="$proj__plane_8hpp.html" title=" " alt="" coords="591,167,775,192"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="760,129,702,169,699,164,757,124"/>
+<area shape="poly" id="edge17_Node000015_Node000004" title=" " alt="" coords="679,206,668,248,663,246,674,205"/>
+<area shape="poly" id="edge18_Node000015_Node000005" title=" " alt="" coords="639,199,516,242,514,237,637,194"/>
+<area shape="poly" id="edge16_Node000015_Node000008" title=" " alt="" coords="726,195,855,245,853,250,724,200"/>
 </map>

@@ -28,7 +28,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.8;  VERSION ${PROJECT_VERSION}</span>
+   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.9;  VERSION ${PROJECT_VERSION}</span>
    </div>
   </td>
  </tr>
@@ -117,9 +117,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a93f82ebf645f1c2fd83b5fbfc950edfa" id="r_a93f82ebf645f1c2fd83b5fbfc950edfa"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPgObject.html#a93f82ebf645f1c2fd83b5fbfc950edfa">parametrize</a> (const int64_t &amp;lambda, const Point &amp;pt_p, const int64_t &amp;mu, const Point &amp;pt_q) -&gt; Point</td></tr>
-<tr class="memdesc:a93f82ebf645f1c2fd83b5fbfc950edfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Homogeneous parametrization of point or line.  <br /></td></tr>
-<tr class="separator:a93f82ebf645f1c2fd83b5fbfc950edfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c90ccc9c42b45fa7d9cd3c3aefca9f8" id="r_a5c90ccc9c42b45fa7d9cd3c3aefca9f8"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPgObject.html#a5c90ccc9c42b45fa7d9cd3c3aefca9f8">parametrize</a> (const int64_t &amp;lambda_val, const Point &amp;pt_p, const int64_t &amp;mu_val, const Point &amp;pt_q) -&gt; Point</td></tr>
+<tr class="memdesc:a5c90ccc9c42b45fa7d9cd3c3aefca9f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Homogeneous parametrization of point or line.  <br /></td></tr>
+<tr class="separator:a5c90ccc9c42b45fa7d9cd3c3aefca9f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -257,7 +257,12 @@ template&lt;typename Point , typename Line &gt; </div>
 </div><div class="memdoc">
 
 <p>Dot product with the dual object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p class="formulaDsp">
+\[
+    a \cdot b = a_x b_x + a_y b_y + a_z b_z
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">other</td><td></td></tr>
   </table>
@@ -333,7 +338,12 @@ template&lt;typename Point , typename Line &gt; </div>
 </div><div class="memdoc">
 
 <p>Meet (intersection) with another point to form a line. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p class="formulaDsp">
+\[
+    l = p \times q
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">rhs</td><td></td></tr>
   </table>
@@ -343,8 +353,8 @@ template&lt;typename Point , typename Line &gt; </div>
 
 </div>
 </div>
-<a id="a93f82ebf645f1c2fd83b5fbfc950edfa" name="a93f82ebf645f1c2fd83b5fbfc950edfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93f82ebf645f1c2fd83b5fbfc950edfa">&#9670;&#160;</a></span>parametrize()</h2>
+<a id="a5c90ccc9c42b45fa7d9cd3c3aefca9f8" name="a5c90ccc9c42b45fa7d9cd3c3aefca9f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c90ccc9c42b45fa7d9cd3c3aefca9f8">&#9670;&#160;</a></span>parametrize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -358,7 +368,7 @@ template&lt;typename Point , typename Line &gt; </div>
           <td class="memname">static constexpr auto <a class="el" href="structPgObject.html">PgObject</a>&lt; Point, Line &gt;::parametrize </td>
           <td>(</td>
           <td class="paramtype">const int64_t &amp;&#160;</td>
-          <td class="paramname"><em>lambda</em>, </td>
+          <td class="paramname"><em>lambda_val</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -370,7 +380,7 @@ template&lt;typename Point , typename Line &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int64_t &amp;&#160;</td>
-          <td class="paramname"><em>mu</em>, </td>
+          <td class="paramname"><em>mu_val</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -392,7 +402,12 @@ template&lt;typename Point , typename Line &gt; </div>
 </div><div class="memdoc">
 
 <p>Homogeneous parametrization of point or line. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p class="formulaDsp">
+\[
+    \lambda p + \mu q
+\]
+</p>
+ <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">lambda</td><td></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pt_p</td><td></td></tr>
