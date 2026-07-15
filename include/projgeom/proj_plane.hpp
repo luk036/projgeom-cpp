@@ -71,9 +71,9 @@ namespace fun {
     template <ProjectivePlanePrim2 Point> constexpr auto tri_dual(const Triple<Point>& triangle)
 
     {
-        const auto& [a1, a2, a3] = triangle;
-        assert(!coincident(a2 * a3, a1));
-        return std::array{a2 * a3, a1 * a3, a1 * a2};
+        const auto& [a_1, a_2, a_3] = triangle;
+        assert(!coincident(a_2 * a_3, a_1));
+        return std::array{a_2 * a_3, a_1 * a_3, a_1 * a_2};
     }
 
     /**
@@ -89,8 +89,8 @@ namespace fun {
     constexpr auto tri_func(Fn&& func, const Triple<Point>& triangle)
 
     {
-        const auto& [a1, a2, a3] = triangle;
-        return std::array{func(a2, a3), func(a1, a3), func(a1, a2)};
+        const auto& [a_1, a_2, a_3] = triangle;
+        return std::array{func(a_2, a_3), func(a_1, a_3), func(a_1, a_2)};
     }
 
     /**

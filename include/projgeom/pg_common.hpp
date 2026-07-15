@@ -22,75 +22,75 @@ namespace fun {
      * @param[in] w
      * @return 1st term of Cross product
      */
-    template <Ring _K> auto cross0(const std::array<_K, 3>& v, const std::array<_K, 3>& w) -> _K {
-        return v[1] * w[2] - w[1] * v[2];
+    template <Ring _K> auto cross0(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b) -> _K {
+        return v_a[1] * v_b[2] - v_b[1] * v_a[2];
     }
 
     /**
      * @brief 2nd term of Cross product (xz-plane projection)
      *
      * @f[
-     *     \mathrm{cross}_1(v,w) = v_x w_z - w_x v_z
+     *     \mathrm{cross}_1(v_a,v_b) = v_{a,x} v_{b,z} - v_{b,x} v_{a,z}
      * @f]
      * @tparam _K
-     * @param[in] v
-     * @param[in] w
+     * @param[in] v_a
+     * @param[in] v_b
      * @return 2nd term of Cross product
      */
-    template <Ring _K> auto cross1(const std::array<_K, 3>& v, const std::array<_K, 3>& w) -> _K {
-        return v[0] * w[2] - w[0] * v[2];
+    template <Ring _K> auto cross1(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b) -> _K {
+        return v_a[0] * v_b[2] - v_b[0] * v_a[2];
     }
 
     /**
      * @brief 3rd term of Cross product (xy-plane projection)
      *
      * @f[
-     *     \mathrm{cross}_2(v,w) = v_x w_y - w_x v_y
+     *     \mathrm{cross}_2(v_a,v_b) = v_{a,x} v_{b,y} - v_{b,x} v_{a,y}
      * @f]
      * @tparam _K
-     * @param[in] v
-     * @param[in] w
+     * @param[in] v_a
+     * @param[in] v_b
      * @return 3rd term of Cross product
      */
-    template <Ring _K> auto cross2(const std::array<_K, 3>& v, const std::array<_K, 3>& w) -> _K {
-        return v[0] * w[1] - w[0] * v[1];
+    template <Ring _K> auto cross2(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b) -> _K {
+        return v_a[0] * v_b[1] - v_b[0] * v_a[1];
     }
 
     /**
      * @brief Cross product in homogeneous 3D coordinates
      *
      * @f[
-     *     v \times w = \begin{pmatrix}
-     *         v_y w_z - w_y v_z \\
-     *         w_x v_z - v_x w_z \\
-     *         v_x w_y - w_x v_y
+     *     v_a \times v_b = \begin{pmatrix}
+     *         v_{a,y} v_{b,z} - v_{b,y} v_{a,z} \\
+     *         v_{b,x} v_{a,z} - v_{a,x} v_{b,z} \\
+     *         v_{a,x} v_{b,y} - v_{b,x} v_{a,y}
      *     \end{pmatrix}
      * @f]
      * @tparam _K
-     * @param[in] v
-     * @param[in] w
+     * @param[in] v_a
+     * @param[in] v_b
      * @return Cross product
      */
     template <typename Point>
         requires Ring<Value_type<Point>>
-    auto cross(const Point& v, const Point& w) -> std::array<Value_type<Point>, 3> {
-        return {cross0(v, w), -cross1(v, w), cross2(v, w)};
+    auto cross(const Point& v_a, const Point& v_b) -> std::array<Value_type<Point>, 3> {
+        return {cross0(v_a, v_b), -cross1(v_a, v_b), cross2(v_a, v_b)};
     }
 
     /**
      * @brief Dot product (full 3-component)
      *
      * @f[
-     *     v \cdot w = v_x w_x + v_y w_y + v_z w_z
+     *     v_a \cdot v_b = v_{a,x} v_{b,x} + v_{a,y} v_{b,y} + v_{a,z} v_{b,z}
      * @f]
      * @tparam _K
-     * @param[in] v
-     * @param[in] w
+     * @param[in] v_a
+     * @param[in] v_b
      * @return auto
      */
-    template <Ring _K> auto dot_c(const std::array<_K, 3>& v, const std::array<_K, 3>& w) -> _K {
-        const auto& [x1, y1, z1] = v;
-        const auto& [x2, y2, z2] = w;
+    template <Ring _K> auto dot_c(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b) -> _K {
+        const auto& [x1, y1, z1] = v_a;
+        const auto& [x2, y2, z2] = v_b;
         return x1 * x2 + y1 * y2 + z1 * z2;
     }
 
@@ -98,52 +98,53 @@ namespace fun {
      * @brief generic Plücker linear combination
      *
      * @f[
-     *     \lambda v_1 + \mu v_2
+     *     \lambda v_a + \mu v_b
      * @f]
      * @tparam _T scalar type
      * @tparam _K coordinate type
-     * @param[in] lambda scalar for v1
-     * @param[in] v1 first vector
-     * @param[in] mu scalar for v2
-     * @param[in] v2 second vector
-     * @return lambda*v1 + mu*v2
+     * @param[in] lambda_val scalar for v_a
+     * @param[in] v_a first vector
+     * @param[in] mu_val scalar for v_b
+     * @param[in] v_b second vector
+     * @return lambda_val*v_a + mu_val*v_b
      */
-    template <Ring _T, Ring _K> auto plucker_c(const _T& lambda, const std::array<_K, 3>& v1,
-                                               const _T& mu, const std::array<_K, 3>& v2)
+    template <Ring _T, Ring _K> auto plucker_c(const _T& lambda_val, const std::array<_K, 3>& v_a,
+                                               const _T& mu_val, const std::array<_K, 3>& v_b)
         -> std::array<_K, 3> {
-        const auto& [x1, y1, z1] = v1;
-        const auto& [x2, y2, z2] = v2;
-        return {lambda * x1 + mu * x2, lambda * y1 + mu * y2, lambda * z1 + mu * z2};
+        const auto& [x1, y1, z1] = v_a;
+        const auto& [x2, y2, z2] = v_b;
+        return {lambda_val * x1 + mu_val * x2, lambda_val * y1 + mu_val * y2,
+                lambda_val * z1 + mu_val * z2};
     }
 
     /**
      * @brief Dot product of the (x,y)-components of two vectors (affine part)
      *
      * @f[
-     *     \mathrm{dot}_1(v,w) = v_x w_x + v_y w_y
+     *     \mathrm{dot}_1(v_a,v_b) = v_{a,x} v_{b,x} + v_{a,y} v_{b,y}
      * @f]
      * @tparam _K
-     * @param[in] v
-     * @param[in] w
+     * @param[in] v_a
+     * @param[in] v_b
      * @return auto
      */
-    template <Ring _K> auto dot1(const std::array<_K, 3>& v, const std::array<_K, 3>& w) -> _K {
-        return v[0] * w[0] + v[1] * w[1];
+    template <Ring _K> auto dot1(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b) -> _K {
+        return v_a[0] * v_b[0] + v_a[1] * v_b[1];
     }
 
     /**
      * @brief Dot product of the (0,2)-component of two vectors
      *
      * @f[
-     *     \mathrm{dot}_2(v,w) = v_x w_x + v_z w_z
+     *     \mathrm{dot}_2(v_a,v_b) = v_{a,x} v_{b,x} + v_{a,z} v_{b,z}
      * @f]
      * @tparam _K
-     * @param[in] v
-     * @param[in] w
+     * @param[in] v_a
+     * @param[in] v_b
      * @return auto
      */
-    template <Ring _K> auto dot2(const std::array<_K, 3>& v, const std::array<_K, 3>& w) -> _K {
-        return v[0] * w[0] + v[2] * w[2];
+    template <Ring _K> auto dot2(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b) -> _K {
+        return v_a[0] * v_b[0] + v_a[2] * v_b[2];
     }
 
     /**
@@ -177,9 +178,9 @@ namespace fun {
      */
     template <typename Value, typename Point>
         requires Ring<Value>
-    constexpr auto parametrize(const Value& lambda, const Point& pt_p, const Value& mu,
+    constexpr auto parametrize(const Value& lambda_val, const Point& pt_p, const Value& mu_val,
                                const Point& pt_q) -> Point {
-        return Point::parametrize(lambda, pt_p, mu, pt_q);
+        return Point::parametrize(lambda_val, pt_p, mu_val, pt_q);
     }
 
 }  // namespace fun

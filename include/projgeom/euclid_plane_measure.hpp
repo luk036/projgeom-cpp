@@ -98,7 +98,8 @@ namespace fun {
      * @brief Base function for spread and cross-spread.
      *
      * @f[
-     *     \mathrm{sbase}(l_1, l_2, d) = \frac{d^2}{\mathrm{dot}_1(l_1,l_1)\,\mathrm{dot}_1(l_2,l_2)}
+     *     \mathrm{sbase}(l_1, l_2, d) =
+     * \frac{d^2}{\mathrm{dot}_1(l_1,l_1)\,\mathrm{dot}_1(l_2,l_2)}
      * @f]
      * @param[in] l1 First line
      * @param[in] l2 Second line
@@ -159,8 +160,8 @@ namespace fun {
      */
     template <ProjectivePlaneCoord2 Point>
     constexpr auto tri_quadrance(const Triple<Point>& triangle) {
-        const auto& [a1, a2, a3] = triangle;
-        return std::array{quadrance(a2, a3), quadrance(a1, a3), quadrance(a1, a2)};
+        const auto& [a_1, a_2, a_3] = triangle;
+        return std::array{quadrance(a_2, a_3), quadrance(a_1, a_3), quadrance(a_1, a_2)};
     }
 
     /**
@@ -172,8 +173,8 @@ namespace fun {
      */
     template <ProjectivePlaneCoord2 Line>
     constexpr auto tri_spread(const Triple<Line>& trilateral) {
-        const auto& [a1, a2, a3] = trilateral;
-        return std::array{spread(a2, a3), spread(a1, a3), spread(a1, a2)};
+        const auto& [a_1, a_2, a_3] = trilateral;
+        return std::array{spread(a_2, a_3), spread(a_1, a_3), spread(a_1, a_2)};
     }
 
     /**

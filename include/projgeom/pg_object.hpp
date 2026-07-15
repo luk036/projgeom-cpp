@@ -57,7 +57,7 @@ constexpr auto cross(const std::array<int64_t, 3>& pt_a, const std::array<int64_
  * @return std::array<int64_t, 3>
  */
 constexpr auto plckr(const int64_t& lambda, const std::array<int64_t, 3>& pt_p, const int64_t& mu,
-                      const std::array<int64_t, 3>& pt_q) -> std::array<int64_t, 3> {
+                     const std::array<int64_t, 3>& pt_q) -> std::array<int64_t, 3> {
     return {
         lambda * pt_p[0] + mu * pt_q[0],
         lambda * pt_p[1] + mu * pt_q[1],
@@ -112,9 +112,9 @@ namespace fun {
             return this->dot(other) == _K(0);
         }
 
-        static constexpr auto parametrize(const _K& lambda, const Self& pt_p, const _K& mu,
-                                           const Self& pt_q) -> Self {
-            return Self{::plckr(lambda, pt_p.coord, mu, pt_q.coord)};
+        static constexpr auto parametrize(const _K& lambda_val, const Self& pt_p, const _K& mu_val,
+                                          const Self& pt_q) -> Self {
+            return Self{::plckr(lambda_val, pt_p.coord, mu_val, pt_q.coord)};
         }
     };
 
@@ -197,9 +197,9 @@ template <typename Point, typename Line> struct PgObject {
      * @param[in] pt_q
      * @return Point
      */
-    static constexpr auto parametrize(const int64_t& lambda, const Point& pt_p, const int64_t& mu,
-                                        const Point& pt_q) -> Point {
-        return Point{::plckr(lambda, pt_p.coord, mu, pt_q.coord)};
+    static constexpr auto parametrize(const int64_t& lambda_val, const Point& pt_p, const int64_t& mu_val,
+                                       const Point& pt_q) -> Point {
+        return Point{::plckr(lambda_val, pt_p.coord, mu_val, pt_q.coord)};
     }
 
     /**

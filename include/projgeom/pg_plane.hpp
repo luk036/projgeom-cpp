@@ -91,9 +91,9 @@ namespace fun {
         requires ProjPlanePrimDual<Point, Line>
 #endif
     constexpr auto tri_dual(const std::array<Point, 3>& triangle) -> std::array<Line, 3> {
-        const auto& [a1, a2, a3] = triangle;
-        assert(!coincident(a1, a2, a3));
-        return {a2.meet(a3), a1.meet(a3), a1.meet(a2)};
+        const auto& [a_1, a_2, a_3] = triangle;
+        assert(!coincident(a_1, a_2, a_3));
+        return {a_2.meet(a_3), a_1.meet(a_3), a_1.meet(a_2)};
     }
 
     /**

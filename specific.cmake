@@ -14,6 +14,13 @@ CPMAddPackage(
                                                          # symbols
 )
 
+CPMAddPackage(
+  NAME Fractions
+  GIT_TAG v1.1.3
+  GITHUB_REPOSITORY luk036/fractions-cpp
+  OPTIONS "FMT_INSTALL YES"
+)
+
 # CPMAddPackage("gh:ericniebler/range-v3#0.12.0")
 
-set(SPECIFIC_LIBS fmt::fmt spdlog::spdlog)
+set(SPECIFIC_LIBS fmt::fmt spdlog::spdlog Fractions::Fractions)
