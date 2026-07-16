@@ -54,9 +54,8 @@ namespace fun {
          */
         static constexpr auto translation(std::int64_t tx, std::int64_t ty) -> Transform {
             const Fraction Z{0, 1}, O{1, 1};
-            return Transform{Mat3x3{{{{O, Z, Fraction{tx, 1}}},
-                                                      {{Z, O, Fraction{ty, 1}}},
-                                                      {{Z, Z, O}}}}};
+            return Transform{
+                Mat3x3{{{{O, Z, Fraction{tx, 1}}}, {{Z, O, Fraction{ty, 1}}}, {{Z, Z, O}}}}};
         }
 
         /**
@@ -73,11 +72,12 @@ namespace fun {
          * @param[in] sin_a  Sine of the angle.
          * @return constexpr Transform
          */
-        static constexpr auto rotation(const Fraction& angle_cos, const Fraction& angle_sin) -> Transform {
+        static constexpr auto rotation(const Fraction& angle_cos, const Fraction& angle_sin)
+            -> Transform {
             const Fraction Z{0, 1};
             return Transform{Mat3x3{{{{angle_cos, -angle_sin, Z}},
-                                                      {{angle_sin, angle_cos, Z}},
-                                                      {{Z, Z, Fraction{1, 1}}}}}};
+                                     {{angle_sin, angle_cos, Z}},
+                                     {{Z, Z, Fraction{1, 1}}}}}};
         }
 
         /**
@@ -158,8 +158,8 @@ namespace fun {
             const auto yn = m[1][0] * x + m[1][1] * y + m[1][2] * z;
             const auto zn = m[2][0] * x + m[2][1] * y + m[2][2] * z;
 
-            return PgPoint{{xn.numer() / xn.denom(), yn.numer() / yn.denom(),
-                            zn.numer() / zn.denom()}};
+            return PgPoint{
+                {xn.numer() / xn.denom(), yn.numer() / yn.denom(), zn.numer() / zn.denom()}};
         }
 
         /**
@@ -180,8 +180,8 @@ namespace fun {
             const auto yn = m[0][1] * x + m[1][1] * y + m[2][1] * z;
             const auto zn = m[0][2] * x + m[1][2] * y + m[2][2] * z;
 
-            return PgLine{{xn.numer() / xn.denom(), yn.numer() / yn.denom(),
-                           zn.numer() / zn.denom()}};
+            return PgLine{
+                {xn.numer() / xn.denom(), yn.numer() / yn.denom(), zn.numer() / zn.denom()}};
         }
 
         /**
@@ -209,67 +209,68 @@ namespace fun {
             }
             const auto inv_det = Fraction{1, 1} / det;
 
-            return Transform{Mat3x3{{{
-                {inv_det * (e * i_ - f * h), inv_det * (c * h - b * i_),
-                 inv_det * (b * f - c * e)},
-                {inv_det * (f * g - d * i_), inv_det * (a * i_ - c * g),
-                 inv_det * (c * d - a * f)},
-                {inv_det * (d * h - e * g), inv_det * (b * g - a * h),
-                 inv_det * (a * e - b * d)},
-            }}};
+            return Transform {
+                Mat3x3{{{
+                    {inv_det * (e * i_ - f * h), inv_det * (c * h - b * i_),
+                     inv_det * (b * f - c * e)},
+                    {inv_det * (f * g - d * i_), inv_det * (a * i_ - c * g),
+                     inv_det * (c * d - a * f)},
+                    {inv_det * (d * h - e * g), inv_det * (b * g - a * h),
+                     inv_det * (a * e - b * d)},
+                }}};
+            }
+
+            /** @brief Access the matrix. */
+            constexpr auto matrix() const -> const Mat3x3& { return matrix_; }
+
+            constexpr auto operator==(const Transform& other) const->bool {
+                return matrix_ == other.matrix_;
+            }
+
+            constexpr auto operator!=(const Transform& other) const->bool {
+                return !(*this == other);
+            }
+
+          private:
+            Mat3x3 matrix_;
+        };
+
+        // ---- convenience free functions -----------------------------------------
+
+        /**
+         * @brief Rotate a point around the origin.
+         * @param[in] pt       The point.
+         * @param[in] cos_a    Cosine of the rotation angle.
+         * @param[in] sin_a    Sine of the rotation angle.
+         * @return PgPoint
+         */
+        inline constexpr auto rotate_point(const PgPoint& point, const Fraction& angle_cos,
+                                           const Fraction& angle_sin) -> PgPoint {
+            return Transform::rotation(angle_cos, angle_sin).apply_point(point);
         }
 
-        /** @brief Access the matrix. */
-        constexpr auto matrix() const -> const Mat3x3& { return matrix_; }
-
-        constexpr auto operator==(const Transform& other) const -> bool {
-            return matrix_ == other.matrix_;
+        /**
+         * @brief Translate a point by (tx, ty).
+         * @param[in] pt  The point.
+         * @param[in] tx  X translation.
+         * @param[in] ty  Y translation.
+         * @return PgPoint
+         */
+        inline constexpr auto translate_point(const PgPoint& point, std::int64_t tx,
+                                              std::int64_t ty) -> PgPoint {
+            return Transform::translation(tx, ty).apply_point(point);
         }
 
-        constexpr auto operator!=(const Transform& other) const -> bool {
-            return !(*this == other);
+        /**
+         * @brief Scale a point by (sx, sy).
+         * @param[in] pt  The point.
+         * @param[in] sx  X scale factor.
+         * @param[in] sy  Y scale factor.
+         * @return PgPoint
+         */
+        inline constexpr auto scale_point(const PgPoint& point, const Fraction& sx,
+                                          const Fraction& sy) -> PgPoint {
+            return Transform::scaling(sx, sy).apply_point(point);
         }
 
-      private:
-        Mat3x3 matrix_;
-    };
-
-    // ---- convenience free functions -----------------------------------------
-
-    /**
-     * @brief Rotate a point around the origin.
-     * @param[in] pt       The point.
-     * @param[in] cos_a    Cosine of the rotation angle.
-     * @param[in] sin_a    Sine of the rotation angle.
-     * @return PgPoint
-     */
-    inline     constexpr auto rotate_point(const PgPoint& point, const Fraction& angle_cos,
-                                       const Fraction& angle_sin) -> PgPoint {
-        return Transform::rotation(angle_cos, angle_sin).apply_point(point);
-    }
-
-    /**
-     * @brief Translate a point by (tx, ty).
-     * @param[in] pt  The point.
-     * @param[in] tx  X translation.
-     * @param[in] ty  Y translation.
-     * @return PgPoint
-     */
-    inline     constexpr auto translate_point(const PgPoint& point, std::int64_t tx, std::int64_t ty)
-        -> PgPoint {
-        return Transform::translation(tx, ty).apply_point(point);
-    }
-
-    /**
-     * @brief Scale a point by (sx, sy).
-     * @param[in] pt  The point.
-     * @param[in] sx  X scale factor.
-     * @param[in] sy  Y scale factor.
-     * @return PgPoint
-     */
-    inline     constexpr auto scale_point(const PgPoint& point, const Fraction& sx, const Fraction& sy)
-        -> PgPoint {
-        return Transform::scaling(sx, sy).apply_point(point);
-    }
-
-}  // namespace fun
+    }  // namespace fun

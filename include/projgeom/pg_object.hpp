@@ -197,8 +197,8 @@ template <typename Point, typename Line> struct PgObject {
      * @param[in] pt_q
      * @return Point
      */
-    static constexpr auto parametrize(const int64_t& lambda_val, const Point& pt_p, const int64_t& mu_val,
-                                       const Point& pt_q) -> Point {
+    static constexpr auto parametrize(const int64_t& lambda_val, const Point& pt_p,
+                                      const int64_t& mu_val, const Point& pt_q) -> Point {
         return Point{::plckr(lambda_val, pt_p.coord, mu_val, pt_q.coord)};
     }
 
