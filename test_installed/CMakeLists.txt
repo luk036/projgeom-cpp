@@ -19,10 +19,11 @@ include(../cmake/tools.cmake)
 
 include(../cmake/CPM.cmake)
 
-find_package(${PROJECT_NAME} REQUIRED)
+# Find dependencies first — ProjGeomConfig.cmake references fmt::fmt etc.
 find_package(fmt REQUIRED)
 find_package(spdlog REQUIRED)
 find_package(Fractions REQUIRED)
+find_package(${PROJECT_NAME} REQUIRED)
 
 set(SPECIFIC_LIBS fmt::fmt spdlog::spdlog Fractions::Fractions)
 
