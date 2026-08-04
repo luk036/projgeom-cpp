@@ -47,9 +47,9 @@ endif()
 
 CPMAddPackage(
   NAME Fractions
-  GIT_TAG v1.1.3
+  GIT_TAG v1.1.4
   GITHUB_REPOSITORY luk036/fractions-cpp
-  OPTIONS "FMT_INSTALL YES"
+  OPTIONS "FMT_INSTALL YES" "FRACTIONS_BUILD_TESTS OFF"
 )
 
 # CPMAddPackage("gh:ericniebler/range-v3#0.12.0")
