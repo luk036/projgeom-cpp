@@ -22,7 +22,8 @@ namespace fun {
      * @param[in] w
      * @return 1st term of Cross product
      */
-    template <Ring _K> auto cross0(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b) -> _K {
+    template <Ring _K> auto cross0(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b)
+        -> _K {
         return v_a[1] * v_b[2] - v_b[1] * v_a[2];
     }
 
@@ -37,7 +38,8 @@ namespace fun {
      * @param[in] v_b
      * @return 2nd term of Cross product
      */
-    template <Ring _K> auto cross1(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b) -> _K {
+    template <Ring _K> auto cross1(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b)
+        -> _K {
         return v_a[0] * v_b[2] - v_b[0] * v_a[2];
     }
 
@@ -52,7 +54,8 @@ namespace fun {
      * @param[in] v_b
      * @return 3rd term of Cross product
      */
-    template <Ring _K> auto cross2(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b) -> _K {
+    template <Ring _K> auto cross2(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b)
+        -> _K {
         return v_a[0] * v_b[1] - v_b[0] * v_a[1];
     }
 
@@ -88,7 +91,8 @@ namespace fun {
      * @param[in] v_b
      * @return auto
      */
-    template <Ring _K> auto dot_c(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b) -> _K {
+    template <Ring _K> auto dot_c(const std::array<_K, 3>& v_a, const std::array<_K, 3>& v_b)
+        -> _K {
         const auto& [x1, y1, z1] = v_a;
         const auto& [x2, y2, z2] = v_b;
         return x1 * x2 + y1 * y2 + z1 * z2;

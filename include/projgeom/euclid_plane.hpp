@@ -85,7 +85,8 @@ namespace fun {
     template <ProjectivePlaneCoord2 Point>
     constexpr auto tri_altitude(const Triple<Point>& triangle) {
         const auto& [a_1, a_2, a_3] = triangle;
-        return std::array{altitude(a_1, a_2 * a_3), altitude(a_2, a_3 * a_1), altitude(a_3, a_1 * a_2)};
+        return std::array{altitude(a_1, a_2 * a_3), altitude(a_2, a_3 * a_1),
+                          altitude(a_3, a_1 * a_2)};
     }
 
     /**

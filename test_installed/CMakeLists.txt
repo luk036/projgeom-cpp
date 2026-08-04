@@ -15,11 +15,16 @@ project(ProjGeom LANGUAGES CXX)
 
 include(../cmake/tools.cmake)
 
-# ---- Dependencies ----
+# ---- Dependencies (all installed by the parent build) ----
 
 include(../cmake/CPM.cmake)
-include(../specific.cmake)
 
+# Find dependencies first — ProjGeomConfig.cmake references fmt::fmt etc.
+find_package(fmt REQUIRED)
+find_package(spdlog REQUIRED)
+find_package(Fractions REQUIRED)
 find_package(${PROJECT_NAME} REQUIRED)
+
+set(SPECIFIC_LIBS fmt::fmt spdlog::spdlog Fractions::Fractions)
 
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../standalone ${CMAKE_BINARY_DIR}/test_installed)

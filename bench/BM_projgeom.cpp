@@ -6,7 +6,6 @@
 
 #include <array>
 #include <cstdint>
-
 #include <projgeom/ell_object.hpp>
 #include <projgeom/hyp_object.hpp>
 #include <projgeom/pg_object.hpp>
