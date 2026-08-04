@@ -28,7 +28,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.9;  VERSION ${PROJECT_VERSION}</span>
+   <div id="projectname">ProjGeom<span id="projectnumber">&#160;1.0.10;  VERSION ${PROJECT_VERSION}</span>
    </div>
   </td>
  </tr>
@@ -115,16 +115,16 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> translation(std::int64_t tx, std::int64_t ty) -&gt; Transform {</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keyword">const</span> Fraction Z{0, 1}, O{1, 1};</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">return</span> Transform{Mat3x3{{{{O, Z, Fraction{tx, 1}}},</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                                                      {{Z, O, Fraction{ty, 1}}},</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                                                      {{Z, Z, O}}}}};</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> rotation(<span class="keyword">const</span> Fraction&amp; angle_cos, <span class="keyword">const</span> Fraction&amp; angle_sin) -&gt; Transform {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">return</span> Transform{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                Mat3x3{{{{O, Z, Fraction{tx, 1}}}, {{Z, O, Fraction{ty, 1}}}, {{Z, Z, O}}}}};</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> rotation(<span class="keyword">const</span> Fraction&amp; angle_cos, <span class="keyword">const</span> Fraction&amp; angle_sin)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            -&gt; Transform {</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keyword">const</span> Fraction Z{0, 1};</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">return</span> Transform{Mat3x3{{{{angle_cos, -angle_sin, Z}},</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                                                      {{angle_sin, angle_cos, Z}},</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                                                      {{Z, Z, Fraction{1, 1}}}}}};</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                                     {{angle_sin, angle_cos, Z}},</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                                     {{Z, Z, Fraction{1, 1}}}}}};</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> scaling(<span class="keyword">const</span> Fraction&amp; sx, <span class="keyword">const</span> Fraction&amp; sy) -&gt; Transform {</div>
@@ -163,8 +163,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keyword">const</span> <span class="keyword">auto</span> yn = m[1][0] * x + m[1][1] * y + m[1][2] * z;</div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            <span class="keyword">const</span> <span class="keyword">auto</span> zn = m[2][0] * x + m[2][1] * y + m[2][2] * z;</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keywordflow">return</span> <a class="code hl_class" href="classPgPoint.html">PgPoint</a>{{xn.numer() / xn.denom(), yn.numer() / yn.denom(),</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                            zn.numer() / zn.denom()}};</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keywordflow">return</span> <a class="code hl_class" href="classPgPoint.html">PgPoint</a>{</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                {xn.numer() / xn.denom(), yn.numer() / yn.denom(), zn.numer() / zn.denom()}};</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        }</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keyword">constexpr</span> <span class="keyword">auto</span> apply_line(<span class="keyword">const</span> <a class="code hl_class" href="classPgLine.html">PgLine</a>&amp; line) <span class="keyword">const</span> -&gt; <a class="code hl_class" href="classPgLine.html">PgLine</a> {</div>
@@ -178,8 +178,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            <span class="keyword">const</span> <span class="keyword">auto</span> yn = m[0][1] * x + m[1][1] * y + m[2][1] * z;</div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            <span class="keyword">const</span> <span class="keyword">auto</span> zn = m[0][2] * x + m[1][2] * y + m[2][2] * z;</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            <span class="keywordflow">return</span> <a class="code hl_class" href="classPgLine.html">PgLine</a>{{xn.numer() / xn.denom(), yn.numer() / yn.denom(),</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                           zn.numer() / zn.denom()}};</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            <span class="keywordflow">return</span> <a class="code hl_class" href="classPgLine.html">PgLine</a>{</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                {xn.numer() / xn.denom(), yn.numer() / yn.denom(), zn.numer() / zn.denom()}};</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        }</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <span class="keyword">constexpr</span> <span class="keyword">auto</span> inverse() const -&gt; Transform {</div>
@@ -200,48 +200,49 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            }</div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            <span class="keyword">const</span> <span class="keyword">auto</span> inv_det = Fraction{1, 1} / det;</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            <span class="keywordflow">return</span> Transform{Mat3x3{{{</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                {inv_det * (e * i_ - f * h), inv_det * (c * h - b * i_),</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                 inv_det * (b * f - c * e)},</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                {inv_det * (f * g - d * i_), inv_det * (a * i_ - c * g),</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                 inv_det * (c * d - a * f)},</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                {inv_det * (d * h - e * g), inv_det * (b * g - a * h),</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                 inv_det * (a * e - b * d)},</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            }}};</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        }</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <span class="keyword">constexpr</span> <span class="keyword">auto</span> matrix() const -&gt; const Mat3x3&amp; { <span class="keywordflow">return</span> matrix_; }</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keyword">constexpr</span> <span class="keyword">auto</span> operator==(<span class="keyword">const</span> Transform&amp; other) <span class="keyword">const</span> -&gt; <span class="keywordtype">bool</span> {</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>            <span class="keywordflow">return</span> matrix_ == other.matrix_;</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        }</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keyword">constexpr</span> <span class="keyword">auto</span> operator!=(<span class="keyword">const</span> Transform&amp; other) <span class="keyword">const</span> -&gt; <span class="keywordtype">bool</span> {</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>            <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other);</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        }</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>      <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        Mat3x3 matrix_;</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    };</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="comment">// ---- convenience free functions -----------------------------------------</span></div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keyword">inline</span>     <span class="keyword">constexpr</span> <span class="keyword">auto</span> rotate_point(<span class="keyword">const</span> <a class="code hl_class" href="classPgPoint.html">PgPoint</a>&amp; point, <span class="keyword">const</span> Fraction&amp; angle_cos,</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                                       <span class="keyword">const</span> Fraction&amp; angle_sin) -&gt; <a class="code hl_class" href="classPgPoint.html">PgPoint</a> {</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        <span class="keywordflow">return</span> Transform::rotation(angle_cos, angle_sin).apply_point(point);</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    }</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="keyword">inline</span>     <span class="keyword">constexpr</span> <span class="keyword">auto</span> translate_point(<span class="keyword">const</span> <a class="code hl_class" href="classPgPoint.html">PgPoint</a>&amp; point, std::int64_t tx, std::int64_t ty)</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        -&gt; <a class="code hl_class" href="classPgPoint.html">PgPoint</a> {</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordflow">return</span> Transform::translation(tx, ty).apply_point(point);</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    }</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keyword">inline</span>     <span class="keyword">constexpr</span> <span class="keyword">auto</span> scale_point(<span class="keyword">const</span> <a class="code hl_class" href="classPgPoint.html">PgPoint</a>&amp; point, <span class="keyword">const</span> Fraction&amp; sx, <span class="keyword">const</span> Fraction&amp; sy)</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        -&gt; <a class="code hl_class" href="classPgPoint.html">PgPoint</a> {</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        <span class="keywordflow">return</span> Transform::scaling(sx, sy).apply_point(point);</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    }</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>}  <span class="comment">// namespace fun</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            <span class="keywordflow">return</span> Transform {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                Mat3x3{{{</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                    {inv_det * (e * i_ - f * h), inv_det * (c * h - b * i_),</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                     inv_det * (b * f - c * e)},</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                    {inv_det * (f * g - d * i_), inv_det * (a * i_ - c * g),</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                     inv_det * (c * d - a * f)},</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                    {inv_det * (d * h - e * g), inv_det * (b * g - a * h),</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                     inv_det * (a * e - b * d)},</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                }}};</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>            }</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            <span class="keyword">constexpr</span> <span class="keyword">auto</span> matrix() const -&gt; const Mat3x3&amp; { <span class="keywordflow">return</span> matrix_; }</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>            <span class="keyword">constexpr</span> <span class="keyword">auto</span> operator==(<span class="keyword">const</span> Transform&amp; other) <span class="keyword">const</span>-&gt;bool {</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                <span class="keywordflow">return</span> matrix_ == other.matrix_;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            }</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>            <span class="keyword">constexpr</span> <span class="keyword">auto</span> operator!=(<span class="keyword">const</span> Transform&amp; other) <span class="keyword">const</span>-&gt;bool {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>            }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>          <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            Mat3x3 matrix_;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        };</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="comment">// ---- convenience free functions -----------------------------------------</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> rotate_point(<span class="keyword">const</span> <a class="code hl_class" href="classPgPoint.html">PgPoint</a>&amp; point, <span class="keyword">const</span> Fraction&amp; angle_cos,</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                                           <span class="keyword">const</span> Fraction&amp; angle_sin) -&gt; <a class="code hl_class" href="classPgPoint.html">PgPoint</a> {</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>            <span class="keywordflow">return</span> Transform::rotation(angle_cos, angle_sin).apply_point(point);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        }</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> translate_point(<span class="keyword">const</span> <a class="code hl_class" href="classPgPoint.html">PgPoint</a>&amp; point, std::int64_t tx,</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>                                              std::int64_t ty) -&gt; <a class="code hl_class" href="classPgPoint.html">PgPoint</a> {</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            <span class="keywordflow">return</span> Transform::translation(tx, ty).apply_point(point);</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        }</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> scale_point(<span class="keyword">const</span> <a class="code hl_class" href="classPgPoint.html">PgPoint</a>&amp; point, <span class="keyword">const</span> Fraction&amp; sx,</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>                                          <span class="keyword">const</span> Fraction&amp; sy) -&gt; <a class="code hl_class" href="classPgPoint.html">PgPoint</a> {</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            <span class="keywordflow">return</span> Transform::scaling(sx, sy).apply_point(point);</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        }</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    }  <span class="comment">// namespace fun</span></div>
 <div class="ttc" id="aclassPgLine_html"><div class="ttname"><a href="classPgLine.html">PgLine</a></div><div class="ttdoc">PG Line.</div><div class="ttdef"><b>Definition</b> pg_object.hpp:250</div></div>
 <div class="ttc" id="aclassPgPoint_html"><div class="ttname"><a href="classPgPoint.html">PgPoint</a></div><div class="ttdoc">PG Point.</div><div class="ttdef"><b>Definition</b> pg_object.hpp:235</div></div>
 <div class="ttc" id="afractions_8hpp_html"><div class="ttname"><a href="fractions_8hpp.html">fractions.hpp</a></div></div>
