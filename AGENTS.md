@@ -66,7 +66,7 @@ Requires: `doxygen`, `jinja2`, `pygments`
 
 ### Additional CMake options
 - Sanitizers: `-DUSE_SANITIZER=<Address|Memory|Undefined|Thread|Leak>'`
-- Static analyzers: `-DUSE_STATIC_ANALYZER=<clang-tidy|iwyu|cppcheck>`
+- Static analyzers: `-DPROJGEOM_ENABLE_CLANG_TIDY=ON` (build the `clang-tidy` target)
 - Ccache: `-DUSE_CCACHE=ON`
 
 ---
