@@ -55,6 +55,12 @@ if(NOT (EXISTS ${CPM_DOWNLOAD_LOCATION}))
 endif()
 include(${CPM_DOWNLOAD_LOCATION})
 
+# Always build dependencies from source. Fractions declares spdlog itself via CPMAddPackage and
+# assumes the source-built spdlog targets; the system-package opt-in (CPM_USE_LOCAL_PACKAGES) would
+# swap in an imported spdlog::spdlog and break that assumption, so spdlog needs no special handling
+# here.
+set(CPM_USE_LOCAL_PACKAGES OFF)
+
 # PackageProject.cmake will be used to make our target installable
 CPMAddPackage("gh:TheLartians/PackageProject.cmake@1.8.0")
 
@@ -73,10 +79,7 @@ else()
 endif()
 
 # spdlog is used by the compiled logger source. SPDLOG_FMT_EXTERNAL is always set so spdlog uses the
-# external fmt and avoids duplicate symbols. spdlog is always built from source rather than found on
-# the system: Fractions v1.1.4 unconditionally CPMAddPackage-declares spdlog, so building it first
-# here marks it populated and lets Fractions reuse it, avoiding an ALIAS/IMPORTED target collision
-# with a system-provided spdlog::spdlog.
+# external fmt and avoids duplicate symbols.
 CPMAddPackage(
   NAME spdlog
   GIT_TAG v1.17.0
@@ -126,7 +129,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC ${SPECIFIC_LIBS})
 
 # Any TU using spdlog must compile with spdlog's own interface definitions (SPDLOG_COMPILED_LIB,
 # SPDLOG_FMT_EXTERNAL) or the header-only and compiled registries diverge.
-get_target_property(SPDLOG_COMPILE_DEFS spdlog INTERFACE_COMPILE_DEFINITIONS)
+get_target_property(SPDLOG_COMPILE_DEFS spdlog::spdlog INTERFACE_COMPILE_DEFINITIONS)
 if(SPDLOG_COMPILE_DEFS)
   target_compile_definitions(${PROJECT_NAME} PRIVATE ${SPDLOG_COMPILE_DEFS})
 endif()
