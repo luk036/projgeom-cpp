@@ -9,8 +9,8 @@
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/spdlog.h>
 
-#include <projgeom/logger.hpp>
 #include <memory>
+#include <projgeom/logger.hpp>
 
 namespace projgeom {
 
