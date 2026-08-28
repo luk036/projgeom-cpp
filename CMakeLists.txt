@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14...3.22)
 
 project(
   ProjGeom
-  VERSION 1.0.10
+  VERSION 1.0.11
   LANGUAGES CXX
 )
 
@@ -98,7 +98,7 @@ CPMAddPackage(
 # Fractions provides the exact rational arithmetic used across the public headers.
 CPMAddPackage(
   NAME Fractions
-  GIT_TAG v1.1.4
+  GIT_TAG v1.1.5
   GITHUB_REPOSITORY luk036/fractions-cpp
   OPTIONS "FMT_INSTALL YES" "FRACTIONS_BUILD_TESTS OFF"
 )
