@@ -40,7 +40,7 @@ var searchData=
   ['proj_5fplane_2ehpp_37',['proj_plane.hpp',['../proj__plane_8hpp.html',1,'']]],
   ['proj_5fplane_5fconcepts_2eh_38',['proj_plane_concepts.h',['../proj__plane__concepts_8h.html',1,'']]],
   ['proj_5fplane_5fmeasure_2ehpp_39',['proj_plane_measure.hpp',['../proj__plane__measure_8hpp.html',1,'']]],
-  ['projects_20and_20alternatives_40',['Related projects and alternatives',['../index.html#autotoc_md12',1,'']]],
+  ['projects_20and_20alternatives_40',['Related projects and alternatives',['../index.html#autotoc_md11',1,'']]],
   ['projgeom_41',['projgeom',['../namespaceprojgeom.html',1,'projgeom'],['../index.html',1,'ProjGeom']]],
   ['projgeom_20cpp_42',['🔯 projgeom-cpp',['../index.html#autotoc_md0',1,'']]],
   ['ptolemy_43',['Ptolemy',['../namespacefun.html#a9bb160eab20942991877a41da293050a',1,'fun']]]
