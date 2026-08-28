@@ -1,30 +1,20 @@
-cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.14)
 
-# ---- Include guards ----
+project(ProjGeomInstalledTest LANGUAGES CXX)
 
-if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
-  message(
-    FATAL_ERROR
-      "In-source builds not allowed. Please make a new directory (called a build directory) and run CMake from there."
-  )
-endif()
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-project(ProjGeom LANGUAGES CXX)
-
-# --- Import tools ----
-
-include(../cmake/tools.cmake)
-
-# ---- Dependencies (all installed by the parent build) ----
-
-include(../cmake/CPM.cmake)
-
-# Find dependencies first — ProjGeomConfig.cmake references fmt::fmt etc.
+# Find dependencies first - ProjGeomConfig.cmake references fmt, spdlog, and Fractions (installed
+# alongside the library by `cmake --install`).
 find_package(fmt REQUIRED)
 find_package(spdlog REQUIRED)
 find_package(Fractions REQUIRED)
-find_package(${PROJECT_NAME} REQUIRED)
+find_package(ProjGeom REQUIRED)
 
-set(SPECIFIC_LIBS fmt::fmt spdlog::spdlog Fractions::Fractions)
+add_executable(projgeom_installed_test main.cpp)
+target_link_libraries(projgeom_installed_test PRIVATE ProjGeom::ProjGeom)
 
-add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../standalone ${CMAKE_BINARY_DIR}/test_installed)
+enable_testing()
+add_test(NAME projgeom_installed_test COMMAND projgeom_installed_test)

@@ -1,8 +1,9 @@
 /** @file BM_projgeom.cpp
- *  @brief Google Benchmark suite for projective geometry operations.
+ *  @brief nanobench suite for projective geometry operations.
  */
 
-#include <benchmark/benchmark.h>
+#define ANKERL_NANOBENCH_IMPLEMENT
+#include <nanobench.h>
 
 #include <array>
 #include <cstdint>
@@ -11,139 +12,94 @@
 #include <projgeom/pg_object.hpp>
 #include <projgeom/pg_plane.hpp>
 
-// ---------------------------------------------------------------------------
-// Dot product
-// ---------------------------------------------------------------------------
-static void BM_DotProduct(benchmark::State& state) {
-    std::array<int64_t, 3> a{1, 2, 3}, b{4, 5, 6};
-    for (auto _ : state) {
-        auto r = dot(a, b);
-        benchmark::DoNotOptimize(r);
-    }
-}
-BENCHMARK(BM_DotProduct);
+int main() {
+    {
+        ankerl::nanobench::Bench bench;
+        bench.title("Projective geometry operations")
+            .unit("op")
+            .warmup(100)
+            .epochs(50)
+            .minEpochIterations(10000);
 
-// ---------------------------------------------------------------------------
-// Cross product
-// ---------------------------------------------------------------------------
-static void BM_CrossProduct(benchmark::State& state) {
-    std::array<int64_t, 3> a{1, 2, 3}, b{4, 5, 6};
-    for (auto _ : state) {
-        auto r = cross(a, b);
-        benchmark::DoNotOptimize(r);
-    }
-}
-BENCHMARK(BM_CrossProduct);
+        std::array<int64_t, 3> a{1, 2, 3}, b{4, 5, 6};
+        bench.run("DotProduct", [&] {
+            auto r = dot(a, b);
+            ankerl::nanobench::doNotOptimizeAway(r);
+        });
 
-// ---------------------------------------------------------------------------
-// Point creation
-// ---------------------------------------------------------------------------
-static void BM_PointCreationPg(benchmark::State& state) {
-    for (auto _ : state) {
+        bench.run("CrossProduct", [&] {
+            auto r = cross(a, b);
+            ankerl::nanobench::doNotOptimizeAway(r);
+        });
+
+        bench.run("PointCreationPg", [&] {
+            auto p = PgPoint{{1, 2, 3}};
+            ankerl::nanobench::doNotOptimizeAway(p);
+        });
+
+        bench.run("PointCreationElliptic", [&] {
+            auto p = EllipticPoint{{1, 2, 3}};
+            ankerl::nanobench::doNotOptimizeAway(p);
+        });
+
+        bench.run("PointCreationHyperbolic", [&] {
+            auto p = HyperbolicPoint{{1, 2, 3}};
+            ankerl::nanobench::doNotOptimizeAway(p);
+        });
+
+        auto p1 = PgPoint{{1, 2, 3}};
+        auto p2 = PgPoint{{4, 5, 6}};
+        bench.run("MeetPoints", [&] {
+            auto l = p1.meet(p2);
+            ankerl::nanobench::doNotOptimizeAway(l);
+        });
+
+        auto l1 = PgLine{{1, 0, 0}};
+        auto l2 = PgLine{{0, 1, 0}};
+        bench.run("MeetLines", [&] {
+            auto p = l1.meet(l2);
+            ankerl::nanobench::doNotOptimizeAway(p);
+        });
+
         auto p = PgPoint{{1, 2, 3}};
-        benchmark::DoNotOptimize(p);
+        auto l = PgLine{{4, 5, 6}};
+        bench.run("Incident", [&] {
+            auto r = p.incident(l);
+            ankerl::nanobench::doNotOptimizeAway(r);
+        });
+
+        bench.run("Parametrize", [&] {
+            auto r = PgPoint::parametrize(2, p1, 3, p2);
+            ankerl::nanobench::doNotOptimizeAway(r);
+        });
+    }
+
+    {
+        ankerl::nanobench::Bench bench;
+        bench.title("Perp (pole/polar) and harmonic conjugate")
+            .unit("op")
+            .warmup(100)
+            .epochs(50)
+            .minEpochIterations(10000);
+
+        auto pe = EllipticPoint{{1, 2, 3}};
+        bench.run("PerpElliptic", [&] {
+            auto l = pe.perp();
+            ankerl::nanobench::doNotOptimizeAway(l);
+        });
+
+        auto ph = HyperbolicPoint{{1, 2, 3}};
+        bench.run("PerpHyperbolic", [&] {
+            auto l = ph.perp();
+            ankerl::nanobench::doNotOptimizeAway(l);
+        });
+
+        auto a = PgPoint{{1, 0, 1}};
+        auto b = PgPoint{{0, 0, 1}};
+        auto c = PgPoint{{2, 0, 1}};
+        bench.run("HarmonicConj", [&] {
+            auto d = fun::harm_conj<int64_t>(a, b, c);
+            ankerl::nanobench::doNotOptimizeAway(d);
+        });
     }
 }
-BENCHMARK(BM_PointCreationPg);
-
-static void BM_PointCreationElliptic(benchmark::State& state) {
-    for (auto _ : state) {
-        auto p = EllipticPoint{{1, 2, 3}};
-        benchmark::DoNotOptimize(p);
-    }
-}
-BENCHMARK(BM_PointCreationElliptic);
-
-static void BM_PointCreationHyperbolic(benchmark::State& state) {
-    for (auto _ : state) {
-        auto p = HyperbolicPoint{{1, 2, 3}};
-        benchmark::DoNotOptimize(p);
-    }
-}
-BENCHMARK(BM_PointCreationHyperbolic);
-
-// ---------------------------------------------------------------------------
-// Meet (join) operation
-// ---------------------------------------------------------------------------
-static void BM_MeetPoints(benchmark::State& state) {
-    auto p1 = PgPoint{{1, 2, 3}};
-    auto p2 = PgPoint{{4, 5, 6}};
-    for (auto _ : state) {
-        auto l = p1.meet(p2);
-        benchmark::DoNotOptimize(l);
-    }
-}
-BENCHMARK(BM_MeetPoints);
-
-static void BM_MeetLines(benchmark::State& state) {
-    auto l1 = PgLine{{1, 0, 0}};
-    auto l2 = PgLine{{0, 1, 0}};
-    for (auto _ : state) {
-        auto p = l1.meet(l2);
-        benchmark::DoNotOptimize(p);
-    }
-}
-BENCHMARK(BM_MeetLines);
-
-// ---------------------------------------------------------------------------
-// Incident check
-// ---------------------------------------------------------------------------
-static void BM_Incident(benchmark::State& state) {
-    auto p = PgPoint{{1, 2, 3}};
-    auto l = PgLine{{4, 5, 6}};
-    for (auto _ : state) {
-        auto r = p.incident(l);
-        benchmark::DoNotOptimize(r);
-    }
-}
-BENCHMARK(BM_Incident);
-
-// ---------------------------------------------------------------------------
-// Parametrize
-// ---------------------------------------------------------------------------
-static void BM_Parametrize(benchmark::State& state) {
-    auto p1 = PgPoint{{1, 2, 3}};
-    auto p2 = PgPoint{{4, 5, 6}};
-    for (auto _ : state) {
-        auto r = PgPoint::parametrize(2, p1, 3, p2);
-        benchmark::DoNotOptimize(r);
-    }
-}
-BENCHMARK(BM_Parametrize);
-
-// ---------------------------------------------------------------------------
-// Perp (pole/polar) in different geometries
-// ---------------------------------------------------------------------------
-static void BM_PerpElliptic(benchmark::State& state) {
-    auto p = EllipticPoint{{1, 2, 3}};
-    for (auto _ : state) {
-        auto l = p.perp();
-        benchmark::DoNotOptimize(l);
-    }
-}
-BENCHMARK(BM_PerpElliptic);
-
-static void BM_PerpHyperbolic(benchmark::State& state) {
-    auto p = HyperbolicPoint{{1, 2, 3}};
-    for (auto _ : state) {
-        auto l = p.perp();
-        benchmark::DoNotOptimize(l);
-    }
-}
-BENCHMARK(BM_PerpHyperbolic);
-
-// ---------------------------------------------------------------------------
-// Harmonic conjugate
-// ---------------------------------------------------------------------------
-static void BM_HarmonicConj(benchmark::State& state) {
-    auto a = PgPoint{{1, 0, 1}};
-    auto b = PgPoint{{0, 0, 1}};
-    auto c = PgPoint{{2, 0, 1}};
-    for (auto _ : state) {
-        auto d = fun::harm_conj<int64_t>(a, b, c);
-        benchmark::DoNotOptimize(d);
-    }
-}
-BENCHMARK(BM_HarmonicConj);
-
-BENCHMARK_MAIN();
