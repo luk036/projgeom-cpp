@@ -21,7 +21,8 @@ int main() {
             .epochs(50)
             .minEpochIterations(10000);
 
-        std::array<int64_t, 3> a{1, 2, 3}, b{4, 5, 6};
+        std::array<int64_t, 3> a{1, 2, 3};
+        std::array<int64_t, 3> b{4, 5, 6};
         bench.run("DotProduct", [&] {
             auto r = dot(a, b);
             ankerl::nanobench::doNotOptimizeAway(r);
