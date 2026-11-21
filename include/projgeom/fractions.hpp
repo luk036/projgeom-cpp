@@ -7,6 +7,9 @@
 
 // #include <boost/operators.hpp>
 // #include <cmath>
+#include <array>
+#include <cstddef>
+#include <cstdint>
 #include <numeric>
 #include <type_traits>
 #include <utility>
@@ -712,10 +715,58 @@ namespace fun {
          * @param[in] frac
          * @return Stream&
          */
-        template <typename Stream> friend auto operator<<(Stream& os, const Fraction& frac)
-            -> Stream& {
+        template <typename Stream>
+        friend auto operator<<(Stream& os, const Fraction& frac) -> Stream& {
             os << "(" << frac.num() << "/" << frac.den() << ")";
             return os;
         }
     };
+
+    /** @brief Canonical rational type (\f$\mathbb{Q}\f$ over 64-bit integers). */
+    using Frac = Fraction<std::int64_t>;
+
+    /**
+     * @brief Convert exact rational homogeneous coordinates to integers.
+     *
+     * Homogeneous coordinates are defined only up to a non-zero scale, so a
+     * triple of fractions is equivalent to the integer triple obtained by
+     * clearing denominators (least common multiple) and dividing through by
+     * the greatest common divisor. The sign is normalized so that the first
+     * non-zero coordinate is positive. Unlike integer division, this is exact.
+     *
+     * @param[in] values  The rational coordinates.
+     * @return std::array<std::int64_t, 3>  Integer coordinates proportional to values.
+     */
+    [[nodiscard]] constexpr auto rationalize(const std::array<Frac, 3>& values)
+        -> std::array<std::int64_t, 3> {
+        std::int64_t denom = 1;
+        for (const auto& v : values) {
+            denom = lcm(denom, v.den());
+        }
+        std::array<std::int64_t, 3> ints{};
+        for (std::size_t i = 0; i < values.size(); ++i) {
+            ints[i] = values[i].num() * (denom / values[i].den());
+        }
+        std::int64_t divisor = 0;
+        for (const auto v : ints) {
+            divisor = gcd(divisor, v);
+        }
+        if (divisor > 1) {
+            for (auto& v : ints) {
+                v /= divisor;
+            }
+        }
+        for (const auto v : ints) {
+            if (v < 0) {
+                for (auto& u : ints) {
+                    u = -u;
+                }
+                break;
+            }
+            if (v > 0) {
+                break;
+            }
+        }
+        return ints;
+    }
 }  // namespace fun

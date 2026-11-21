@@ -70,6 +70,18 @@ if is_plat("linux", "macosx") then
 	add_syslinks("pthread")
 end
 
+target("fold_trick")
+set_languages("c++20")
+set_kind("binary")
+add_includedirs("include", { public = true })
+add_includedirs("../fractions-cpp/include", { public = true })
+add_files("examples/fold_trick.cpp")
+if is_plat("windows") then
+	add_cxflags("/utf-8 /W4 /wd4702", { force = true })
+else
+	add_cxflags("-Wall -Wextra", { force = true })
+end
+
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
 --
