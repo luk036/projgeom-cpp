@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['todo_20list_0',['Todo List',['../todo.html',1,'']]]
+  ['documentation_0',['ModernCppStarter Documentation',['../about.html#doc',1,'']]],
+  ['documentation_1',['Build the documentation',['../index.html#autotoc_md7',1,'']]]
 ];

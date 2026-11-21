@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['projgeom_0',['ProjGeom',['../index.html',1,'']]]
+  ['clang_20format_0',['Run clang-format',['../index.html#autotoc_md6',1,'']]],
+  ['code_20coverage_1',['Code coverage',['../index.html#autotoc_md10',1,'']]],
+  ['coverage_2',['Code coverage',['../index.html#autotoc_md10',1,'']]],
+  ['cpp_3',['🔯 projgeom-cpp',['../index.html#autotoc_md0',1,'']]]
 ];

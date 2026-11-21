@@ -1,0 +1,28 @@
+var dir_22ba0d828f0d508b6ed09ba82043eabb =
+[
+    [ "ck_concepts.hpp", "ck__concepts_8hpp.html", "ck__concepts_8hpp" ],
+    [ "ck_plane.hpp", "ck__plane_8hpp.html", "ck__plane_8hpp" ],
+    [ "common_concepts.h", "common__concepts_8h.html", "common__concepts_8h" ],
+    [ "conic.hpp", "conic_8hpp.html", "conic_8hpp" ],
+    [ "ell_object.hpp", "ell__object_8hpp.html", "ell__object_8hpp" ],
+    [ "euclid_plane.hpp", "euclid__plane_8hpp.html", "euclid__plane_8hpp" ],
+    [ "euclid_plane_measure.hpp", "euclid__plane__measure_8hpp.html", "euclid__plane__measure_8hpp" ],
+    [ "fractions.hpp", "fractions_8hpp.html", "fractions_8hpp" ],
+    [ "greeter.h", "greeter_8h.html", "greeter_8h" ],
+    [ "hyp_object.hpp", "hyp__object_8hpp.html", "hyp__object_8hpp" ],
+    [ "logger.hpp", "logger_8hpp.html", "logger_8hpp" ],
+    [ "matrix3.hpp", "matrix3_8hpp.html", "matrix3_8hpp" ],
+    [ "myck_object.hpp", "myck__object_8hpp.html", "myck__object_8hpp" ],
+    [ "persp_object.hpp", "persp__object_8hpp.html", "persp__object_8hpp" ],
+    [ "persp_plane.hpp", "persp__plane_8hpp.html", "persp__plane_8hpp" ],
+    [ "pg_common.hpp", "pg__common_8hpp.html", "pg__common_8hpp" ],
+    [ "pg_concepts.hpp", "pg__concepts_8hpp.html", "pg__concepts_8hpp" ],
+    [ "pg_line.hpp", "pg__line_8hpp.html", "pg__line_8hpp" ],
+    [ "pg_object.hpp", "pg__object_8hpp.html", "pg__object_8hpp" ],
+    [ "pg_plane.hpp", "pg__plane_8hpp.html", "pg__plane_8hpp" ],
+    [ "pg_point.hpp", "pg__point_8hpp.html", "pg__point_8hpp" ],
+    [ "proj_plane.hpp", "proj__plane_8hpp.html", "proj__plane_8hpp" ],
+    [ "proj_plane_concepts.h", "proj__plane__concepts_8h.html", "proj__plane__concepts_8h" ],
+    [ "proj_plane_measure.hpp", "proj__plane__measure_8hpp.html", "proj__plane__measure_8hpp" ],
+    [ "transform.hpp", "transform_8hpp.html", "transform_8hpp" ]
+];

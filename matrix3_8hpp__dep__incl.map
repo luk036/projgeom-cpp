@@ -1,0 +1,7 @@
+<map id="projgeom/matrix3.hpp" name="projgeom/matrix3.hpp">
+<area shape="rect" id="Node000001" title="Exact 3x3 linear&#45;algebra helpers over the rationals." alt="" coords="90,5,256,33"/>
+<area shape="rect" id="Node000002" href="$conic_8hpp.html" title="Conic sections in homogeneous coordinates." alt="" coords="5,81,155,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,42,98,83,95,78,142,43"/>
+<area shape="rect" id="Node000003" href="$transform_8hpp.html" title="Projective transformations (translation, rotation, scaling, shear)." alt="" coords="178,81,358,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,40,254,81,249,81,201,45"/>
+</map>

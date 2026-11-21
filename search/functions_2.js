@@ -1,9 +1,20 @@
 var searchData=
 [
-  ['den_0',['den',['../structfun_1_1Fraction.html#ade9f100fa0a32336cc93ce130d682420',1,'fun::Fraction']]],
-  ['discriminant_1',['discriminant',['../classfun_1_1Conic.html#af49d86d0d5f8b800ec1fa907c7ee9a1f',1,'fun::Conic']]],
-  ['dot_2',['dot',['../structfun_1_1pg__object.html#a1c7b14ed46901bc58ab101c3aa686b08',1,'fun::pg_object::dot()'],['../structPgObject.html#a1b0f1fdd33e70b59ba54085bc4c33a6e',1,'PgObject::dot()'],['../pg__object_8hpp.html#a7815f1c7afb4b96e0d462a298dc82a55',1,'dot():&#160;pg_object.hpp']]],
-  ['dot1_3',['dot1',['../namespacefun.html#a8bd4901c57552ff76983d7033e2ca066',1,'fun']]],
-  ['dot2_4',['dot2',['../namespacefun.html#acbd7a202e759451309c1bde10222b34e',1,'fun']]],
-  ['dot_5fc_5',['dot_c',['../namespacefun.html#ac91d7878dc12724d7b3b9d40cac4a2f6',1,'fun']]]
+  ['check_5faxiom_0',['check_axiom',['../namespacefun.html#a8c108587d110c90d12b6d7a5af27602d',1,'fun']]],
+  ['check_5faxiom2_1',['check_axiom2',['../namespacefun.html#ae2b505f21938d30c1403e3666a14def1',1,'fun']]],
+  ['check_5fdesargue_2',['check_desargue',['../namespacefun.html#acb793ed2209748dcf8ec99264b385640',1,'fun::check_desargue(const std::array&lt; Point, 3 &gt; &amp;tri1, const std::array&lt; Point, 3 &gt; &amp;tri2) -&gt; bool'],['../namespacefun.html#a2c424c775ee717573ca4ba17ca557dc1',1,'fun::check_desargue(const Triple&lt; Point &gt; &amp;tri1, const Triple&lt; Point &gt; &amp;tri2)']]],
+  ['check_5fpappus_3',['check_pappus',['../namespacefun.html#a08ce456bbce1b80bc92c035647680ad4',1,'fun::check_pappus(const std::array&lt; Point, 3 &gt; &amp;coline1, const std::array&lt; Point, 3 &gt; &amp;coline2) -&gt; bool'],['../namespacefun.html#ab487ea7c7ab994de91df7ec60dc2fc72',1,'fun::check_pappus(const Triple&lt; Point &gt; &amp;coline1, const Triple&lt; Point &gt; &amp;coline2)']]],
+  ['circle_4',['circle',['../classfun_1_1Conic.html#add61cf89c36b222ff1922e5a07bb03c3',1,'fun::Conic']]],
+  ['coincident_5',['coincident',['../namespacefun.html#ab3bdd9fce8e779de6401db2170b4eaae',1,'fun::coincident(const Point &amp;pt_p, const Point &amp;pt_q, const Point &amp;pt_r) -&gt; bool'],['../namespacefun.html#ac0c00bfa4c77a2719c96554a4b7a69ef',1,'fun::coincident(const Line &amp;ln_l, const Args &amp;... pt_r) -&gt; bool']]],
+  ['compose_6',['compose',['../classfun_1_1Transform.html#a580143695fbee7fc144324fc269abf57',1,'fun::Transform']]],
+  ['conic_7',['Conic',['../classfun_1_1Conic.html#a6ef152e7d2fa6aefe29b10e16827fc02',1,'fun::Conic']]],
+  ['conic_5ftype_8',['conic_type',['../classfun_1_1Conic.html#aefa6e15baa1e0edfca5fef2d0f88613c',1,'fun::Conic']]],
+  ['contains_9',['contains',['../classfun_1_1Conic.html#a3aa0c1ba0854369dd98da6447243e83e',1,'fun::Conic']]],
+  ['cqq_10',['cqq',['../namespacefun.html#a6d960d57bd53c129574ce82b5a6b6407',1,'fun']]],
+  ['cross_11',['cross',['../structfun_1_1Fraction.html#a6359ae628ef59047260da243a684cd24',1,'fun::Fraction::cross()'],['../namespacefun.html#aae91da543730dd5ecb716f4f02fd82f7',1,'fun::cross()'],['../pg__object_8hpp.html#a3e17441eb4deeb1ff852d87c22cc043c',1,'cross():&#160;pg_object.hpp']]],
+  ['cross0_12',['cross0',['../namespacefun.html#a2e9cff554479cde3fb5a6d2d320b0c96',1,'fun']]],
+  ['cross1_13',['cross1',['../namespacefun.html#acc17fad30db14747a3f87757562c117c',1,'fun']]],
+  ['cross2_14',['cross2',['../namespacefun.html#a3988738e45d78ab72907da7eab7690cf',1,'fun']]],
+  ['cross3_15',['cross3',['../namespacefun_1_1detail.html#ab20a2b4d6b23d50eafcff32e7fafa439',1,'fun::detail']]],
+  ['cross_5fs_16',['cross_s',['../namespacefun.html#a6d53f3f395faba622f767f359ca04ff1',1,'fun']]]
 ];

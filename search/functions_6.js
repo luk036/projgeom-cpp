@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['harm_5fconj_0',['harm_conj',['../namespacefun.html#a7b21e1fbfaf3b610eeeb588759ef4a4a',1,'fun::harm_conj(const Point &amp;pt_a, const Point &amp;pt_b, const Point &amp;pt_c) -&gt; Point'],['../namespacefun.html#a420cba7add417349b4e12a83a2d271e8',1,'fun::harm_conj(const Point &amp;A, const Point &amp;B, const Point &amp;C) -&gt; Point'],['../namespacefun.html#a4a438833f3077a7321703a72c1a04340',1,'fun::harm_conj(const _Point &amp;A, const _Point &amp;B, const _Point &amp;C) -&gt; _Point']]],
-  ['hyperbolicline_1',['HyperbolicLine',['../classHyperbolicLine.html#a24d5529dae7f3ca6eb484214e073f991',1,'HyperbolicLine']]],
-  ['hyperbolicpoint_2',['HyperbolicPoint',['../classHyperbolicPoint.html#a76496274fd182b5c46d6b781ee5c33bc',1,'HyperbolicPoint']]]
+  ['gcd_0',['gcd',['../namespacefun.html#ace53eb3e1941a9614068af40244b79ac',1,'fun']]],
+  ['gcd_5frecur_1',['gcd_recur',['../namespacefun.html#a96551b6cf3cc2e52947ec4f95fbb4122',1,'fun']]],
+  ['greet_2',['greet',['../classprojgeom_1_1Greeter.html#ab607ac12acc59ba3d4c606066d87e105',1,'projgeom::Greeter']]],
+  ['greeter_3',['Greeter',['../classprojgeom_1_1Greeter.html#acc2327c33917e83a6ed954c84ab836f3',1,'projgeom::Greeter']]]
 ];

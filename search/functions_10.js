@@ -1,6 +1,14 @@
 var searchData=
 [
-  ['sbase_0',['sbase',['../namespacefun.html#a6ed766412afb971e7a559d8d3e06fec0',1,'fun']]],
-  ['spread_1',['spread',['../namespacefun.html#ae1f75ed6aff0e2b160f95a9f6735ff2b',1,'fun']]],
-  ['sq_2',['sq',['../namespacefun.html#aedf8ed73d3c766478d73cc514e63107b',1,'fun']]]
+  ['r_0',['R',['../namespacefun.html#a611c254e44cffbaa281bc450aac874a9',1,'fun::R(const Point &amp;A, const Point &amp;B, const Point &amp;C, const Point &amp;D)'],['../namespacefun.html#a611c254e44cffbaa281bc450aac874a9',1,'fun::R(const Point &amp;A, const Point &amp;B, const Point &amp;C, const Point &amp;D)']]],
+  ['r0_1',['R0',['../namespacefun.html#a34b79ac43cb957455848aef4c4d1656b',1,'fun']]],
+  ['r1_2',['R1',['../namespacefun.html#a0845f7707b2b6594144b9a289d96a780',1,'fun']]],
+  ['ratio_5fratio_3',['ratio_ratio',['../namespacefun.html#aa63d35b33a8ef58d84a87dcb32ffe8a4',1,'fun']]],
+  ['rational_5fsqrt_4',['rational_sqrt',['../namespacefun_1_1detail.html#a2de9111411863ed81ba4bf6d05be1362',1,'fun::detail']]],
+  ['rationalize_5',['rationalize',['../namespacefun.html#a489aa563ce0e3013932e196089aa2036',1,'fun']]],
+  ['reciprocal_6',['reciprocal',['../structfun_1_1Fraction.html#a09b24357014e226695ea41c4c20a3447',1,'fun::Fraction']]],
+  ['reflect_7',['reflect',['../namespacefun.html#a5d3fb711b7c6f41948d5642eed154280',1,'fun::reflect(const Line &amp;mirror, const Point &amp;pt_p) -&gt; Point'],['../namespacefun.html#a162737598d977edf144a5fa9990963d5',1,'fun::reflect(const Line &amp;line_m)']]],
+  ['rotate_5fpoint_8',['rotate_point',['../namespacefun.html#a766c2ee9c722ed81c724cfd74675a2a9',1,'fun']]],
+  ['rotation_9',['rotation',['../classfun_1_1Transform.html#ac45ab8f6ff2f18c29b2d3c7220bee7cf',1,'fun::Transform']]],
+  ['rotation_5ffrom_5ftangent_10',['rotation_from_tangent',['../classfun_1_1Transform.html#ab274959f61be8b38ffbd54ab47351676',1,'fun::Transform']]]
 ];

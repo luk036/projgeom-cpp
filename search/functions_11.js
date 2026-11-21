@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['tangent_0',['tangent',['../classfun_1_1Conic.html#a1d9811d15c31ea357d6e82ec9c4a5ae5',1,'fun::Conic']]],
-  ['tri_5faltitude_1',['tri_altitude',['../namespacefun.html#a3bdcc1fef37d03a6080202461bc2726b',1,'fun::tri_altitude(const std::array&lt; Point, 3 &gt; &amp;triangle) -&gt; std::array&lt; Line, 3 &gt;'],['../namespacefun.html#a78dc68448f3ebc294e2707f0884d82ce',1,'fun::tri_altitude(const Triple&lt; Point &gt; &amp;triangle)']]],
-  ['tri_5fdual_2',['tri_dual',['../namespacefun.html#a78a7c83e2235931ca7f1bd65764859ad',1,'fun::tri_dual(const std::array&lt; Point, 3 &gt; &amp;triangle) -&gt; std::array&lt; Line, 3 &gt;'],['../namespacefun.html#a144e03a7250636a33ca104e6956c2a85',1,'fun::tri_dual(const Triple&lt; Point &gt; &amp;triangle)']]],
-  ['tri_5ffunc_3',['tri_func',['../namespacefun.html#af3b67e3dc7cea2bd2fbb839f8eee357a',1,'fun']]],
-  ['tri_5fmidpoint_4',['tri_midpoint',['../classfun_1_1persp__euclid__plane.html#a337f6f5eaec56838da382edc18d9604b',1,'fun::persp_euclid_plane::tri_midpoint()'],['../namespacefun.html#a15f49700ecd4faf5f1a4e5329c796fce',1,'fun::tri_midpoint(const Triple&lt; Point &gt; &amp;triangle) -&gt; Triple&lt; Point &gt;']]],
-  ['tri_5fquadrance_5',['tri_quadrance',['../namespacefun.html#a2ff293fa6cfb02daa8dfb3b008a4442e',1,'fun']]],
-  ['tri_5fspread_6',['tri_spread',['../namespacefun.html#a6bfdb34dce030c2ed76ee6d6f99ff409',1,'fun']]]
+  ['sbase_0',['sbase',['../namespacefun.html#a6ed766412afb971e7a559d8d3e06fec0',1,'fun']]],
+  ['scale_5fpoint_1',['scale_point',['../namespacefun.html#aa4c44428223ca9be73104b5cd8c654a8',1,'fun']]],
+  ['scaling_2',['scaling',['../classfun_1_1Transform.html#addea4cebc9730bacab3733917824f8e8',1,'fun::Transform']]],
+  ['shear_3',['shear',['../classfun_1_1Transform.html#ae5a74de2547817a11027e55e0de0e9f9',1,'fun::Transform']]],
+  ['spread_4',['spread',['../namespacefun.html#ae1f75ed6aff0e2b160f95a9f6735ff2b',1,'fun']]],
+  ['sq_5',['sq',['../namespacefun.html#aedf8ed73d3c766478d73cc514e63107b',1,'fun']]]
 ];
