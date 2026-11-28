@@ -37,9 +37,8 @@ The test executable uses doctest. Use `--test-case="TestName"` or `-tc="TestName
 
 ### Code coverage
 ```bash
-cmake -S. -B build -DENABLE_TEST_COVERAGE=1
-cmake --build build
-cd build/test && ctest
+cmake -S . -B build -DPROJGEOM_ENABLE_COVERAGE=ON
+cmake --build build --target coverage   # requires gcovr
 ```
 
 ### Format check/fix
@@ -65,9 +64,8 @@ cmake --build build --target GenerateDocs
 Requires: `doxygen`, `jinja2`, `pygments`
 
 ### Additional CMake options
-- Sanitizers: `-DUSE_SANITIZER=<Address|Memory|Undefined|Thread|Leak>'`
+- Sanitizers: no CMake option; pass `-DCMAKE_CXX_FLAGS="-fsanitize=address,undefined"` yourself
 - Static analyzers: `-DPROJGEOM_ENABLE_CLANG_TIDY=ON` (build the `clang-tidy` target)
-- Ccache: `-DUSE_CCACHE=ON`
 
 ---
 
